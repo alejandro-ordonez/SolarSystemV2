@@ -19,22 +19,20 @@ void loop()
   //delay(1000);
   for (int i = 0; i <= 255; i++)
   {
-    Serial.println(readSensor());
     dacWrite(dacMos, i);
     delay(150);
   }
   for (int i = 255; i >=0; i--)
   {
-    Serial.println(readSensor());
     dacWrite(dacMos, i);
     delay(150);
   }
   //digitalWrite(2, HIGH);
   //delay(1000);
 }
-float readSensor()
+/*float readSensor()
 {
   float reading =analogRead(35)*(4095 / 3300); //lectura del sensor   
   float I=((reading - 2500) / 100);
   return I;
-}
+}*/
