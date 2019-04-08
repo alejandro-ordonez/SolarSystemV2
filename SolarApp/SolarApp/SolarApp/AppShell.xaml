@@ -7,6 +7,7 @@
        Route="SolarApp"
        FlyoutBehavior="Disabled"
        Title="SolarApp"
+       Visual="Material"
        x:Class="SolarApp.AppShell">
 
     <!--
