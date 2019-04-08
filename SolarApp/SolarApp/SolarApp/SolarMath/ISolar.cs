@@ -6,6 +6,8 @@ namespace SolarApp.SolarMath
 {
     interface ISolar
     {
-        double calculateVoc(double Kb, double T, double q, );
+        double CalculateVoc(double T, double Iph, double Is);
+        double CalculateFF(double Im, double Vm, double Isc, double Voc);
+        double CalculateN(double Im, double Vm, double Pin);
     }
 }

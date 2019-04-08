@@ -2,8 +2,9 @@
 int dacMos = 25;
 int sensorReading = 35;
 double current[500];
-
+int readP;
 int count = 0;
+int dac=0;
 void setup()
 {
   // put your setup code here, to run once:
@@ -17,16 +18,11 @@ void loop()
   // put your main code here, to run repeatedly:
   //digitalWrite(2, LOW);
   //delay(1000);
-  for (int i = 0; i <= 255; i++)
-  {
-    dacWrite(dacMos, i);
-    delay(150);
-  }
-  for (int i = 255; i >=0; i--)
-  {
-    dacWrite(dacMos, i);
-    delay(150);
-  }
+  readP = analogRead(35);
+  dac= map(readP,0,4095,0,255);
+  dacWrite(dacMos,dac);
+  Serial.println(dac);
+
   //digitalWrite(2, HIGH);
   //delay(1000);
 }
