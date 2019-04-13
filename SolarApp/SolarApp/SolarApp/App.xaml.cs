@@ -20,7 +20,7 @@ namespace SolarApp
                 DependencyService.Register<MockDataStore>();
             else
                 DependencyService.Register<AzureDataStore>();
-            MainPage = new AppShell();
+            MainPage = new NavigationPage(new LogIn());
         }
 
         protected override void OnStart()

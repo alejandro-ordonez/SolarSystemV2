@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SolarApp.Views.LogIn"
+             BackgroundColor="Black"
+             Visual="Material">
+    <ContentPage.Content>
+        <StackLayout VerticalOptions="Fill" Spacing="50" Padding="30">
+            <Label Style="{DynamicResource Title}" Text="{DynamicResource LogTitle}" Margin="0,50"/>
+            <Frame BorderColor="White" BackgroundColor="White" Opacity="0.5" CornerRadius="5" VerticalOptions="Center">
+                <StackLayout Spacing="30">
+                    <Entry Placeholder="{StaticResource PHUser}" Style="{DynamicResource Inputs}"/>
+                    <Entry Placeholder="{StaticResource PHPass}" Style="{DynamicResource Inputs}" IsPassword="True"/>
+                    <Button x:Name="Log" CornerRadius="50" Text="LogIn" Clicked="Log_Clicked"/>
+                </StackLayout>
+            </Frame>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

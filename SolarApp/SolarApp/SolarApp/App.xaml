@@ -3,6 +3,24 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="SolarApp.App">
     <Application.Resources>
-        
+        <!--Strings-->
+        <x:String x:Key="PHUser">Usuario</x:String>
+        <x:String x:Key="PHPass">Contraseña</x:String>
+        <x:String x:Key="LogTitle">Bienvenido a SolarApp</x:String>
+
+        <!--Styles-->
+        <Style TargetType="Entry" x:Key="Inputs">
+            <Setter Property="PlaceholderColor" Value="Gray"/>
+            <Setter Property="TextColor" Value="Black"/>
+            <Setter Property="FontSize" Value="Medium"/>
+            <Setter Property="FontAttributes" Value="Italic"/>
+            <Setter Property="BackgroundColor" Value="Transparent"/>
+        </Style>
+        <Style TargetType="Label" x:Key="Title">
+            <Setter Property="TextColor" Value="White"/>
+            <Setter Property="FontSize" Value="Large"/>
+            <Setter Property="TextDecorations" Value="Underline"/>
+            <Setter Property="HorizontalOptions" Value="Center"/>
+        </Style>
     </Application.Resources>
 </Application>

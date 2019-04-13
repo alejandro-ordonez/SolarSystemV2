@@ -7,6 +7,7 @@
        Route="SolarApp"
        FlyoutBehavior="Disabled"
        Title="SolarApp"
+       Visual="Material"
        x:Class="SolarApp.AppShell">
 
     <!--
@@ -68,10 +69,25 @@
         </ResourceDictionary>
     </Shell.Resources>
 
+    <Shell.FlyoutHeaderTemplate>
+        <DataTemplate>
+            <StackLayout>
+                <Label Text="Whatever"/>
+            </StackLayout>
+        </DataTemplate>
+    </Shell.FlyoutHeaderTemplate>
     <!-- Your Pages -->
     <ShellItem>
+        <ShellSection Title="LogIn">
+            <ShellContent ContentTemplate="{DataTemplate local:LogIn}"/>
+        </ShellSection>
+    </ShellItem>
+    <ShellItem>
+        <ShellSection Title="Medir Panel">
+            <ShellContent ContentTemplate="{DataTemplate local:MeasurePanel}"/>
+        </ShellSection>
         <ShellSection Title="Browse" Icon="tab_feed.png">
-            <ShellContent ContentTemplate="{DataTemplate local:ItemsPage}" />
+            <ShellContent ContentTemplate="{DataTemplate local:DataRecords}" />
         </ShellSection>
         <ShellSection Title="About" Icon="tab_about.png">
             <ShellContent ContentTemplate="{DataTemplate local:AboutPage}" />
