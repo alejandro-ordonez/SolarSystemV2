@@ -2,7 +2,7 @@
 <Shell xmlns="http://xamarin.com/schemas/2014/forms" 
        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
        xmlns:local="clr-namespace:SolarApp.Views"
-       RouteHost="companyname.com"
+       RouteHost="solarworld.com"
        RouteScheme="app"
        Route="SolarApp"
        FlyoutBehavior="Disabled"
@@ -69,14 +69,17 @@
         </ResourceDictionary>
     </Shell.Resources>
 
-    <Shell.FlyoutHeaderTemplate>
-        <DataTemplate>
-            <StackLayout>
-                <Label Text="Whatever"/>
-            </StackLayout>
-        </DataTemplate>
-    </Shell.FlyoutHeaderTemplate>
-    <!-- Your Pages -->
+
+    <ShellItem>
+        <ShellSection>
+            <ShellContent>
+                <local:LogIn/>
+            </ShellContent>
+        </ShellSection>
+    </ShellItem>
+    
+
+    <!-- Your Pages 
     <ShellItem>
         <ShellSection Title="LogIn">
             <ShellContent ContentTemplate="{DataTemplate local:LogIn}"/>
@@ -92,7 +95,7 @@
         <ShellSection Title="About" Icon="tab_about.png">
             <ShellContent ContentTemplate="{DataTemplate local:AboutPage}" />
         </ShellSection>
-    </ShellItem>
+    </ShellItem> -->
 
     <!-- Optional Templates 
     // These may be provided inline as below or as separate classes.

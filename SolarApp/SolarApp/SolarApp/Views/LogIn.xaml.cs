@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using SolarApp.ViewModels;
 
 namespace SolarApp.Views
 {
@@ -14,13 +15,12 @@ namespace SolarApp.Views
     {
         public LogIn()
         {
-            NavigationPage.SetHasNavigationBar(this, false);
+            BindingContext = new LogInViewModel();
             InitializeComponent();
         }
 
         private void Log_Clicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new AppShell());
         }
     }
 }
