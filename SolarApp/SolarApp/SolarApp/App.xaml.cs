@@ -15,7 +15,7 @@ namespace SolarApp
         public App()
         {
             InitializeComponent();
-
+            DependencyService.Register <DataProcess>();
             if (UseMockDataStore)
                 DependencyService.Register<MockDataStore>();
             else

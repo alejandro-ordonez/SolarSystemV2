@@ -5,7 +5,7 @@ using System.Text;
 namespace SolarApp.SolarMath
 {
 
-    public class SolarCell : ISolar
+    public class SolarFunctions : ISolar
     {
         private readonly double Kb = 0;
         private readonly double q = 0;

@@ -7,15 +7,15 @@ using Xamarin.Forms;
 
 using SolarApp.Models;
 using SolarApp.Services;
+using SolarApp.SolarMath;
 
 namespace SolarApp.ViewModels
 {
     public class BaseViewModel : INotifyPropertyChanged
     {
         public IDataStore<Item> DataStore => DependencyService.Get<IDataStore<Item>>() ?? new MockDataStore();
-
-
-
+        public IDataProcess DataProcess => DependencyService.Get<IDataProcess>() ?? new DataProcess();
+        public ISolar Solar => DependencyService.Get<ISolar>() ?? new SolarFunctions();
 
         bool isBusy = false;
         public bool IsBusy
