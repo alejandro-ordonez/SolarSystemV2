@@ -14,6 +14,7 @@ namespace SolarApp
 
         public App()
         {
+            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("OTE3MzNAMzEzNzJlMzEyZTMwYXVna2ZNU1pXbEljZjMrcjM0WUdJZHBrdHhtVmduNTZZMks4Q090ZFBIYz0=");
             InitializeComponent();
             DependencyService.Register <DataProcess>();
             if (UseMockDataStore)
