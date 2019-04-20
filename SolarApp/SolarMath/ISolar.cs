@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace SolarApp.SolarMath
+namespace SolarMath
 {
     public interface ISolar
     {
