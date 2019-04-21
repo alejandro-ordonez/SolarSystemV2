@@ -6,8 +6,7 @@
              x:Class="SolarApp.Views.Curves">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Charts test"/>
-            <chart:SfChart BackgroundColor="Gray">
+            <chart:SfChart HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
                 <chart:LineSeries ItemsSource="{Binding Readings}" YBindingPath="ValueI" XBindingPath="ValueV"/>
                 <chart:SfChart.PrimaryAxis>
                     <chart:NumericalAxis>

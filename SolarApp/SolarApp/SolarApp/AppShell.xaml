@@ -5,9 +5,10 @@
        RouteHost="solarworld.com"
        RouteScheme="app"
        Route="SolarApp"
-       FlyoutBehavior="Disabled"
+       FlyoutBehavior="Flyout"
+       FlyoutBackgroundColor="Black"
+       FlyoutIcon="user_icon.png"
        Title="SolarApp"
-       Visual="Material"
        x:Class="SolarApp.AppShell">
 
     <!--
@@ -55,12 +56,12 @@
         <ResourceDictionary>
             <Color x:Key="NavigationPrimary">#2196F3</Color>
             <Style x:Key="BaseStyle" TargetType="Element">
-                <Setter Property="Shell.ShellBackgroundColor" Value="{StaticResource NavigationPrimary}" />
-                <Setter Property="Shell.ShellForegroundColor" Value="White" />
+                <Setter Property="Shell.ShellBackgroundColor" Value="Black" />
+                <Setter Property="Shell.ShellForegroundColor" Value="Black" />
                 <Setter Property="Shell.ShellTitleColor" Value="White" />
                 <Setter Property="Shell.ShellDisabledColor" Value="#B4FFFFFF" />
                 <Setter Property="Shell.ShellUnselectedColor" Value="#95FFFFFF" />
-                <Setter Property="Shell.ShellTabBarBackgroundColor" Value="{StaticResource NavigationPrimary}" />
+                <Setter Property="Shell.ShellTabBarBackgroundColor" Value="Black" />
                 <Setter Property="Shell.ShellTabBarForegroundColor" Value="White"/>
                 <Setter Property="Shell.ShellTabBarUnselectedColor" Value="#95FFFFFF"/>
                 <Setter Property="Shell.ShellTabBarTitleColor" Value="White"/>
@@ -70,14 +71,63 @@
     </Shell.Resources>
 
 
+    <Shell.FlyoutHeaderTemplate>
+        <DataTemplate>
+            <StackLayout BackgroundColor="Black" Padding="15">
+                <Image Source="user_icon" Aspect="AspectFit"/>
+                <Label TextColor="White" FontSize="Medium" HorizontalOptions="Center" Text="Olmer Garcia"/>
+            </StackLayout>
+        </DataTemplate>
+    </Shell.FlyoutHeaderTemplate>
+    <Shell.ItemTemplate>
+        <DataTemplate>
+            <ContentView>
+                <Grid Margin="5" Padding="10" ColumnSpacing="5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="8*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Image Source="{Binding Icon}" Aspect="AspectFit" Grid.Column="0" Grid.Row="0"/>
+                    <Label Text="{Binding Title}" VerticalOptions="Center" TextColor="White" FontSize="Medium" Grid.Column="1" Grid.Row="0"/>
+                </Grid>
+            </ContentView>
+        </DataTemplate>
+    </Shell.ItemTemplate>
 
-    <ShellItem Route="Main">
-        <ShellSection Route="Dashboard">
-            <ShellContent Route="Curves">
-                <local:Curves/>
+    <ShellItem Title="Home" Icon="home_icon.png" Route="Home">
+        <ShellSection Title="Descripcion" Route="Description">
+            <ShellContent Route="info">
+                <local:Home/>
             </ShellContent>
         </ShellSection>
-    </ShellItem>    
+        <ShellSection>
+            <ShellContent Route="Manual">
+                <local:Manual/>
+            </ShellContent>
+        </ShellSection>
+    </ShellItem>
+    <ShellItem Title="Caracterizar" Icon="gauge_icon.png" Route="Measure">
+        <ShellSection Route="a">
+            <ShellContent Route="inputs">
+                <local:Measure Title="Caracterizar"/>
+            </ShellContent>
+        </ShellSection>
+    </ShellItem>
+    <ShellItem Title="Resultados" Icon="curve_icon.png" Route="Resultados">
+        <ShellSection Route="Dashboard" Icon="cure_tab_icon.png">
+            <ShellContent Route="Curves">
+                <local:Curves Title="Graficas"/>
+            </ShellContent>
+        </ShellSection>
+        <ShellSection Route="Spreadsheet" Icon="spreadsheet_tab_icon.png">
+            <ShellContent>
+                <local:SpreadSheet Title="Tablas"/>
+            </ShellContent>
+        </ShellSection>
+    </ShellItem>
 
     <!-- Your Pages 
     <ShellItem>

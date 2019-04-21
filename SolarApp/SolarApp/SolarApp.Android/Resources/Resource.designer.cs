@@ -32,6 +32,8 @@ namespace SolarApp.Droid
 			global::Syncfusion.SfChart.XForms.Droid.Resource.Animation.SfChart_Fade_Out = global::SolarApp.Droid.Resource.Animation.SfChart_Fade_Out;
 			global::Syncfusion.SfChart.XForms.Droid.Resource.Animation.SfChart_Scale_In = global::SolarApp.Droid.Resource.Animation.SfChart_Scale_In;
 			global::Syncfusion.SfChart.XForms.Droid.Resource.Animation.SfChart_Scale_Out = global::SolarApp.Droid.Resource.Animation.SfChart_Scale_Out;
+			global::Syncfusion.SfChart.XForms.Droid.Resource.Drawable.inputlayout_togglecollapseicon = global::SolarApp.Droid.Resource.Drawable.inputlayout_togglecollapseicon;
+			global::Syncfusion.SfChart.XForms.Droid.Resource.Drawable.inputlayout_togglevisibleicon = global::SolarApp.Droid.Resource.Drawable.inputlayout_togglevisibleicon;
 			global::Syncfusion.SfChart.XForms.Droid.Resource.Id.annotationLayout = global::SolarApp.Droid.Resource.Id.annotationLayout;
 			global::Syncfusion.SfChart.XForms.Droid.Resource.Id.axisLayout = global::SolarApp.Droid.Resource.Id.axisLayout;
 			global::Syncfusion.SfChart.XForms.Droid.Resource.Id.bottom_labels = global::SolarApp.Droid.Resource.Id.bottom_labels;
