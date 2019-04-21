@@ -3,6 +3,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using SolarApp.Services;
 using SolarApp.Views;
+using System.Threading.Tasks;
 
 namespace SolarApp
 {
@@ -11,10 +12,9 @@ namespace SolarApp
         //TODO: Replace with *.azurewebsites.net url after deploying backend to Azure
         public static string AzureBackendUrl = "http://localhost:5000";
         public static bool UseMockDataStore = true;
-
         public App()
         {
-            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("OTE3MzNAMzEzNzJlMzEyZTMwYXVna2ZNU1pXbEljZjMrcjM0WUdJZHBrdHhtVmduNTZZMks4Q090ZFBIYz0=");
+            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("@31372e312e30efMpOW5l7Dh67EG8121p+NixSEYmwkFvNhCGwuGEGSI=");
             InitializeComponent();
             DependencyService.Register <DataProcess>();
             if (UseMockDataStore)
@@ -24,11 +24,28 @@ namespace SolarApp
             MainPage = new AppShell();
         }
 
+        internal static ShellSection GetShellSection(Element element)
+        {
+            if (element == null)
+            {
+                return null;
+            }
+
+            var parent = element;
+            var parentSection = parent as ShellSection;
+
+            while (parentSection == null && parent != null)
+            {
+                parent = parent.Parent;
+                parentSection = parent as ShellSection;
+            }
+
+            return parentSection;
+        }
         protected override void OnStart()
         {
             // Handle when your app starts
         }
-
         protected override void OnSleep()
         {
             // Handle when your app sleeps

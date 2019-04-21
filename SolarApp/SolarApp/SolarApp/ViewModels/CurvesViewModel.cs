@@ -7,7 +7,7 @@ namespace SolarApp.ViewModels
 {
     public class CurvesViewModel:BaseViewModel
     {
-        public ObservableCollection<Sensor> Readings;
+        public ObservableCollection<Sensor> Readings { get; set; }
         public CurvesViewModel()
         {
             //Readings = new ObservableCollection<Sensor>();

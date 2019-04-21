@@ -70,14 +70,14 @@
     </Shell.Resources>
 
 
-    <ShellItem>
-        <ShellSection>
-            <ShellContent>
-                <local:LogIn/>
+
+    <ShellItem Route="Main">
+        <ShellSection Route="Dashboard">
+            <ShellContent Route="Curves">
+                <local:Curves/>
             </ShellContent>
         </ShellSection>
-    </ShellItem>
-    
+    </ShellItem>    
 
     <!-- Your Pages 
     <ShellItem>

@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-
+using SolarApp.Views;
 using Xamarin.Forms;
 
 namespace SolarApp
@@ -10,6 +10,12 @@ namespace SolarApp
         public AppShell()
         {
             InitializeComponent();
+            LoadLogin();
+           
+        }
+        public async void LoadLogin()
+        {
+            await Navigation.PushModalAsync(new LogIn());
         }
     }
 }

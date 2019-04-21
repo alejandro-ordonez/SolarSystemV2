@@ -19,8 +19,9 @@ namespace SolarApp.Views
             InitializeComponent();
         }
 
-        private void Log_Clicked(object sender, EventArgs e)
+        private async void Log_Clicked(object sender, EventArgs e)
         {
+            await Navigation.PopModalAsync();
         }
     }
 }
