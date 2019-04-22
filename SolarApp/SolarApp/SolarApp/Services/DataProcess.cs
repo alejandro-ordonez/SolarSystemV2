@@ -84,7 +84,7 @@ namespace SolarApp.Services
             throw new NotImplementedException();
         }
 
-        public Task<SolarPanel> GetPanel(double Longitude, double Latitude)
+        public Task<SolarPanel> GetPanel(double Latitude, double Longitude)
         {
             var Panel = Panels.Where((SolarPanel arg) => arg.Location.Longitude == Longitude && arg.Location.Latitude == Latitude).FirstOrDefault();
             return Task.FromResult(Panel);
