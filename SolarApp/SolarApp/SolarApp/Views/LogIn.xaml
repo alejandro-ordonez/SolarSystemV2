@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:inputLayout="clr-namespace:Syncfusion.XForms.TextInputLayout;assembly=Syncfusion.Core.XForms"
              x:Class="SolarApp.Views.LogIn"
              Visual="Material"
              BackgroundImage="{Binding BgImage}"
@@ -11,8 +12,12 @@
                 <Label Style="{DynamicResource Title}" Text="{DynamicResource LogTitle}" HorizontalOptions="CenterAndExpand" Margin="0,50"/>
                 <Frame BorderColor="White" BackgroundColor="White" Opacity="0.78" CornerRadius="5" VerticalOptions="Center" HorizontalOptions="Fill">
                     <StackLayout Spacing="30">
-                        <Entry Placeholder="{StaticResource PHUser}" Style="{DynamicResource Inputs}"/>
-                        <Entry Placeholder="{StaticResource PHPass}" Style="{DynamicResource Inputs}" IsPassword="True"/>
+                        <inputLayout:SfTextInputLayout Hint="{StaticResource PHUser}" ContainerType="Outlined" HelperText="Ingrese su usuario">
+                            <Entry Style="{DynamicResource Inputs}"/>
+                        </inputLayout:SfTextInputLayout>
+                        <inputLayout:SfTextInputLayout Hint="{StaticResource PHPass}" EnablePasswordVisibilityToggle="True" ContainerType="Outlined" HelperText="Ingrese su contraseña">
+                            <Entry Style="{DynamicResource Inputs}"/>
+                        </inputLayout:SfTextInputLayout>
                         <Button x:Name="Log" CornerRadius="50" Text="LogIn" Clicked="Log_Clicked"/>
                     </StackLayout>
                 </Frame>

@@ -28,5 +28,11 @@
             <Setter Property="FontAttributes" Value="Bold"/>
             <Setter Property="HorizontalOptions" Value="StartAndExpand"/>
         </Style>
+        <Style TargetType="Label" BasedOn="{StaticResource Subtitle}" x:Key="ItalicText">
+            <Setter Property="FontAttributes" Value="Italic"/>
+        </Style>
+        <Style TargetType="Label" BasedOn="{StaticResource Subtitle}" x:Key="Normal">
+            <Setter Property="FontAttributes" Value="None"/>
+        </Style>
     </Application.Resources>
 </Application>

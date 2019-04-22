@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 
 using Foundation;
+using Syncfusion.XForms.iOS.TextInputLayout;
 using UIKit;
 
 namespace SolarApp.iOS
@@ -26,6 +27,9 @@ namespace SolarApp.iOS
             global::Xamarin.Forms.Forms.Init();
             Xamarin.FormsMaps.Init();
             Syncfusion.SfChart.XForms.iOS.Renderers.SfChartRenderer.Init();
+            Syncfusion.XForms.iOS.Accordion.SfAccordionRenderer.Init();
+            Syncfusion.XForms.iOS.MaskedEdit.SfMaskedEditRenderer.Init();
+            SfTextInputLayoutRenderer.Init();
             LoadApplication(new App());
 
             return base.FinishedLaunching(app, options);

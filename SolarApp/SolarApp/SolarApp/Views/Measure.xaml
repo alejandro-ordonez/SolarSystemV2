@@ -1,12 +1,58 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="SolarApp.Views.Measure">
+             xmlns:inputLayout="clr-namespace:Syncfusion.XForms.TextInputLayout;assembly=Syncfusion.Core.XForms"
+             xmlns:accordion="clr-namespace:Syncfusion.XForms.Accordion;assembly=Syncfusion.Expander.XForms"
+             xmlns:mask="clr-namespace:Syncfusion.XForms.MaskedEdit;assembly=Syncfusion.SfMaskedEdit.XForms"
+             x:Class="SolarApp.Views.Measure"
+             Visual="Material">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+        <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="10">
+            <Label Style="{StaticResource Subtitle}" Text=" Para realizar la carectrización del panel debe llenar el siguiente formulario:"/>
+            <ScrollView Padding="10">
+                <accordion:SfAccordion Grid.Row="1" ItemSpacing="15">
+                    <accordion:SfAccordion.Items>
+                        <!--Panel-->
+                        <accordion:AccordionItem IsExpanded="False">
+                            <accordion:AccordionItem.Header>
+                                <Label Style="{StaticResource Normal}" VerticalOptions="CenterAndExpand" Text="Información general del panel"/>
+                            </accordion:AccordionItem.Header>
+                            <accordion:AccordionItem.Content>
+                                <StackLayout HorizontalOptions="FillAndExpand" Padding="5">
+                                    <Label Style="{StaticResource Normal}" Text="La siguiente información es necesaria para establecer las características"/>
+                                    <inputLayout:SfTextInputLayout Hint="Nombre" ContainerType="Outlined">
+                                        <Entry Style="{StaticResource Inputs}" Unfocused="Entry_Unfocused"/>
+                                    </inputLayout:SfTextInputLayout>
+                                    <inputLayout:SfTextInputLayout Hint="Descripción" ContainerType="Outlined">
+                                        <Entry Style="{StaticResource Inputs}" Unfocused="Entry_Unfocused"/>
+                                    </inputLayout:SfTextInputLayout>
+                                    <inputLayout:SfTextInputLayout Hint="Dimensiones" HelperText="Ej: 5.300 m x 2.500 m (WxH)" ContainerType="Outlined">
+                                        <mask:SfMaskedEdit  x:Name="DimensionsText" Mask="0.000 m x 0.000 m" Keyboard="Numeric"/>
+                                    </inputLayout:SfTextInputLayout>
+                                </StackLayout>
+                            </accordion:AccordionItem.Content>
+                        </accordion:AccordionItem>
+                        <!--Dispositivo-->
+                        <accordion:AccordionItem>
+                            <accordion:AccordionItem.Header>
+                                <Label Style="{StaticResource ItalicText}" Text="Conexión con el dispositivo"/>
+                            </accordion:AccordionItem.Header>
+                            <accordion:AccordionItem.Content>
+                                <StackLayout Spacing="10" Padding="15">
+                                    <Label Style="{StaticResource Normal}" Text="Información relacionada con el dispositivo"/>
+                                    <inputLayout:SfTextInputLayout Hint="IP" ContainerType="Outlined" HelperText="Ej:198.162.1.1">
+                                        <mask:SfMaskedEdit x:Name="IPText" Mask="000.000.000:0000" Keyboard="Numeric"/>
+                                    </inputLayout:SfTextInputLayout>
+                                    <Button x:Name="TestConection" Text="Probar Conexión" HorizontalOptions="FillAndExpand"/>
+                                </StackLayout>
+                            </accordion:AccordionItem.Content>
+                        </accordion:AccordionItem>
+                        
+                    </accordion:SfAccordion.Items>
+                </accordion:SfAccordion>
+            </ScrollView>
+            <ProgressBar x:Name="Completed" VerticalOptions="End" Progress="0" ProgressColor="Green"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
+    
