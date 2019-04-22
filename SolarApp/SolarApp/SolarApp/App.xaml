@@ -22,5 +22,11 @@
             <Setter Property="TextDecorations" Value="Underline"/>
             <Setter Property="HorizontalOptions" Value="Center"/>
         </Style>
+        <Style TargetType="Label" x:Key="Subtitle">
+            <Setter Property="TextColor" Value="Black"/>
+            <Setter Property="FontSize" Value="Medium"/>
+            <Setter Property="FontAttributes" Value="Bold"/>
+            <Setter Property="HorizontalOptions" Value="StartAndExpand"/>
+        </Style>
     </Application.Resources>
 </Application>

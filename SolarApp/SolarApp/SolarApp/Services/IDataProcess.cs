@@ -30,6 +30,8 @@ namespace SolarApp.Services
         /// <param name="start">Start date</param>
         /// <param name="end">End date</param>
         /// <returns>List of curves I/V obtained in the past</returns>
-        Task<List<SolarPanel>> GetReadingsServer(DateTime start, DateTime end);
+        Task<IEnumerable<SolarPanel>> GetReadingsServer();
+        Task<SolarPanel> GetPanel(double Longitude, double Latitude);
+        Task SetCurrentPanel(SolarPanel panel);
     }
 }

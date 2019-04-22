@@ -70,7 +70,6 @@
         </ResourceDictionary>
     </Shell.Resources>
 
-
     <Shell.FlyoutHeaderTemplate>
         <DataTemplate>
             <StackLayout BackgroundColor="Black" Padding="15">
@@ -82,7 +81,7 @@
     <Shell.ItemTemplate>
         <DataTemplate>
             <ContentView>
-                <Grid Margin="5" Padding="10" ColumnSpacing="5">
+                <Grid Margin="2" Padding="5" ColumnSpacing="5">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="1*"/>
                         <ColumnDefinition Width="8*"/>
@@ -117,12 +116,12 @@
         </ShellSection>
     </ShellItem>
     <ShellItem Title="Resultados" Icon="curve_icon.png" Route="Resultados">
-        <ShellSection Route="Dashboard" Icon="cure_tab_icon.png">
+        <ShellSection Route="Dashboard" Title="Graficas" Icon="curve_tab_icon.png">
             <ShellContent Route="Curves">
                 <local:Curves Title="Graficas"/>
             </ShellContent>
         </ShellSection>
-        <ShellSection Route="Spreadsheet" Icon="spreadsheet_tab_icon.png">
+        <ShellSection Route="Spreadsheet" Title="Tablas" Icon="spreadsheet_tab_icon.png">
             <ShellContent>
                 <local:SpreadSheet Title="Tablas"/>
             </ShellContent>

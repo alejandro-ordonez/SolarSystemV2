@@ -10,11 +10,16 @@ using Xamarin.Forms.Xaml;
 namespace SolarApp.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class DataRecords : ContentPage
+    public partial class Panels : ContentPage
     {
-        public DataRecords()
+        public Panels()
         {
             InitializeComponent();
+        }
+
+        private async void SetDate_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushModalAsync(new Map());
         }
     }
 }

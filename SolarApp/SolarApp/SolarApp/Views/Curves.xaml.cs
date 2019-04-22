@@ -13,11 +13,16 @@ namespace SolarApp.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Curves : ContentPage
     {
+        private ResultViewModel ViewModel;
         public Curves()
         {
-            BindingContext = new CurvesViewModel();
+            BindingContext = ViewModel = new ResultViewModel();
             InitializeComponent();
         }
 
+        private async void SetPosition_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushModalAsync(new Map());
+        }
     }
 }

@@ -4,10 +4,13 @@
              xmlns:chart="clr-namespace:Syncfusion.SfChart.XForms;assembly=Syncfusion.SfChart.XForms"
              Visual="Material"
              x:Class="SolarApp.Views.Curves">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem x:Name="SetPosition" Text="Panel" Clicked="SetPosition_Clicked"/>
+    </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <StackLayout>
             <chart:SfChart HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-                <chart:LineSeries ItemsSource="{Binding Readings}" YBindingPath="ValueI" XBindingPath="ValueV"/>
+                <chart:LineSeries x:Name="Curve" ItemsSource="{Binding Readings}" YBindingPath="ValueI" XBindingPath="ValueV"/>
                 <chart:SfChart.PrimaryAxis>
                     <chart:NumericalAxis>
                         <chart:NumericalAxis.Title>

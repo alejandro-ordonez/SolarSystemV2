@@ -1,16 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Xamarin.Forms.Maps;
 
 namespace SolarApp.Models
 {
     public class SolarPanel
     {
+
+        public Position  Location { get; set; }
         public double IRadainceNASA { get; set; }
         /// <summary>
         /// Boltsman Constant 
         /// </summary>
-        public double K { get; set; }
+        private double K { get => 5; }
         /// <summary>
         /// Description asociated to the panel
         /// </summary>

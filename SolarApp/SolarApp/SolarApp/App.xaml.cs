@@ -4,6 +4,7 @@ using Xamarin.Forms.Xaml;
 using SolarApp.Services;
 using SolarApp.Views;
 using System.Threading.Tasks;
+using Xamarin.Forms.Internals;
 
 namespace SolarApp
 {
@@ -16,31 +17,12 @@ namespace SolarApp
         {
             Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("OTI2NzhAMzEzNzJlMzEyZTMwQWVVRHFlYnlMMnQrbHdvTXpZTEhtVUMwWUFXWkVPNHlxbHJmcEZVS3Njaz0=");
             InitializeComponent();
-            DependencyService.Register <DataProcess>();
+            DependencyService.Register<DataProcess>();
             if (UseMockDataStore)
                 DependencyService.Register<MockDataStore>();
             else
                 DependencyService.Register<AzureDataStore>();
             MainPage = new AppShell();
-        }
-
-        internal static ShellSection GetShellSection(Element element)
-        {
-            if (element == null)
-            {
-                return null;
-            }
-
-            var parent = element;
-            var parentSection = parent as ShellSection;
-
-            while (parentSection == null && parent != null)
-            {
-                parent = parent.Parent;
-                parentSection = parent as ShellSection;
-            }
-
-            return parentSection;
         }
         protected override void OnStart()
         {
