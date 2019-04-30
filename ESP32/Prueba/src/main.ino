@@ -1,15 +1,22 @@
 #include <Arduino.h>
 #include <driver/adc.h>
+#include <Solar.h>
+#include <WiFi.h>
+#include <aREST.h>
+const char* ssid     = "MPS";
+const char* password = "Siemenss71500";
+WiFiServer server(80);
+aREST rest = aREST();
+String header;
 int PWM = 14;
 int maxValuePWM = 65535;
 int currentSensor = 32;
 int dacMos = 25;
 int sensorReading = 35;
-double current[500];
-int readP;
 int count = 0;
-int dac=0;
+double readingI=0;
 double voltageConverter = (3.3/2048.0);
+Solar panel;
 void setup()
 {
   adcAttachPin(currentSensor);
@@ -25,32 +32,37 @@ void setup()
   ledcAttachPin(PWM,0);
 
   pinMode(2, OUTPUT);
+
+Serial.print("Connecting to ");
+  Serial.println(ssid);
+  WiFi.begin(ssid, password);
+  while (WiFi.status() != WL_CONNECTED) {
+    delay(500);
+    Serial.print(".");
+  }
+  // Print local IP address and start web server
+  Serial.println("");
+  Serial.println("WiFi connected.");
+  Serial.println("IP address: ");
+  Serial.println(WiFi.localIP());
+  server.begin();
+
 }
 
 void loop()
 {
-  for(int i=0; i< maxValuePWM; i+=25)
+  for(int i=0; i< maxValuePWM; i+=15)
   {
     ledcWrite(0, i);
     Serial.print("PWM: ");
     Serial.print(i);
     Serial.print("   Corriente: ");
-    Serial.println(readSensor(1300.0),9);
-    delay(30);
+    readingI =readSensor(1300.0);
+    Serial.println(readingI, 9);
+    panel.addCurrentAndVoltage(readingI, 5);
+    delay(2);
   }
-  delay(8000);
-  for(int i = maxValuePWM; i > 0; i-=25)
-  {
-    ledcWrite(0, i);
-    Serial.print("PWM: ");
-    Serial.print(i);
-    Serial.print("   Corriente: ");
-    Serial.println(readSensor(1300.0),9);
-    delay(30);
-    
-  }
-  delay(8000);
- 
+  delay(8000); 
   // put your main code here, to run repeatedly:
   //digitalWrite(2, LOW);
   //delay(1000);
@@ -83,6 +95,14 @@ PWM: 10   Corriente: -0.009998139
 */
   //digitalWrite(2, HIGH);
   //delay(1000);
+    WiFiClient client = server.available();
+  if (client) {
+ 
+    while(!client.available()){
+      delay(5);
+    }
+    rest.handle(client);
+  }
 }
 double readSensor(double n)
 {

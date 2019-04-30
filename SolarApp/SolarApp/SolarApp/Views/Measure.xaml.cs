@@ -19,15 +19,5 @@ namespace SolarApp.Views
             Progress = 0;
             InitializeComponent();
         }
-
-        private void Entry_Unfocused(object sender, FocusEventArgs e)
-        {
-            var x= sender as Entry;
-            if (!x.Text.Equals(null))
-            {
-                Completed.Progress += 0.1;
-            }
-        }
-
     }
 }
