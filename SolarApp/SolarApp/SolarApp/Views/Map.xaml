@@ -8,7 +8,7 @@
             <maps:Map WidthRequest="320" HeightRequest="200" x:Name="PanelMap" IsShowingUser="true" MapType="Hybrid" ItemsSource="{Binding Panels}">
                 <maps:Map.ItemTemplate>
                     <DataTemplate>
-                        <maps:Pin Position="{Binding Location}" Label="{Binding Description}"/>
+                        <maps:Pin Position="{Binding Location}" Label="{Binding Description}" Clicked="Pin_Clicked"/>
                     </DataTemplate>
                 </maps:Map.ItemTemplate>
             </maps:Map>

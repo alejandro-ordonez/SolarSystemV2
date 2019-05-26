@@ -2,9 +2,6 @@
 <Shell xmlns="http://xamarin.com/schemas/2014/forms" 
        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
        xmlns:local="clr-namespace:SolarApp.Views"
-       RouteHost="solarworld.com"
-       RouteScheme="app"
-       Route="SolarApp"
        FlyoutBehavior="Flyout"
        FlyoutBackgroundColor="Black"
        FlyoutIcon="user_icon.png"
@@ -56,15 +53,15 @@
         <ResourceDictionary>
             <Color x:Key="NavigationPrimary">#2196F3</Color>
             <Style x:Key="BaseStyle" TargetType="Element">
-                <Setter Property="Shell.ShellBackgroundColor" Value="Black" />
-                <Setter Property="Shell.ShellForegroundColor" Value="Black" />
-                <Setter Property="Shell.ShellTitleColor" Value="White" />
-                <Setter Property="Shell.ShellDisabledColor" Value="#B4FFFFFF" />
-                <Setter Property="Shell.ShellUnselectedColor" Value="#95FFFFFF" />
-                <Setter Property="Shell.ShellTabBarBackgroundColor" Value="Black" />
-                <Setter Property="Shell.ShellTabBarForegroundColor" Value="White"/>
-                <Setter Property="Shell.ShellTabBarUnselectedColor" Value="#95FFFFFF"/>
-                <Setter Property="Shell.ShellTabBarTitleColor" Value="White"/>
+                <Setter Property="Shell.BackgroundColor" Value="Black" />
+                <Setter Property="Shell.ForegroundColor" Value="Black" />
+                <Setter Property="Shell.TitleColor" Value="White" />
+                <Setter Property="Shell.DisabledColor" Value="#B4FFFFFF" />
+                <Setter Property="Shell.UnselectedColor" Value="#95FFFFFF" />
+                <Setter Property="Shell.TabBarBackgroundColor" Value="Black" />
+                <Setter Property="Shell.TabBarForegroundColor" Value="White"/>
+                <Setter Property="Shell.TabBarUnselectedColor" Value="#95FFFFFF"/>
+                <Setter Property="Shell.TabBarTitleColor" Value="White"/>
             </Style>
             <Style TargetType="ShellItem" BasedOn="{StaticResource BaseStyle}" />
         </ResourceDictionary>
@@ -116,6 +113,11 @@
         </ShellSection>
     </ShellItem>
     <ShellItem Title="Resultados" Icon="curve_icon.png" Route="Resultados">
+        <ShellSection Title="Descripcion" Route="Panel">
+            <ShellContent Route="Description">
+                <local:Description Title="Descripcion"/>
+            </ShellContent>
+        </ShellSection>
         <ShellSection Route="Dashboard" Title="Graficas" Icon="curve_tab_icon.png">
             <ShellContent Route="Curves">
                 <local:Curves Title="Graficas"/>

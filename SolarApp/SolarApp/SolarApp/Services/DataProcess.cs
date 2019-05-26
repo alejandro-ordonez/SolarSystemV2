@@ -12,7 +12,6 @@ namespace SolarApp.Services
     {
         private List<Sensor> MockReadings { get; set; }
         public DateTime StartDate { get; set; }
-        public SolarPanel CurrentPanel { get; private set; }
         public DataProcess()
         {
             MockReadings = new List<Sensor>()
@@ -88,11 +87,6 @@ namespace SolarApp.Services
         {
             var Panel = Panels.Where((SolarPanel arg) => arg.Location.Longitude == Longitude && arg.Location.Latitude == Latitude).FirstOrDefault();
             return Task.FromResult(Panel);
-        }
-
-        public async Task SetCurrentPanel(SolarPanel panel)
-        {
-            CurrentPanel = panel;
         }
     }
 }

@@ -1,10 +1,11 @@
 #include <Arduino.h>
 #include <driver/adc.h>
+#include <ArduinoJson.h>
 #include <Solar.h>
 #include <WiFi.h>
 #include <aREST.h>
-const char* ssid     = "MPS";
-const char* password = "Siemenss71500";
+const char *ssid = "Acer";
+const char *password = "Acer322466";
 WiFiServer server(80);
 aREST rest = aREST();
 String header;
@@ -14,29 +15,31 @@ int currentSensor = 32;
 int dacMos = 25;
 int sensorReading = 35;
 int count = 0;
-double readingI=0;
-double voltageConverter = (3.3/2048.0);
-Solar panel;
+double readingI = 0;
+double voltageConverter = (3.3 / 2048.0);
+String send = "";
+Solar panel = Solar();
 void setup()
 {
   adcAttachPin(currentSensor);
-	adcStart(currentSensor);
-	analogReadResolution(11); // Default of 12 is not very linear. Recommended to use 10 or 11 depending on needed resolution.
-	analogSetAttenuation(ADC_11db); // Default is 11db which is very noisy. Recommended to use 2.5 or 6.
-
-	pinMode(currentSensor, INPUT);
+  adcStart(currentSensor);
+  analogReadResolution(11);       // Default of 12 is not very linear. Recommended to use 10 or 11 depending on needed resolution.
+  analogSetAttenuation(ADC_11db); // Default is 11db which is very noisy. Recommended to use 2.5 or 6.
+  pinMode(currentSensor, INPUT);
+   rest.function("test",Get);
   // put your setup code here, to run once:
   //Probando git hub
   Serial.begin(9600);
-  ledcSetup(0,5000, 16);
-  ledcAttachPin(PWM,0);
+  ledcSetup(0, 5000, 16);
+  ledcAttachPin(PWM, 0);
 
   pinMode(2, OUTPUT);
 
-Serial.print("Connecting to ");
+  Serial.print("Connecting to ");
   Serial.println(ssid);
   WiFi.begin(ssid, password);
-  while (WiFi.status() != WL_CONNECTED) {
+  while (WiFi.status() != WL_CONNECTED)
+  {
     delay(500);
     Serial.print(".");
   }
@@ -46,23 +49,40 @@ Serial.print("Connecting to ");
   Serial.println("IP address: ");
   Serial.println(WiFi.localIP());
   server.begin();
-
 }
 
 void loop()
 {
-  for(int i=0; i< maxValuePWM; i+=15)
+  send="";
+  for (int i = 0; i < maxValuePWM; i += 25)
   {
+    digitalWrite(2, HIGH);
     ledcWrite(0, i);
     Serial.print("PWM: ");
     Serial.print(i);
     Serial.print("   Corriente: ");
-    readingI =readSensor(1300.0);
+    readingI = readSensor(1300.0);
     Serial.println(readingI, 9);
     panel.addCurrentAndVoltage(readingI, 5);
-    delay(2);
+    delay(100);
+    digitalWrite(2, LOW);
   }
-  delay(8000); 
+  delay(8000);
+  digitalWrite(2, HIGH);
+  StaticJsonDocument<200> doc;
+
+  doc["carID"] = 2123;
+
+  doc["placeID"] = 346345;
+
+  doc["floorID"] = 235345;
+
+  doc["owner"] = 234234;
+
+  doc["licensePlate"] = 456456;
+
+  serializeJsonPretty(doc, send);
+
   // put your main code here, to run repeatedly:
   //digitalWrite(2, LOW);
   //delay(1000);
@@ -95,10 +115,12 @@ PWM: 10   Corriente: -0.009998139
 */
   //digitalWrite(2, HIGH);
   //delay(1000);
-    WiFiClient client = server.available();
-  if (client) {
- 
-    while(!client.available()){
+  WiFiClient client = server.available();
+  if (client)
+  {
+
+    while (!client.available())
+    {
       delay(5);
     }
     rest.handle(client);
@@ -106,16 +128,19 @@ PWM: 10   Corriente: -0.009998139
 }
 double readSensor(double n)
 {
-  double reading=0; 
-  double I=0;
-  for(double i = 0; i < n; i++)
+  double reading = 0;
+  double I = 0;
+  for (double i = 0; i < n; i++)
   {
     //reading+=analogRead(currentSensor);
-    reading +=(analogRead(currentSensor)-1422.520075)*(voltageConverter); //lectura del sensor
+    reading += (analogRead(currentSensor) - 1422.520075) * (voltageConverter); //lectura del sensor
     //I+=(reading/ 0.1);
   }
-  reading =(reading/n)+0.00753246+0.000166091;
+  reading = (reading / n) + 0.00753246 + 0.000166091;
   //return (reading/n);
-  I=reading/0.09747542864;
-  return I;
+  I = reading / 0.09747542864;
+  return analogRead(currentSensor);
+}
+int Get(String command){
+  Serial.println("Received rest request");
 }

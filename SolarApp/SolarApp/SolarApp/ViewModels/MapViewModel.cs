@@ -21,7 +21,7 @@ namespace SolarApp.ViewModels
         }
         private async Task SetPanel(Position panel)
         {
-           await DataProcess.SetCurrentPanel(await DataProcess.GetPanel(panel.Longitude, panel.Latitude));
+           CurrentPanel=await DataProcess.GetPanel(panel.Longitude, panel.Latitude);
         }
         private async void LoadPositions()
         {

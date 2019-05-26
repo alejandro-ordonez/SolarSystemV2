@@ -13,12 +13,20 @@ namespace SolarApp.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Map : ContentPage
     {
-        private MapViewModel ViewModel;
         public Map()
         {
             BindingContext = new MapViewModel();
             InitializeComponent();
             PanelMap.MoveToRegion(MapSpan.FromCenterAndRadius(new Position(4.7111562, -74.142132), Distance.FromMiles(10)));
+        }
+
+        private async void Pin_Clicked(object sender, EventArgs e)
+        {
+            await DisplayAlert("Aviso", "Pin Clicked", "ok");
+            var pin = (Pin)sender;
+            var x = BindingContext as MapViewModel;
+            x.SetCurrentPanel.Execute(pin.Position);
+            await Navigation.PopModalAsync();
         }
     }
 }

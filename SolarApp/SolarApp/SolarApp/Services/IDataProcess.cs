@@ -32,6 +32,5 @@ namespace SolarApp.Services
         /// <returns>List of curves I/V obtained in the past</returns>
         Task<IEnumerable<SolarPanel>> GetReadingsServer();
         Task<SolarPanel> GetPanel(double Longitude, double Latitude);
-        Task SetCurrentPanel(SolarPanel panel);
     }
 }

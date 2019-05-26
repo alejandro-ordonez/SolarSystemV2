@@ -17,6 +17,12 @@ class Solar{
    void setTemp(double t){
        Temp=t;
    }
+   List<double> getCurrent(){
+       return(Current);
+   }
+   List<double> getVoltage(){
+       return(Voltage);
+   }
    void addCurrentAndVoltage(double I, double V){
        Current.Add(I);
        Voltage.Add(V);

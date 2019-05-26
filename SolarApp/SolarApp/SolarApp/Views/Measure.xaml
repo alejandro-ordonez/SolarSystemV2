@@ -21,10 +21,10 @@
                                 <StackLayout HorizontalOptions="FillAndExpand" Padding="5">
                                     <Label Style="{StaticResource Normal}" Text="La siguiente información es necesaria para establecer las características"/>
                                     <inputLayout:SfTextInputLayout Hint="Nombre" ContainerType="Outlined">
-                                        <Entry Style="{StaticResource Inputs}" Unfocused="Entry_Unfocused"/>
+                                        <Entry Style="{StaticResource Inputs}"/>
                                     </inputLayout:SfTextInputLayout>
                                     <inputLayout:SfTextInputLayout Hint="Descripción" ContainerType="Outlined">
-                                        <Entry Style="{StaticResource Inputs}" Unfocused="Entry_Unfocused"/>
+                                        <Entry Style="{StaticResource Inputs}"/>
                                     </inputLayout:SfTextInputLayout>
                                     <inputLayout:SfTextInputLayout Hint="Dimensiones" HelperText="Ej: 5.300 m x 2.500 m (WxH)" ContainerType="Outlined">
                                         <mask:SfMaskedEdit  x:Name="DimensionsText" Mask="0.000 m x 0.000 m" Keyboard="Numeric"/>
