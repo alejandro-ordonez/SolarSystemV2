@@ -4,40 +4,39 @@
 #include <Solar.h>
 #include <WiFi.h>
 #include <aREST.h>
-
 const char *ssid = "Acer";
 const char *password = "Acer322466";
 const int capacity = 2*JSON_ARRAY_SIZE(1311) + JSON_OBJECT_SIZE(2); 
 WiFiServer server(80);
 aREST rest = aREST();
-String header;
 int PWM = 14;
 int maxValuePWM = 65535;
 int currentSensor = 32;
 int dacMos = 25;
-int sensorReading = 35;
 int sw = 34;
-int count = 0;
 double readingI = 0;
 double voltageConverter = (3.3 / 2048.0);
 String send = "";
 Solar panel = Solar();
 void setup()
 {
+
   adcAttachPin(currentSensor);
   adcStart(currentSensor);
   analogReadResolution(11);       // Default of 12 is not very linear. Recommended to use 10 or 11 depending on needed resolution.
   analogSetAttenuation(ADC_11db); // Default is 11db which is very noisy. Recommended to use 2.5 or 6.
   pinMode(currentSensor, INPUT);
+  pinMode(2, OUTPUT);
+  pinMode(sw, INPUT);
   rest.function("test", Get);
+  rest.variable("json", &send);
   // put your setup code here, to run once:
   //Probando git hub
   Serial.begin(9600);
+  Serial.print("JSON Capacity");
+  Serial.println(capacity);
   ledcSetup(0, 5000, 16);
   ledcAttachPin(PWM, 0);
-  rest.variable("json", &send);
-  pinMode(2, OUTPUT);
-  pinMode(sw, INPUT);
   Serial.print("Connecting to ");
   Serial.println(ssid);
   WiFi.begin(ssid, password);
@@ -53,7 +52,6 @@ void setup()
   Serial.println(WiFi.localIP());
   server.begin();
 }
-
 void loop()
 {
   if (digitalRead(sw))
@@ -78,21 +76,20 @@ void loop()
     }
     delay(8000);
     digitalWrite(2, HIGH);
-    StaticJsonDocument<capacity> doc;
+    StaticJsonDocument<7000> doc;
     JsonObject Panel = doc.createNestedObject("Panel");
     Panel["IR"]= panel.getIR();
     Panel["T"] = panel.getT();
     JsonArray Readings = doc.createNestedArray("Readings");
-    List<double> Current = panel.getCurrent();
-    List<double> Voltage = panel.getVoltage();
-    for (size_t i = 0; i < Current.Capacity(); i++)
+    for (size_t i = 0; i < panel.getSizeCurrent(); i++)
     {
-      /* code */
       JsonObject feed1 = Readings.createNestedObject();
-      feed1["I"]=Current[i];
-      feed1["V"]=Voltage[i];
+      feed1["I"]=panel.getCurrentinPos(i);
+      feed1["V"]=panel.getVoltageinPos(i);
     }
+    panel.resetList();
     serializeJson(doc, send);
+    
   }
   else
   {
@@ -105,7 +102,6 @@ void loop()
     WiFiClient client = server.available();
     if (client)
     {
-
       while (!client.available())
       {
         delay(5);
@@ -113,7 +109,6 @@ void loop()
       rest.handle(client);
     }
   }
-
   // put your main code here, to run repeatedly:
   //digitalWrite(2, LOW);
   //delay(1000);
@@ -126,19 +121,13 @@ void loop()
   PWM: 65500   Corriente: 0.000250 - 0.70
   PWM: 35   Corriente: 0.000035
   PWM: 35   Corriente: -0.000019 0.02
-
   PWM: 35   Corriente: -0.009401 0.02
   PWM: 65500   Corriente: 0.060164 0.70
   PWM: 65500   Corriente: 0.059932 0.70
-
-
 PWM: 35   Corriente: 0.012153
   PWM: 65500   Corriente: 0.786558 0.74
-
-
 PWM: 65500   Corriente: 0.613481
 PWM: 35   Corriente: -0.173910
-
 PWM: 65525   Corriente: 0.614585338
 PWM: 65525   Corriente: 0.061553974 0.60
 PWM: 10   Corriente: -0.009998139
@@ -147,11 +136,11 @@ PWM: 10   Corriente: -0.009998139
   //digitalWrite(2, HIGH);
   //delay(1000);
 }
-double readSensor(double n)
+float readSensor(int n)
 {
-  double reading = 0;
+  float reading = 0;
   double I = 0;
-  for (double i = 0; i < n; i++)
+  for (int i = 0; i < n; i++)
   {
     //reading+=analogRead(currentSensor);
     reading += (analogRead(currentSensor) - 1422.520075) * (voltageConverter); //lectura del sensor

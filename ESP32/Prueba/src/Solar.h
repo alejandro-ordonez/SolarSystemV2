@@ -2,37 +2,47 @@
 
 class Solar{
   private:
-   List<double> Current;
-   List<double> Voltage;
-   double Radiaton;
-   double Temp;
+   List<float> Current;
+   List<float> Voltage;
+   float Radiaton;
+   float Temp;
    public:
    Solar(){
        Temp =0;
        Radiaton =0;
    }
-   void setRadiation(double r){
+   void setRadiation(float r){
        Radiaton = r;
    }
-   void setTemp(double t){
+   void setTemp(float t){
        Temp=t;
    }
-   List<double> getCurrent(){       
+   void resetList(){
+       Voltage= List<float>();
+       Current= List<float>();
+   }
+   List<float> getCurrent(){       
        return(Current);
    }
-   List<double> getVoltage(){
+   List<float> getVoltage(){
        return(Voltage);
+   }
+   float getVoltageinPos(int i){
+       return(Voltage[i]);
+   }
+   float getCurrentinPos(int i){
+       return(Current[i]);
    }
    int getSizeCurrent(){
        return(Current.Capacity());
    }
-   double getIR(){
+   float getIR(){
        return(Radiaton);
    }
-   double getT(){
+   float getT(){
        return(Temp);
    }
-   void addCurrentAndVoltage(double I, double V){
+   void addCurrentAndVoltage(float I, float V){
        Current.Add(I);
        Voltage.Add(V);
    }
