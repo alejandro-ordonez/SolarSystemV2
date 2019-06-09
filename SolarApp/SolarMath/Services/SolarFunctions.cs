@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace SolarMath
+namespace SolarMath.Services
 {
 
     public class SolarFunctions : ISolar

@@ -106,7 +106,7 @@
         </ShellSection>
     </ShellItem>
     <ShellItem Title="Caracterizar" Icon="gauge_icon.png" Route="Measure">
-        <ShellSection Route="a">
+        <ShellSection>
             <ShellContent Route="inputs">
                 <local:Measure Title="Caracterizar"/>
             </ShellContent>
@@ -129,7 +129,13 @@
             </ShellContent>
         </ShellSection>
     </ShellItem>
-
+    <ShellItem Title="Dimensionar Sistema" Route="SizingSystem">
+        <ShellSection>
+            <ShellContent Route="Sizing">
+                <local:SizingSystem Title="Dimensionar Sistema"/>
+            </ShellContent>
+        </ShellSection>
+    </ShellItem>
     <!-- Your Pages 
     <ShellItem>
         <ShellSection Title="LogIn">

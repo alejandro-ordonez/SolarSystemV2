@@ -4,8 +4,8 @@
 #include <Solar.h>
 #include <WiFi.h>
 #include <aREST.h>
-const char *ssid = "Acer";
-const char *password = "Acer322466";
+const char *ssid = "MPS";
+const char *password = "Siemenss71500";
 const int capacity = 2*JSON_ARRAY_SIZE(1311) + JSON_OBJECT_SIZE(2); 
 WiFiServer server(80);
 aREST rest = aREST();
@@ -16,6 +16,7 @@ int dacMos = 25;
 int sw = 34;
 double readingI = 0;
 double voltageConverter = (3.3 / 2048.0);
+StaticJsonDocument<capacity> doc;
 String send = "";
 Solar panel = Solar();
 void setup()
@@ -56,6 +57,12 @@ void loop()
 {
   if (digitalRead(sw))
   {
+    
+    doc.clear();
+    JsonObject Panel = doc.createNestedObject("Panel");
+    JsonArray Readings = doc.createNestedArray("Readings");
+    Panel["IR"]= panel.getIR();
+    Panel["T"] = panel.getT();
     Serial.println("***********************");
     Serial.println("****Caracterizando*****");
     Serial.println("***********************");
@@ -69,25 +76,17 @@ void loop()
       Serial.print("   Corriente: ");
       readingI = readSensor(1300.0);
       Serial.println(readingI, 9);
-      panel.addCurrentAndVoltage(readingI, 5);
+      //panel.addCurrentAndVoltage(readingI, 5);
+      JsonObject feed1 = Readings.createNestedObject();
+      feed1["I"]=readingI;
+      feed1["V"]=readingI;
       delay(50);
       digitalWrite(2, LOW);
       delay(50);
     }
     delay(8000);
     digitalWrite(2, HIGH);
-    StaticJsonDocument<7000> doc;
-    JsonObject Panel = doc.createNestedObject("Panel");
-    Panel["IR"]= panel.getIR();
-    Panel["T"] = panel.getT();
-    JsonArray Readings = doc.createNestedArray("Readings");
-    for (size_t i = 0; i < panel.getSizeCurrent(); i++)
-    {
-      JsonObject feed1 = Readings.createNestedObject();
-      feed1["I"]=panel.getCurrentinPos(i);
-      feed1["V"]=panel.getVoltageinPos(i);
-    }
-    panel.resetList();
+    //panel.resetList();
     serializeJson(doc, send);
     
   }
@@ -98,7 +97,7 @@ void loop()
     Serial.println("***********************");
     Serial.println();
     Serial.println();
-    Serial.println(send);
+    //Serial.println(send);
     WiFiClient client = server.available();
     if (client)
     {
