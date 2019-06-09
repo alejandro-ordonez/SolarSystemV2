@@ -15,6 +15,7 @@ namespace SolarApp.Views
         public SizingSystem()
         {
             InitializeComponent();
+           
         }
     }
 }

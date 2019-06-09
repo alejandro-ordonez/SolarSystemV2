@@ -7,7 +7,7 @@ using Xamarin.Forms;
 
 using SolarApp.Models;
 using SolarApp.Services;
-using SolarMath;
+using SolarMath.Services;
 
 namespace SolarApp.ViewModels
 {
