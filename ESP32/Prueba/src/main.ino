@@ -4,8 +4,8 @@
 #include <Solar.h>
 #include <WiFi.h>
 #include <aREST.h>
-const char *ssid = "MPS";
-const char *password = "Siemenss71500";
+const char *ssid = "Invitados_UTADEO";
+const char *password = "ylch0286";
 const int capacity = 2*JSON_ARRAY_SIZE(1311) + JSON_OBJECT_SIZE(2); 
 WiFiServer server(80);
 aREST rest = aREST();
@@ -52,6 +52,7 @@ void setup()
   Serial.println("IP address: ");
   Serial.println(WiFi.localIP());
   server.begin();
+  delay(2000);
 }
 void loop()
 {
@@ -153,4 +154,4 @@ float readSensor(int n)
 int Get(String command)
 {
   Serial.println("Received rest request");
-}
+}//192.168.8.188
