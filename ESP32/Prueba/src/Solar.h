@@ -2,6 +2,7 @@ class Solar{
   private:
    float Radiaton;
    float Temp;
+   
    public:
    Solar(){
        Temp =0;
