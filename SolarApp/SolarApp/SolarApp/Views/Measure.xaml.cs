@@ -19,5 +19,10 @@ namespace SolarApp.Views
             Progress = 0;
             InitializeComponent();
         }
+
+        private void TestConection_Clicked(object sender, EventArgs e)
+        {
+
+        }
     }
 }

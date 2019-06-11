@@ -12,6 +12,22 @@ namespace SolarMath.Services
         {
             return TotalEnergy*FS;
         }
+        public SolarSystem GetSystem(SolarSystem System, List<Element> elements)
+        {
+            System.TotalPowerComsumption = EnergyToProvide(TotalPowerConsumption(elements));
+            System.NSerieModules = NumberOfModulesInSerie(System.VModule, System.VSystem);
+            System.NParallelModules = NumberOfModulesInParallel(System.VModule, System.IPModule, PowerPeakGenerator(Solar.TotalPowerComsumption, System.HSS));
+            System.SolarSystemDimensions = new Area(Solar.NSerieModules * Solar.ModuleDimensions.H, Solar.NParallelModules * Solar.ModuleDimensions.W);
+            return System;
+        }
+        public SolarSystem GetSystem(SolarSystem System)
+        {
+            System.TotalPowerComsumption = EnergyToProvide(System.TotalPowerComsumption);
+            System.NSerieModules = NumberOfModulesInSerie(System.VModule, System.VSystem);
+            System.NParallelModules = NumberOfModulesInParallel(System.VModule, System.IPModule, PowerPeakGenerator(Solar.TotalPowerComsumption, System.HSS));
+            System.SolarSystemDimensions = new Area(Solar.NSerieModules * Solar.ModuleDimensions.H, Solar.NParallelModules * Solar.ModuleDimensions.W);
+            return System;
+        }
         public SolarSystem GetSystem(List<Element> Elements, double Vmodule, double Ipmodule, double VSystem, double HSS, double WidthModule, double HeightModule)
         {
             Solar = new SolarSystem();

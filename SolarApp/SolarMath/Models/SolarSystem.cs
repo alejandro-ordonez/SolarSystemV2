@@ -15,6 +15,7 @@ namespace SolarMath.Models
         public double VSystem { get; set; }
         public double IPSystem { get; set; }
         public double TotalPowerComsumption { get; set; }
+        public double HSS { get; set; }
     }
     public class Area
     {

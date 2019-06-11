@@ -9,9 +9,9 @@
              mc:Ignorable="d"
              x:Class="SolarApp.Views.SizingSystem">
     <ContentPage.Content>
-        <ScrollView>
+        <ScrollView Padding="10">
             <StackLayout>
-                <accordion:SfAccordion Grid.Row="1" ItemSpacing="15">
+                <accordion:SfAccordion Grid.Row="1" ItemSpacing="30">
                     <accordion:SfAccordion.Items>
                         <!--Module-->
                         <accordion:AccordionItem IsExpanded="False">
@@ -22,13 +22,13 @@
                                 <StackLayout>
                                     <Label Style="{StaticResource Normal}" Text="La siguiente corresponde al panel seleccionado"/>
                                     <inputLayout:SfTextInputLayout Hint="Corriente Pico del Panel" ContainerType="Outlined">
-                                        <Entry Style="{StaticResource Inputs}"/>
+                                        <Entry x:Name="Ip" Style="{StaticResource Inputs}" Keyboard="Numeric"/>
                                     </inputLayout:SfTextInputLayout>
                                     <inputLayout:SfTextInputLayout Hint="Voltaje del Panel" ContainerType="Outlined">
-                                        <Entry Style="{StaticResource Inputs}"/>
+                                        <Entry x:Name="Vm" Style="{StaticResource Inputs}" Keyboard="Numeric"/>
                                     </inputLayout:SfTextInputLayout>
                                     <inputLayout:SfTextInputLayout Hint="Dimensiones del Panel" HelperText="Ej: 5.300 m x 2.500 m (WxH)" ContainerType="Outlined">
-                                        <mask:SfMaskedEdit  x:Name="DimensionsText" Mask="0.000 m x 0.000 m" Keyboard="Numeric"/>
+                                        <mask:SfMaskedEdit x:Name="DimensionsText" Mask="0.00 x 0.00" Keyboard="Numeric"/>
                                     </inputLayout:SfTextInputLayout>
                                 </StackLayout>
                             </accordion:AccordionItem.Content>
@@ -40,18 +40,21 @@
                             </accordion:AccordionItem.Header>
                             <accordion:AccordionItem.Content>
                                 <StackLayout x:Name="Power">
-                                    <inputLayout:SfTextInputLayout Hint="Corriente Pico del Panel" ContainerType="Outlined">
-                                        <Entry Style="{StaticResource Inputs}"/>
+                                    <inputLayout:SfTextInputLayout Hint="Potencia AC por día" HelperText="Ej: 5W * 5h al día son 24W/día" ContainerType="Outlined">
+                                        <Entry x:Name="ACPower" Style="{StaticResource Inputs}" Keyboard="Numeric"/>
                                     </inputLayout:SfTextInputLayout>
-                                    <inputLayout:SfTextInputLayout Hint="Voltaje del Panel" ContainerType="Outlined">
-                                        <Entry Style="{StaticResource Inputs}"/>
+                                    <inputLayout:SfTextInputLayout Hint="Potencia DC por día" HelperText="Ej: 5W * 5h al día son 24W/día" ContainerType="Outlined">
+                                        <Entry x:Name="DCPower" Style="{StaticResource Inputs}" Keyboard="Numeric"/>
+                                    </inputLayout:SfTextInputLayout>
+                                    <inputLayout:SfTextInputLayout Hint="Tensión a suministrar" HelperText="Ej: 400V" ContainerType="Outlined">
+                                        <Entry x:Name="Vsystem" Style="{StaticResource Inputs}" Keyboard="Numeric"/>
                                     </inputLayout:SfTextInputLayout>
                                 </StackLayout>
                             </accordion:AccordionItem.Content>
                         </accordion:AccordionItem>
                     </accordion:SfAccordion.Items>
                 </accordion:SfAccordion>
-                <Button Text="Calculate"/>
+                <Button x:Name="Btn" Text="Calculate" Clicked="Btn_Clicked"/>
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>

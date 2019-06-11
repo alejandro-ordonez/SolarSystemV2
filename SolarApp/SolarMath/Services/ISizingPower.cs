@@ -12,7 +12,8 @@ namespace SolarMath.Services
         int NumberOfModulesInSerie(double Vmodule, double VSystem);
         int NumberOfModulesInParallel(double Vmodule, double Ipmodule, double PowerPeak);
         SolarSystem GetSystem(List<Element> Elements, double Vmodule, double Ipmodule, double VSystem, double HSS, double WidthModule, double HeightModule);
-
+        SolarSystem GetSystem(SolarSystem System);
+        SolarSystem GetSystem(SolarSystem System, List<Element> elements);
 
     }
 }

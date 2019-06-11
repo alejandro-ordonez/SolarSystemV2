@@ -43,7 +43,7 @@
                                     <inputLayout:SfTextInputLayout Hint="IP" ContainerType="Outlined" HelperText="Ej:198.162.1.1">
                                         <mask:SfMaskedEdit x:Name="IPText" Mask="000.000.000:0000" Keyboard="Numeric"/>
                                     </inputLayout:SfTextInputLayout>
-                                    <Button x:Name="TestConection" Text="Probar Conexión" HorizontalOptions="FillAndExpand"/>
+                                    <Button x:Name="TestConection" Text="Probar Conexión" HorizontalOptions="FillAndExpand" Clicked="TestConection_Clicked"/>
                                 </StackLayout>
                             </accordion:AccordionItem.Content>
                         </accordion:AccordionItem>
