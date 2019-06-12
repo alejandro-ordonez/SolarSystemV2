@@ -14,10 +14,8 @@ namespace SolarApp.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class SizingSystem : ContentPage
     {
-        public SizingViewModel ViewModel { get; set; }
         public SizingSystem()
         {
-            ViewModel = new SizingViewModel();
             InitializeComponent();
         }
 
@@ -32,11 +30,6 @@ namespace SolarApp.Views
             var x = DimensionsText.Value.ToString();
             system.ModuleDimensions = new Area(double.Parse( x.Substring(0, x.IndexOf('x')).Trim()), double.Parse(x.Substring(x.IndexOf('x')+1).Trim()));
             await DisplayAlert("Hola", system.ModuleDimensions.H.ToString(), "Ok");
-
-            if (ViewModel.CalculateSystemCommand.CanExecute(system))
-            {
-                ViewModel.CalculateSystemCommand.Execute(system);
-            }
         }
     }
 }
