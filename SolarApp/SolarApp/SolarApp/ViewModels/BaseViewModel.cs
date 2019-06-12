@@ -8,10 +8,11 @@ using Xamarin.Forms;
 using SolarApp.Models;
 using SolarApp.Services;
 using SolarMath.Services;
+using Prism.Mvvm;
 
 namespace SolarApp.ViewModels
 {
-    public class BaseViewModel : INotifyPropertyChanged
+    public class BaseViewModel : BindableBase
     {
         public IDataStore<Item> DataStore => DependencyService.Get<IDataStore<Item>>() ?? new MockDataStore();
         public IDataProcess DataProcess => DependencyService.Get<IDataProcess>() ?? new DataProcess();

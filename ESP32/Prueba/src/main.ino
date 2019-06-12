@@ -4,10 +4,8 @@
 #include <Solar.h>
 #include <WiFi.h>
 #include <aREST.h>
-#include <Wire.h>
-#include "RTClib.h"
-const char *ssid = "Invitados_UTADEO";
-const char *password = "ylch0286";
+const char *ssid = "MPS";//"Invitados_UTADEO";
+const char *password = "Siemenss71500";//"ylch0286";
 const int capacity = 2*JSON_ARRAY_SIZE(1311) + JSON_OBJECT_SIZE(2); 
 WiFiServer server(80);
 aREST rest = aREST();
@@ -88,6 +86,7 @@ void loop()
     JsonArray Readings = doc.createNestedArray("Readings");
     Panel["IR"]= panel.getIR();
     Panel["T"] = panel.getT();
+    
     Serial.println("***********************");
     Serial.println("****Caracterizando*****");
     Serial.println("***********************");
