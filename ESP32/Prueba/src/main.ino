@@ -4,6 +4,8 @@
 #include <Solar.h>
 #include <WiFi.h>
 #include <aREST.h>
+#include <Wire.h>
+#include "RTClib.h"
 const char *ssid = "Invitados_UTADEO";
 const char *password = "ylch0286";
 const int capacity = 2*JSON_ARRAY_SIZE(1311) + JSON_OBJECT_SIZE(2); 
@@ -16,9 +18,19 @@ int dacMos = 25;
 int sw = 34;
 double readingI = 0;
 double voltageConverter = (3.3 / 2048.0);
+String year;
+String month;
+String day;
+String hours;
+String minutes;
+String seconds;
 StaticJsonDocument<capacity> doc;
 String send = "";
 Solar panel = Solar();
+
+RTC_DS3231 rtc;
+char daysOfTheWeek[7][12] = {"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"};
+ 
 void setup()
 {
 
@@ -53,6 +65,18 @@ void setup()
   Serial.println(WiFi.localIP());
   server.begin();
   delay(2000);
+
+   if (! rtc.begin()) {
+    Serial.println("Couldn't find RTC");
+    while (1);
+  }
+   if (rtc.lostPower()) {
+    Serial.println("RTC lost power, lets set the time!");
+    
+    rtc.adjust(DateTime(F(__DATE__), F(__TIME__)));
+    
+}
+
 }
 void loop()
 {
@@ -150,6 +174,24 @@ float readSensor(int n)
   //return (reading/n);
   I = reading / 0.09747542864;
   return analogRead(currentSensor);
+
+   DateTime now = rtc.now();
+     
+    Serial.print(now.year(), DEC);
+    Serial.print('/');
+    Serial.print(now.month(), DEC);
+    Serial.print('/');
+    Serial.print(now.day(), DEC);
+    Serial.print(" (");
+    Serial.print(daysOfTheWeek[now.dayOfTheWeek()]);
+    Serial.print(") ");
+    Serial.print(now.hour(), DEC);
+    Serial.print(':');
+    Serial.print(now.minute(), DEC);
+    Serial.print(':');
+    Serial.print(now.second(), DEC);
+    Serial.println();
+    delay(3000);
 }
 int Get(String command)
 {
