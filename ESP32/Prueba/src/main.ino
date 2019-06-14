@@ -4,6 +4,7 @@
 #include <Solar.h>
 #include <WiFi.h>
 #include <aREST.h>
+#include <RTClib.h>
 const char *ssid = "MPS";//"Invitados_UTADEO";
 const char *password = "Siemenss71500";//"ylch0286";
 const int capacity = 2*JSON_ARRAY_SIZE(1311) + JSON_OBJECT_SIZE(2); 
@@ -72,7 +73,6 @@ void setup()
     Serial.println("RTC lost power, lets set the time!");
     
     rtc.adjust(DateTime(F(__DATE__), F(__TIME__)));
-    
 }
 
 }
