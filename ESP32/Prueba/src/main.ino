@@ -80,7 +80,6 @@ void loop()
 {
   if (digitalRead(sw))
   {
-    
     doc.clear();
     JsonObject Panel = doc.createNestedObject("Panel");
     JsonArray Readings = doc.createNestedArray("Readings");
