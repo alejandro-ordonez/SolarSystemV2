@@ -2,10 +2,12 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:chart="clr-namespace:Syncfusion.SfChart.XForms;assembly=Syncfusion.SfChart.XForms"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             prism:ViewModelLocator.AutowireViewModel="True"
              Visual="Material"
              x:Class="SolarApp.Views.Curves">
     <ContentPage.ToolbarItems>
-        <ToolbarItem x:Name="SetPosition" Text="Panel" Clicked="SetPosition_Clicked"/>
+        <ToolbarItem x:Name="SetPosition" Text="Panel" Command="{Binding SetPanelOnMapCommand}"/>
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <StackLayout>

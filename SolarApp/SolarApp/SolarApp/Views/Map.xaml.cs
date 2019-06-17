@@ -15,7 +15,6 @@ namespace SolarApp.Views
     {
         public Map()
         {
-            BindingContext = new MapViewModel();
             InitializeComponent();
             PanelMap.MoveToRegion(MapSpan.FromCenterAndRadius(new Position(4.7111562, -74.142132), Distance.FromMiles(10)));
         }
