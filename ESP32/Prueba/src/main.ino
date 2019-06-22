@@ -73,7 +73,6 @@ void setup()
     Serial.println("RTC lost power, lets set the time!");
     
     rtc.adjust(DateTime(F(__DATE__), F(__TIME__)));
-    
 }
 
 }
@@ -81,7 +80,6 @@ void loop()
 {
   if (digitalRead(sw))
   {
-    
     doc.clear();
     JsonObject Panel = doc.createNestedObject("Panel");
     JsonArray Readings = doc.createNestedArray("Readings");

@@ -94,12 +94,12 @@
     </Shell.ItemTemplate>
 
     <ShellItem Title="Home" Icon="home_icon.png" Route="Home">
-        <ShellSection Title="Descripcion" Route="Description">
+        <ShellSection Title="Descripción" Route="Description">
             <ShellContent Route="info">
                 <local:Home/>
             </ShellContent>
         </ShellSection>
-        <ShellSection>
+        <ShellSection Title="Manual">
             <ShellContent Route="Manual">
                 <local:Manual/>
             </ShellContent>

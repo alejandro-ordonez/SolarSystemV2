@@ -15,13 +15,7 @@ namespace SolarApp.Views
     {
         public LogIn()
         {
-            BindingContext = new LogInViewModel();
             InitializeComponent();
-        }
-
-        private async void Log_Clicked(object sender, EventArgs e)
-        {
-            await Navigation.PopModalAsync();
         }
     }
 }

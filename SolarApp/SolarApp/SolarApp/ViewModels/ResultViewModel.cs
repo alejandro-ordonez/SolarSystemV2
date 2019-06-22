@@ -9,13 +9,29 @@ namespace SolarApp.ViewModels
 {
     public class ResultViewModel:BaseViewModel
     {
-
+        private SolarPanel currentPanel;
+        public SolarPanel CurrentPanel
+        {
+            get { return currentPanel; }
+            set
+            {
+                currentPanel = value;
+                OnPropertyChanged("CurrentPanel");
+            }
+        }
+        public ObservableCollection<SolarPanel> Panels { get; set; }
         public ResultViewModel()
         {
-
+            Panels = new ObservableCollection<SolarPanel>();
+            LoadPositions();
         }
-        private void LoadData()
+        private async void LoadPositions()
         {
+            var items = await DataProcess.GetReadingsServer();
+            foreach (var item in items)
+            {
+                Panels.Add(item);
+            }
         }
     }
 }

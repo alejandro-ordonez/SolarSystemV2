@@ -17,17 +17,6 @@ namespace SolarApp.ViewModels
         public IDataStore<Item> DataStore => DependencyService.Get<IDataStore<Item>>() ?? new MockDataStore();
         public IDataProcess DataProcess => DependencyService.Get<IDataProcess>() ?? new DataProcess();
         public ISolar Solar => DependencyService.Get<ISolar>() ?? new SolarFunctions();
-        private SolarPanel currentPanel;
-        public SolarPanel CurrentPanel
-        {
-            get { return currentPanel; }
-            set
-            {
-                currentPanel = value;
-                OnPropertyChanged("CurrentPanel");
-            }
-        }
-
         bool isBusy = false;
         public bool IsBusy
         {
