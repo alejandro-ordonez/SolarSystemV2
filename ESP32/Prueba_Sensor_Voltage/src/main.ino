@@ -31,7 +31,7 @@ void setup()
   analogReadResolution(12);
   analogSetAttenuation(ADC_11db);
 
-    ledcSetup(0, 5000, 16);
+  ledcSetup(0, 5000, 16);
   ledcAttachPin(PWM, 0);
   Serial.begin(9600);
 

@@ -1,10 +1,9 @@
 #include <Arduino.h>
-#define Resolution 2048
+#define Resolution 4096
 #define Resbase 10000 //10Kohm R2
 #define RTNOM 12226
 #define NOMINAL_TEMPERATURE 16.7
 #define B 3950
-#define Ro 11157
 
 int RES =0;
 void setup() {
@@ -12,7 +11,7 @@ void setup() {
   Serial.begin(9600);
   adcAttachPin(27);
   adcStart(27);
-  analogReadResolution(11);       // Default of 12 is not very linear. Recommended to use 10 or 11 depending on needed resolution.
+  analogReadResolution(12);       // Default of 12 is not very linear. Recommended to use 10 or 11 depending on needed resolution.
   analogSetAttenuation(ADC_11db); // Default is 11db which is very noisy. Recommended to use 2.5 or 6.
 }
 
@@ -32,10 +31,14 @@ double NTCREs(double adc){
 
 double Average(double samples){
   double avg = 0;
+  double r =0;
   for (size_t i = 0; i < samples; i++)
   {
       /* code */
-    avg+=analogRead(27);
+     r=analogRead(13);
+      Serial.println(r);
+      delay(10);
+      avg+=r;
   }
   return avg/samples;
 }
