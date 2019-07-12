@@ -12,10 +12,11 @@ double R1 = 1200000.0;
 double R2 = 1000000.0;
 
 #define MaxValuePWM 65535
-#define PWM 14
+#define PWM 5
+int PW = 0;
 
-int VTrans = 25;
-int VFuent = 26;
+int VTrans = 36;
+int VFuent = 39;
 double Req = 0;
 double VoltajeDif = 0;
 double Voltaje = 0;
@@ -40,16 +41,22 @@ void setup()
 
 void loop()
 {
-  ledcWrite(0, 20000);
-  VoltajeSensorFuent = (averageAnalogReading(600.0, VFuent) / 4096.0)*13*(340206.186/320000);
-  VoltajeSensorTrans = (averageAnalogReading(600.0, VTrans) / 4096.0)*13*(340206.186/320000);
+  ledcWrite(0, PW);
+  PW+=25;
+  if(PW>=MaxValuePWM){
+    PW=0;
+  }
+  VoltajeSensorFuent = (averageAnalogReading(600.0, VFuent)* (3.78/4096.00)*10.23391); // 4096.0);//*13*(340206.186/320000);
+  VoltajeSensorTrans = (averageAnalogReading(600.0, VTrans))* 3.3/4096.00;//*13*(340206.186/320000);
   VoltajeDif = (VoltajeSensorFuent) - (VoltajeSensorTrans);
   Serial.print("V1: ");
-  Serial.println(VoltajeSensorFuent);
-  Serial.print("V2: ");
-  Serial.println(VoltajeSensorTrans);
-  Serial.print("Voltaje: ");
-  Serial.println(VoltajeDif);
+  Serial.print(VoltajeSensorFuent,5);
+  Serial.print(" V2: ");
+  Serial.print(VoltajeSensorTrans,5);
+  Serial.print(" Voltaje: ");
+  Serial.print(VoltajeDif,5);
+  Serial.print(" PWM: ");
+  Serial.println(PW);
   delay(100);
   //double ValueFuent = analogRead(VFuent)* (3.3/ 4096.0);
   //double ValueTrans = analogRead(VTrans)* (3.3/ 4096.0);

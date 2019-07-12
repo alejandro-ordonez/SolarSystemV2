@@ -35,9 +35,9 @@ double Average(double samples){
   for (size_t i = 0; i < samples; i++)
   {
       /* code */
-     r=analogRead(13);
-      Serial.println(r);
-      delay(10);
+      r=analogRead(35);
+      //Serial.println(r);
+      delay(1);
       avg+=r;
   }
   return avg/samples;

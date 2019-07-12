@@ -49,23 +49,6 @@
     <!-- 
         Styles and Resources 
     -->
-    <Shell.Resources>
-        <ResourceDictionary>
-            <Color x:Key="NavigationPrimary">#2196F3</Color>
-            <Style x:Key="BaseStyle" TargetType="Element">
-                <Setter Property="Shell.BackgroundColor" Value="Black" />
-                <Setter Property="Shell.ForegroundColor" Value="Black" />
-                <Setter Property="Shell.TitleColor" Value="White" />
-                <Setter Property="Shell.DisabledColor" Value="#B4FFFFFF" />
-                <Setter Property="Shell.UnselectedColor" Value="#95FFFFFF" />
-                <Setter Property="Shell.TabBarBackgroundColor" Value="Black" />
-                <Setter Property="Shell.TabBarForegroundColor" Value="White"/>
-                <Setter Property="Shell.TabBarUnselectedColor" Value="#95FFFFFF"/>
-                <Setter Property="Shell.TabBarTitleColor" Value="White"/>
-            </Style>
-            <Style TargetType="ShellItem" BasedOn="{StaticResource BaseStyle}" />
-        </ResourceDictionary>
-    </Shell.Resources>
 
     <Shell.FlyoutHeaderTemplate>
         <DataTemplate>
@@ -77,7 +60,7 @@
     </Shell.FlyoutHeaderTemplate>
 
     <!--Home-->
-    <FlyoutItem Title="Home" Icon="home_icon.png">
+    <FlyoutItem Title="Home" Icon="home_icon.png" FlyoutDisplayOptions="AsMultipleItems">>
         <Tab>
             <ShellContent>
                 <views:Home/>
@@ -90,7 +73,7 @@
         </Tab>
     </FlyoutItem>
     <!--Measure-->
-    <FlyoutItem Title="Caracterizar" Icon="gauge_icon.png">
+    <FlyoutItem Title="Caracterizar" Icon="gauge_icon.png" FlyoutDisplayOptions="AsMultipleItems">>
         <Tab>
             <ShellContent>
                 <views:Measure/>
@@ -116,7 +99,7 @@
         </Tab>
     </FlyoutItem>
     <!--Size system-->
-    <FlyoutItem Title="Dimensionar Sistema" Icon="export_icon.png">
+    <FlyoutItem Title="Dimensionar Sistema" Icon="export_icon.png" FlyoutDisplayOptions="AsMultipleItems">>
         <Tab>
             <ShellContent>
                 <views:SizingSystem/>
@@ -125,54 +108,4 @@
     </FlyoutItem>
     
     <!--About-->
-
- 
-    <!-- Your Pages 
-    <ShellItem>
-        <ShellSection Title="LogIn">
-            <ShellContent ContentTemplate="{DataTemplate local:LogIn}"/>
-        </ShellSection>
-    </ShellItem>
-    <ShellItem>
-        <ShellSection Title="Medir Panel">
-            <ShellContent ContentTemplate="{DataTemplate local:MeasurePanel}"/>
-        </ShellSection>
-        <ShellSection Title="Browse" Icon="tab_feed.png">
-            <ShellContent ContentTemplate="{DataTemplate local:DataRecords}" />
-        </ShellSection>
-        <ShellSection Title="About" Icon="tab_about.png">
-            <ShellContent ContentTemplate="{DataTemplate local:AboutPage}" />
-        </ShellSection>
-    </ShellItem> -->
-
-    <!-- Optional Templates 
-    // These may be provided inline as below or as separate classes.
-
-    // This header appears at the top of the Flyout.
-    <Shell.FlyoutHeaderTemplate>
-	<DataTemplate>
-            <Grid>ContentHere</Grid>
-        </DataTemplate>
-    </Shell.FlyoutHeaderTemplate>
-
-    // ItemTemplate is for ShellItems as displayed in a Flyout
-    <Shell.ItemTemplate>
-        <DataTemplate>
-            <ContentView>
-                Bindable Properties: Title, Icon
-            </ContentView>
-        </DataTemplate>
-    </Shell.ItemTemplate>
-
-    // MenuItemTemplate is for MenuItems as displayed in a Flyout
-    <Shell.MenuItemTemplate>
-        <DataTemplate>
-            <ContentView>
-                Bindable Properties: Text, Icon
-            </ContentView>
-        </DataTemplate>
-    </Shell.MenuItemTemplate>
-
-    -->
-
 </Shell>

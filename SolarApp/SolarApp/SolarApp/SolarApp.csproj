@@ -11,18 +11,19 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="3.0.0-preview6.19304.6" />
     <PackageReference Include="Prism.Core" Version="7.1.0.431" />
     <PackageReference Include="Prism.Forms" Version="7.1.0.431" />
     <PackageReference Include="Prism.Unity.Forms" Version="7.1.0.431" />
     <PackageReference Include="Syncfusion.Xamarin.Core" Version="17.1.0.41" />
     <PackageReference Include="Syncfusion.Xamarin.Expander" Version="17.1.0.41" />
     <PackageReference Include="Syncfusion.Xamarin.SfChart" Version="17.1.0.41" />
-    <PackageReference Include="Syncfusion.Xamarin.SfMaskedEdit" Version="17.1.0.41" />
-    <PackageReference Include="Xamarin.Forms" Version="4.1.0.555618" />  
-    <PackageReference Include="Xamarin.Essentials" Version="1.1.0" />
+    <PackageReference Include="Syncfusion.Xamarin.SfMaskedEdit" Version="17.1.0.41" />  
+    <PackageReference Include="Xamarin.Essentials" Version="1.2.0" />
     <PackageReference Include="Newtonsoft.Json" Version="12.0.2" />
-    <PackageReference Include="Xamarin.Forms.Maps" Version="4.1.0.555618" />
-    <PackageReference Include="Xamarin.Forms.Visual.Material" Version="4.1.0.555618" />
+    <PackageReference Include="Xamarin.Forms" Version="4.1.0.581479" />
+    <PackageReference Include="Xamarin.Forms.Maps" Version="4.1.0.581479" />
+    <PackageReference Include="Xamarin.Forms.Visual.Material" Version="4.1.0.581479" />
   </ItemGroup>
 
   <ItemGroup>

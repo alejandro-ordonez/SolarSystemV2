@@ -134,6 +134,9 @@
     <Reference Include="System.Numerics.Vectors" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Hosting">
+      <Version>3.0.0-preview6.19304.6</Version>
+    </PackageReference>
     <PackageReference Include="Prism.Core">
       <Version>7.1.0.431</Version>
     </PackageReference>
@@ -155,14 +158,14 @@
     <PackageReference Include="Syncfusion.Xamarin.SfMaskedEdit">
       <Version>17.1.0.41</Version>
     </PackageReference>
-    <PackageReference Include="Xamarin.Forms" Version="4.1.0.555618" />
+    <PackageReference Include="Xamarin.Forms" Version="4.1.0.581479" />
     <PackageReference Include="Newtonsoft.Json" Version="12.0.2" />
-    <PackageReference Include="Xamarin.Essentials" Version="1.1.0" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.2.0" />
     <PackageReference Include="Xamarin.Forms.Maps">
-      <Version>4.1.0.555618</Version>
+      <Version>4.1.0.581479</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.Forms.Visual.Material">
-      <Version>4.1.0.555618</Version>
+      <Version>4.1.0.581479</Version>
     </PackageReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />

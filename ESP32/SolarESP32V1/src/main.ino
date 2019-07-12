@@ -16,7 +16,7 @@
 // Max possible PWM value
 #define MaxValuePWM 65535
 
-#define PWM 14
+#define PWM 5
 // Declare a new timer
 //hw_timer_t * timer = NULL;
 //Variable to stablish if timer should be executed or not
@@ -143,8 +143,9 @@ void loop()
   // put your main code here, to run repeatedly:
 
   ///////////////////////Measure Data //////////////////////////////////////
-  if (digitalRead(SW))
+  if (true)
   {
+    Serial.println(ClockToString());
     doc.clear();
     //Serialize Basic Data
     JsonObject Panel = doc.createNestedObject("Panel");

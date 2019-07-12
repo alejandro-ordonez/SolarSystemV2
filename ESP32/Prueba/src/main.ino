@@ -10,7 +10,7 @@ const char *password = "Siemenss71500";//"ylch0286";
 const int capacity = 2*JSON_ARRAY_SIZE(1311) + JSON_OBJECT_SIZE(2); 
 WiFiServer server(80);
 aREST rest = aREST();
-int PWM = 14;
+int PWM = 5;
 int maxValuePWM = 65535;
 int currentSensor = 32;
 int dacMos = 25;
@@ -37,7 +37,6 @@ void setup()
   adcStart(currentSensor);
   analogReadResolution(11);       // Default of 12 is not very linear. Recommended to use 10 or 11 depending on needed resolution.
   analogSetAttenuation(ADC_11db); // Default is 11db which is very noisy. Recommended to use 2.5 or 6.
-  pinMode(currentSensor, INPUT);
   pinMode(2, OUTPUT);
   pinMode(sw, INPUT);
   rest.function("test", Get);
@@ -78,7 +77,7 @@ void setup()
 }
 void loop()
 {
-  if (digitalRead(sw))
+  if (true)
   {
     doc.clear();
     JsonObject Panel = doc.createNestedObject("Panel");
@@ -164,14 +163,14 @@ float readSensor(int n)
   double I = 0;
   for (int i = 0; i < n; i++)
   {
-    //reading+=analogRead(currentSensor);
-    reading += (analogRead(currentSensor) - 1422.520075) * (voltageConverter); //lectura del sensor
+    reading+=analogRead(currentSensor);
+    //reading += (analogRead(currentSensor) - 1422.520075) * (voltageConverter); //lectura del sensor
     //I+=(reading/ 0.1);
   }
-  reading = (reading / n) + 0.00753246 + 0.000166091;
-  //return (reading/n);
-  I = reading / 0.09747542864;
-  return analogRead(currentSensor);
+  //reading = (reading / n) + 0.00753246 + 0.000166091;
+  return (reading/n);
+  //I = reading / 0.09747542864;
+  //return reading;
 
    DateTime now = rtc.now();
      
