@@ -6,6 +6,7 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Android.OS;
+using Xamarin.Forms;
 
 namespace SolarApp.Droid
 {
@@ -18,10 +19,11 @@ namespace SolarApp.Droid
             ToolbarResource = Resource.Layout.Toolbar;
 
             base.OnCreate(savedInstanceState);
-            global::Xamarin.Forms.Forms.SetFlags("Visual_Experimental", "Shell_Experimental", "CollectionView_Experimental", "FastRenderers_Experimental");
+            
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             //CachedImageRenderer.Init(true);
-            global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
+            Forms.Init(this, savedInstanceState);
+            FormsMaterial.Init(this, savedInstanceState);
             Xamarin.FormsMaps.Init(this, savedInstanceState);
             LoadApplication(new App());
         }

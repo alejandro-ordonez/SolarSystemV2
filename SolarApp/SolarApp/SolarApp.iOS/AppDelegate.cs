@@ -5,6 +5,7 @@ using System.Linq;
 using Foundation;
 using Syncfusion.XForms.iOS.TextInputLayout;
 using UIKit;
+using Xamarin.Forms;
 
 namespace SolarApp.iOS
 {
@@ -23,9 +24,9 @@ namespace SolarApp.iOS
         //
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
-            global::Xamarin.Forms.Forms.SetFlags("Shell_Experimental", "Visual_Experimental", "CollectionView_Experimental", "FastRenderers_Experimental");
-            global::Xamarin.Forms.Forms.Init();
+            Forms.Init();
             Xamarin.FormsMaps.Init();
+            FormsMaterial.Init();
             Syncfusion.SfChart.XForms.iOS.Renderers.SfChartRenderer.Init();
             Syncfusion.XForms.iOS.Accordion.SfAccordionRenderer.Init();
             Syncfusion.XForms.iOS.MaskedEdit.SfMaskedEditRenderer.Init();

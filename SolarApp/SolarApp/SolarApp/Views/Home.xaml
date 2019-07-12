@@ -6,9 +6,7 @@
              Title="Presentación">
     <ContentPage.Resources>
         <x:String x:Key="Description">
-            Esta aplicación tiene como fin funcionar como intermediario entre un servidor que gestiona los datos recopilados por las caracterizaciones
-            y el dispositivo que toma las mediciones que para este caso es un ESP32. Esperamos que esta aplicación sea de utilidad y pueda hacer exitosos
-            monitoreos.
+            Esta aplicación tiene como fin funcionar como intermediario entre un servidor que gestiona los datos recopilados por las caracterizaciones y el dispositivo que toma las mediciones que para este caso es un ESP32. Esperamos que esta aplicación sea de utilidad y pueda hacer exitosos monitoreos.
         </x:String>
         <x:String x:Key="Title">
             Solar App
@@ -19,8 +17,8 @@
     <!--TODO: Add better structure use Illustrator-->
     <ContentPage.Content>
         <StackLayout Padding="15" Spacing="20" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-            <local:JustifiedLabel Style="{StaticResource Title}" Text="{StaticResource Title}"/>
-            <local:JustifiedLabel Style="{StaticResource ItalicText}" Text="{StaticResource Description}"/>
+            <Label Style="{StaticResource Title}" Text="{StaticResource Title}"/>
+            <Label Style="{StaticResource ItalicText}" Text="{StaticResource Description}"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

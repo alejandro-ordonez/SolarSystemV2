@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Shell xmlns="http://xamarin.com/schemas/2014/forms" 
        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
-       xmlns:local="clr-namespace:SolarApp.Views"
+       xmlns:views="clr-namespace:SolarApp.Views"
        FlyoutBehavior="Flyout"
        FlyoutBackgroundColor="Black"
        FlyoutIcon="user_icon.png"
@@ -75,67 +75,58 @@
             </StackLayout>
         </DataTemplate>
     </Shell.FlyoutHeaderTemplate>
-    <Shell.ItemTemplate>
-        <DataTemplate>
-            <ContentView>
-                <Grid Margin="2" Padding="5" ColumnSpacing="5">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="1*"/>
-                        <ColumnDefinition Width="8*"/>
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto"/>
-                    </Grid.RowDefinitions>
-                    <Image Source="{Binding Icon}" Aspect="AspectFit" Grid.Column="0" Grid.Row="0"/>
-                    <Label Text="{Binding Title}" VerticalOptions="Center" TextColor="White" FontSize="Medium" Grid.Column="1" Grid.Row="0"/>
-                </Grid>
-            </ContentView>
-        </DataTemplate>
-    </Shell.ItemTemplate>
 
-    <ShellItem Title="Home" Icon="home_icon.png" Route="Home">
-        <ShellSection Title="Descripción" Route="Description">
-            <ShellContent Route="info">
-                <local:Home/>
-            </ShellContent>
-        </ShellSection>
-        <ShellSection Title="Manual">
-            <ShellContent Route="Manual">
-                <local:Manual/>
-            </ShellContent>
-        </ShellSection>
-    </ShellItem>
-    <ShellItem Title="Caracterizar" Icon="gauge_icon.png" Route="Measure">
-        <ShellSection>
-            <ShellContent Route="inputs">
-                <local:Measure Title="Caracterizar"/>
-            </ShellContent>
-        </ShellSection>
-    </ShellItem>
-    <ShellItem Title="Resultados" Icon="curve_icon.png" Route="Resultados">
-        <ShellSection Title="Descripcion" Route="Panel">
-            <ShellContent Route="Description">
-                <local:Description Title="Descripcion"/>
-            </ShellContent>
-        </ShellSection>
-        <ShellSection Route="Dashboard" Title="Graficas" Icon="curve_tab_icon.png">
-            <ShellContent Route="Curves">
-                <local:Curves Title="Graficas"/>
-            </ShellContent>
-        </ShellSection>
-        <ShellSection Route="Spreadsheet" Title="Tablas" Icon="spreadsheet_tab_icon.png">
+    <!--Home-->
+    <FlyoutItem Title="Home" Icon="home_icon.png">
+        <Tab>
             <ShellContent>
-                <local:SpreadSheet Title="Tablas"/>
+                <views:Home/>
             </ShellContent>
-        </ShellSection>
-    </ShellItem>
-    <ShellItem Title="Dimensionar Sistema" Route="SizingSystem">
-        <ShellSection>
-            <ShellContent Route="Sizing">
-                <local:SizingSystem Title="Dimensionar Sistema"/>
+        </Tab>
+        <Tab>
+            <ShellContent>
+                <views:Description/>
             </ShellContent>
-        </ShellSection>
-    </ShellItem>
+        </Tab>
+    </FlyoutItem>
+    <!--Measure-->
+    <FlyoutItem Title="Caracterizar" Icon="gauge_icon.png">
+        <Tab>
+            <ShellContent>
+                <views:Measure/>
+            </ShellContent>
+        </Tab>
+    </FlyoutItem>
+    <!--Results-->
+    <FlyoutItem Title="Resultados" Icon="curve_icon.png">
+        <Tab>
+            <ShellContent>
+                <views:Curves/>
+            </ShellContent>
+        </Tab>
+        <Tab>
+            <ShellContent>
+                <views:SpreadSheet/>
+            </ShellContent>
+        </Tab>
+        <Tab>
+            <ShellContent>
+                <views:Panels/>
+            </ShellContent>
+        </Tab>
+    </FlyoutItem>
+    <!--Size system-->
+    <FlyoutItem Title="Dimensionar Sistema" Icon="export_icon.png">
+        <Tab>
+            <ShellContent>
+                <views:SizingSystem/>
+            </ShellContent>
+        </Tab>
+    </FlyoutItem>
+    
+    <!--About-->
+
+ 
     <!-- Your Pages 
     <ShellItem>
         <ShellSection Title="LogIn">
