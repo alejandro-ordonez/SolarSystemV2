@@ -16,7 +16,7 @@ namespace Solar.Views
     {
         public Graph(Panel panel)
         {
-            BindingContext = new GraphViewModel(panel);
+            BindingContext = panel;
             InitializeComponent();
         }
     }

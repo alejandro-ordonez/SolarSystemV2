@@ -7,10 +7,20 @@
              Visual="Material"
              x:Class="Solar.Views.Measure">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <ScrollView>
+            <StackLayout Spacing="15" Padding="15">
+                <Label Text="¡Información necesaria!" HorizontalOptions="Center"/>
+                <Entry Text="{Binding Nombre}" Placeholder="Nombre de referencia"/>
+                <Editor Text="{Binding Description}" AutoSize="TextChanges" IsSpellCheckEnabled="True" Placeholder="Descripción del panel"/>
+                <Entry Text="{Binding Widht}" Placeholder="Ancho (m)" Keyboard="Numeric"/>
+                <Entry Text="{Binding Height}" Placeholder="Largo (m)" Keyboard="Numeric"/>
+                <Entry Text="{Binding NominalV}" Placeholder="Voltaje Nominal (V)" Keyboard="Numeric"/>
+                <Entry Text="{Binding Power}" Placeholder="Potencia (W)" Keyboard="Numeric"/>
+                <Entry Text="{Binding IpESP}" Placeholder="IP ESP32 (0.0.0.0)"/>
+                <ActivityIndicator IsRunning="{Binding IsBusy}"/>
+                <Button Text="Caracterizar" IsEnabled="{Binding ButtonState}" Command="{Binding GetData}" VerticalOptions="End" HorizontalOptions="Center"/>
+                <ProgressBar Progress="{Binding Progress}" VerticalOptions="End"/>
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

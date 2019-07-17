@@ -5,11 +5,36 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:chart="clr-namespace:Syncfusion.SfChart.XForms;assembly=Syncfusion.SfChart.XForms"
              mc:Ignorable="d"
+             Visual="Material"
              x:Class="Solar.Views.Graph">
     <ContentPage.Content>
         <StackLayout>
-            <chart:SfChart HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-                <chart:LineSeries x:Name="Curve" ItemsSource="{Binding Panel.IV}" YBindingPath="I" XBindingPath="V"/>
+            <Label Text="Nombre: "/>
+            <Label Text="{Binding Name}"/>
+            <Label Text="Descripcion: "/>
+            <Label Text="{Binding Description}"/>
+            <Label Text="Fecha: "/>
+            <Label Text="{Binding Date}"/>
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Label Text="Radiaton:" Grid.Column="0" Grid.Row="0"/>
+                <Label Text="{Binding Radiation}" Grid.Column="1" Grid.Row="0"/>
+                <Label Text="Temperature" Grid.Column="0" Grid.Row="1"/>
+                <Label Text="{Binding Temp}" Grid.Column="1" Grid.Row="0"/>
+            </Grid>
+            
+            <chart:SfChart HorizontalOptions="FillAndExpand" VerticalOptions="Center">
+                <chart:LineSeries x:Name="Curve" ItemsSource="{Binding IV}" YBindingPath="I" XBindingPath="V"/>
                 <chart:SfChart.PrimaryAxis>
                     <chart:NumericalAxis>
                         <chart:NumericalAxis.Title>

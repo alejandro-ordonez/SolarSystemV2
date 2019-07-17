@@ -7,12 +7,15 @@
              mc:Ignorable="d"
              Visual="Material"
              x:Class="Solar.Views.Map">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Refresh" Command="{Binding RefreshListCommand}"/>
+    </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <StackLayout>
             <maps:Map WidthRequest="320" HeightRequest="200" x:Name="PanelMap" IsShowingUser="true" MapType="Hybrid" ItemsSource="{Binding Panels}">
                 <maps:Map.ItemTemplate>
                     <DataTemplate>
-                        <maps:Pin Position="{Binding Location}" Label="{Binding Description}" Clicked="Pin_Clicked"/>
+                        <maps:Pin Position="{Binding Location}" Label="{Binding Description}"/>
                     </DataTemplate>
                 </maps:Map.ItemTemplate>
             </maps:Map>

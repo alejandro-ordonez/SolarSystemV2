@@ -21,7 +21,7 @@ namespace Solar.Services
             throw new NotImplementedException();
         }
 
-        public Task<int> GetMaxPower(List<double> I, List<double> V)
+        public Task<Reading> GetMaxPower(List<Reading> readings)
         {
             throw new NotImplementedException();
         }

@@ -9,7 +9,11 @@ namespace Solar.Models
     {
         public List<Reading> IV { get; set; }
         public DateTime Date { get; set; }
-        public double  Radiation { get; set; }
+        public double Radiation { get; set; }
+        public double NominalV { get; set; }
+        public double Power { get; set; }
+        public double Width { get; set; }
+        public double Height { get; set; }
         public double Vm { get; set; }
         public double Im { get; set; }
         public double Temp { get; set; }

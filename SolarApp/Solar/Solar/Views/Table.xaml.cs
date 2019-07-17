@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Solar.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,6 +15,7 @@ namespace Solar.Views
     {
         public Table()
         {
+            BindingContext = Startup.ServiceProvider.GetService<ResultViewModel>();
             InitializeComponent();
         }
     }

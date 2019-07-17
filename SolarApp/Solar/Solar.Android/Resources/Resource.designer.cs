@@ -26,8 +26,6 @@ namespace Solar.Droid
 		
 		public static void UpdateIdValues()
 		{
-			global::SQLite.Net.Platform.XamarinAndroid.Resource.String.ApplicationName = global::Solar.Droid.Resource.String.ApplicationName;
-			global::SQLite.Net.Platform.XamarinAndroid.Resource.String.Hello = global::Solar.Droid.Resource.String.Hello;
 			global::Syncfusion.XForms.Android.Core.Resource.Drawable.input_layout_drop_down_icon = global::Solar.Droid.Resource.Drawable.input_layout_drop_down_icon;
 			global::Syncfusion.XForms.Android.Core.Resource.Drawable.inputlayout_togglecollapseicon = global::Solar.Droid.Resource.Drawable.inputlayout_togglecollapseicon;
 			global::Syncfusion.XForms.Android.Core.Resource.Drawable.inputlayout_togglevisibleicon = global::Solar.Droid.Resource.Drawable.inputlayout_togglevisibleicon;
@@ -10645,12 +10643,6 @@ namespace Solar.Droid
 		
 		public partial class String
 		{
-			
-			// aapt resource value: 0x7f0a006c
-			public const int ApplicationName = 2131361900;
-			
-			// aapt resource value: 0x7f0a006b
-			public const int Hello = 2131361899;
 			
 			// aapt resource value: 0x7f0a0029
 			public const int abc_action_bar_home_description = 2131361833;

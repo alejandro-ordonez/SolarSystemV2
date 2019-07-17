@@ -9,6 +9,7 @@ namespace Solar.Repositories
 {
     public class SQLiteRepository
     {
+        //TODO: Find a way to relate tables with Sqlite-net-pcl
         public string PathDB { get; set; }
         readonly SQLiteAsyncConnection database;
 

@@ -13,7 +13,7 @@
     -->
     <Shell.Resources>
         <ResourceDictionary>
-            <Color x:Key="NavigationPrimary">#000000</Color>
+            <Color x:Key="NavigationPrimary">Black</Color>
             <Style x:Key="BaseStyle" TargetType="Element">
                 <Setter Property="Shell.BackgroundColor" Value="{StaticResource NavigationPrimary}" />
                 <Setter Property="Shell.ForegroundColor" Value="White" />
@@ -22,7 +22,7 @@
                 <Setter Property="Shell.UnselectedColor" Value="#95FFFFFF" />
                 <Setter Property="Shell.TabBarBackgroundColor" Value="{StaticResource NavigationPrimary}" />
                 <Setter Property="Shell.TabBarForegroundColor" Value="White"/>
-                <Setter Property="Shell.TabBarUnselectedColor" Value="#95FFFFFF"/>
+                <Setter Property="Shell.TabBarUnselectedColor" Value="Black"/>
                 <Setter Property="Shell.TabBarTitleColor" Value="White"/>
             </Style>
             <Style TargetType="ShellItem" BasedOn="{StaticResource BaseStyle}" />
@@ -31,10 +31,10 @@
 
     <!-- Your Pages -->
     <FlyoutItem Title="Home">
-        <Tab Title="Descricion">
+        <Tab Title="Bienvenida">
             <ShellContent ContentTemplate="{DataTemplate local:Home}"/>
         </Tab>
-        <Tab>
+        <Tab Title="Descripción">
             <ShellContent ContentTemplate="{DataTemplate local:Description}"/>
         </Tab>
     </FlyoutItem>
