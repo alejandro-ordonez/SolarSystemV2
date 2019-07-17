@@ -1,11 +1,17 @@
-﻿using System;
+﻿using Solar.Models;
+using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
+using Xamarin.Essentials;
 
 namespace Solar.Services
 {
-    interface IESPData
+    public interface IESPData
     {
-
+        Task<Panel> GetData();
+        Task<bool> SetTimeESP();
+        Task<Reading> GetMaxPower(List<Reading> readings);
+        Task<Location> GetLocation();
     }
 }

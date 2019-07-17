@@ -8,8 +8,11 @@ using System.IO;
 using System.Reflection;
 using System.Text;
 using Xamarin.Essentials;
+using Solar.Services;
+using Solar.ViewModels;
+using Solar.Repositories;
 
-namespace MyApp
+namespace Solar
 {
     public static class Startup
     {
@@ -47,12 +50,17 @@ namespace MyApp
         {
             if (ctx.HostingEnvironment.IsDevelopment())
             {
-
+                services.AddSingleton<IESPData, ESPMockData>();
             }
             else
             {
-
+                services.AddTransient<IESPData, ESPData>();
             }
+            
+            //TODO: Add all ViewModels and services
+            services.AddSingleton<ResultViewModel>();
+            services.AddSingleton<SQLiteRepository>();
+            services.AddTransient<MeasureViewModel>();
         }
 
         static string ExtractResource(string filename, string location)

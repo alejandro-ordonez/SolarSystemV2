@@ -13,7 +13,7 @@
     -->
     <Shell.Resources>
         <ResourceDictionary>
-            <Color x:Key="NavigationPrimary">#2196F3</Color>
+            <Color x:Key="NavigationPrimary">#000000</Color>
             <Style x:Key="BaseStyle" TargetType="Element">
                 <Setter Property="Shell.BackgroundColor" Value="{StaticResource NavigationPrimary}" />
                 <Setter Property="Shell.ForegroundColor" Value="White" />
@@ -30,15 +30,27 @@
     </Shell.Resources>
 
     <!-- Your Pages -->
-    <TabBar>
-        <Tab Title="Browse" Icon="tab_feed.png">
-            <ShellContent ContentTemplate="{DataTemplate local:ItemsPage}" />
+    <FlyoutItem Title="Home">
+        <Tab Title="Descricion">
+            <ShellContent ContentTemplate="{DataTemplate local:Home}"/>
         </Tab>
-        <Tab Title="About" Icon="tab_about.png">
-            <ShellContent ContentTemplate="{DataTemplate local:AboutPage}" />
+        <Tab>
+            <ShellContent ContentTemplate="{DataTemplate local:Description}"/>
         </Tab>
-    </TabBar>
-
+    </FlyoutItem>
+    <FlyoutItem Title="Caracterizar">
+        <Tab>
+            <ShellContent ContentTemplate="{DataTemplate local:Measure}"/>
+        </Tab>
+    </FlyoutItem>
+    <FlyoutItem Title="Resulstados">
+        <Tab Title="Mapa">
+            <ShellContent ContentTemplate="{DataTemplate local:Map}"/>
+        </Tab>
+        <Tab Title="Tabla">
+            <ShellContent ContentTemplate="{DataTemplate local:Table}"/>
+        </Tab>
+    </FlyoutItem>
     <!-- Optional Templates 
     // These may be provided inline as below or as separate classes.
 

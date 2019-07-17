@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:chart="clr-namespace:Syncfusion.SfChart.XForms;assembly=Syncfusion.SfChart.XForms"
+             mc:Ignorable="d"
+             x:Class="Solar.Views.Graph">
+    <ContentPage.Content>
+        <StackLayout>
+            <chart:SfChart HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                <chart:LineSeries x:Name="Curve" ItemsSource="{Binding Panel.IV}" YBindingPath="I" XBindingPath="V"/>
+                <chart:SfChart.PrimaryAxis>
+                    <chart:NumericalAxis>
+                        <chart:NumericalAxis.Title>
+                            <chart:ChartAxisTitle Text="Voltage V" TextColor="Black" Font="Bold,20"/>
+                        </chart:NumericalAxis.Title>
+                    </chart:NumericalAxis>
+                </chart:SfChart.PrimaryAxis >
+                <chart:SfChart.SecondaryAxis>
+                    <chart:NumericalAxis>
+                        <chart:NumericalAxis.Title>
+                            <chart:ChartAxisTitle Text="Corriente I (Amps)"/>
+                        </chart:NumericalAxis.Title>
+                    </chart:NumericalAxis>
+                </chart:SfChart.SecondaryAxis>
+                <chart:SfChart.Title>
+                    <chart:ChartTitle Text="IV Curve Solar Panel" TextColor="Blue"/>
+                </chart:SfChart.Title>
+            </chart:SfChart>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
