@@ -25,14 +25,14 @@ namespace Solar.ViewModels
         public string Name
         {
             get { return name; }
-            set { SetProperty(ref name, value); }
+            set { SetProperty(ref name, value); EnableButton(); }
         }
         private string description;
 
         public string Description
         {
             get { return description; }
-            set { SetProperty(ref description, value); }
+            set { SetProperty(ref description, value); EnableButton(); }
         }
         private double width;
 
@@ -88,8 +88,8 @@ namespace Solar.ViewModels
         private async Task GetData()
         {
             IsBusy = true;
-            Thread.Sleep(600);
-            var panel = await data.GetData();
+            await Task.Delay(5000);
+            //var panel = await data.GetData();
             
             //TODO: Add save to Database.
             IsBusy = false;
