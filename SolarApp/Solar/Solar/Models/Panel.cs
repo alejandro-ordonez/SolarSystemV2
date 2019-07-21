@@ -21,6 +21,6 @@ namespace Solar.Models
         public string Description { get; set; }
         public string Name { get; set; }
         [OneToMany]
-        public DataPanel Data { get; set; }
+        public List<DataPanel> Data { get; set; }
     }
 }

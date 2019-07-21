@@ -52,7 +52,7 @@ namespace Solar
 
             //TODO: Add all ViewModels and services
             services.AddSingleton<ResultViewModel>();
-            services.AddSingleton<SQLiteRepository>();
+            services.AddSingleton<IRepository,SQLiteRepository>();
             services.AddTransient<MeasureViewModel>();
         }
 
