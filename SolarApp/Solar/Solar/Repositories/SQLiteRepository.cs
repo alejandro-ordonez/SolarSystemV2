@@ -10,7 +10,7 @@ namespace Solar.Repositories
     public class SQLiteRepository
     {
         //TODO: Find a way to relate tables with Sqlite-net-pcl
-        public string PathDB { get; set; }
+        private string PathDB { get; set; }
         readonly SQLiteAsyncConnection database;
 
         public SQLiteRepository()
@@ -19,6 +19,7 @@ namespace Solar.Repositories
             database = new SQLiteAsyncConnection(PathDB);
             database.CreateTableAsync<Panel>().Wait();
             database.CreateTableAsync<Reading>().Wait();
+            database.CreateTableAsync<DataPanel>().Wait();
         }
 
     }
