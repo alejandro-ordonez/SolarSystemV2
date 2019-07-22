@@ -13,7 +13,7 @@ namespace Solar.ViewModels
 {
     public class MeasureViewModel:BaseViewModel
     {
-        private readonly IRepository repository;
+        private IRepository repository;
 
         public MeasureViewModel(IRepository repository)
         {

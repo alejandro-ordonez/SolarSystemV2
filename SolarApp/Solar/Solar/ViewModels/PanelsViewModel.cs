@@ -13,7 +13,7 @@ namespace Solar.ViewModels
 {
     public class PanelsViewModel:BaseViewModel
     {
-        private readonly IRepository repository;
+        private IRepository repository;
 
         public ObservableCollection<Panel> Panels { get; set; }
         public ICommand AddCommand { get; set; }

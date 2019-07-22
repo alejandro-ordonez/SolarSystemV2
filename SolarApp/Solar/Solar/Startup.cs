@@ -49,12 +49,12 @@ namespace Solar
         static void ConfigureServices(HostBuilderContext ctx, IServiceCollection services)
         {
             services.AddSingleton<IESPData, ESPMockData>();
-
+            services.AddSingleton<IRepository, SQLiteRepository>();
             //TODO: Add all ViewModels and services
             services.AddSingleton<ResultViewModel>();
             services.AddTransient<PanelsViewModel>();
             services.AddTransient<MeasureViewModel>();
-            services.AddSingleton<IRepository,SQLiteRepository>();
+            
         }
 
         static string ExtractResource(string filename, string location)

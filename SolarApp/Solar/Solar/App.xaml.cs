@@ -12,8 +12,8 @@ namespace Solar
         public App()
         {
             Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("MTIxNTM4QDMxMzcyZTMyMmUzMEMyNW03U2FrbHBUNi9xYjQ3b1dIQm1GemJpZzdzcG00NFc2WHNWRjZFRWc9");
-            InitializeComponent();
             Startup.Init();
+            InitializeComponent();
             MainPage = new AppShell();
         }
 

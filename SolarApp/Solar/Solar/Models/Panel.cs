@@ -21,7 +21,7 @@ namespace Solar.Models
         public Location Location { get; set; }
         public string Description { get; set; }
         public string Place { get; set; }
-        [OneToMany]
+        [OneToMany(CascadeOperations =CascadeOperation.All)]
         public List<DataPanel> Data { get; set; }
     }
 }

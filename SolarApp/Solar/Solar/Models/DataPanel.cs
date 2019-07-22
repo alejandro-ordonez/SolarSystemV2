@@ -11,7 +11,7 @@ namespace Solar.Models
     {
         [PrimaryKey, AutoIncrement]
         public int Id { get; set; }
-        [OneToMany]
+        [OneToMany(CascadeOperations =CascadeOperation.All)]
         public List<Reading> IV { get; set; }
         public DateTime Date { get; set; }
         public double Radiation { get; set; }

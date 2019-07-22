@@ -1,27 +1,28 @@
 ﻿using Solar.Models;
 using SQLite;
-using SQLiteNetExtensions.Attributes;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
 using System.Threading.Tasks;
+using Xamarin.Essentials;
 
 namespace Solar.Repositories
 {
     public class SQLiteRepository:IRepository
     {
+        //TODO Change SQLiteExtensions https://bitbucket.org/twincoders/sqlite-net-extensions/raw/8febda909abc74b62330b92e5480830925116ed7/readme.md
         private string PathDB { get; set; }
         readonly SQLiteAsyncConnection database;
 
         public SQLiteRepository()
         {
-            PathDB = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "Solar.db3");
+            PathDB = Path.Combine(FileSystem.AppDataDirectory, "Solar.db3");
+            //PathDB = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "Solar.db3");
             database = new SQLiteAsyncConnection(PathDB);
             database.CreateTableAsync<Panel>().Wait();
-            database.CreateTableAsync<Reading>().Wait();
             database.CreateTableAsync<DataPanel>().Wait();
-            
+            database.CreateTableAsync<Reading>().Wait();
         }
 
         public async Task<bool> InsertReadingsToExisting(int id, DataPanel data)
