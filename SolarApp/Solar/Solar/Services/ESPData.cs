@@ -11,10 +11,6 @@ namespace Solar.Services
     public class ESPData : IESPData
     {
         public Uri URL = new Uri("http://192.168.1:80");
-        public Task<Panel> GetData()
-        {
-            throw new NotImplementedException();
-        }
 
         public Task<Location> GetLocation()
         {
@@ -27,6 +23,11 @@ namespace Solar.Services
         }
 
         public Task<bool> SetTimeESP()
+        {
+            throw new NotImplementedException();
+        }
+
+        Task<DataPanel> IESPData.GetData()
         {
             throw new NotImplementedException();
         }

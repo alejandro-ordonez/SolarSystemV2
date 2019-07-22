@@ -12,6 +12,7 @@ namespace Solar.Models
     {
         [PrimaryKey, AutoIncrement]
         public int Id { get; set; }
+        public string Reference { get; set; }
         public double Width { get; set; }
         public double Height { get; set; }
         public double NominalV { get; set; }
@@ -19,7 +20,7 @@ namespace Solar.Models
         public double Power { get; set; }
         public Location Location { get; set; }
         public string Description { get; set; }
-        public string Name { get; set; }
+        public string Place { get; set; }
         [OneToMany]
         public List<DataPanel> Data { get; set; }
     }

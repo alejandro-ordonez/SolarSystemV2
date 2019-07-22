@@ -8,7 +8,7 @@
              x:Class="Solar.Views.Table">
     <ContentPage.Content>
         <StackLayout>
-            <ListView RefreshCommand="{Binding RefreshListCommand}" ItemsSource="{Binding Panels}" SeparatorVisibility="None" HasUnevenRows="True" SelectedItem="{Binding PanelSelected, Mode=TwoWay}">
+            <ListView IsPullToRefreshEnabled="True" RefreshCommand="{Binding RefreshListCommand}" ItemsSource="{Binding Panels}" SeparatorVisibility="None" HasUnevenRows="True" SelectedItem="{Binding PanelSelected, Mode=TwoWay}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>

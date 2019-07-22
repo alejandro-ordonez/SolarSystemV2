@@ -1,4 +1,6 @@
-﻿using Solar.Services;
+﻿using Solar.Models;
+using Solar.Repositories;
+using Solar.Services;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -11,21 +13,22 @@ namespace Solar.ViewModels
 {
     public class MeasureViewModel:BaseViewModel
     {
-        private readonly IESPData data;
-        public MeasureViewModel(IESPData data)
+        private readonly IRepository repository;
+
+        public MeasureViewModel(IRepository repository)
         {
             GetDataCommand = new Command(async () => await GetData());
-            this.data = data;
+            this.repository = repository;
         }
 
      
         #region Properties
-        private string name;
+        private string reference;
 
-        public string Name
+        public string Reference
         {
-            get { return name; }
-            set { SetProperty(ref name, value); EnableButton(); }
+            get { return reference; }
+            set { SetProperty(ref reference, value); EnableButton(); }
         }
         private string description;
 
@@ -62,6 +65,19 @@ namespace Solar.ViewModels
             get { return progress; }
             set { SetProperty(ref progress, value); }
         }
+        private double nominalV;
+
+        public double NominalV
+        {
+            get { return nominalV; }
+            set { SetProperty(ref nominalV, value); }
+        }
+        private double nominalI;
+        public double NominalI
+        {
+            get { return nominalI; }
+            set { SetProperty(ref nominalI, value); }
+        }
 
 
         #endregion
@@ -76,7 +92,7 @@ namespace Solar.ViewModels
         }
         private async Task EnableButton()
         {
-            if (String.IsNullOrEmpty(Name) || String.IsNullOrEmpty(Description)||IsBusy)
+            if (String.IsNullOrEmpty(reference) || String.IsNullOrEmpty(Description)||IsBusy)
             {
                 ButtonState = false;
             }
@@ -85,16 +101,27 @@ namespace Solar.ViewModels
                 ButtonState = true;
             }
         }
+        //TODO: Test Mockdata
         private async Task GetData()
         {
             IsBusy = true;
+            await repository.InsertNewPanel(CreatePanel());
             await Task.Delay(5000);
-            //var panel = await data.GetData();
-            
             //TODO: Add save to Database.
             IsBusy = false;
         }
-
+        private Panel CreatePanel()
+        {
+            var p = new Panel {
+                Reference = Reference,
+                Description = Description,
+                Height = Height,
+                Width = Width,
+                NominalI = NominalI,
+                NominalV = NominalV
+            };
+            return p;
+        }
         #endregion
     }
 }

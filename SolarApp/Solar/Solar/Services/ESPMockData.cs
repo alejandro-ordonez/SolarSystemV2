@@ -12,36 +12,33 @@ namespace Solar.Services
     {
         //TODO: Update ESP32 Ip
         public string URL = "http://192.168.1:80";
-        public async Task<Panel> GetData()
+        public async Task<DataPanel> GetData()
         {
-            var P = new Panel
+            var dataP = new DataPanel
             {
                 Date = DateTime.Now,
                 IV = new List<Reading>() {
                     new Reading{ I=2.5, V=0},
-                    new Reading{ I=2.5, V=0},
-                    new Reading{ I=2.5, V=0},
-                    new Reading{ I=2.5, V=0},
-                    new Reading{ I=2.5, V=0},
-                    new Reading{ I=2.5, V=0},
-                    new Reading{ I=2.5, V=0},
-                    new Reading{ I=2.5, V=0},
-                    new Reading{ I=2.5, V=0},
-                    new Reading{ I=2.5, V=0},
-                    new Reading{ I=2.5, V=0},
-                    new Reading{ I=2.5, V=0},
-                    new Reading{ I=2.5, V=0},
-                    new Reading{ I=2.5, V=0} },
+                    new Reading{ I=2.5, V=1.0},
+                    new Reading{ I=2.5, V=1.5},
+                    new Reading{ I=2.5, V=2.0},
+                    new Reading{ I=2.5, V=2.5},
+                    new Reading{ I=2.5, V=3.0},
+                    new Reading{ I=2.5, V=3.5},
+                    new Reading{ I=2.5, V=4.5},
+                    new Reading{ I=2.0, V=5.0},
+                    new Reading{ I=1.8, V=5.2},
+                    new Reading{ I=1.5, V=5.3},
+                    new Reading{ I=1, V=5.35},
+                    new Reading{ I=0.5, V=5.45},
+                    new Reading{ I=0.1, V=5.50} },
                 Radiation = 4.5,
                 Temp = 21.8,
-                Location = await GetLocation(),
-                Description = "Test1",
-                Name = "Panel"
             };
-            var r = await GetMaxPower(P.IV);
-            P.Im = r.I;
-            P.Vm = r.V;
-            return P;
+            var r = await GetMaxPower(dataP.IV);
+            dataP.Im = r.I;
+            dataP.Vm = r.V;
+            return dataP;
         }
 
         public async Task<Reading> GetMaxPower(List<Reading> Readings)

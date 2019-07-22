@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace Solar.Repositories
 {
-    interface IRepository
+    public interface IRepository
     {
         Task<bool> InsertReadingsToExisting(int id, DataPanel data);
         Task InsertNewPanel(Panel p);
-        
+        Task<List<Panel>> GetPanels();
     }
 }

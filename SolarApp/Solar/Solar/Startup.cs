@@ -52,8 +52,9 @@ namespace Solar
 
             //TODO: Add all ViewModels and services
             services.AddSingleton<ResultViewModel>();
-            services.AddSingleton<IRepository,SQLiteRepository>();
+            services.AddTransient<PanelsViewModel>();
             services.AddTransient<MeasureViewModel>();
+            services.AddSingleton<IRepository,SQLiteRepository>();
         }
 
         static string ExtractResource(string filename, string location)

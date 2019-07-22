@@ -12,19 +12,27 @@ namespace Solar.ViewModels
 {
     public class ResultViewModel:BaseViewModel
     {
+        #region Properties
+        public ObservableCollection<Panel> Panels { get; set; }
+        private Panel panelSelected;
+        #endregion
+
+        public ICommand RefreshListCommand;
+
         public ResultViewModel()
         {
             RefreshListCommand = new Command(async()=> await Refresh());
         }
 
+
+        #region Methods
         //TODO: Link Database service to update command
         private Task Refresh()
         {
             throw new NotImplementedException();
         }
 
-        public ObservableCollection<Panel> Panels { get; set; }
-        private Panel panelSelected;
+        
 
         public Panel PanelSelected
         {
@@ -35,8 +43,8 @@ namespace Solar.ViewModels
                 Application.Current.MainPage.Navigation.PushModalAsync(new Graph(PanelSelected));
             }
         }
+        #endregion
 
-
-        public ICommand RefreshListCommand;
+        
     }
 }

@@ -15,8 +15,8 @@
                 <Entry Text="{Binding Widht}" Placeholder="Ancho (m)" Keyboard="Numeric"/>
                 <Entry Text="{Binding Height}" Placeholder="Largo (m)" Keyboard="Numeric"/>
                 <Entry Text="{Binding NominalV}" Placeholder="Voltaje Nominal (V)" Keyboard="Numeric"/>
+                <Entry Text="{Binding NominalI}" Placeholder="Corriente Nominal (A)" Keyboard="Numeric"/>
                 <Entry Text="{Binding Power}" Placeholder="Potencia (W)" Keyboard="Numeric"/>
-                <Entry Text="{Binding IpESP}" Placeholder="IP ESP32 (0.0.0.0)"/>
                 <ActivityIndicator IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}" IsEnabled="{Binding IsBusy}" BackgroundColor="Gray"/>
                 <Button Text="Caracterizar" IsEnabled="{Binding ButtonState}" Command="{Binding GetDataCommand}" VerticalOptions="End" HorizontalOptions="Center"/>
                 <ProgressBar Progress="{Binding Progress}" VerticalOptions="End"/>

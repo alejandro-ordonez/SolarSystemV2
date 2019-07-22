@@ -13,15 +13,15 @@
     -->
     <Shell.Resources>
         <ResourceDictionary>
-            <Color x:Key="NavigationPrimary">Black</Color>
+            <Color x:Key="NavigationPrimary">#000000</Color>
             <Style x:Key="BaseStyle" TargetType="Element">
                 <Setter Property="Shell.BackgroundColor" Value="{StaticResource NavigationPrimary}" />
-                <Setter Property="Shell.ForegroundColor" Value="White" />
+                <Setter Property="Shell.ForegroundColor" Value="Black" />
                 <Setter Property="Shell.TitleColor" Value="White" />
                 <Setter Property="Shell.DisabledColor" Value="#B4FFFFFF" />
                 <Setter Property="Shell.UnselectedColor" Value="#95FFFFFF" />
                 <Setter Property="Shell.TabBarBackgroundColor" Value="{StaticResource NavigationPrimary}" />
-                <Setter Property="Shell.TabBarForegroundColor" Value="White"/>
+                <Setter Property="Shell.TabBarForegroundColor" Value="Black"/>
                 <Setter Property="Shell.TabBarUnselectedColor" Value="Black"/>
                 <Setter Property="Shell.TabBarTitleColor" Value="White"/>
             </Style>
@@ -40,7 +40,7 @@
     </FlyoutItem>
     <FlyoutItem Title="Caracterizar">
         <Tab>
-            <ShellContent ContentTemplate="{DataTemplate local:Measure}"/>
+            <ShellContent ContentTemplate="{DataTemplate local:Panels}"/>
         </Tab>
     </FlyoutItem>
     <FlyoutItem Title="Resulstados">

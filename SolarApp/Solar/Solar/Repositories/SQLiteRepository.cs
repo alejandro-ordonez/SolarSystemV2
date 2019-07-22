@@ -11,13 +11,12 @@ namespace Solar.Repositories
 {
     public class SQLiteRepository:IRepository
     {
-        //TODO: Find a way to relate tables with Sqlite-net-pcl
         private string PathDB { get; set; }
         readonly SQLiteAsyncConnection database;
 
         public SQLiteRepository()
         {
-            PathDB = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "TodoSQLite.db3");
+            PathDB = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "Solar.db3");
             database = new SQLiteAsyncConnection(PathDB);
             database.CreateTableAsync<Panel>().Wait();
             database.CreateTableAsync<Reading>().Wait();
@@ -46,6 +45,11 @@ namespace Solar.Repositories
         public async Task InsertNewPanel(Panel p)
         {
             await database.InsertAsync(p);
+        }
+
+        public Task<List<Panel>> GetPanels()
+        {
+            return database.Table<Panel>().ToListAsync();
         }
     }
 }
