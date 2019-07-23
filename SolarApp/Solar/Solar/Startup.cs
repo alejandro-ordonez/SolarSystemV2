@@ -48,8 +48,9 @@ namespace Solar
 
         static void ConfigureServices(HostBuilderContext ctx, IServiceCollection services)
         {
-            services.AddSingleton<IESPData, ESPMockData>();
             services.AddSingleton<IRepository, SQLiteRepository>();
+            services.AddSingleton<IESPData, ESPMockData>();
+      
             //TODO: Add all ViewModels and services
             services.AddSingleton<ResultViewModel>();
             services.AddTransient<PanelsViewModel>();

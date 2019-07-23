@@ -17,6 +17,8 @@
 #define MaxValuePWM 65535
 
 #define PWM 5
+
+#define Pyra 33
 // Declare a new timer
 //hw_timer_t * timer = NULL;
 //Variable to stablish if timer should be executed or not
@@ -52,6 +54,8 @@ WebServer server(80);
 #define ISensor 32
 #define VS1 26
 #define VS2 25
+
+#define DEBUG 1
 ////////////////////////////////////////////////////////////////////////////
 
 ////////////////////////RTC Clock //////////////////////////////////////////
@@ -112,7 +116,7 @@ void setup()
   ledcSetup(0, 5000, 16);
   ledcAttachPin(PWM, 0);
 
-//////////////////////////////////Connection to Wifi//////////////////////
+//////////////////////////////////Connection to Wifi////////////////////////
 #pragma region
   Serial.print("Connecting to ");
   Serial.println(ssid);
@@ -137,7 +141,11 @@ void setup()
   server.begin();
   //////////////////////////////////////////////////////////////////////////
 }
-
+void imprimir(String g){
+  #ifdef DEBUG
+  Serial.println(g);
+  #endif
+}
 void loop()
 {
   // put your main code here, to run repeatedly:
@@ -149,7 +157,7 @@ void loop()
     doc.clear();
     //Serialize Basic Data
     JsonObject Panel = doc.createNestedObject("Panel");
-    Panel["IR"] = 5;
+    Panel["IR"] = radiation();
     Serial.print("Temp: ");
     temp3 = CalculateTemp();
     Serial.println(temp3);
@@ -160,6 +168,19 @@ void loop()
     Serial.println("****Caracterizando*****");
     Serial.println("***********************");
     send = "";
+
+    // yo tengo que calibrar el zero de corriente
+    //TODO: Revisar debounce
+    // Probar calibracion de corriente
+    // Probar el contro de corriente on/off
+    // Probar control de corriente on/off con histeresis
+    // Si ninguno de los anteriores, PID
+    // Probar diferentes tiempos de muestreo.
+    // Multiplos del muestreo.
+    // Probar AP -> Request de inicio, preveer fallas de desconexion.
+    // Interfaz del led, cuando esta conectado, disponible, no esta funcionando.
+    //doxygen 
+    // Revisar Pragmas.
     JsonArray arr = doc.createNestedArray("V");
     JsonArray arr2 = doc.createNestedArray("I");
     for (int i = 0; i < MaxValuePWM; i += 50)
@@ -191,6 +212,8 @@ void loop()
   }
   //////////////////////////////////////////////////////////////////////////
 }
+
+#pragma region Methods
 
 ///////////////////////////Temperature Methods//////////////////////////////
 #pragma region
@@ -290,7 +313,21 @@ double averageAnalogReading(double samples, int analogPin)
 #pragma endregion
 ////////////////////////////////////////////////////////////////////////////
 
+///////////////////////////Radiation////////////////////////////////////////
+double radiation()
+{
+  double cal = 0;
+
+  cal = (averageAnalogReading(200.0, Pyra) * (2.0 / 2048.0));
+  cal /= 27.5;
+  Serial.println(cal, 5);
+  cal *= 1000000;
+  cal /= 61.5;
+  return cal;
+}
+////////////////////////////////////////////////////////////////////////////
 void handle_Data()
 {
   server.send(200, "application/json", send);
 }
+#pragma endregion

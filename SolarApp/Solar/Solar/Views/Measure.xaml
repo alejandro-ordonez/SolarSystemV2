@@ -10,14 +10,15 @@
         <ScrollView>
             <StackLayout Spacing="15" Padding="15">
                 <Label Text="¡Información necesaria!" HorizontalOptions="Center"/>
-                <Entry Text="{Binding Name}" Placeholder="Nombre de referencia"/>
+                <Entry Text="{Binding Reference}" Placeholder="Nombre de referencia"/>
                 <Editor Text="{Binding Description}" AutoSize="TextChanges" IsSpellCheckEnabled="True" Placeholder="Descripción del panel"/>
-                <Entry Text="{Binding Widht}" Placeholder="Ancho (m)" Keyboard="Numeric"/>
+                <Editor Text="{Binding Place}" AutoSize="TextChanges" IsSpellCheckEnabled="True" Placeholder="Lugar"/>
+                <Entry Text="{Binding Width}" Placeholder="Ancho (m)" Keyboard="Numeric"/>
                 <Entry Text="{Binding Height}" Placeholder="Largo (m)" Keyboard="Numeric"/>
                 <Entry Text="{Binding NominalV}" Placeholder="Voltaje Nominal (V)" Keyboard="Numeric"/>
                 <Entry Text="{Binding NominalI}" Placeholder="Corriente Nominal (A)" Keyboard="Numeric"/>
                 <Entry Text="{Binding Power}" Placeholder="Potencia (W)" Keyboard="Numeric"/>
-                <ActivityIndicator IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}" IsEnabled="{Binding IsBusy}" BackgroundColor="Gray"/>
+                <ActivityIndicator IsRunning="{Binding IsBusy}"  BackgroundColor="Gray"/>
                 <Button Text="Caracterizar" IsEnabled="{Binding ButtonState}" Command="{Binding GetDataCommand}" VerticalOptions="End" HorizontalOptions="Center"/>
                 <ProgressBar Progress="{Binding Progress}" VerticalOptions="End"/>
             </StackLayout>

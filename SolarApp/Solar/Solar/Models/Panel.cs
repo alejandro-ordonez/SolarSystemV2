@@ -18,10 +18,12 @@ namespace Solar.Models
         public double NominalV { get; set; }
         public double NominalI { get; set; }
         public double Power { get; set; }
-        public Location Location { get; set; }
+        public double Latitude { get; set; }
+        public double Longitude { get; set; }
+        //public Location Location { get; set; }
         public string Description { get; set; }
         public string Place { get; set; }
-        [OneToMany(CascadeOperations =CascadeOperation.All)]
+        [OneToMany(CascadeOperations = CascadeOperation.All)]
         public List<DataPanel> Data { get; set; }
     }
 }

@@ -36,6 +36,7 @@ void setup() {
   Serial.println("IP address: ");
   Serial.println(WiFi.localIP());
   server.on("/Data", handle_Data);
+  server.on("/Start",StartTimer);
   server.begin();
  
 }

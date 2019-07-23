@@ -8,8 +8,11 @@ namespace Solar.Repositories
 {
     public interface IRepository
     {
-        Task<bool> InsertReadingsToExisting(int id, DataPanel data);
+        bool InsertReadingsToExisting(int id, DataPanel data);
         Task InsertNewPanel(Panel p);
-        Task<List<Panel>> GetPanels();
+        List<Panel> GetPanels();
+        //Task<bool> InsertReadingsToExisting(int id, DataPanel data);
+        //Task InsertNewPanel(Panel p);
+        //Task<List<Panel>> GetPanels();
     }
 }

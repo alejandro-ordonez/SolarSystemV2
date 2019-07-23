@@ -13,7 +13,7 @@ namespace Solar.ViewModels
 {
     public class PanelsViewModel:BaseViewModel
     {
-        private IRepository repository;
+        private readonly IRepository repository;
 
         public ObservableCollection<Panel> Panels { get; set; }
         public ICommand AddCommand { get; set; }
@@ -28,7 +28,6 @@ namespace Solar.ViewModels
             set
             {
                 SetProperty(ref panel, value);
-
             }
         }
         
@@ -38,6 +37,7 @@ namespace Solar.ViewModels
             AddCommand = new Command(async () => await AddPanel());
             MeasureCommand = new Command(async () => await MeasureUI());
             RefreshCommand = new Command(async () => await RefreshList());
+            RefreshCommand.Execute(null);
         }
 
         private async Task MeasureUI()
@@ -47,13 +47,18 @@ namespace Solar.ViewModels
 
         private async Task RefreshList()
         {
-            var x = await repository.GetPanels();
-            foreach (var item in x)
+            var x = repository.GetPanels();
+            //var x = await repository.GetPanels();
+            if (x != null)
             {
-                if (!Panels.Contains(item)){
-                    Panels.Add(item);
+                foreach (var item in x)
+                {
+                    if (!Panels.Contains(item))
+                    {
+                        Panels.Add(item);
+                    }
                 }
-            }
+            }  
         }
 
         private async Task AddPanel()

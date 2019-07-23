@@ -8,6 +8,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
+using Solar.Helpers;
 
 namespace Solar.ViewModels
 {
@@ -37,16 +38,31 @@ namespace Solar.ViewModels
             get { return description; }
             set { SetProperty(ref description, value); EnableButton(); }
         }
-        private double width;
+        private string place;
 
-        public double Width
+        public string Place
+        {
+            get { return place; }
+            set { SetProperty(ref place, value); }
+        }
+        private string power;
+
+        public string Power
+        {
+            get { return power; }
+            set { power = value; }
+        }
+
+        private string width;
+
+        public string Width
         {
             get { return width; }
             set { SetProperty(ref width, value); }
         }
-        private double height;
+        private string height;
 
-        public double Height
+        public string Height
         {
             get { return height; }
             set { SetProperty(ref height, value); }
@@ -58,22 +74,22 @@ namespace Solar.ViewModels
             get { return buttonState; }
             set { SetProperty(ref buttonState, value); }
         }
-        private double progress;
+        private string progress;
 
-        public double Progress
+        public string Progress
         {
             get { return progress; }
             set { SetProperty(ref progress, value); }
         }
-        private double nominalV;
+        private string nominalV;
 
-        public double NominalV
+        public string NominalV
         {
             get { return nominalV; }
             set { SetProperty(ref nominalV, value); }
         }
-        private double nominalI;
-        public double NominalI
+        private string nominalI;
+        public string NominalI
         {
             get { return nominalI; }
             set { SetProperty(ref nominalI, value); }
@@ -82,7 +98,7 @@ namespace Solar.ViewModels
 
         #endregion
 
-        public ICommand GetDataCommand;
+        public ICommand GetDataCommand { get; set; }
         
 
         #region Tasks
@@ -92,7 +108,7 @@ namespace Solar.ViewModels
         }
         private async Task EnableButton()
         {
-            if (String.IsNullOrEmpty(reference) || String.IsNullOrEmpty(Description)||IsBusy)
+            if (String.IsNullOrEmpty(Reference) || String.IsNullOrEmpty(Description)||IsBusy)
             {
                 ButtonState = false;
             }
@@ -104,23 +120,43 @@ namespace Solar.ViewModels
         //TODO: Test Mockdata
         private async Task GetData()
         {
+            await Application.Current.MainPage.DisplayAlert("Aviso", "Agregando", "Ok");
             IsBusy = true;
-            await repository.InsertNewPanel(CreatePanel());
+            var p = await CreatePanel();
+            await repository.InsertNewPanel(p);
             await Task.Delay(5000);
             //TODO: Add save to Database.
+            await Application.Current.MainPage.DisplayAlert("Aviso", "Panel Agregado exitosamente", "Ok");
             IsBusy = false;
+            await Application.Current.MainPage.Navigation.PopModalAsync();
         }
-        private Panel CreatePanel()
+        private async Task<Panel> CreatePanel()
         {
+            var Loc = await LocationHelper.GetLocation();
             var p = new Panel {
                 Reference = Reference,
                 Description = Description,
-                Height = Height,
-                Width = Width,
-                NominalI = NominalI,
-                NominalV = NominalV
+                Height = await DoubleConverter(Height),
+                Width = await DoubleConverter(Width),
+                Power = await DoubleConverter(Power),
+                NominalI = await DoubleConverter(NominalI),
+                NominalV = await DoubleConverter(NominalV),
+                Longitude = Loc.Longitude,
+                Latitude = Loc.Latitude
             };
             return p;
+        }
+        private async Task<double> DoubleConverter(string x)
+        {
+            try
+            {
+                return double.Parse(x);
+            }
+            catch
+            {
+                await Application.Current.MainPage.DisplayAlert("Aviso", "Verifica tus entradas", "Ok");
+                return 0;
+            }
         }
         #endregion
     }
