@@ -171,10 +171,10 @@ void loop()
 
     // yo tengo que calibrar el zero de corriente
     //TODO: Revisar debounce
-    // Probar calibracion de corriente
-    // Probar el contro de corriente on/off
-    // Probar control de corriente on/off con histeresis
-    // Si ninguno de los anteriores, PID
+    // Probar calibracion de corriente - Listo
+    // Probar el contro de corriente on/off - No funciona
+    // Probar control de corriente on/off con histeresis - No Funcina
+    // Si ninguno de los anteriores, PID - Parcialmente estable
     // Probar diferentes tiempos de muestreo.
     // Multiplos del muestreo.
     // Probar AP -> Request de inicio, preveer fallas de desconexion.
