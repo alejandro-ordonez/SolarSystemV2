@@ -1,10 +1,11 @@
 #include <Arduino.h>
 #include <WiFi.h>
-#include <WebServer.h>
+#include <ESPAsyncWebServer.h>
 #include <ArduinoJson.h>
 #include <RTClib.h>
+
 /////////////////////////////ESP32 Variable/////////////////////////////////
-#pragma region
+#pragma region ESP32_Variables
 //Led Indicator
 #define Indicator 2
 //Switch between measure and server
@@ -15,23 +16,40 @@
 #define VSourve 3.3
 // Max possible PWM value
 #define MaxValuePWM 65535
-
+//Pin where PWM is produced
 #define PWM 5
-
+//Pin where Pyranometer is connected
 #define Pyra 33
-// Declare a new timer
-//hw_timer_t * timer = NULL;
+// Current where PID should start
+double setpoint =0;
+// PWM value determined by PID Control
+double PWMValue = 0;
 //Variable to stablish if timer should be executed or not
 volatile byte State = LOW;
-//Variables to connect to wifi network
-//TODO: It should be an acces point
-const char *ssid = "MPS";               //"Invitados_UTADEO";
-const char *password = "Siemenss71500"; //"ylch0286";
-
-//Webserver on port 80
-WebServer server(80);
+// PID Constants
+double KP=100, KD=10, KI=50;
+// Error constants
+double lastError=0, error=0, sumError=0;
 #pragma endregion
 ////////////////////////////////////////////////////////////////////////////
+
+#pragma region WIFI Variables
+//Variables to connect to wifi network
+const char *ssid = "ESP01";               //"Invitados_UTADEO";
+const char *password = "ESP"; //"ylch0286";
+
+//Webserver on port 80
+AsyncWebServer server(80);
+#pragma endregion
+
+//////////////////////////////Timer Variables///////////////////////////////
+// Declare a new timer
+hw_timer_t *timer = NULL;
+portMUX_TYPE timerMux = portMUX_INITIALIZER_UNLOCKED;
+int totalInterruptCounter;
+volatile int interruptCounter = 0;
+////////////////////////////////////////////////////////////////////////////
+
 
 //////////////////////////Thermistor Constants//////////////////////////////
 #pragma region "Thermistor varibles"
@@ -44,6 +62,7 @@ WebServer server(80);
 // Beta value between 3000-4000
 #define B 3950
 // ADC Pin to read Thermistor
+
 #define Thermistor 35
 #pragma endregion
 ////////////////////////////////////////////////////////////////////////////
@@ -59,7 +78,6 @@ WebServer server(80);
 ////////////////////////////////////////////////////////////////////////////
 
 ////////////////////////RTC Clock //////////////////////////////////////////
-//Object to manipulate time
 //The RTC is connected to 21 y 22 pins (SDA, SCL)
 RTC_DS3231 Clock;
 ////////////////////////////////////////////////////////////////////////////
@@ -76,9 +94,6 @@ String send = "";
 
 #pragma endregion
 ////////////////////////////////////////////////////////////////////////////
-float temp = 0;
-float temp2 = 0;
-float temp3 = 0;
 
 void setup()
 {
@@ -127,49 +142,32 @@ void setup()
     delay(500);
   }
   // Print local IP address and start web server
-  Serial.println("");
-  Serial.println("WiFi connected.");
-  Serial.println("IP address: ");
-  Serial.println(WiFi.localIP());
+  WiFi.softAP(ssid, password);
+  IPAddress IP = WiFi.softAPIP();
+  Serial.print("AP IP address: ");
+  Serial.println(IP);
 #pragma endregion
   //////////////////////////////////////////////////////////////////////////
 
   /////////////////////////////////Server EndPoints/////////////////////////
   //Get Method to obtain measured data
-  server.on("/Data", handle_Data);
-  //Server initialization
+  server.on("/Start", HTTP_GET, [](AsyncWebServerRequest *request) {
+    // Handling function
+    Start(request);
+  });
+  server.on("/Stop", HTTP_GET, [](AsyncWebServerRequest *request) {
+    // Handling function
+    Test(request);
+  });
   server.begin();
   //////////////////////////////////////////////////////////////////////////
 }
-void imprimir(String g){
-  #ifdef DEBUG
-  Serial.println(g);
-  #endif
-}
+
 void loop()
 {
-  // put your main code here, to run repeatedly:
-
-  ///////////////////////Measure Data //////////////////////////////////////
-  if (true)
-  {
-    Serial.println(ClockToString());
-    doc.clear();
-    //Serialize Basic Data
-    JsonObject Panel = doc.createNestedObject("Panel");
-    Panel["IR"] = radiation();
-    Serial.print("Temp: ");
-    temp3 = CalculateTemp();
-    Serial.println(temp3);
-    Panel["T"] = temp3;
-    Panel["Time"] = ClockToString();
-
-    Serial.println("***********************");
-    Serial.println("****Caracterizando*****");
-    Serial.println("***********************");
+    Data();
     send = "";
 
-    // yo tengo que calibrar el zero de corriente
     //TODO: Revisar debounce
     // Probar calibracion de corriente - Listo
     // Probar el contro de corriente on/off - No funciona
@@ -181,39 +179,48 @@ void loop()
     // Interfaz del led, cuando esta conectado, disponible, no esta funcionando.
     //doxygen 
     // Revisar Pragmas.
-    JsonArray arr = doc.createNestedArray("V");
-    JsonArray arr2 = doc.createNestedArray("I");
-    for (int i = 0; i < MaxValuePWM; i += 50)
-    {
-      digitalWrite(2, HIGH);
-      ledcWrite(0, i);
-      Serial.print("PWM: ");
-      Serial.print(i);
-      Serial.print("   Corriente: ");
-      temp = readISensor();
-      temp2 = readVSensor();
-      Serial.print(temp);
-      Serial.print(" Voltaje: ");
-      Serial.println(temp2);
-      arr.add(temp);
-      arr2.add(temp2);
-      delay(50);
-      digitalWrite(2, LOW);
-      delay(50);
-    }
+   
     delay(8000);
     digitalWrite(2, HIGH);
-    serializeJson(doc, send);
-  }
-  else
-  {
-    Serial.println("Server Available.....");
-    server.handleClient();
+
   }
   //////////////////////////////////////////////////////////////////////////
-}
 
 #pragma region Methods
+///////////////////////////Measure and store data///////////////////////////
+void Data(){
+  if (interruptCounter > 0)
+  {
+    portENTER_CRITICAL(&timerMux);
+    interruptCounter--;
+    portEXIT_CRITICAL(&timerMux);
+    PID();
+    //Serial.println("Interrupt");
+  }
+}
+void Init(){
+  double temp;
+  doc.clear();
+  //Serialize Basic Data
+  JsonObject Panel = doc.createNestedObject("Panel");
+  Panel["IR"] = radiation();
+  Serial.print("Temp: ");
+  temp = CalculateTemp();
+  Serial.println(temp);
+  Panel["T"] = temp;
+  Panel["Time"] = ClockToString(); 
+  
+}
+void IV(){
+  double temp, temp2;
+  JsonArray arr = doc.createNestedArray("V");
+  JsonArray arr2 = doc.createNestedArray("I");
+  temp = readISensor();
+  
+  temp2 = readVSensor();
+  
+}
+
 
 ///////////////////////////Temperature Methods//////////////////////////////
 #pragma region
@@ -310,6 +317,27 @@ double averageAnalogReading(double samples, int analogPin)
   }
   return avg / samples;
 }
+void print(double t, double i, double p)
+{
+  Serial.print("PWM: ");
+  Serial.print(p);
+  Serial.print("  Sensor: ");
+  Serial.print(t, 5);
+  Serial.print("  Corriente: ");
+  Serial.println(i, 4);
+}
+void imprimir(String g){
+  #ifdef DEBUG
+  Serial.println(g);
+  #endif
+}
+double ReadVoltage(byte pin)
+{
+  double reading = averageAnalogReading(100.0, pin);//analogRead(pin); // Reference voltage is 3v3 so maximum reading is 3v3 = 4095 in range 0 to 4095
+  if(reading < 1 || reading > 4095) return 0;
+  //return -0.000000000009824 * pow(reading,3) + 0.000000016557283 * pow(reading,2) + 0.000854596860691 * reading + 0.065440348345433;
+  return -0.000000000000016 * pow(reading,4) + 0.000000000118171 * pow(reading,3)- 0.000000301211691 * pow(reading,2)+ 0.001109019271794 * reading + 0.034143524634089;
+} // Added an improved polynomial, use either, comment out as requi
 #pragma endregion
 ////////////////////////////////////////////////////////////////////////////
 
@@ -325,9 +353,63 @@ double radiation()
   cal /= 61.5;
   return cal;
 }
-////////////////////////////////////////////////////////////////////////////
-void handle_Data()
+////////////////////Methods to handle http request//////////////////////////
+
+void Test(AsyncWebServerRequest *request)
 {
-  server.send(200, "application/json", send);
+  request->send(200, "text/plain", "Timer Detenido");
 }
+void Start(AsyncWebServerRequest *request)
+{
+  AsyncWebParameter *p = request->getParam(0);
+  setpoint = p->value().toDouble();
+  request->send(200, "text/plain", "Holi");
+  Serial.println("Timer Iniciado");
+
+  StartTimer(); 
+}
+////////////////////////////////////////////////////////////////////////////
+
+////////////////////////////Timer Methods///////////////////////////////////
+void StartTimer()
+{
+  timer = timerBegin(0, 240, true);
+  timerAttachInterrupt(timer, &OnTimer, true);
+  timerAlarmWrite(timer, 10000, true);
+  timerAlarmEnable(timer);
+}
+void IRAM_ATTR OnTimer()
+{
+  portENTER_CRITICAL_ISR(&timerMux);
+  interruptCounter++;
+  portEXIT_CRITICAL_ISR(&timerMux);
+}
+void StopTimer()
+{
+  if (timer)
+  {
+    // Stop and free timer
+    totalInterruptCounter = 0;
+    serializeJson(doc, send);
+    timerEnd(timer);
+  }
+}
+/////////////////////////////////////////////////////////////////////////////
+
+//////////////////////////////PID////////////////////////////////////////////
+void PID()
+{
+  double temp = readISensor();
+  print(temp, setpoint, PWMValue);
+  error = setpoint - temp;
+  PWMValue += KP * error + KD * (error - lastError) + KI * sumError;
+  if (PWMValue < 0)
+    PWMValue = 0;
+  sumError += error;
+  lastError = error;
+  ledcWrite(0, PWMValue);
+}
+////////////////////////////////////////////////////////////////////////////
+
+
 #pragma endregion

@@ -20,15 +20,14 @@ void setup() {
 
 void loop() {
   // put your main code here, to run repeatedly:
-  /*for (size_t i = 0; i < 65000; i+=300)
-  {
-    /* code 
+  for (size_t i = 0; i < 65000; i+=300)
+  { 
     Serial.println(readISensor(),5);
     ledcWrite(0, i);
     delay(1000);
   }
   
-  /*/for (double i = 0; i < 1; i+=0.01)
+  /*for (double i = 0; i < 1; i+=0.01)
   { 
     temp=readISensor();
     print(temp, i, pwm);
@@ -42,15 +41,17 @@ void loop() {
         pwm=0;
       sumError+=error;
       lastError=error;
-      ledcWrite(0, pwm);  
+      ledcWrite(0, pwm);
+      delay(1);  
     }
       
-  }
+  }*/
 }
 
 float readISensor()
 {
-  float I =(averageAnalogReading(3000.0, ISensor)) * (VSourve / Resolution);
+  float I =(averageAnalogReading(400.0, ISensor)) * (VSourve / Resolution);
+
   I*=15.336;
   I-=23.26;
   return I;
