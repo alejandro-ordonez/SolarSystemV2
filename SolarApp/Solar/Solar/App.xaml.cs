@@ -9,11 +9,13 @@ namespace Solar
     public partial class App : Application
     {
         //public static SQLiteRepository DB { get; set; }
+        //public static SolarDbContext DB { get; set; }
         public App()
         {
             Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("MTIxNTM4QDMxMzcyZTMyMmUzMEMyNW03U2FrbHBUNi9xYjQ3b1dIQm1GemJpZzdzcG00NFc2WHNWRjZFRWc9");
             //DB = new SQLiteRepository();
             Startup.Init();
+            //DB = new SolarDbContext();
             InitializeComponent();
             MainPage = new AppShell();
         }

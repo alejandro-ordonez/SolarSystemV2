@@ -10,13 +10,14 @@ using System.Windows.Input;
 using Xamarin.Forms;
 using Solar.Helpers;
 
+
 namespace Solar.ViewModels
 {
     public class MeasureViewModel:BaseViewModel
     {
-        private IRepository repository;
+        private readonly SolarDbContext repository;
 
-        public MeasureViewModel(IRepository repository)
+        public MeasureViewModel(SolarDbContext repository)
         {
             GetDataCommand = new Command(async () => await GetData());
             this.repository = repository;

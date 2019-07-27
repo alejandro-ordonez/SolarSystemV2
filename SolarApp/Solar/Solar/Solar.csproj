@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
@@ -19,14 +19,13 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.Extensions.Hosting" Version="3.0.0-preview6.19304.6" />
-    <PackageReference Include="sqlite-net-pcl" Version="1.6.258-beta" />
-    <PackageReference Include="SQLiteNetExtensions" Version="2.1.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="2.2.6" />
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="3.0.0-preview7.19362.4" />
     <PackageReference Include="Syncfusion.Xamarin.SfChart" Version="17.2.0.34" />
-    <PackageReference Include="Xamarin.Forms" Version="4.1.0.581479" />  
+    <PackageReference Include="Xamarin.Forms" Version="4.2.0.618605-pre2" />  
     <PackageReference Include="Xamarin.Essentials" Version="1.2.0" />  
-    <PackageReference Include="Xamarin.Forms.Maps" Version="4.1.0.581479" />  
-    <PackageReference Include="Xamarin.Forms.Visual.Material" Version="4.1.0.581479" />
+    <PackageReference Include="Xamarin.Forms.Maps" Version="4.2.0.618605-pre2" />  
+    <PackageReference Include="Xamarin.Forms.Visual.Material" Version="4.2.0.618605-pre2" />
   </ItemGroup>
 
   <ItemGroup>
