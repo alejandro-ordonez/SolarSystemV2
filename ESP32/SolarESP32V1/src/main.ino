@@ -35,8 +35,8 @@ double lastError=0, error=0, sumError=0;
 
 #pragma region WIFI Variables
 //Variables to connect to wifi network
-const char *ssid = "ESP01";               //"Invitados_UTADEO";
-const char *password = "ESP"; //"ylch0286";
+const char *ssid = "ESP32-Access-Point";               //"Invitados_UTADEO";
+const char *password = "123456789"; //"ylch0286";
 
 //Webserver on port 80
 AsyncWebServer server(80);
@@ -46,7 +46,7 @@ AsyncWebServer server(80);
 // Declare a new timer
 hw_timer_t *timer = NULL;
 portMUX_TYPE timerMux = portMUX_INITIALIZER_UNLOCKED;
-int totalInterruptCounter;
+int totalInterruptCounter= 0;
 volatile int interruptCounter = 0;
 ////////////////////////////////////////////////////////////////////////////
 
@@ -85,9 +85,12 @@ RTC_DS3231 Clock;
 //////////////////////JSON Document/////////////////////////////////////////
 #pragma region
 //Capacity required to save all the data
-const int capacity = 2 * JSON_ARRAY_SIZE(1311) + JSON_OBJECT_SIZE(5);
+const int capacity = 2 * JSON_ARRAY_SIZE(100) + JSON_OBJECT_SIZE(5);
 //Jason Document created to save data
 StaticJsonDocument<capacity> doc;
+
+JsonArray arr;
+JsonArray arr2;
 //Variable used to be exposed on rest service
 String send = "";
 //JasonArray to add values obtained by sensors
@@ -98,8 +101,7 @@ String send = "";
 void setup()
 {
   // put your setup code here, to run once:
-
-  Serial.begin(9600);
+  Serial.begin(115200);
 ////////////////////////////////////INPUTS////////////////////////////////
 #pragma region //ADC Thermistor
   adcAttachPin(35);
@@ -133,15 +135,16 @@ void setup()
 
 //////////////////////////////////Connection to Wifi////////////////////////
 #pragma region
-  Serial.print("Connecting to ");
+ /* Serial.print("Connecting to ");
   Serial.println(ssid);
   WiFi.begin(ssid, password);
   while (WiFi.status() != WL_CONNECTED)
   {
     Serial.print(".");
     delay(500);
-  }
-  // Print local IP address and start web server
+  }*/
+ Serial.print("Setting AP…");
+  // Remove the password parameter, if you want the AP (Access Point) to be open
   WiFi.softAP(ssid, password);
   IPAddress IP = WiFi.softAPIP();
   Serial.print("AP IP address: ");
@@ -157,7 +160,11 @@ void setup()
   });
   server.on("/Stop", HTTP_GET, [](AsyncWebServerRequest *request) {
     // Handling function
-    Test(request);
+    Stop(request);
+  });
+  server.on("/Data", HTTP_GET, [](AsyncWebServerRequest *request) {
+    // Handling function
+    Data(request);
   });
   server.begin();
   //////////////////////////////////////////////////////////////////////////
@@ -165,9 +172,7 @@ void setup()
 
 void loop()
 {
-    Data();
-    send = "";
-
+    DetectLoop();
     //TODO: Revisar debounce
     // Probar calibracion de corriente - Listo
     // Probar el contro de corriente on/off - No funciona
@@ -179,46 +184,36 @@ void loop()
     // Interfaz del led, cuando esta conectado, disponible, no esta funcionando.
     //doxygen 
     // Revisar Pragmas.
-   
-    delay(8000);
-    digitalWrite(2, HIGH);
 
   }
   //////////////////////////////////////////////////////////////////////////
 
 #pragma region Methods
 ///////////////////////////Measure and store data///////////////////////////
-void Data(){
+void DetectLoop(){
   if (interruptCounter > 0)
   {
     portENTER_CRITICAL(&timerMux);
     interruptCounter--;
     portEXIT_CRITICAL(&timerMux);
+    totalInterruptCounter++;
     PID();
-    //Serial.println("Interrupt");
+    Serial.println("Interrupt");
   }
 }
 void Init(){
   double temp;
   doc.clear();
   //Serialize Basic Data
-  JsonObject Panel = doc.createNestedObject("Panel");
+  JsonObject Panel= doc.createNestedObject("Panel");
   Panel["IR"] = radiation();
   Serial.print("Temp: ");
   temp = CalculateTemp();
   Serial.println(temp);
   Panel["T"] = temp;
   Panel["Time"] = ClockToString(); 
-  
-}
-void IV(){
-  double temp, temp2;
-  JsonArray arr = doc.createNestedArray("V");
-  JsonArray arr2 = doc.createNestedArray("I");
-  temp = readISensor();
-  
-  temp2 = readVSensor();
-  
+  arr = doc.createNestedArray("V");
+  arr2 = doc.createNestedArray("I");
 }
 
 
@@ -261,6 +256,7 @@ String ClockToString()
   String time = "";
   //2012-04-23T18:25:43.511Z
   //Date
+  
   time += now.year();
   time += "-";
   time += now.month();
@@ -365,8 +361,16 @@ void Start(AsyncWebServerRequest *request)
   setpoint = p->value().toDouble();
   request->send(200, "text/plain", "Holi");
   Serial.println("Timer Iniciado");
-
+  Init();
   StartTimer(); 
+}
+void Stop(AsyncWebServerRequest *request){
+    StopTimer(); 
+}
+void Data(AsyncWebServerRequest *request){
+  request -> send(200, "application/json", send);
+  doc.clear();
+  send="";
 }
 ////////////////////////////////////////////////////////////////////////////
 
@@ -390,8 +394,10 @@ void StopTimer()
   {
     // Stop and free timer
     totalInterruptCounter = 0;
+    interruptCounter=0;
     serializeJson(doc, send);
     timerEnd(timer);
+    timer = NULL;
   }
 }
 /////////////////////////////////////////////////////////////////////////////
@@ -407,7 +413,13 @@ void PID()
     PWMValue = 0;
   sumError += error;
   lastError = error;
-  ledcWrite(0, PWMValue);
+  ledcWrite(0, PWMValue); 
+  setpoint-=0.01;
+  if(setpoint<=0){
+    StopTimer();
+  }
+  arr.add(temp);
+  arr2.add(readVSensor());
 }
 ////////////////////////////////////////////////////////////////////////////
 

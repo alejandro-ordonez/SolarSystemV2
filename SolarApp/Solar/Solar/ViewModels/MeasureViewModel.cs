@@ -137,6 +137,7 @@ namespace Solar.ViewModels
             var p = new Panel {
                 Reference = Reference,
                 Description = Description,
+                Place=Place,
                 Height = await DoubleConverter(Height),
                 Width = await DoubleConverter(Width),
                 Power = await DoubleConverter(Power),

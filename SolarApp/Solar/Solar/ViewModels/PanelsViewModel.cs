@@ -44,6 +44,16 @@ namespace Solar.ViewModels
             RefreshCommand.Execute(null);
         }
 
+
+        private bool isRefreshing;
+
+        public bool IsRefreshing
+        {
+            get { return isRefreshing; }
+            set { SetProperty(ref isRefreshing, value); }
+        }
+
+
         private async Task MeasureUI()
         {
             await Application.Current.MainPage.Navigation.PushModalAsync(new GetInfo(Panel));
@@ -51,6 +61,7 @@ namespace Solar.ViewModels
 
         private async Task RefreshList()
         {
+            IsRefreshing = true;
             var x = await repository.GetPanels();
             //var x = await repository.GetPanels();
             foreach (var item in x)
@@ -60,6 +71,7 @@ namespace Solar.ViewModels
                     Panels.Add(item);
                 }
             }
+            IsRefreshing = false;
         }
 
         private async Task AddPanel()
