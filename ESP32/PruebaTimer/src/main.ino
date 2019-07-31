@@ -3,7 +3,7 @@
 #include <WiFi.h>
 #include <WebServer.h>
 volatile int interruptCounter;
-int totalInterruptCounter;
+long int totalInterruptCounter;
 bool state = false;
 hw_timer_t * timer = NULL;
 portMUX_TYPE timerMux = portMUX_INITIALIZER_UNLOCKED;
@@ -11,16 +11,13 @@ const char *ssid = "MPS";               //"Invitados_UTADEO";
 const char *password = "Siemenss71500"; //"ylch0286";
 StaticJsonDocument<50000> doc;
 String send = "";
-JsonArray arr;
-JsonArray arr2; 
+int pwm=0;
+
 WebServer server(80);
 void setup() {
  
   Serial.begin(9600);
   pinMode(34, INPUT);
-  attachInterrupt(digitalPinToInterrupt(34), OnPushed, RISING);
-  arr = doc.createNestedArray("V");
-  arr2 = doc.createNestedArray("I");
   pinMode(2, OUTPUT);
   Serial.print("Connecting to ");
   Serial.println(ssid);
@@ -38,7 +35,9 @@ void setup() {
   server.on("/Data", handle_Data);
   server.on("/Start",StartTimer);
   server.begin();
- 
+  ledcSetup(0, 50000, 16);
+  ledcAttachPin(5, 0);
+  StartTimer();
 }
  
 void loop() {
@@ -48,49 +47,36 @@ void loop() {
     portENTER_CRITICAL(&timerMux);
     interruptCounter--;
     portEXIT_CRITICAL(&timerMux);
- 
+    pwm+=50;
+    ledcWrite(0,pwm);
     totalInterruptCounter++;
-    Serial.print("An interrupt has occurred. Total number: ");
-    Serial.println(totalInterruptCounter);
-    if(totalInterruptCounter>10){
+    if(totalInterruptCounter>1000){
       StopTimer();
+      pwm=0;
       Serial.println("Terminado");
       totalInterruptCounter=0;
     }
-
-  server.handleClient(); 
+    Serial.println(ReadVoltage(32),4);
+    if(pwm>=65000){
+      pwm=0;
+    }
+    
   }
 }
 int randomNumber(){
   return random(1,100);
 }
 
-////////////////////////// On Pushed Button /////////////////////
-void IRAM_ATTR OnPushed() {
-  Serial.println("Button Interrupt");
-  state = !state;
-  if(state){
-    digitalWrite(2, HIGH);
-    StartTimer();
-  }
-  else{
-    digitalWrite(2, LOW);
-    StopTimer();
-  }
-}
 ///////////////////////// Timer Triggered ///////////////////////
 void IRAM_ATTR OnTimer() {
   portENTER_CRITICAL_ISR(&timerMux);
   interruptCounter++;
-  arr.add(randomNumber());
-  arr2.add(randomNumber());
   portEXIT_CRITICAL_ISR(&timerMux);
-
 }
 void StartTimer(){
-  timer = timerBegin(0, 80, true);
+  timer = timerBegin(0, 240, true);
   timerAttachInterrupt(timer, &OnTimer, true);
-  timerAlarmWrite(timer, 1000000, true);
+  timerAlarmWrite(timer, 20000, true);
   timerAlarmEnable(timer);
 }
 void StopTimer(){
@@ -106,4 +92,22 @@ void handle_Data(){
   server.send(200, "application/json", send);
   doc.clear();
   send="";
+}
+
+double ReadVoltage(byte pin)
+{
+  double reading = averageAnalogReading(300, 32); // Reference voltage is 3v3 so maximum reading is 3v3 = 4095 in range 0 to 4095
+  if(reading < 1 || reading > 4095) return 0;
+  //return -0.000000000009824 * pow(reading,3) + 0.000000016557283 * pow(reading,2) + 0.000854596860691 * reading + 0.065440348345433;
+  return -0.000000000000016 * pow(reading,4) + 0.000000000118171 * pow(reading,3)- 0.000000301211691 * pow(reading,2)+ 0.001109019271794 * reading + 0.034143524634089;
+} // Added an improved polynomial, use either, comment out as requi
+double averageAnalogReading(double samples, int analogPin)
+{
+  double avg = 0;
+  for (size_t i = 0; i < samples; i++)
+  {
+    /* code */
+    avg += analogRead(analogPin);
+  }
+  return avg / samples;
 }

@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
 using Solar.Helpers;
-
+using System.Diagnostics;
 
 namespace Solar.ViewModels
 {
@@ -134,6 +134,8 @@ namespace Solar.ViewModels
         private async Task<Panel> CreatePanel()
         {
             var Loc = await LocationHelper.GetLocation();
+            Debug.Write(Loc.Longitude);
+            Debug.Write(Loc.Latitude);
             var p = new Panel {
                 Reference = Reference,
                 Description = Description,

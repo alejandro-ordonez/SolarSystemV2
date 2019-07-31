@@ -6,6 +6,68 @@
              mc:Ignorable="d"
              x:Class="Solar.App">
     <Application.Resources>
+        <OnPlatform x:TypeArguments="x:String" 
+                x:Key="FontAwesomeBrands">
+            <On Platform="Android" 
+          Value="FontAwesome5Brands.otf#Regular" />
+            <On Platform="iOS" 
+          Value="FontAwesome5Brands-Regular" />
+        </OnPlatform>
+
+        <OnPlatform x:TypeArguments="x:String" 
+                x:Key="FontAwesomeSolid">
+            <On Platform="Android" 
+          Value="FontAwesome5Solid.otf#Regular" />
+            <On Platform="iOS" 
+          Value="FontAwesome5Free-Solid" />
+        </OnPlatform>
+
+        <OnPlatform x:TypeArguments="x:String" 
+                x:Key="FontAwesomeRegular">
+            <On Platform="Android" 
+          Value="FontAwesome5Regular.otf#Regular" />
+            <On Platform="iOS" 
+          Value="FontAwesome5Free-Regular" />
+        </OnPlatform>
+        
+        <!--Style-->
+        <Style TargetType="Label" x:Key="FlyoutItem">
+            <Setter Property="VerticalOptions" Value="Center"/>
+            <Setter Property="HorizontalOptions" Value="StartAndExpand"/>
+            <Setter Property="TextColor" Value="White"/>
+            <Setter Property="FontSize" Value="Title"/>
+        </Style>
+        
+        <!--Icons-->
+        <x:String x:Key="ChartIcon">&#xf1fe;</x:String>
+        <x:String x:Key="HomeIcon">&#xf015;</x:String>
+        <x:String x:Key="GetIcon">&#xf519;</x:String>
+        <x:String x:Key="TableIcon">&#xf0ce;</x:String>
+        <x:String x:Key="MapIcon">&#xf279;</x:String>
+        <x:String x:Key="BookIcon">&#xf518;</x:String>
+        <x:String x:Key="BoxIcon">&#xf49e;</x:String>
+        <x:String x:Key="FacebookIcon">&#xf082;</x:String>
+        <x:String x:Key="InstagramIcon">&#xf16d;</x:String>
+        <x:String x:Key="GitHubIcon">&#xf09b;</x:String>
+        <x:String x:Key="UserIcon">&#xf2bd;</x:String>
+        <x:String x:Key="PlusIcon">&#xf055;</x:String>
+        <x:String x:Key="RefreshIcon">&#xf2f1;</x:String>
+
+        <!--FlyOutIcons-->
+        <FontImageSource x:Key="Chart" FontFamily="{StaticResource FontAwesomeSolid}" Glyph="{StaticResource ChartIcon}" Size="25"/>
+        <FontImageSource x:Key="Home" FontFamily="{StaticResource FontAwesomeSolid}" Glyph="{StaticResource HomeIcon}" Size="25"/>
+        <FontImageSource x:Key="Get" FontFamily="{StaticResource FontAwesomeSolid}" Glyph="{StaticResource GetIcon}" Size="25"/>
+        <FontImageSource x:Key="Table" FontFamily="{StaticResource FontAwesomeSolid}" Glyph="{StaticResource TableIcon}" Size="25"/>
+        <FontImageSource x:Key="Map" FontFamily="{StaticResource FontAwesomeSolid}" Glyph="{StaticResource MapIcon}" Size="25"/>
+        <FontImageSource x:Key="Description" FontFamily="{StaticResource FontAwesomeSolid}" Glyph="{StaticResource BookIcon}" Size="25"/>
+        <FontImageSource x:Key="Starting" FontFamily="{StaticResource FontAwesomeSolid}" Glyph="{StaticResource BoxIcon}" Size="25"/>
+        <FontImageSource x:Key="Facebook" FontFamily="{StaticResource FontAwesomeBrands}" Glyph="{StaticResource FacebookIcon}" Size="30"/>
+        <FontImageSource x:Key="Instagram" FontFamily="{StaticResource FontAwesomeBrands}" Glyph="{StaticResource InstagramIcon}" Size="30" Color="White"/>
+        <FontImageSource x:Key="GitHub" FontFamily="{StaticResource FontAwesomeBrands}" Glyph="{StaticResource GitHubIcon}" Size="30" Color="White"/>
+        <FontImageSource x:Key="User" FontFamily="{StaticResource FontAwesomeSolid}" Glyph="{StaticResource UserIcon}" Size="44"/>
+        <FontImageSource x:Key="Plus" FontFamily="{StaticResource FontAwesomeSolid}" Glyph="{StaticResource PlusIcon}" Size="25" Color="Green"/>
+        <FontImageSource x:Key="Refresh" FontFamily="{StaticResource FontAwesomeSolid}" Glyph="{StaticResource RefreshIcon}" Size="25" Color="White"/>
+
         
     </Application.Resources>
 </Application>

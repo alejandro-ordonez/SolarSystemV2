@@ -1,4 +1,5 @@
 ﻿using Solar.Models;
+using Solar.Repositories;
 using Solar.Views;
 using System;
 using System.Collections.Generic;
@@ -17,19 +18,31 @@ namespace Solar.ViewModels
         private Panel panelSelected;
         #endregion
 
-        public ICommand RefreshListCommand;
+        public ICommand RefreshListCommand { get; set; }
+        private readonly SolarDbContext repository;
 
-        public ResultViewModel()
+        public ResultViewModel(SolarDbContext repository)
         {
+            this.repository = repository;
             RefreshListCommand = new Command(async()=> await Refresh());
+            Panels = new ObservableCollection<Panel>();
+            RefreshListCommand.Execute(null);           
         }
 
 
         #region Methods
         //TODO: Link Database service to update command
-        private Task Refresh()
+        private async Task Refresh()
         {
-            throw new NotImplementedException();
+            var x = await repository.GetPanels();
+            //var x = await repository.GetPanels();
+            foreach (var item in x)
+            {
+                if (!Panels.Contains(item))
+                {
+                    Panels.Add(item);
+                }
+            }
         }
 
         

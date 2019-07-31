@@ -8,10 +8,10 @@
              Visual="Material"
              x:Class="Solar.Views.Map">
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Refresh" Command="{Binding RefreshListCommand}"/>
+        <ToolbarItem IconImageSource="{StaticResource Refresh}" Command="{Binding RefreshListCommand}"/>
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
-        <StackLayout>
+        <StackLayout VerticalOptions="FillAndExpand">
             <maps:Map WidthRequest="320" HeightRequest="200" x:Name="PanelMap" IsShowingUser="true" MapType="Hybrid" ItemsSource="{Binding Panels}">
                 <maps:Map.ItemTemplate>
                     <DataTemplate>

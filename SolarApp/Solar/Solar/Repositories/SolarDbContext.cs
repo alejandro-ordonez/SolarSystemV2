@@ -41,6 +41,7 @@ namespace Solar.Repositories
         {
             var panel = await Panels.FirstOrDefaultAsync(p => p.Id == id);
             panel.Data.Add(data);
+            Panels.Update(panel);
             await SaveChangesAsync();
             return true;
         }
@@ -55,6 +56,10 @@ namespace Solar.Repositories
         public async Task<List<Panel>> GetPanels()
         {
             var panels =await Panels.ToListAsync();
+            foreach(var item in panels)
+            {
+                item.Location = new Xamarin.Forms.Maps.Position(item.Latitude, item.Longitude);
+            }
             return panels;
         }
 

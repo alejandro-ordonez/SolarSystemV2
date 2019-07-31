@@ -17,7 +17,7 @@ double temp = 0;
 
 double setpoint = 0;
 double pwm = 0;
-double error = 0, KP = 200, KD = 10, KI = 10, lastError = 0, sumError = 0;
+double error = 0, KP = 200, KD = 0, KI = 10, lastError = 0, sumError = 0;
 
 void setup()
 {
@@ -54,7 +54,7 @@ void setup()
 void loop()
 {
   // put your main code here, to run repeatedly:
-/*
+
   if (interruptCounter > 0)
   {
     portENTER_CRITICAL(&timerMux);
@@ -62,16 +62,16 @@ void loop()
     portEXIT_CRITICAL(&timerMux);
     PID();
     //Serial.println("Interrupt");
-  }*/
+  }
 
 
-  for (size_t i = 0; i < 65000; i+=300)
+  /*for (size_t i = 0; i < 65000; i+=300)
   { 
     temp=readISensor();
     print(temp, i, 0);
     ledcWrite(0, i);
     delay(1000);
-  }
+  }*/
 }
 
 void StartTimer()
@@ -146,3 +146,14 @@ double ReadVoltage(byte pin){
   //return -0.000000000009824 * pow(reading,3) + 0.000000016557283 * pow(reading,2) + 0.000854596860691 * reading + 0.065440348345433;
   return -0.000000000000016 * pow(reading,4) + 0.000000000118171 * pow(reading,3)- 0.000000301211691 * pow(reading,2)+ 0.001109019271794 * reading + 0.034143524634089;
 } // Added an improved polynomial, use either, comment out as requi
+
+double averageAnalogReading(double samples, int analogPin)
+{
+  double avg = 0;
+  for (size_t i = 0; i < samples; i++)
+  {
+    /* code */
+    avg += analogRead(analogPin);
+  }
+  return avg / samples;
+}

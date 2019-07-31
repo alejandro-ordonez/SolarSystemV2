@@ -27,7 +27,7 @@ double PWMValue = 0;
 //Variable to stablish if timer should be executed or not
 volatile byte State = LOW;
 // PID Constants
-double KP=100, KD=10, KI=50;
+double KP=100, KD=0, KI=50;
 // Error constants
 double lastError=0, error=0, sumError=0;
 #pragma endregion
@@ -203,6 +203,8 @@ void DetectLoop(){
 }
 void Init(){
   double temp;
+  lastError=0;
+  sumError=0;
   doc.clear();
   //Serialize Basic Data
   JsonObject Panel= doc.createNestedObject("Panel");
@@ -405,6 +407,7 @@ void StopTimer()
 //////////////////////////////PID////////////////////////////////////////////
 void PID()
 {
+  
   double temp = readISensor();
   print(temp, setpoint, PWMValue);
   error = setpoint - temp;

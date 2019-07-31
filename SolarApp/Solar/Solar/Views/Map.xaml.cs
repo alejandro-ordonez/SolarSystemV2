@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 using Xamarin.Forms;
+using Xamarin.Forms.Maps;
 using Xamarin.Forms.Xaml;
 
 namespace Solar.Views
@@ -17,6 +18,7 @@ namespace Solar.Views
         {
             BindingContext = Startup.ServiceProvider.GetService<ResultViewModel>();
             InitializeComponent();
+            PanelMap.MoveToRegion(MapSpan.FromCenterAndRadius(new Position(4.7111562, -74.142132), Distance.FromMiles(10)));
         }
     }
 }

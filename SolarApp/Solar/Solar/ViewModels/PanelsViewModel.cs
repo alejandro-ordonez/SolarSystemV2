@@ -22,13 +22,20 @@ namespace Solar.ViewModels
         private Panel panel;
         private readonly SolarDbContext repository;
 
-        public Panel Panel
+        public Panel PanelSelected
         {
             get { return panel; }
             set
             {
                 SetProperty(ref panel, value);
             }
+        }
+        private bool _opening=true;
+
+        public bool Opening
+        {
+            get { return _opening; }
+            set { SetProperty(ref _opening, value); }
         }
 
         public PanelsViewModel(SolarDbContext repository)
@@ -53,10 +60,9 @@ namespace Solar.ViewModels
             set { SetProperty(ref isRefreshing, value); }
         }
 
-
         private async Task MeasureUI()
         {
-            await Application.Current.MainPage.Navigation.PushModalAsync(new GetInfo(Panel));
+            await Application.Current.MainPage.Navigation.PushModalAsync(new GetInfo(PanelSelected));
         }
 
         private async Task RefreshList()
@@ -76,7 +82,9 @@ namespace Solar.ViewModels
 
         private async Task AddPanel()
         {
+            Opening = false;
             await Application.Current.MainPage.Navigation.PushModalAsync(new Measure());
+            Opening = true;
         }
     }
 }

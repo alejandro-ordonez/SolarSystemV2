@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Text;
 using Xamarin.Essentials;
+using System.ComponentModel.DataAnnotations.Schema;
+using Xamarin.Forms.Maps;
 
 namespace Solar.Models
 {
@@ -22,5 +24,8 @@ namespace Solar.Models
         public string Place { get; set; }
 
         public List<DataPanel> Data { get; set; }
+
+        [NotMapped]
+        public Position Location { get; set; }
     }
 }

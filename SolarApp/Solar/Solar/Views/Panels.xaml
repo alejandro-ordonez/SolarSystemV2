@@ -7,12 +7,12 @@
              Visual="Material"
              x:Class="Solar.Views.Panels">
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Add" Command="{Binding AddCommand}"/>
+        <ToolbarItem IconImageSource="{StaticResource Plus}" Command="{Binding AddCommand}" IsEnabled="{Binding Opening}"/>
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <StackLayout Padding="10">
             <Label Text="Escoge un panel para añadir una nueva caracterización"/>
-            <ListView IsPullToRefreshEnabled="True" IsRefreshing="{Binding IsRefreshing}" HasUnevenRows="True" RefreshCommand="{Binding RefreshCommand}" ItemsSource="{Binding Panels}">
+            <ListView SelectedItem="{Binding PanelSelected}" IsPullToRefreshEnabled="True" IsRefreshing="{Binding IsRefreshing}" HasUnevenRows="True" RefreshCommand="{Binding RefreshCommand}" ItemsSource="{Binding Panels}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ImageCell Text="{Binding Place}" ImageSource="tab_about.png" Detail="{Binding Reference}"/>
