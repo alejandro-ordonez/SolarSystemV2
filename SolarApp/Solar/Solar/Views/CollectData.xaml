@@ -4,12 +4,14 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="Solar.Views.Description">
+             Visual="Material"
+             xmlns:views="clr-namespace:Solar.Views"
+             x:Class="Solar.Views.CollectData">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Hot rxcveload test"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+        <StackLayout Padding="15">
+            <views:PanelInfo BindingContext="{Binding Panel}"/>
+            <ActivityIndicator IsRunning="{Binding IsBusy}"/>
+            <Button Text="Conectar" Command="{Binding GetCommand}"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

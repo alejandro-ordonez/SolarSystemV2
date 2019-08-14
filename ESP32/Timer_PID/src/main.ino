@@ -15,6 +15,7 @@ double temp = 0;
 //Voltage Source
 #define VSourve 3.3
 
+
 double setpoint = 0;
 double pwm = 0;
 double error = 0, KP = 200, KD = 0, KI = 10, lastError = 0, sumError = 0;
@@ -27,7 +28,7 @@ void setup()
   adcStart(ISensor);
   ledcSetup(0, 5000, 16);
   ledcAttachPin(5, 0);
-
+  
   Serial.print("Setting AP (Master Puto)…");
   // Remove the password parameter, if you want the AP (Access Point) to be open
   WiFi.softAP(ssid, password);
@@ -157,3 +158,4 @@ double averageAnalogReading(double samples, int analogPin)
   }
   return avg / samples;
 }
+

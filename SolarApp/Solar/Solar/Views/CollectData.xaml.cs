@@ -1,4 +1,7 @@
-﻿using Solar.ViewModels;
+﻿using Solar.Models;
+using Solar.Repositories;
+using Solar.Services;
+using Solar.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,13 +14,12 @@ using Xamarin.Forms.Xaml;
 namespace Solar.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class Panels : ContentPage
+    public partial class CollectData : ContentPage
     {
-        public Panels()
+        public CollectData(Panel panel)
         {
-            BindingContext = Startup.ServiceProvider.GetService<PanelsViewModel>();
+            BindingContext = new CollectDataViewModel(panel);
             InitializeComponent();
-            
         }
     }
 }

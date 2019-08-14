@@ -35,8 +35,13 @@
             <Setter Property="VerticalOptions" Value="Center"/>
             <Setter Property="HorizontalOptions" Value="StartAndExpand"/>
             <Setter Property="TextColor" Value="White"/>
-            <Setter Property="FontSize" Value="Title"/>
+            <Setter Property="FontSize" Value="Medium"/>
         </Style>
+        <Style TargetType="Label" x:Key="BoldItem" BasedOn="{StaticResource FlyoutItem}">
+            <Setter Property="TextColor" Value="Black"/>
+            <Setter Property="FontAttributes" Value="Bold"/>
+        </Style>
+        
         
         <!--Icons-->
         <x:String x:Key="ChartIcon">&#xf1fe;</x:String>

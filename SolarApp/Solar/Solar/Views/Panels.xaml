@@ -12,10 +12,10 @@
     <ContentPage.Content>
         <StackLayout Padding="10">
             <Label Text="Escoge un panel para añadir una nueva caracterización"/>
-            <ListView SelectedItem="{Binding PanelSelected}" IsPullToRefreshEnabled="True" IsRefreshing="{Binding IsRefreshing}" HasUnevenRows="True" RefreshCommand="{Binding RefreshCommand}" ItemsSource="{Binding Panels}">
+            <ListView RefreshControlColor="Green" SelectedItem="{Binding PanelSelected}" IsPullToRefreshEnabled="True" IsRefreshing="{Binding IsRefreshing}" HasUnevenRows="True" RefreshCommand="{Binding RefreshCommand}" ItemsSource="{Binding Panels}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <ImageCell Text="{Binding Place}" ImageSource="tab_about.png" Detail="{Binding Reference}"/>
+                        <ImageCell TextColor="Black" DetailColor="Green" Text="{Binding Reference}" ImageSource="tab_about.png" Detail="{Binding Place}"/>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>

@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             Visual="Material"
+             xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps"
+             x:Class="Solar.Views.PanelInfo">
+    <ContentView.Content>
+        <StackLayout>
+            <TableView RowHeight="40" HasUnevenRows="True">
+                <TableSection Title="Información General">
+                    <ViewCell>
+                        <Grid ColumnSpacing="10" Padding="15" HorizontalOptions="FillAndExpand" RowSpacing="10">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Label Text="Referencia: " Grid.Column="0" Grid.Row="0" Style="{StaticResource BoldItem}"/>
+                            <Label Text="{Binding Reference}" Grid.Column="1" Grid.Row="0"/>
+
+                            <Label Text="Lugar:" Grid.Column="0" Grid.Row="1" Style="{StaticResource BoldItem}"/>
+                            <Label Text="{Binding Place}" Grid.Column="1" Grid.Row="1"/>
+
+                            <Label Text="Width: " Grid.Column="0" Grid.Row="2" Style="{StaticResource BoldItem}"/>
+                            <Label Text="{Binding Width}" Grid.Column="1" Grid.Row="2"/>
+
+                            <Label Text="Height:" Grid.Column="0" Grid.Row="3" Style="{StaticResource BoldItem}"/>
+                            <Label Text="{Binding Height}" Grid.Column="1" Grid.Row="3"/>
+
+                            <Label Text="Voltaje Nominal: " Grid.Column="0" Grid.Row="4" Style="{StaticResource BoldItem}"/>
+                            <Label Text="{Binding NominalV}" Grid.Column="1" Grid.Row="4"/>
+
+                            <Label Text="Corriente Nominal: " Grid.Column="0" Grid.Row="5" Style="{StaticResource BoldItem}"/>
+                            <Label Text="{Binding NominalI}" Grid.Column="1" Grid.Row="5"/>
+
+                            <Label Text="Potencia: " Grid.Column="0" Grid.Row="6" Style="{StaticResource BoldItem}"/>
+                            <Label Text="{Binding Power}" Grid.Column="1" Grid.Row="6"/>
+
+                        </Grid>
+                    </ViewCell>
+                </TableSection>
+                <TableSection Title="Ubicación">
+                    <ViewCell>
+                        <maps:Map WidthRequest="320" HeightRequest="200" x:Name="PanelMap" IsShowingUser="true" MapType="Hybrid" ItemsSource="{Binding Panels}">
+                            <maps:Map.ItemTemplate>
+                                <DataTemplate>
+                                    <maps:Pin Position="{Binding Location}" Label="{Binding Description}"/>
+                                </DataTemplate>
+                            </maps:Map.ItemTemplate>
+                        </maps:Map>
+                    </ViewCell>
+                </TableSection>
+            </TableView>
+        </StackLayout>
+            <!--Here it goes small map-->
+    </ContentView.Content>
+</ContentView>

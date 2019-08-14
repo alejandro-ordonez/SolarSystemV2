@@ -15,7 +15,7 @@
 
     <Shell.FlyoutHeaderTemplate>
         <DataTemplate>
-            <StackLayout Padding="10" HorizontalOptions="CenterAndExpand">
+            <StackLayout Padding="15" HorizontalOptions="CenterAndExpand">
                 <Image Source="{StaticResource User}" Aspect="AspectFit"/>
                 <Label Text="User" FontSize="Large" Style="{StaticResource FlyoutItem}" HorizontalOptions="Center" />
                 <StackLayout Orientation="Horizontal" Spacing="15" HorizontalOptions="CenterAndExpand">
@@ -28,13 +28,13 @@
     </Shell.FlyoutHeaderTemplate>
     <Shell.ItemTemplate>
         <DataTemplate>
-            <Grid RowSpacing="40" ColumnSpacing="10" Padding="10">
+            <Grid RowSpacing="30" ColumnSpacing="5" Padding="15">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="3*"/>
+                    <ColumnDefinition Width="4*"/>
                 </Grid.ColumnDefinitions>
                 <Image Source="{Binding Icon}" Aspect="AspectFit" Grid.Column="0" Grid.Row="0"/>
                 <Label Text="{Binding Title}" Style="{StaticResource FlyoutItem}" Grid.Column="1" Grid.Row="0" />

@@ -18,7 +18,7 @@ namespace Solar.ViewModels
         public ICommand AddCommand { get; set; }
         public ICommand RefreshCommand { get; set; }
         public ICommand MeasureCommand { get; set; }
-        public int MyProperty { get; set; }
+        public ICommand GetCommand { get; set; }
         private Panel panel;
         private readonly SolarDbContext repository;
 
@@ -28,6 +28,8 @@ namespace Solar.ViewModels
             set
             {
                 SetProperty(ref panel, value);
+                if(value!=null)
+                    GetCommand.Execute(null);
             }
         }
         private bool _opening=true;
@@ -48,6 +50,7 @@ namespace Solar.ViewModels
             AddCommand = new Command(async () => await AddPanel());
             MeasureCommand = new Command(async () => await MeasureUI());
             RefreshCommand = new Command(async () => await RefreshList());
+            GetCommand = new Command(async () => await GetPanelData());
             RefreshCommand.Execute(null);
         }
 
@@ -59,7 +62,10 @@ namespace Solar.ViewModels
             get { return isRefreshing; }
             set { SetProperty(ref isRefreshing, value); }
         }
-
+        private async Task GetPanelData()
+        {
+            await Application.Current.MainPage.Navigation.PushModalAsync(new CollectData(PanelSelected));
+        }
         private async Task MeasureUI()
         {
             await Application.Current.MainPage.Navigation.PushModalAsync(new GetInfo(PanelSelected));
