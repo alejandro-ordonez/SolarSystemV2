@@ -12,7 +12,7 @@
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
-            <maps:Map WidthRequest="320" HeightRequest="200" x:Name="PanelMap" IsShowingUser="true" MapType="Hybrid" ItemsSource="{Binding Panels}">
+            <maps:Map WidthRequest="320" HeightRequest="200" x:Name="PanelMap" MapType="Hybrid" ItemsSource="{Binding Panels}">
                 <maps:Map.ItemTemplate>
                     <DataTemplate>
                         <maps:Pin Position="{Binding Location}" Label="{Binding Description}"/>

@@ -1,7 +1,15 @@
 #include <Arduino.h>
 #include <WiFi.h>
 #include <ESPAsyncWebServer.h>
+#include <digcomp.h>
 
+float b[]={0.190689333359277, 0.190689333359277};
+float a[]={1.000000000000000, -0.618621333281447};
+
+float lp_in[2];
+float lp_out[2];
+
+dig_comp filter(b,a, lp_in, lp_out, 2,2);
 const char *ssid = "ESP32-Access-Point";
 const char *password = "123456789";
 hw_timer_t *timer = NULL;
@@ -14,18 +22,20 @@ double temp = 0;
 #define Resolution 4096
 //Voltage Source
 #define VSourve 3.3
-
+int maxPwm = 65536;
 
 double setpoint = 0;
 double pwm = 0;
 double error = 0, KP = 200, KD = 0, KI = 10, lastError = 0, sumError = 0;
 
+float v =0;
+
 void setup()
 {
   // put your setup code here, to run once:
   Serial.begin(115200);
-  adcAttachPin(ISensor);
-  adcStart(ISensor);
+  adcAttachPin(39);
+  adcStart(39);
   ledcSetup(0, 5000, 16);
   ledcAttachPin(5, 0);
   
@@ -61,11 +71,18 @@ void loop()
     portENTER_CRITICAL(&timerMux);
     interruptCounter--;
     portEXIT_CRITICAL(&timerMux);
-    PID();
+    totalInterruptCounter++;
+    if(totalInterruptCounter>=10){
+      ledcWrite(0, maxPwm-=10);
+      Serial.println(v);
+    }
+    v = filter.calc_out(analogRead(39));
+    if(maxPwm<=6){
+      maxPwm=65536;
+      totalInterruptCounter=0;
+    }
     //Serial.println("Interrupt");
   }
-
-
   /*for (size_t i = 0; i < 65000; i+=300)
   { 
     temp=readISensor();
@@ -79,7 +96,7 @@ void StartTimer()
 {
   timer = timerBegin(0, 240, true);
   timerAttachInterrupt(timer, &OnTimer, true);
-  timerAlarmWrite(timer, 10000, true);
+  timerAlarmWrite(timer, 5000, true);
   timerAlarmEnable(timer);
 }
 
@@ -147,15 +164,4 @@ double ReadVoltage(byte pin){
   //return -0.000000000009824 * pow(reading,3) + 0.000000016557283 * pow(reading,2) + 0.000854596860691 * reading + 0.065440348345433;
   return -0.000000000000016 * pow(reading,4) + 0.000000000118171 * pow(reading,3)- 0.000000301211691 * pow(reading,2)+ 0.001109019271794 * reading + 0.034143524634089;
 } // Added an improved polynomial, use either, comment out as requi
-
-double averageAnalogReading(double samples, int analogPin)
-{
-  double avg = 0;
-  for (size_t i = 0; i < samples; i++)
-  {
-    /* code */
-    avg += analogRead(analogPin);
-  }
-  return avg / samples;
-}
 

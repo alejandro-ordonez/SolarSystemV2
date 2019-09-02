@@ -71,8 +71,7 @@ volatile int interruptCounter = 0;
 // Scaled factor determined by voltage divider
 #define Scale 7.27
 #define ISensor 32
-#define VS1 26
-#define VS2 25
+#define VS1 39
 
 #define DEBUG 1
 ////////////////////////////////////////////////////////////////////////////
@@ -117,10 +116,7 @@ void setup()
   adcAttachPin(VS1);
   adcStart(VS1);
   //pinMode(VS1, INPUT);
-  //V2
-  adcAttachPin(VS2);
-  adcStart(VS2);
-  //pinMode(VS2, INPUT);
+  
 
   //Other pins...
   pinMode(Indicator, OUTPUT);
@@ -297,8 +293,7 @@ float readISensor()
 float readVSensor()
 {
   float VoltageF =  (averageAnalogReading(600.0, VS1) / Resolution)*13*(340206.186/320000);
-  float VoltageT =  (averageAnalogReading(600.0, VS2) / Resolution)*13*(340206.186/320000);
-  return VoltageF-VoltageT;
+  return VoltageF;
 }
 #pragma endregion
 ////////////////////////////////////////////////////////////////////////////
