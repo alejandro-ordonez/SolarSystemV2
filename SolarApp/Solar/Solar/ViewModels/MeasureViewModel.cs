@@ -15,9 +15,9 @@ namespace Solar.ViewModels
 {
     public class MeasureViewModel:BaseViewModel
     {
-        private readonly SolarDbContext repository;
+        private readonly IRepository repository;
 
-        public MeasureViewModel(SolarDbContext repository)
+        public MeasureViewModel(IRepository repository)
         {
             GetDataCommand = new Command(async () => await GetData());
             this.repository = repository;

@@ -23,7 +23,7 @@ namespace Solar.Models
         public string Description { get; set; }
         public string Place { get; set; }
 
-        public List<DataPanel> Data { get; set; }
+        public List<DataPanel> Data { get; set; } = new List<DataPanel>();
 
         [NotMapped]
         public Position Location { get; set; }

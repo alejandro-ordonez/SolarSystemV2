@@ -20,7 +20,7 @@ namespace Solar.ViewModels
         public ICommand MeasureCommand { get; set; }
         public ICommand GetCommand { get; set; }
         private Panel panel;
-        private readonly SolarDbContext repository;
+        private readonly IRepository repository;
 
         public Panel PanelSelected
         {
@@ -40,7 +40,7 @@ namespace Solar.ViewModels
             set { SetProperty(ref _opening, value); }
         }
 
-        public PanelsViewModel(SolarDbContext repository)
+        public PanelsViewModel(IRepository repository)
         {
             this.repository = repository;
             Panels = new ObservableCollection<Panel>

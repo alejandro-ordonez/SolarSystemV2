@@ -8,7 +8,7 @@ namespace Solar.Models
     public class DataPanel
     {
         public int Id { get; set; }
-        public List<Reading> IV { get; set; }
+        public List<Reading> IV { get; set; } = new List<Reading>();
         public DateTime Date { get; set; }
         public double Radiation { get; set; }
         public double Pmax { get; set; }

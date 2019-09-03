@@ -19,9 +19,9 @@ namespace Solar.ViewModels
         #endregion
 
         public ICommand RefreshListCommand { get; set; }
-        private readonly SolarDbContext repository;
+        private readonly IRepository repository;
 
-        public ResultViewModel(SolarDbContext repository)
+        public ResultViewModel(IRepository repository)
         {
             this.repository = repository;
             RefreshListCommand = new Command(async()=> await Refresh());
