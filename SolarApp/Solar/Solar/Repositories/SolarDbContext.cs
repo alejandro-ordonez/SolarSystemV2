@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using Xamarin.Essentials;
 namespace Solar.Repositories
 {
-    public class SolarDbContext:DbContext, IRepository
+    public class SolarDbContext:DbContext
     {
         public string DbPath { get; set; }
 
@@ -36,32 +36,5 @@ namespace Solar.Repositories
             //modelBuilder.Entity<Panel>().HasMany<DataPanel>();
             //modelBuilder.Entity<DataPanel>().HasMany<Reading>();
         }
-
-        public async Task<bool> InsertReadingsToExisting(int id, DataPanel data)
-        {
-            var panel = await Panels.FirstOrDefaultAsync(p => p.Id == id);
-            panel.Data.Add(data);
-            Panels.Update(panel);
-            await SaveChangesAsync();
-            return true;
-        }
-
-        public async Task<bool> InsertNewPanel(Panel p)
-        {
-            await Panels.AddAsync(p);
-            await SaveChangesAsync();
-            return true;
-        }
-
-        public async Task<List<Panel>> GetPanels()
-        {
-            var panels =await Panels.ToListAsync();
-            foreach(var item in panels)
-            {
-                item.Location = new Xamarin.Forms.Maps.Position(item.Latitude, item.Longitude);
-            }
-            return panels;
-        }
-
     }
 }

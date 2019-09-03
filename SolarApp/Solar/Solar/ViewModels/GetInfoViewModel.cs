@@ -26,7 +26,7 @@ namespace Solar.ViewModels
         private async Task GetAndSave()
         {
             var p =await data.GetData();
-            repository.InsertReadingsToExisting(Panel.Id, p);
+            await repository.InsertReadingsToExisting(Panel);
 
         }
 
