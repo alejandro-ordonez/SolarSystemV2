@@ -6,11 +6,20 @@
              mc:Ignorable="d"
              Visual="Material"
              x:Class="Solar.Views.Home">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <x:String x:Key="TitleHome">¡BIENVENIDO!</x:String>
+            <x:String x:Key="WelcomeText">
+                Gracias por usar Sunny App, esta aplicación será tu apoyo en campo para la medición y caracterización de paneles solares.
+                Con Sunny App podrás obtener datos confiables que te permitirán determinar el estado y las condiciones en las que se encuentra el dispositivo a medir.
+            </x:String>
+        </ResourceDictionary>
+    </ContentPage.Resources>
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+        <StackLayout Padding="15" Spacing="15" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+            <Label Text="{StaticResource TitleHome}" Style="{StaticResource TitleStyle}"/>
+            <Image Source="{StaticResource TitleHomeIcon}" Margin="0,0,0,20"/>
+            <Label Text="{StaticResource WelcomeText}" MaxLines="15" LineBreakMode="WordWrap" FontSize="Medium" HorizontalOptions="Center" VerticalOptions="Center"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

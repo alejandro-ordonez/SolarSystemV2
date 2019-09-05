@@ -41,7 +41,13 @@
             <Setter Property="TextColor" Value="Black"/>
             <Setter Property="FontAttributes" Value="Bold"/>
         </Style>
-        
+
+        <Style TargetType="Label" x:Key="TitleStyle">
+            <Setter Property="FontAttributes" Value="Bold, Italic"/>
+            <Setter Property="FontSize" Value="Large"/>
+            <Setter Property="HorizontalOptions" Value="Center"/>
+            <Setter Property="VerticalOptions" Value="Start"/>
+        </Style>
         
         <!--Icons-->
         <x:String x:Key="ChartIcon">&#xf1fe;</x:String>
@@ -61,6 +67,7 @@
         <!--FlyOutIcons-->
         <FontImageSource x:Key="Chart" FontFamily="{StaticResource FontAwesomeSolid}" Glyph="{StaticResource ChartIcon}" Size="25"/>
         <FontImageSource x:Key="Home" FontFamily="{StaticResource FontAwesomeSolid}" Glyph="{StaticResource HomeIcon}" Size="25"/>
+        <FontImageSource x:Key="TitleHomeIcon" FontFamily="{StaticResource FontAwesomeSolid}" Color="DarkBlue" Glyph="{StaticResource HomeIcon}" Size="35"/>
         <FontImageSource x:Key="Get" FontFamily="{StaticResource FontAwesomeSolid}" Glyph="{StaticResource GetIcon}" Size="25"/>
         <FontImageSource x:Key="Table" FontFamily="{StaticResource FontAwesomeSolid}" Glyph="{StaticResource TableIcon}" Size="25"/>
         <FontImageSource x:Key="Map" FontFamily="{StaticResource FontAwesomeSolid}" Glyph="{StaticResource MapIcon}" Size="25"/>
@@ -69,10 +76,9 @@
         <FontImageSource x:Key="Facebook" FontFamily="{StaticResource FontAwesomeBrands}" Glyph="{StaticResource FacebookIcon}" Size="30"/>
         <FontImageSource x:Key="Instagram" FontFamily="{StaticResource FontAwesomeBrands}" Glyph="{StaticResource InstagramIcon}" Size="30" Color="White"/>
         <FontImageSource x:Key="GitHub" FontFamily="{StaticResource FontAwesomeBrands}" Glyph="{StaticResource GitHubIcon}" Size="30" Color="White"/>
-        <FontImageSource x:Key="User" FontFamily="{StaticResource FontAwesomeSolid}" Glyph="{StaticResource UserIcon}" Size="44"/>
+        <FontImageSource x:Key="User" FontFamily="{StaticResource FontAwesomeSolid}" Glyph="{StaticResource UserIcon}" Size="60"/>
         <FontImageSource x:Key="Plus" FontFamily="{StaticResource FontAwesomeSolid}" Glyph="{StaticResource PlusIcon}" Size="25" Color="Green"/>
         <FontImageSource x:Key="Refresh" FontFamily="{StaticResource FontAwesomeSolid}" Glyph="{StaticResource RefreshIcon}" Size="25" Color="White"/>
 
-        
     </Application.Resources>
 </Application>

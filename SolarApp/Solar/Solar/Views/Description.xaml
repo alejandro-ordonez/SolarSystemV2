@@ -5,11 +5,17 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="Solar.Views.Description">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <x:String x:Key="TextHome">Esta aplicación tiene como proposito ayudar a la caracterización de paneles solares, obteniendo sus respectivas curvas caracteristicas</x:String>
+            <x:String x:Key="TitleHome">Descripción</x:String>
+        </ResourceDictionary>
+    </ContentPage.Resources>
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Hot rxcveload test"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+        <StackLayout Padding="15" Spacing="15" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+            <Label Text="{StaticResource TitleHome}" Style="{StaticResource TitleStyle}"/>
+            <Image Source="{StaticResource TitleHomeIcon}" Margin="0,0,0,20"/>
+            <Label Text="{StaticResource TextHome}" MaxLines="15" LineBreakMode="WordWrap" FontSize="Medium" HorizontalOptions="Center" VerticalOptions="Center"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
