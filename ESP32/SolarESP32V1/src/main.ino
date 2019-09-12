@@ -302,6 +302,7 @@ float readVSensor()
 #pragma region
 double averageAnalogReading(double samples, int analogPin)
 {
+  
   double avg = 0;
   for (size_t i = 0; i < samples; i++)
   {

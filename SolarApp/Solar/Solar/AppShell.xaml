@@ -13,10 +13,10 @@
        FlyoutBackgroundImageAspect="AspectFill"
        TitleColor ="White"       
        x:Class="Solar.AppShell">
-    
+
     <Shell.FlyoutHeaderTemplate>
         <DataTemplate>
-            <Grid Padding="20" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" RowSpacing="15">
+            <Grid VerticalOptions="Fill" HorizontalOptions="FillAndExpand">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
@@ -25,6 +25,7 @@
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="6*"/>
                 </Grid.ColumnDefinitions>
+                <Image Source="header.png" Aspect="AspectFill" Grid.RowSpan="2" Grid.ColumnSpan="2" Grid.Column="0" Grid.Row="0" Opacity="0.5"/>
                 <Image Source="{StaticResource User}" Aspect="AspectFit" Grid.RowSpan="2" Grid.Column="0"/>
                 <Label Text="User" FontSize="Large" Style="{StaticResource FlyoutItem}" HorizontalOptions="Center" Grid.Column="1" Grid.Row="0" />
                 <StackLayout Grid.Row="1" Grid.Column="1" Orientation="Horizontal" Spacing="15" HorizontalOptions="CenterAndExpand">

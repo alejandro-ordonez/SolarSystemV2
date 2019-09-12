@@ -23,43 +23,53 @@ float lp_in1[2];
 float lp_out1[2];
 float temp = 0;
 float temp2 = 0;
+float tempFilter =0;
+float temp2Filter=0;
 long int ta=0;
 long int tb=0;
 dig_comp filter(b,a, lp_in, lp_out, 2,2);
 dig_comp filter2(b,a, lp_in1, lp_out1, 2,2);
-Plotter p;
+int counter = 0;
+//Plotter p;
 
 void setup() {
   // put your setup code here, to run once:
   Serial.begin(115200);
-  p.Begin();
+  //p.Begin();
   adcAttachPin(39);
   adcAttachPin(32);
   adcStart(39);
   adcStart(32);
   ledcSetup(0, 50000, 16);
   ledcAttachPin(5, 0);
-  p.AddXYGraph( "X-Y graph w/ 500 points", 500000, "x axis", temp, "y axis", temp2 );
+  //p.AddXYGraph( "X-Y graph w/ 500 points", 500000, "x axis", temp, "y axis", temp2 );
   //ledcWrite(0,65536);
 }
 
 void loop() {
-  for (size_t i = 0; i < 65536; i+=5)
+  for (size_t i = 0; i < 65536; i+=1)
     { 
       ta=micros();
       ledcWrite(0,i);
       // put your main code here, to run repeatedly:
       temp = analogRead(39);
       temp2 = analogRead(32);
+      tempFilter = filter.calc_out(temp);
+      temp2Filter = filter2.calc_out(temp2);
       //Serial.print(ReadVoltage(filter.calc_out(temp)));
-      Serial.print(filter.calc_out(temp),5);
-      Serial.print("    ");
-      //Serial.print(temp,5);
-      //Serial.print("    ");
-      Serial.println(filter2.calc_out(temp2),5);
+      counter++;
+      if(counter>=50){
+        counter=0;
+        Serial.print(tempFilter,5);
+        Serial.print("  ");
+        //Serial.print(temp,5);
+        //Serial.print("    ");
+        Serial.print(temp2Filter,5);
+        Serial.println();
+        delayMicroseconds(100);
+      }
       tb=micros();
-      p.Plot();
-     if((tb-ta)<100){
+      if((tb-ta)<100){
        delayMicroseconds(100-(tb-ta));
      }
    }

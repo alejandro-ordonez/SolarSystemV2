@@ -11,7 +11,7 @@
         app:lottie_autoPlay="true"
         app:lottie_imageAssetsFolder="images"
         IsFolderImagesAdded="True"
-        app:lottie_repeatCount="2"
+        app:lottie_repeatCount="1"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true" />
 </RelativeLayout>

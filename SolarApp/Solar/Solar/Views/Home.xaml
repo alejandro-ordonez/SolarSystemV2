@@ -6,6 +6,10 @@
              mc:Ignorable="d"
              Visual="Material"
              x:Class="Solar.Views.Home">
+
+    <Shell.TitleView>
+        <Image Source="branches.png" Aspect="AspectFill" HorizontalOptions="Start" VerticalOptions="Center"/>
+    </Shell.TitleView>
     <ContentPage.Resources>
         <ResourceDictionary>
             <x:String x:Key="TitleHome">¡BIENVENIDO!</x:String>
