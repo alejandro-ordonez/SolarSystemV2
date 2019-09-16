@@ -245,7 +245,7 @@ void setup() {
     // Handling function
     Data(request);
   });
-  server.on("/SetTime", HTTP_POST, [](AsyncWebServerRequest *request) {
+  server.on("/SetTime", HTTP_GET, [](AsyncWebServerRequest *request) {
     SetTime(request);
   });
   server.begin();
