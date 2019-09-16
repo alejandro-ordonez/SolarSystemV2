@@ -403,7 +403,6 @@ void StopTimer()
 //////////////////////////////PID////////////////////////////////////////////
 void PID()
 {
-  
   double temp = readISensor();
   print(temp, setpoint, PWMValue);
   error = setpoint - temp;
