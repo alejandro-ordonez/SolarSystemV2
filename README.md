@@ -9,9 +9,18 @@ This project is being developed by Jhon Anderson Urbano Díaz and Manuel Alejand
 > files of the ESP32 and the files of couminication with the server.
 
 ### Hardware
+> It presents the files of the circuit of characterization of solar panels made in Proteus; as simulations, PCB models 
+> and 3D models of the components used in the circuit.
+
 ### Matlab
+> In this session you will find the files made in Matlab for the mathematical calculation of the RC digital filter and 
+> the obtaining of the PID variables for the solar panel characterization plant.
+
 ### Mockups
+> It presents the files of the visual part of the mobile application.
+
 ### SolarApp
+> In this section you will find the files of the mobile application, made in Visual Studio.
 
 
 
