@@ -7,6 +7,7 @@
 #include <ArduinoJson.h>
 #include <RTClib.h>
 #include <digcomp.h>
+//#include <AsyncJson.h>
 
 #pragma endregion
 /////////////////////////////////////////////////////////////////////////////////////////////////
@@ -229,6 +230,13 @@ void setup() {
   #pragma endregion
   //////////////////////////////////////////
 
+  
+   if (!Clock.begin()) {
+      Serial.println(F("Couldn't find RTC"));
+      while (1);
+   }
+
+
   //////////// Server Set up //////////////
   #pragma region 
 
@@ -248,6 +256,7 @@ void setup() {
   server.on("/SetTime", HTTP_GET, [](AsyncWebServerRequest *request) {
     SetTime(request);
   });
+
   server.begin();
 
   #pragma endregion
@@ -332,21 +341,33 @@ void Data(AsyncWebServerRequest *request){
  * params over URL.
  */
 void SetTime(AsyncWebServerRequest *request){
-  AsyncWebParameter *year   = request->getParam(0);
-  AsyncWebParameter *month  = request->getParam(1);
-  AsyncWebParameter *day    = request->getParam(2);
-  AsyncWebParameter *hour   = request->getParam(3);
-  AsyncWebParameter *minute = request->getParam(4);
-  AsyncWebParameter *second = request->getParam(5);
-  DateTime newTime(
-    year  ->value().toInt(),
-    month ->value().toInt(),
-    day   ->value().toInt(),
-    hour  ->value().toInt(),
-    minute->value().toInt(),
-    second->value().toInt());
-  Clock.adjust(newTime);
-  request-> send(200, "text/plain", Clock.now().timestamp());
+  AsyncWebParameter *Params;
+  int dateInfo[6];
+  int temp = 0;
+  for (size_t i = 0; i < 6; i++)
+  {
+    /* code */
+    Params=request->getParam(i);
+    temp = Params->value().toInt();
+    dateInfo[i]=temp;
+  }
+  Clock.adjust(DateTime(dateInfo[0],dateInfo[1],dateInfo[2],dateInfo[3],dateInfo[4],dateInfo[5]));
+  DateTime TimeNow=Clock.now();
+  String res = "";
+  res+=TimeNow.year();
+  res+="/";
+  res+=TimeNow.month();
+  res+="/";
+  res+=TimeNow.day();
+  
+  res+="    ";
+  res+=TimeNow.hour();
+  res+="-";
+  res+=TimeNow.minute();
+  res+="-";
+  res+=TimeNow.second();
+
+  request-> send(200, "text/plain", res);
 }
 
 #pragma endregion
