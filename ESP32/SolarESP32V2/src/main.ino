@@ -267,6 +267,14 @@ void setup() {
 
 void loop() {
   // put your main code here, to run repeatedly:
+  if(interruptCounter>0){
+    portENTER_CRITICAL(&timerMux);
+    interruptCounter--;
+    portEXIT_CRITICAL(&timerMux);
+    totalInterruptCounter++;
+    PID();
+  }
+
 }
 
 #pragma endregion
@@ -304,6 +312,7 @@ void Start(AsyncWebServerRequest *request)
   AsyncWebParameter *p = request->getParam(0);
   VoC = p->value().toDouble();
   increase = CalculateStep();
+  StartTimer();
   Serial.println("Timer Iniciado");
   doc.clear();
   send="";
@@ -335,7 +344,7 @@ void Data(AsyncWebServerRequest *request){
  * an DateTime Object which would be used to update
  * current Time on RTC module
  * 
- * https://IP/SetTime/?y=2019&m=5&d=15&h=12&m=23&s=3
+ * http://192.168.4.1/SetTime?year=2019&month=9&day=16&hour=19&minutes=12&seconds=40
  * 
  * @param request this param handle and extract all
  * params over URL.
@@ -421,7 +430,8 @@ void StartTimer()
 {
   timer = timerBegin(0, 240, true);
   timerAttachInterrupt(timer, &OnTimer, true);
-  timerAlarmWrite(timer, 10000, true);
+  //TODO: Update scale
+  timerAlarmWrite(timer, 10, true);
   timerAlarmEnable(timer);
 }
 
