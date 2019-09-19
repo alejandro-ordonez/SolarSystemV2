@@ -55,7 +55,7 @@ namespace Solar
             services.AddTransient<IRepository, DataBaseService>();
 
             //TODO: Add all ViewModels and services
-            services.AddSingleton<ResultViewModel>();
+            services.AddTransient<ResultViewModel>();
             services.AddTransient<PanelsViewModel>();
             services.AddTransient<MeasureViewModel>();
             

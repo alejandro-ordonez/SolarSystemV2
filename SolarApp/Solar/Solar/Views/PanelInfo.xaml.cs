@@ -18,9 +18,9 @@ namespace Solar.Views
         public PanelInfo()
         {
             InitializeComponent();
-            //var x =(Panel)BindingContext;
+            var x =(Panel)BindingContext;
             //var x = Solar.Helpers.LocationHelper.GetLocation();
-            PanelMap.MoveToRegion(MapSpan.FromCenterAndRadius(new Position(4.606730, -74.067222), Distance.FromMiles(5)));
+            PanelMap.MoveToRegion(MapSpan.FromCenterAndRadius(new Position(x.Latitude, x.Longitude), Distance.FromMiles(2)));
         }
     }
 }

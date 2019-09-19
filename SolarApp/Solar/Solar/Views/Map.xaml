@@ -4,6 +4,7 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps"
+             xmlns:custom="clr-namespace:Solar.CustomControls"
              mc:Ignorable="d"
              Visual="Material"
              x:Class="Solar.Views.Map">
@@ -11,14 +12,12 @@
         <ToolbarItem IconImageSource="{StaticResource Refresh}" Command="{Binding RefreshListCommand}"/>
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
-        <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
-            <maps:Map WidthRequest="320" HeightRequest="200" x:Name="PanelMap" MapType="Hybrid" ItemsSource="{Binding Panels}">
-                <maps:Map.ItemTemplate>
-                    <DataTemplate>
-                        <maps:Pin Position="{Binding Location}" Label="{Binding Description}"/>
-                    </DataTemplate>
-                </maps:Map.ItemTemplate>
-            </maps:Map>
-        </StackLayout>
+        <maps:Map WidthRequest="320" HeightRequest="200" x:Name="PanelMap" MapType="Hybrid" ItemsSource="{Binding Panels}">
+            <maps:Map.ItemTemplate>
+                <DataTemplate>
+                    <custom:CustomPin x:Name="Pin" IdPanel="{Binding Id}" Position="{Binding Location}" Label="{Binding Description}" Clicked="Pin_Clicked"/>
+                </DataTemplate>
+            </maps:Map.ItemTemplate>
+        </maps:Map>
     </ContentPage.Content>
 </ContentPage>

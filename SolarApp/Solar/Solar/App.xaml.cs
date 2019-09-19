@@ -4,6 +4,9 @@ using Xamarin.Forms.Xaml;
 using Solar.Services;
 using Solar.Views;
 using Solar.Repositories;
+using Solar.Helpers;
+using System.Threading.Tasks;
+
 namespace Solar
 {
     public partial class App : Application

@@ -29,6 +29,11 @@ namespace Solar.Repositories
             return true;
         }
 
+        public async Task<Panel> GetPanelAsync(int id)
+        {
+            return await repository.Panels.FirstOrDefaultAsync<Panel>(p => p.Id == id);
+        }
+
         public async Task<List<Panel>> GetPanels()
         {
             var panels = await repository.Panels.ToListAsync();

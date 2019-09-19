@@ -7,7 +7,7 @@ namespace Solar.Helpers
 {
     public static class LocationHelper
     {
-        public static async Task<Location> GetLocation()
+        public static async Task<Location> GetLocationAsync()
         {
             try
             {
@@ -35,6 +35,5 @@ namespace Solar.Helpers
                 return null;
             }
         }
-
     }
 }

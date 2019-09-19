@@ -133,7 +133,7 @@ namespace Solar.ViewModels
         }
         private async Task<Panel> CreatePanel()
         {
-            var Loc = await LocationHelper.GetLocation();
+            var Loc = await LocationHelper.GetLocationAsync();
             Debug.Write(Loc.Longitude);
             Debug.Write(Loc.Latitude);
             var p = new Panel {

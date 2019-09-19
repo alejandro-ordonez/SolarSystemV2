@@ -16,7 +16,7 @@
 
     <Shell.FlyoutHeaderTemplate>
         <DataTemplate>
-            <Grid VerticalOptions="Fill" HorizontalOptions="FillAndExpand">
+            <Grid VerticalOptions="Fill" HorizontalOptions="Fill">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
@@ -26,8 +26,8 @@
                     <ColumnDefinition Width="6*"/>
                 </Grid.ColumnDefinitions>
                 <Image Source="header.png" Aspect="AspectFill" Grid.RowSpan="2" Grid.ColumnSpan="2" Grid.Column="0" Grid.Row="0" Opacity="0.5"/>
-                <Image Source="{StaticResource User}" Aspect="AspectFit" Grid.RowSpan="2" Grid.Column="0"/>
-                <Label Text="User" FontSize="Large" Style="{StaticResource FlyoutItem}" HorizontalOptions="Center" Grid.Column="1" Grid.Row="0" />
+                <Image Source="{StaticResource User}" Aspect="AspectFit" Grid.RowSpan="2" HorizontalOptions="End" Grid.Column="0"/>
+                <Label Text="User" FontSize="Large" Style="{StaticResource FlyoutItem}" HorizontalOptions="Center" VerticalOptions="Center" Grid.Column="1" Grid.Row="0" />
                 <StackLayout Grid.Row="1" Grid.Column="1" Orientation="Horizontal" Spacing="15" HorizontalOptions="CenterAndExpand">
                     <ImageButton Source="{StaticResource Facebook}" Aspect="AspectFit" BackgroundColor="Transparent"/>
                     <ImageButton Source="{StaticResource Instagram}" Aspect="AspectFit" BackgroundColor="Transparent"/>

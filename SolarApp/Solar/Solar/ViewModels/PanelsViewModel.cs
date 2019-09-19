@@ -92,5 +92,6 @@ namespace Solar.ViewModels
             await Application.Current.MainPage.Navigation.PushModalAsync(new Measure());
             Opening = true;
         }
+        
     }
 }

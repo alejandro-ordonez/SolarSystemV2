@@ -19,6 +19,7 @@ namespace Solar.ViewModels
         #endregion
 
         public ICommand RefreshListCommand { get; set; }
+        public ICommand ResultCommand { get; set; }
         private readonly IRepository repository;
 
         public ResultViewModel(IRepository repository)
@@ -26,6 +27,7 @@ namespace Solar.ViewModels
             this.repository = repository;
             RefreshListCommand = new Command(async()=> await Refresh());
             Panels = new ObservableCollection<Panel>();
+            ResultCommand = new Command<int>(async (id) => await Result(id));
             RefreshListCommand.Execute(null);           
         }
 
@@ -45,7 +47,11 @@ namespace Solar.ViewModels
             }
         }
 
-        
+        private async Task Result(int id)
+        {
+            IsBusy = true;
+            await Application.Current.MainPage.Navigation.PushModalAsync(new Info(await repository.GetPanelAsync(id)));
+        }
 
         public Panel PanelSelected
         {

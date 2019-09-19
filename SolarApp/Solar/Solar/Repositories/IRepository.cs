@@ -14,5 +14,6 @@ namespace Solar.Repositories
         Task<bool> InsertReadingsToExisting(Panel p);
         Task<bool> InsertNewPanel(Panel p);
         Task<List<Panel>> GetPanels();
+        Task<Panel> GetPanelAsync(int id);
     }
 }
