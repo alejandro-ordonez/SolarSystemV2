@@ -15,11 +15,9 @@ namespace Solar.Views
     {
         public Info(Panel p)
         {
-            
+            BindingContext = p;
             InitializeComponent();
-            P = p;
         }
 
-        public Panel P { get; }
     }
 }

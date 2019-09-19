@@ -13,7 +13,6 @@ namespace Solar.ViewModels
     public class CollectDataViewModel : BaseViewModel
     {
         public Panel Panel { get; set; }
-        private readonly IESPData data;
         private readonly IRepository repository;
 
         public ICommand GetCommand { get; set; }
@@ -29,9 +28,10 @@ namespace Solar.ViewModels
         private async Task GetData()
         {
             IsBusy = true;
-            Panel.Data.Add(
-                new DataPanel()
+            var data = new DataPanel() 
             {
+                Date = DateTime.Now,
+                Radiation=20,
                 IV = new List<Reading>(){
                     new Reading{I = 5,V = 0},
                     new Reading{I = 4.70,V = 1},
@@ -50,10 +50,11 @@ namespace Solar.ViewModels
                     new Reading{I = 1.2,V = 14},
                     new Reading{I = 0,V = 15}
                 }
-            } );
+            };
             await Task.Delay(1000);
-            await repository.InsertReadingsToExisting(Panel);
+            await repository.InsertReadingsToExisting(Panel.Id, data);
             IsBusy = false;
+            await Application.Current.MainPage.Navigation.PopModalAsync();
         }
     }
 }

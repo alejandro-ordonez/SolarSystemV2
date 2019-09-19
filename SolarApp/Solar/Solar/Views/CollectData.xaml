@@ -11,7 +11,7 @@
         <StackLayout Padding="15">
             <views:PanelInfo BindingContext="{Binding Panel}"/>
             <ActivityIndicator IsRunning="{Binding IsBusy}"/>
-            <Button Text="Conectar" Command="{Binding GetCommand}"/>
+            <Button Text="Conectar" IsEnabled="{Binding IsBusy}" Command="{Binding GetCommand}"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

@@ -11,7 +11,7 @@ namespace Solar.Repositories
         //bool InsertReadingsToExisting(int id, DataPanel data);
        // Task InsertNewPanel(Panel p);
         //List<Panel> GetPanels();
-        Task<bool> InsertReadingsToExisting(Panel p);
+        Task<bool> InsertReadingsToExisting(int id, DataPanel Measurement);
         Task<bool> InsertNewPanel(Panel p);
         Task<List<Panel>> GetPanels();
         Task<Panel> GetPanelAsync(int id);

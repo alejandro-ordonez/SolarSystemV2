@@ -6,6 +6,7 @@
              mc:Ignorable="d"
              Visual="Material"
              xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps"
+             x:Name="PanelInfoView"
              x:Class="Solar.Views.PanelInfo">
     <ContentView.Content>
         <StackLayout>

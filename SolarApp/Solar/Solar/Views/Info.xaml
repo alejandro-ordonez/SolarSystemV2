@@ -6,12 +6,13 @@
              xmlns:views="clr-namespace:Solar.Views"
              mc:Ignorable="d"
              Visual="Material"
+             x:Name="InfoView"
              x:Class="Solar.Views.Info">
     <!--Pages can be added as references or inline-->
     <ContentPage Title="Info">
-        <views:PanelInfo BindingContext="{Binding P}"/>
+        <views:PanelInfo BindingContext="{Binding BindingContext, Source={x:Reference InfoView}}"/>
     </ContentPage>
     <ContentPage Title="Mediciones">
-        <views:MeasurementsTable BindingContext="{Binding P}"/>
+        <views:MeasurementsTable BindingContext="{Binding BindingContext, Source={x:Reference InfoView}}"/>
     </ContentPage>
 </TabbedPage>

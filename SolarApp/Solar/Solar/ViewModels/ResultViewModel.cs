@@ -50,7 +50,9 @@ namespace Solar.ViewModels
         private async Task Result(int id)
         {
             IsBusy = true;
-            await Application.Current.MainPage.Navigation.PushModalAsync(new Info(await repository.GetPanelAsync(id)));
+            int Id = id;
+            var p = await repository.GetPanelAsync(Id);
+            await Application.Current.MainPage.Navigation.PushModalAsync(new Info(p));
         }
 
         public Panel PanelSelected

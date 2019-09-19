@@ -15,9 +15,11 @@ namespace Solar.Repositories
         {
             this.repository = repository;
         }
-        public async Task<bool> InsertReadingsToExisting(Panel p)
+        public async Task<bool> InsertReadingsToExisting(int id, DataPanel Measurement)
         {
-            repository.Panels.Update(p);
+            var panel = await repository.Panels.Include(P => P.Data).ThenInclude(data=> data.IV).SingleAsync(P=> P.Id==id);
+            panel.Data.Add(Measurement);
+            repository.Panels.Update(panel);
             await repository.SaveChangesAsync();
             return true;
         }
@@ -31,7 +33,13 @@ namespace Solar.Repositories
 
         public async Task<Panel> GetPanelAsync(int id)
         {
-            return await repository.Panels.FirstOrDefaultAsync<Panel>(p => p.Id == id);
+            //return await repository.Panels.SingleAsync(panel => panel.Id == id);
+            var p = await repository.Panels
+                .Include(panel=>panel.Data)
+                    .ThenInclude(data => data.IV)
+                .SingleAsync(panel => panel.Id == id);
+            return p;
+
         }
 
         public async Task<List<Panel>> GetPanels()
