@@ -194,7 +194,6 @@ void DetectLoop(){
     portEXIT_CRITICAL(&timerMux);
     totalInterruptCounter++;
     PID();
-    Serial.println("Interrupt");
   }
 }
 void Init(){

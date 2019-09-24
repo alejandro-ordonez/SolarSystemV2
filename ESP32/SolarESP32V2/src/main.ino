@@ -5,6 +5,7 @@
 #include <WiFi.h>
 #include <ESPAsyncWebServer.h>
 #include <ArduinoJson.h>
+#include <AsyncJson.h>
 #include <RTClib.h>
 #include <digcomp.h>
 //#include <AsyncJson.h>
@@ -12,31 +13,28 @@
 #pragma endregion
 /////////////////////////////////////////////////////////////////////////////////////////////////
 
-
 //////////////////////////////////////// Global Variables ///////////////////////////////////////
 #pragma region Variables
 
 ////////////////////////////// ESP32 Variables //////////////////////////////
 #pragma region ESP32 Variales
 
-
 /////////////// RC Filters /////////////
 // This constants should be fixed to an specific dt and fc
 
-float b[]={0.0304590279514212,0.0304590279514212};
-float a[]={1.000000000000000,-0.939081944097158};
+float b[] = {0.0304590279514212, 0.0304590279514212};
+float a[] = {1.000000000000000, -0.939081944097158};
 float lp_in[2];
 float lp_out[2];
 float lp_in1[2];
 float lp_out1[2];
 
-dig_comp filter(b,a, lp_in, lp_out, 2,2);
-dig_comp filter2(b,a, lp_in1, lp_out1, 2,2);
+dig_comp filter(b, a, lp_in, lp_out, 2, 2);
+dig_comp filter2(b, a, lp_in1, lp_out1, 2, 2);
 ////////////////////////////////////////
 
-
 ////////////////INPUTS//////////////////
-#pragma region 
+#pragma region
 
 // Pin where Pyranometer is connected
 #define Pyra 33
@@ -49,7 +47,6 @@ dig_comp filter2(b,a, lp_in1, lp_out1, 2,2);
 
 #pragma endregion
 ///////////////////////////////////////
-
 
 ///////////////OUTPUTS/////////////////
 //Led Indicator
@@ -73,9 +70,8 @@ bool isBusy = false;
 int numberOfSamples = 1000;
 ///////////////////////////////////////
 
-
 /////////////PID///////////////////////
-#pragma region 
+#pragma region
 /**
  * @brief PID control is based on a voltage control
  * It should produce a linear output, that increase according
@@ -84,17 +80,17 @@ int numberOfSamples = 1000;
 // Voltage in Open Circuit
 float VoC = 0;
 // Current where PID should start
-double setpoint =0;
+double setpoint = 0;
 // PWM value determined by PID Control
 double PWMValue = 0;
 //Variable to stablish if timer should be executed or not
 volatile byte State = LOW;
 // PID Constants
-double KP=100, KD=0, KI=50;
+double KP = 100, KD = 0, KI = 50;
 // Error constants
-double lastError=0, error=0, sumError=0;
+double lastError = 0, error = 0, sumError = 0;
 // Increase rate linear function.
-float increase=0;
+float increase = 0;
 // Time
 
 #pragma endregion
@@ -102,7 +98,6 @@ float increase=0;
 
 #pragma endregion
 /////////////////////////////////////////////////////////////////////////////
-
 
 /////////////////////////////// Wfif Variables /////////////////////////////
 #pragma region WIFI Variables
@@ -116,19 +111,17 @@ AsyncWebServer server(80);
 #pragma endregion
 ////////////////////////////////////////////////////////////////////////////
 
-
 ////////////////////////////// Timer Variables ////////////////////////////
 #pragma region Timer Variables
 
 // Declare a new timer
 hw_timer_t *timer = NULL;
 portMUX_TYPE timerMux = portMUX_INITIALIZER_UNLOCKED;
-int totalInterruptCounter= 0;
+int totalInterruptCounter = 0;
 volatile int interruptCounter = 0;
 
 #pragma endregion
 ///////////////////////////////////////////////////////////////////////////
-
 
 ///////////////////////////// Thermistor Constants ////////////////////////
 #pragma region Variables
@@ -153,12 +146,12 @@ RTC_DS3231 Clock;
 ///////////////////////////////////////////////////////////////////////////
 
 ////////////////////////////// JSON Document //////////////////////////////
-#pragma region 
+#pragma region
 
 //Capacity required to save all the data
 const int capacity = 2 * JSON_ARRAY_SIZE(100) + JSON_OBJECT_SIZE(5);
 //Jason Document created to save data
-StaticJsonDocument<capacity> doc;
+DynamicJsonDocument doc(2000);
 // Array to save all currents measured
 JsonArray IArray;
 // Array to save all voltages measured
@@ -172,11 +165,11 @@ String send = "";
 #pragma endregion
 /////////////////////////////////////////////////////////////////////////////////////////////////
 
-
 //////////////////////////////////////// Arduino Methods ////////////////////////////////////////
 #pragma region Arduino Methods
 
-void setup() {
+void setup()
+{
   // put your setup code here, to run once:
   // Start Serial comunicatino at 115200 bauds
   Serial.begin(115200);
@@ -207,10 +200,10 @@ void setup() {
   ////////// Set PWM properties
   ledcSetup(0, 5000, 16);
   ledcAttachPin(PWMPin, 0);
-  /////////
+/////////
 
-  //////////// Wifi Set Up //////////////////
-  #pragma region 
+//////////// Wifi Set Up //////////////////
+#pragma region
 
   /* Serial.print("Connecting to ");
   Serial.println(ssid);
@@ -220,25 +213,25 @@ void setup() {
     Serial.print(".");
     delay(500);
   }*/
- Serial.print("Setting AP…");
+  Serial.print("Setting AP…");
   // Remove the password parameter, if you want the AP (Access Point) to be open
   WiFi.softAP(ssid, password);
   IPAddress IP = WiFi.softAPIP();
   Serial.print("AP IP address: ");
   Serial.println(IP);
 
-  #pragma endregion
+#pragma endregion
   //////////////////////////////////////////
 
-  
-   if (!Clock.begin()) {
-      Serial.println(F("Couldn't find RTC"));
-      while (1);
-   }
+  if (!Clock.begin())
+  {
+    Serial.println(F("Couldn't find RTC"));
+    while (1)
+      ;
+  }
 
-
-  //////////// Server Set up //////////////
-  #pragma region 
+//////////// Server Set up //////////////
+#pragma region
 
   //Get Method to obtain measured data
   server.on("/Start", HTTP_GET, [](AsyncWebServerRequest *request) {
@@ -249,6 +242,7 @@ void setup() {
     // Handling function
     Test(request);
   });
+
   server.on("/Data", HTTP_GET, [](AsyncWebServerRequest *request) {
     // Handling function
     Data(request);
@@ -259,34 +253,32 @@ void setup() {
 
   server.begin();
 
-  #pragma endregion
-///////////////////////////////////////////
-
-
+#pragma endregion
+  ///////////////////////////////////////////
 }
 
-void loop() {
+void loop()
+{
   // put your main code here, to run repeatedly:
-  if(interruptCounter>0){
+  if (interruptCounter > 0)
+  {
     portENTER_CRITICAL(&timerMux);
     interruptCounter--;
     portEXIT_CRITICAL(&timerMux);
     totalInterruptCounter++;
     PID();
   }
-
 }
 
 #pragma endregion
 /////////////////////////////////////////////////////////////////////////////////////////////////
 
-
 ///////////////////////////////////////////// Methods ///////////////////////////////////////////
 
-#pragma region 
+#pragma region
 
 //////////// Methods to handle http request ////////////////////
-#pragma region Http request 
+#pragma region Http request
 
 /**
  * @brief This method is useful for testing web server, it just return
@@ -309,13 +301,18 @@ void Test(AsyncWebServerRequest *request)
  */
 void Start(AsyncWebServerRequest *request)
 {
+  doc.clear();
+  JsonObject Panel= doc.createNestedObject("Panel");
+  Panel["IR"] =radiation();
+  Panel["T"] = CalculateTemp();
+  Panel["Time"] = Clock.now().timestamp();
+  VArray = doc.createNestedArray("V");
+  IArray = doc.createNestedArray("I");
   AsyncWebParameter *p = request->getParam(0);
   VoC = p->value().toDouble();
   increase = CalculateStep();
   StartTimer();
   Serial.println("Timer Iniciado");
-  doc.clear();
-  send="";
   request->send(200, "text/plain", "Service Started");
 }
 
@@ -329,12 +326,19 @@ void Start(AsyncWebServerRequest *request)
  * 
  * @param request param to handle the request. 
  */
-void Data(AsyncWebServerRequest *request){
-  if(!isBusy){
-    request -> send(200, "application/json", send);
+void Data(AsyncWebServerRequest *request)
+{
+  if (!isBusy)
+  {
+
+    AsyncResponseStream *response = request->beginResponseStream("application/json");
+    
+    serializeJson(doc, *response);
+    request->send(response);
   }
-  else{
-    request -> send(102, "text/plain", "The device still busy");
+  else
+  {
+    request->send(102, "text/plain", "The device still busy");
   }
 }
 
@@ -349,47 +353,34 @@ void Data(AsyncWebServerRequest *request){
  * @param request this param handle and extract all
  * params over URL.
  */
-void SetTime(AsyncWebServerRequest *request){
+void SetTime(AsyncWebServerRequest *request)
+{
   AsyncWebParameter *Params;
   int dateInfo[6];
   int temp = 0;
   for (size_t i = 0; i < 6; i++)
   {
     /* code */
-    Params=request->getParam(i);
+    Params = request->getParam(i);
     temp = Params->value().toInt();
-    dateInfo[i]=temp;
+    dateInfo[i] = temp;
   }
-  Clock.adjust(DateTime(dateInfo[0],dateInfo[1],dateInfo[2],dateInfo[3],dateInfo[4],dateInfo[5]));
-  DateTime TimeNow=Clock.now();
-  String res = "";
-  res+=TimeNow.year();
-  res+="/";
-  res+=TimeNow.month();
-  res+="/";
-  res+=TimeNow.day();
-  
-  res+="    ";
-  res+=TimeNow.hour();
-  res+="-";
-  res+=TimeNow.minute();
-  res+="-";
-  res+=TimeNow.second();
-
-  request-> send(200, "text/plain", res);
+  Clock.adjust(DateTime(dateInfo[0], dateInfo[1], dateInfo[2], dateInfo[3], dateInfo[4], dateInfo[5]));
+  request->send(200, "text/plain", GetCurrentTime());
 }
 
 #pragma endregion
 ////////////////////////////////////////////////////////////////
 
 ////////////////////// PID  Methods ///////////////////////////
-#pragma region 
+#pragma region
 
 /**
  * @brief 
  * 
  */
-void PID(){
+void PID()
+{
   double temp = readVSensor();
   print(temp, setpoint, PWMValue);
   error = setpoint - temp;
@@ -398,29 +389,34 @@ void PID(){
     PWMValue = 0;
   sumError += error;
   lastError = error;
-  ledcWrite(0, PWMValue); 
-  setpoint-=0.01;
-  if(setpoint<=0){
-    StopTimer();
+  ledcWrite(0, PWMValue);
+  if (totalInterruptCounter >= 20)
+  {
+    IArray.add(readISensor());
+    VArray.add(temp);
+    setpoint += increase;
+    if (setpoint >= VoC)
+    {
+      setpoint = 0;
+      digitalWrite(Indicator, HIGH);
+    }
   }
-  IArray.add(readISensor());
-  VArray.add(temp);
 }
 
 /**
  * @brief 
  * 
  */
-double CalculateStep(){
-  return VoC/numberOfSamples;
+double CalculateStep()
+{
+  return VoC / numberOfSamples;
 }
 
 #pragma endregion
 ///////////////////////////////////////////////////////////////
 
-
 ///////////////////////// TIMER ///////////////////////////////
-#pragma region 
+#pragma region
 
 /**
  * @brief 
@@ -456,7 +452,7 @@ void StopTimer()
   {
     // Stop and free timer
     totalInterruptCounter = 0;
-    interruptCounter=0;
+    interruptCounter = 0;
     serializeJson(doc, send);
     timerEnd(timer);
     timer = NULL;
@@ -465,7 +461,6 @@ void StopTimer()
 
 #pragma endregion
 ///////////////////////////////////////////////////////////////
-
 
 //////////////////////// Current //////////////////////////////
 
@@ -482,8 +477,7 @@ float readISensor()
 }
 ///////////////////////////////////////////////////////////////
 
-
-////////////////////// Voltage ////////////////////////////////
+////////////////////////// Voltage ////////////////////////////
 
 /**
  * @brief 
@@ -492,14 +486,78 @@ float readISensor()
  */
 float readVSensor()
 {
-  float VoltageF =  (averageAnalogReading(600.0, VS1) / Resolution)*13*(340206.186/320000);
+  float VoltageF = (averageAnalogReading(600.0, VS1) / Resolution) * 13 * (340206.186 / 320000);
   return VoltageF;
 }
 
 ///////////////////////////////////////////////////////////////
 
+
+////////////////////////Temperature///////////////////////////
+#pragma region
+double Average(double samples){
+  double avg = 0;
+  for (size_t i = 0; i < samples; i++)
+  {
+      /* code */
+      avg+=analogRead(35);
+  }
+  return avg/samples;
+}
+
+double NTCRes()
+{
+  double res = (Resolution / Average(700.0)) - 1;
+  return Resbase / res;
+}
+double CalculateTemp()
+{
+  double steinhart;
+  steinhart = NTCRes() / RTNOM; // (R/Ro)
+  steinhart = log(steinhart);                        // ln(R/Ro)
+  steinhart /= B;                                    // 1/B * ln(R/Ro)
+  steinhart += 1.0 / (NOMINAL_TEMPERATURE + 273.15); // + (1/To)
+  steinhart = 1.0 / steinhart;                       // Invert
+  steinhart -= 273.15;                               // convert to C
+  return steinhart;
+}
+#pragma endregion
+
+///////////////////////////////////////////////////////////////
+
+//////////////////////////Radiation////////////////////////////
+double radiation()
+{
+  double cal = 0;
+
+  cal = (averageAnalogReading(200.0, Pyra) * (2.0 / 2048.0));
+  cal /= 27.5;
+  Serial.println(cal, 5);
+  cal *= 1000000;
+  cal /= 61.5;
+  return cal;
+}
+///////////////////////////////////////////////////////////////
+
+//////////////////////////Clock////////////////////////////////
+String GetCurrentTime(){
+  DateTime TimeNow = Clock.now();
+  String res = "";
+  res += TimeNow.year();
+  res += "/";
+  res += TimeNow.month();
+  res += "/";
+  res += TimeNow.day();
+  res += "    ";
+  res += TimeNow.hour();
+  res += "-";
+  res += TimeNow.minute();
+  res += "-";
+  res += TimeNow.second();
+  return res;
+}
 /////////////////// Generic Methods ///////////////////////////
-#pragma region 
+#pragma region
 
 /**
  * @brief This methods obtain an average of a given number of samples
@@ -518,7 +576,6 @@ double averageAnalogReading(double samples, int analogPin)
   return avg / samples;
 }
 
-
 /**
  * @brief Method to print some data.
  * The next could be any other parameter but in this code is used with the next ones
@@ -535,12 +592,12 @@ void print(double t, double i, double p)
   Serial.print("  Corriente: ");
   Serial.println(i, 4);
 }
-void imprimir(String g){
-  #ifdef DEBUG
+void imprimir(String g)
+{
+#ifdef DEBUG
   Serial.println(g);
-  #endif
+#endif
 }
-
 
 /**
  * @brief Method to convert analog value to voltage
@@ -553,10 +610,11 @@ void imprimir(String g){
  */
 double ReadVoltage(byte pin)
 {
-  double reading = averageAnalogReading(100.0, pin);//analogRead(pin); // Reference voltage is 3v3 so maximum reading is 3v3 = 4095 in range 0 to 4095
-  if(reading < 1 || reading > 4095) return 0;
+  double reading = averageAnalogReading(100.0, pin); //analogRead(pin); // Reference voltage is 3v3 so maximum reading is 3v3 = 4095 in range 0 to 4095
+  if (reading < 1 || reading > 4095)
+    return 0;
   //return -0.000000000009824 * pow(reading,3) + 0.000000016557283 * pow(reading,2) + 0.000854596860691 * reading + 0.065440348345433;
-  return -0.000000000000016 * pow(reading,4) + 0.000000000118171 * pow(reading,3)- 0.000000301211691 * pow(reading,2)+ 0.001109019271794 * reading + 0.034143524634089;
+  return -0.000000000000016 * pow(reading, 4) + 0.000000000118171 * pow(reading, 3) - 0.000000301211691 * pow(reading, 2) + 0.001109019271794 * reading + 0.034143524634089;
 } // Added an improved polynomial, use either, comment out as requi
 
 #pragma endregion
