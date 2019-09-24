@@ -14,13 +14,25 @@ namespace Solar.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class PanelInfo : ContentView
     {
-        //public Position Pos { get; set; }
         public PanelInfo()
         {
             InitializeComponent();
-            //var vm = (Panel)BindingContext;
-            //var x = Solar.Helpers.LocationHelper.GetLocation();(x.Latitude, x.Longitude
-            PanelMap.MoveToRegion(MapSpan.FromCenterAndRadius(new Position(4.6071698, -74.0687585), Distance.FromMiles(2)));
+            
+        }
+        protected override void OnBindingContextChanged()
+        {
+            base.OnBindingContextChanged();
+            var vm = (Panel)BindingContext;
+            PanelMap.MoveToRegion(MapSpan.FromCenterAndRadius(new Position(vm.Latitude, vm.Longitude), Distance.FromMiles(1)));
+            var pin = new Pin
+            {
+                Type = PinType.Place,
+                Position = new Position(vm.Latitude, vm.Longitude),
+                Label = "custom pin",
+                Address = "custom detail info"
+            };
+
+            PanelMap.Pins.Add(pin);
         }
     }
 }

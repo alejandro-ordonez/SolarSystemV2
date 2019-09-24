@@ -6,6 +6,7 @@
              mc:Ignorable="d"
              x:Class="Solar.App">
     <Application.Resources>
+        <!--#region OnPlatform FontAwesome-->
         <OnPlatform x:TypeArguments="x:String" 
                 x:Key="FontAwesomeBrands">
             <On Platform="Android" 
@@ -29,8 +30,10 @@
             <On Platform="iOS" 
           Value="FontAwesome5Free-Regular" />
         </OnPlatform>
+        <!--#endregion-->
         
-        <!--Style-->
+        
+        <!--#region Styles-->
         <Style TargetType="Label" x:Key="FlyoutItem">
             <Setter Property="VerticalOptions" Value="Center"/>
             <Setter Property="HorizontalOptions" Value="StartAndExpand"/>
@@ -48,8 +51,14 @@
             <Setter Property="HorizontalOptions" Value="Center"/>
             <Setter Property="VerticalOptions" Value="Start"/>
         </Style>
+        <Style TargetType="Label" x:Key="TextBox" BasedOn="{StaticResource TitleStyle}">
+            <Setter Property="HorizontalOptions" Value="StartAndExpand"/>
+            <Setter Property="FontSize" Value="Subtitle"/>
+            <Setter Property="TextColor" Value="Black"/>
+        </Style>
+        <!--#endregion-->
         
-        <!--Icons-->
+        <!--#region Icons String Code-->
         <x:String x:Key="ChartIcon">&#xf1fe;</x:String>
         <x:String x:Key="HomeIcon">&#xf015;</x:String>
         <x:String x:Key="GetIcon">&#xf519;</x:String>
@@ -63,8 +72,9 @@
         <x:String x:Key="UserIcon">&#xf2bd;</x:String>
         <x:String x:Key="PlusIcon">&#xf055;</x:String>
         <x:String x:Key="RefreshIcon">&#xf2f1;</x:String>
-
-        <!--FlyOutIcons-->
+        <!--#endregion-->
+        
+        <!--#region FlyOutIcons-->
         <FontImageSource x:Key="Chart" FontFamily="{StaticResource FontAwesomeSolid}" Glyph="{StaticResource ChartIcon}" Size="25"/>
         <FontImageSource x:Key="Home" FontFamily="{StaticResource FontAwesomeSolid}" Glyph="{StaticResource HomeIcon}" Size="25"/>
         <FontImageSource x:Key="TitleHomeIcon" FontFamily="{StaticResource FontAwesomeSolid}" Color="DarkBlue" Glyph="{StaticResource HomeIcon}" Size="35"/>
@@ -79,6 +89,6 @@
         <FontImageSource x:Key="User" FontFamily="{StaticResource FontAwesomeSolid}" Glyph="{StaticResource UserIcon}" Size="60"/>
         <FontImageSource x:Key="Plus" FontFamily="{StaticResource FontAwesomeSolid}" Glyph="{StaticResource PlusIcon}" Size="25" Color="Green"/>
         <FontImageSource x:Key="Refresh" FontFamily="{StaticResource FontAwesomeSolid}" Glyph="{StaticResource RefreshIcon}" Size="25" Color="White"/>
-
+        <!--#endregion-->
     </Application.Resources>
 </Application>

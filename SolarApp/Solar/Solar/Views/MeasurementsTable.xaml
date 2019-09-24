@@ -7,10 +7,10 @@
              x:Class="Solar.Views.MeasurementsTable">
   <ContentView.Content>
       <StackLayout>
-            <ListView ItemsSource="{Binding Data}">
+            <ListView ItemsSource="{Binding Data}" IsPullToRefreshEnabled="False" SelectionMode="Single" ItemSelected="ListView_ItemSelected">
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <TextCell Text="{Binding Date.Year}" Detail="{Binding Radiation}"/>
+                        <TextCell Text="{Binding Date}" Detail="{Binding Radiation}"/>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>

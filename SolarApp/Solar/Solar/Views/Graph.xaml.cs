@@ -14,9 +14,9 @@ namespace Solar.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Graph : ContentPage
     {
-        public Graph(Panel panel)
+        public Graph(DataPanel data)
         {
-            BindingContext = panel;
+            BindingContext = data;
             InitializeComponent();
         }
     }

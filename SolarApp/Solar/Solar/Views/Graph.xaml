@@ -8,33 +8,35 @@
              Visual="Material"
              x:Class="Solar.Views.Graph">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Nombre: "/>
-            <Label Text="{Binding Name}"/>
-            <Label Text="Descripcion: "/>
-            <Label Text="{Binding Description}"/>
-            <Label Text="Fecha: "/>
-            <Label Text="{Binding Date}"/>
-
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                </Grid.RowDefinitions>
-                <Label Text="Radiaton:" Grid.Column="0" Grid.Row="0"/>
-                <Label Text="{Binding Radiation}" Grid.Column="1" Grid.Row="0"/>
-                <Label Text="Temperature" Grid.Column="0" Grid.Row="1"/>
-                <Label Text="{Binding Temp}" Grid.Column="1" Grid.Row="0"/>
-            </Grid>
+        <StackLayout Padding="15" Spacing="5">
+            <Frame CornerRadius="20" Padding="0" BorderColor="Black">
+                <StackLayout>
+                    <Label HorizontalOptions="Fill" HorizontalTextAlignment="Center" Text="Cuadro Resuemen" TextColor="White" FontAttributes="Bold" FontSize="Subtitle" BackgroundColor="Black"/>
+                    <Grid Padding="20">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <Label Text="Fecha: "             Grid.Row="0" Grid.Column="0" FontAttributes="Bold,Italic" TextColor="Black"/>
+                        <Label Text="{Binding Date}"      Grid.Row="0" Grid.Column="1"/>
+                        <Label Text="Radiaton:"           Grid.Row="1" Grid.Column="0" FontAttributes="Bold,Italic" TextColor="Black"/>
+                        <Label Text="{Binding Radiation}" Grid.Row="1" Grid.Column="1"/>
+                        <Label Text="Temperature"         Grid.Row="2" Grid.Column="0" FontAttributes="Bold,Italic" TextColor="Black"/>
+                        <Label Text="{Binding Temp}"      Grid.Row="2" Grid.Column="1"/>
+                        <Label Text="N° Muestras"         Grid.Row="3" Grid.Column="0" FontAttributes="Bold,Italic" TextColor="Black"/>
+                        <Label Text="{Binding IV.Count}"  Grid.Row="3" Grid.Column="1"/>
+                    </Grid>
+                </StackLayout>
+            </Frame>
             
-            <chart:SfChart HorizontalOptions="FillAndExpand" VerticalOptions="Center">
-                <chart:LineSeries x:Name="Curve" ItemsSource="{Binding IV}" YBindingPath="I" XBindingPath="V"/>
+            <chart:SfChart HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                <chart:LineSeries ItemsSource="{Binding IV}" YBindingPath="I" XBindingPath="V"/>
                 <chart:SfChart.PrimaryAxis>
                     <chart:NumericalAxis>
                         <chart:NumericalAxis.Title>

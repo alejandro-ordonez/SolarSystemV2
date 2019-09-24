@@ -12,30 +12,31 @@
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <Grid Padding="5" RowSpacing="5" ColumnSpacing="5">
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="40"/>
-                                    <RowDefinition Height="30"/>
-                                    <RowDefinition Height="30"/>
-                                    <RowDefinition Height="30"/>
-                                </Grid.RowDefinitions>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="60"/>
-                                    <ColumnDefinition Width="*"/>
-                                    <ColumnDefinition Width="*"/>
-                                    <ColumnDefinition Width="*"/>
-                                    <ColumnDefinition Width="*"/>
-                                </Grid.ColumnDefinitions>
-                                <Image Aspect="AspectFit" Grid.Column="0" Grid.Row="0" Grid.RowSpan="3"/>
-                                <Label Text="{Binding Name}" Grid.Column="1" Grid.Row="0"/>
-                                <Label Text="{Binding Description}" Grid.Column="1" Grid.Row="1"/>
-                                <Label Text="Radiation: " Grid.Column="1" Grid.Row="2"/>
-                                <Label Text="{Binding Radiation}" Grid.Column="2" Grid.Row="2"/>
-                                <Label Text="Temperature" Grid.Column="3" Grid.Row="2"/>
-                                <Label Text="{Binding Temp}" Grid.Column="4" Grid.Row="2"/>
-                                <Label Text="Date: " Grid.Column="2" Grid.Row="3"/>
-                                <Label Text="{Binding Date}" Grid.Column="3" Grid.Row="3"/>
-                            </Grid>
+                            <Frame Padding="0" Margin="10" CornerRadius="20" BorderColor="Black">
+                                <Grid Padding="15" RowSpacing="5" HorizontalOptions="Fill" ColumnSpacing="5">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Label Text="Referencia" Style="{StaticResource TextBox}" Grid.Column="0" Grid.Row="0"/>
+                                    <Label Text="{Binding Reference}"                         Grid.Column="1" Grid.Row="0"/>
+
+                                    <Label Text="Descipción" Style="{StaticResource TextBox}" Grid.Column="0" Grid.Row="1"/>
+                                    <Label Text="{Binding Description}"                       Grid.Column="1" Grid.Row="1"/>
+
+                                    <Label Text="Ancho" Style="{StaticResource TextBox}"      Grid.Column="0" Grid.Row="2"/>
+                                    <Label Text="{Binding Width, StringFormat='{0:F2} m'}"    Grid.Column="1" Grid.Row="2"/>
+
+                                    <Label Text="Alto" Style="{StaticResource TextBox}"       Grid.Column="0" Grid.Row="3"/>
+                                    <Label Text="{Binding Height, StringFormat='{0:F2} m'}"   Grid.Column="1" Grid.Row="3"/>
+                                </Grid>
+                            </Frame>
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>

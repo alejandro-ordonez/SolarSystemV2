@@ -50,9 +50,9 @@ namespace Solar.ViewModels
         private async Task Result(int id)
         {
             IsBusy = true;
-            int Id = id;
-            var p = await repository.GetPanelAsync(Id);
+            var p = await repository.GetPanelAsync(id);
             await Application.Current.MainPage.Navigation.PushModalAsync(new Info(p));
+            IsBusy = false;
         }
 
         public Panel PanelSelected
@@ -61,7 +61,7 @@ namespace Solar.ViewModels
             set
             {
                 SetProperty(ref panelSelected, value);
-                Application.Current.MainPage.Navigation.PushModalAsync(new Graph(PanelSelected));
+                ResultCommand.Execute(panelSelected.Id);
             }
         }
         #endregion
