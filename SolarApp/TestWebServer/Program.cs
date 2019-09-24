@@ -16,19 +16,28 @@ namespace TestWebServer
             {
                 Console.WriteLine("Connecting....");
                 Test();
-                Thread.Sleep(100);
+                
             }
             
         }
         public static async void Test()
         {
-            var response = await client.GetAsync("http://192.168.137.156/");
+            var response = await client.GetAsync("http://192.168.4.1/Start/?VoC=35");
             if (response.IsSuccessStatusCode)
             {
                 var content = await response.Content.ReadAsStringAsync();
-                ESP32 = JsonConvert.DeserializeObject<RootObject>(content);
-                r = JsonConvert.DeserializeObject<Readings>(ESP32.variables.json);
-                Console.WriteLine("CarID: " + r.carID);
+                Console.WriteLine(content);
+            }
+            else
+            {
+                Console.WriteLine("No Response");
+            }
+            Thread.Sleep(8000);
+            response = await client.GetAsync("http://192.168.4.1/Data");
+            if (response.IsSuccessStatusCode)
+            {
+                var content = await response.Content.ReadAsStringAsync();
+                Console.WriteLine(content);
             }
             else
             {

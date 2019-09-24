@@ -50,7 +50,7 @@ namespace Solar
         {
             services.AddDbContext<SolarDbContext>();
             //services.AddSingleton<IRepository, SolarDbContext>();
-            services.AddSingleton<IESPData, ESPMockData>();
+            services.AddSingleton<IESPData, ESPData>();
 
             services.AddTransient<IRepository, DataBaseService>();
 

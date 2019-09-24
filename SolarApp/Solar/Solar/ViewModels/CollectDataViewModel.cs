@@ -14,44 +14,49 @@ namespace Solar.ViewModels
     {
         public Panel Panel { get; set; }
         private readonly IRepository repository;
+        private readonly IESPData espData;
+
+        private bool isReady= false;
+
+        public bool IsReady
+        {
+            get { return isReady; }
+            set { SetProperty(ref (isReady), value); }
+        }
+
 
         public ICommand GetCommand { get; set; }
+        public ICommand StartCommand { get; set; }
 
-        public CollectDataViewModel(Panel p, IRepository repository)
+        public CollectDataViewModel(Panel p, IRepository repository, IESPData espData)
         {
             Panel = p;
             this.repository = repository;
+            this.espData = espData;
             //this.data = data;
             GetCommand = new Command(async () => await GetData());
+            StartCommand = new Command(async () => await Start());
+        }
+
+        private async Task Start()
+        {
+            var state = await espData.StartMeasuring((int)Panel.NominalV);
+            if (state)
+            {
+                await Task.Delay(50000);
+                IsReady = true;
+            }
+            else
+            {
+                IsReady = false;
+                await Application.Current.MainPage.DisplayAlert("Aviso", "No se pudo conectar con el dispositivo, revise que el dispositivo se encuentre encendido y en funcionamiento", "Ok");
+            }
         }
 
         private async Task GetData()
         {
             IsBusy = true;
-            var data = new DataPanel() 
-            {
-                Date = DateTime.Now,
-                Radiation=20,
-                IV = new List<Reading>(){
-                    new Reading{I = 5,V = 0},
-                    new Reading{I = 4.70,V = 1},
-                    new Reading{I = 4.65,V = 2},
-                    new Reading{I = 4.55,V = 3},
-                    new Reading{I = 4.50,V = 4},
-                    new Reading{I = 4.48,V = 5},
-                    new Reading{I = 4.40,V = 6},
-                    new Reading{I = 4.38,V = 7},
-                    new Reading{I = 4.2,V = 8},
-                    new Reading{I = 4.0,V = 9},
-                    new Reading{I = 3.6,V = 10},
-                    new Reading{I = 3.2,V = 11},
-                    new Reading{I = 2.5,V = 12},
-                    new Reading{I = 2.0,V = 13},
-                    new Reading{I = 1.2,V = 14},
-                    new Reading{I = 0,V = 15}
-                }
-            };
-            await Task.Delay(1000);
+            var data = await espData.GetDataAsync();
             await repository.InsertReadingsToExisting(Panel.Id, data);
             IsBusy = false;
             await Application.Current.MainPage.Navigation.PopModalAsync();

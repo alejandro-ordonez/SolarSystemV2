@@ -67,7 +67,7 @@ dig_comp filter2(b, a, lp_in1, lp_out1, 2, 2);
 // doing anything, if true it means microcontroller is taking measures.
 bool isBusy = false;
 // Number Of Samples
-int numberOfSamples = 1000;
+int numberOfSamples = 1500;
 ///////////////////////////////////////
 
 /////////////PID///////////////////////
@@ -90,7 +90,7 @@ double KP = 100, KD = 0, KI = 50;
 // Error constants
 double lastError = 0, error = 0, sumError = 0;
 // Increase rate linear function.
-float increase = 0;
+double increase = 0;
 // Time
 
 #pragma endregion
@@ -151,7 +151,7 @@ RTC_DS3231 Clock;
 //Capacity required to save all the data
 const int capacity = 2 * JSON_ARRAY_SIZE(100) + JSON_OBJECT_SIZE(5);
 //Jason Document created to save data
-DynamicJsonDocument doc(2000);
+DynamicJsonDocument doc(50000);
 // Array to save all currents measured
 JsonArray IArray;
 // Array to save all voltages measured
@@ -305,12 +305,14 @@ void Start(AsyncWebServerRequest *request)
   JsonObject Panel= doc.createNestedObject("Panel");
   Panel["IR"] =radiation();
   Panel["T"] = CalculateTemp();
-  Panel["Time"] = Clock.now().timestamp();
+  //Panel["Time"] = Clock.now().timestamp();
   VArray = doc.createNestedArray("V");
   IArray = doc.createNestedArray("I");
   AsyncWebParameter *p = request->getParam(0);
   VoC = p->value().toDouble();
   increase = CalculateStep();
+  Serial.println(increase,5);
+  isBusy=true;
   StartTimer();
   Serial.println("Timer Iniciado");
   request->send(200, "text/plain", "Service Started");
@@ -330,15 +332,15 @@ void Data(AsyncWebServerRequest *request)
 {
   if (!isBusy)
   {
-
     AsyncResponseStream *response = request->beginResponseStream("application/json");
-    
     serializeJson(doc, *response);
+    Serial.println("Data Requested");
     request->send(response);
   }
   else
   {
     request->send(102, "text/plain", "The device still busy");
+    Serial.println("Busy");
   }
 }
 
@@ -382,25 +384,30 @@ void SetTime(AsyncWebServerRequest *request)
 void PID()
 {
   double temp = readVSensor();
-  print(temp, setpoint, PWMValue);
+  //print(temp, setpoint, PWMValue);
   error = setpoint - temp;
   PWMValue += KP * error + KD * (error - lastError) + KI * sumError;
   if (PWMValue < 0)
     PWMValue = 0;
+  if (PWMValue>=65536)
+    PWMValue=65536;
   sumError += error;
   lastError = error;
   ledcWrite(0, PWMValue);
-  if (totalInterruptCounter >= 20)
+  if (totalInterruptCounter >= 5)
   {
-    IArray.add(readISensor());
-    VArray.add(temp);
+    IArray.add(setpoint);
+    VArray.add(setpoint);
+    totalInterruptCounter=0;
     setpoint += increase;
-    if (setpoint >= VoC)
+  }
+  if (setpoint >= VoC)
     {
       setpoint = 0;
+      isBusy=false;
+      StopTimer();
       digitalWrite(Indicator, HIGH);
     }
-  }
 }
 
 /**
@@ -427,7 +434,7 @@ void StartTimer()
   timer = timerBegin(0, 240, true);
   timerAttachInterrupt(timer, &OnTimer, true);
   //TODO: Update scale
-  timerAlarmWrite(timer, 10, true);
+  timerAlarmWrite(timer, 100, true);
   timerAlarmEnable(timer);
 }
 
@@ -532,7 +539,6 @@ double radiation()
 
   cal = (averageAnalogReading(200.0, Pyra) * (2.0 / 2048.0));
   cal /= 27.5;
-  Serial.println(cal, 5);
   cal *= 1000000;
   cal /= 61.5;
   return cal;

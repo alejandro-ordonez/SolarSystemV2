@@ -18,7 +18,7 @@ namespace Solar.Views
     {
         public CollectData(Panel panel)
         {
-            BindingContext = new CollectDataViewModel(panel, Startup.ServiceProvider.GetService<IRepository>());
+            BindingContext = new CollectDataViewModel(panel, Startup.ServiceProvider.GetService<IRepository>(), Startup.ServiceProvider.GetService<IESPData>());
             InitializeComponent();
         }
     }
