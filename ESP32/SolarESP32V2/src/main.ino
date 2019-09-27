@@ -10,6 +10,9 @@
 #include <digcomp.h>
 //#include <AsyncJson.h>
 
+float temp = 0;
+float temp1 = 0;
+
 #pragma endregion
 /////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -22,15 +25,16 @@
 /////////////// RC Filters /////////////
 // This constants should be fixed to an specific dt and fc
 
-float b[] = {0.0304590279514212, 0.0304590279514212};
-float a[] = {1.000000000000000, -0.939081944097158};
-float lp_in[2];
-float lp_out[2];
+float b[] = {0.009336780874162, 0.009336780874162};
+float a[] = {1.000000000000000, -0.981326438251676};
 float lp_in1[2];
 float lp_out1[2];
 
-dig_comp filter(b, a, lp_in, lp_out, 2, 2);
-dig_comp filter2(b, a, lp_in1, lp_out1, 2, 2);
+float lp_in2[2];
+float lp_out2[2];
+
+dig_comp filterISensor(b, a, lp_in1, lp_out1, 2, 2);
+dig_comp filterVoltage(b, a, lp_in2, lp_out2, 2, 2);
 ////////////////////////////////////////
 
 ////////////////INPUTS//////////////////
@@ -86,7 +90,7 @@ double PWMValue = 0;
 //Variable to stablish if timer should be executed or not
 volatile byte State = LOW;
 // PID Constants
-double KP = 100, KD = 0, KI = 50;
+double KP = 0, KD = 0, KI = 0.27596;
 // Error constants
 double lastError = 0, error = 0, sumError = 0;
 // Increase rate linear function.
@@ -151,7 +155,7 @@ RTC_DS3231 Clock;
 //Capacity required to save all the data
 const int capacity = 2 * JSON_ARRAY_SIZE(100) + JSON_OBJECT_SIZE(5);
 //Jason Document created to save data
-DynamicJsonDocument doc(50000);
+DynamicJsonDocument doc(45000);
 // Array to save all currents measured
 JsonArray IArray;
 // Array to save all voltages measured
@@ -302,17 +306,23 @@ void Test(AsyncWebServerRequest *request)
 void Start(AsyncWebServerRequest *request)
 {
   doc.clear();
-  JsonObject Panel= doc.createNestedObject("Panel");
-  Panel["IR"] =radiation();
-  Panel["T"] = CalculateTemp();
+  JsonObject Panel = doc.createNestedObject("Panel");
+  digitalWrite(Indicator, LOW);
+  float IR = radiation();
+  float T = CalculateTemp();
+  Serial.println(IR);
+  Serial.println(T);
+  Panel["IR"] = IR;
+  Panel["T"] = T;
   //Panel["Time"] = Clock.now().timestamp();
   VArray = doc.createNestedArray("V");
   IArray = doc.createNestedArray("I");
   AsyncWebParameter *p = request->getParam(0);
   VoC = p->value().toDouble();
+  VoC *= 31;
   increase = CalculateStep();
-  Serial.println(increase,5);
-  isBusy=true;
+  Serial.println(increase, 5);
+  isBusy = true;
   StartTimer();
   Serial.println("Timer Iniciado");
   request->send(200, "text/plain", "Service Started");
@@ -383,10 +393,32 @@ void SetTime(AsyncWebServerRequest *request)
  */
 void PID()
 {
-  double temp = readVSensor();
+  PWMValue += increase;
+  ledcWrite(0, PWMValue);
+  temp = readVSensor();
+  temp1 = readISensor();
+  if (temp1 > 303)
+  {
+    print(PWMValue, temp, temp1);
+    IArray.add(temp1);
+    VArray.add(temp);
+  }
+  if (PWMValue >= 65530)
+  {
+    StopTimer();
+    PWMValue = 0;
+    portENTER_CRITICAL(&timerMux);
+    interruptCounter = 0;
+    portEXIT_CRITICAL(&timerMux);
+    Serial.println("Finish");
+    digitalWrite(Indicator, HIGH);
+    isBusy = false;
+  }
+  /*
+  temp = readVSensor();
   //print(temp, setpoint, PWMValue);
   error = setpoint - temp;
-  PWMValue += KP * error + KD * (error - lastError) + KI * sumError;
+  PWMValue = KP * error + KD * (error - lastError) + KI * sumError;
   if (PWMValue < 0)
     PWMValue = 0;
   if (PWMValue>=65536)
@@ -396,18 +428,21 @@ void PID()
   ledcWrite(0, PWMValue);
   if (totalInterruptCounter >= 5)
   {
-    IArray.add(setpoint);
-    VArray.add(setpoint);
+    temp1= readISensor();
+    IArray.add(temp1);
+    VArray.add(temp);
+    print(temp, temp1, PWMValue);
     totalInterruptCounter=0;
     setpoint += increase;
   }
-  if (setpoint >= VoC)
+  if (setpoint >= (VoC-0.2))
     {
+      Serial.println("Terminado");
       setpoint = 0;
       isBusy=false;
       StopTimer();
       digitalWrite(Indicator, HIGH);
-    }
+    }*/
 }
 
 /**
@@ -416,7 +451,7 @@ void PID()
  */
 double CalculateStep()
 {
-  return VoC / numberOfSamples;
+  return MaxValuePWM / numberOfSamples;
 }
 
 #pragma endregion
@@ -431,10 +466,12 @@ double CalculateStep()
  */
 void StartTimer()
 {
+  ledcWrite(0, 0);
+  delay(2000);
   timer = timerBegin(0, 240, true);
   timerAttachInterrupt(timer, &OnTimer, true);
   //TODO: Update scale
-  timerAlarmWrite(timer, 100, true);
+  timerAlarmWrite(timer, 800, true);
   timerAlarmEnable(timer);
 }
 
@@ -455,12 +492,10 @@ void IRAM_ATTR OnTimer()
  */
 void StopTimer()
 {
+  // Stop and free timer
   if (timer)
   {
-    // Stop and free timer
-    totalInterruptCounter = 0;
-    interruptCounter = 0;
-    serializeJson(doc, send);
+    ledcWrite(0, MaxValuePWM);
     timerEnd(timer);
     timer = NULL;
   }
@@ -478,9 +513,7 @@ void StopTimer()
  */
 float readISensor()
 {
-  float I = 0;
-  I = (averageAnalogReading(1000, ISensor) - 1422.520075) * (VSourve / Resolution);
-  return I;
+  return filterISensor.calc_out(averageAnalogReading(60, ISensor));
 }
 ///////////////////////////////////////////////////////////////
 
@@ -493,23 +526,23 @@ float readISensor()
  */
 float readVSensor()
 {
-  float VoltageF = (averageAnalogReading(600.0, VS1) / Resolution) * 13 * (340206.186 / 320000);
-  return VoltageF;
+  //return (voltageFilter.calc_out(analogRead(VS1)) / Resolution) * 13 * (340206.186 / 320000);
+  return filterVoltage.calc_out(averageAnalogReading(60, VS1));
 }
 
 ///////////////////////////////////////////////////////////////
 
-
 ////////////////////////Temperature///////////////////////////
 #pragma region
-double Average(double samples){
+double Average(double samples)
+{
   double avg = 0;
   for (size_t i = 0; i < samples; i++)
   {
-      /* code */
-      avg+=analogRead(35);
+    /* code */
+    avg += analogRead(35);
   }
-  return avg/samples;
+  return avg / samples;
 }
 
 double NTCRes()
@@ -520,7 +553,7 @@ double NTCRes()
 double CalculateTemp()
 {
   double steinhart;
-  steinhart = NTCRes() / RTNOM; // (R/Ro)
+  steinhart = NTCRes() / RTNOM;                      // (R/Ro)
   steinhart = log(steinhart);                        // ln(R/Ro)
   steinhart /= B;                                    // 1/B * ln(R/Ro)
   steinhart += 1.0 / (NOMINAL_TEMPERATURE + 273.15); // + (1/To)
@@ -536,17 +569,18 @@ double CalculateTemp()
 double radiation()
 {
   double cal = 0;
-
-  cal = (averageAnalogReading(200.0, Pyra) * (2.0 / 2048.0));
+  cal = ReadVoltage(averageAnalogReading(100, Pyra));
   cal /= 27.5;
   cal *= 1000000;
   cal /= 61.5;
+  //cal -=353.055132114;
   return cal;
 }
 ///////////////////////////////////////////////////////////////
 
 //////////////////////////Clock////////////////////////////////
-String GetCurrentTime(){
+String GetCurrentTime()
+{
   DateTime TimeNow = Clock.now();
   String res = "";
   res += TimeNow.year();
@@ -589,14 +623,14 @@ double averageAnalogReading(double samples, int analogPin)
  * @param i Current value obtained by the formula
  * @param p PWM Value defined by PID
  */
-void print(double t, double i, double p)
+void print(double pwm, double voltaje, double corriente)
 {
-  Serial.print("PWM: ");
-  Serial.print(p);
-  Serial.print("  Sensor: ");
-  Serial.print(t, 5);
+  Serial.print("SetPoint: ");
+  Serial.print(pwm, 5);
+  Serial.print("  Voltaje: ");
+  Serial.print(voltaje, 5);
   Serial.print("  Corriente: ");
-  Serial.println(i, 4);
+  Serial.println(corriente, 4);
 }
 void imprimir(String g)
 {
@@ -614,11 +648,8 @@ void imprimir(String g)
  * @param pin Pin number to read analog value
  * @return double real voltage value
  */
-double ReadVoltage(byte pin)
+double ReadVoltage(double reading)
 {
-  double reading = averageAnalogReading(100.0, pin); //analogRead(pin); // Reference voltage is 3v3 so maximum reading is 3v3 = 4095 in range 0 to 4095
-  if (reading < 1 || reading > 4095)
-    return 0;
   //return -0.000000000009824 * pow(reading,3) + 0.000000016557283 * pow(reading,2) + 0.000854596860691 * reading + 0.065440348345433;
   return -0.000000000000016 * pow(reading, 4) + 0.000000000118171 * pow(reading, 3) - 0.000000301211691 * pow(reading, 2) + 0.001109019271794 * reading + 0.034143524634089;
 } // Added an improved polynomial, use either, comment out as requi

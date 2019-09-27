@@ -16,7 +16,16 @@ namespace Solar.ViewModels
         private readonly IRepository repository;
         private readonly IESPData espData;
 
-        private bool isReady= false;
+        private bool clickable;
+
+        public bool Clickable
+        {
+            get { return clickable; }
+            set { SetProperty(ref(clickable), value); }
+        }
+
+
+        private bool isReady;
 
         public bool IsReady
         {
@@ -33,6 +42,8 @@ namespace Solar.ViewModels
             Panel = p;
             this.repository = repository;
             this.espData = espData;
+            IsReady = false;
+            Clickable = true;
             //this.data = data;
             GetCommand = new Command(async () => await GetData());
             StartCommand = new Command(async () => await Start());
@@ -41,9 +52,11 @@ namespace Solar.ViewModels
         private async Task Start()
         {
             var state = await espData.StartMeasuring((int)Panel.NominalV);
+            IsBusy = true;
             if (state)
             {
-                await Task.Delay(50000);
+                await Application.Current.MainPage.DisplayAlert("Aviso", "La caracterización está en ejecución, por favor espere al indicador verde", "Ok");
+                await Task.Delay(3000);
                 IsReady = true;
             }
             else
@@ -55,10 +68,10 @@ namespace Solar.ViewModels
 
         private async Task GetData()
         {
-            IsBusy = true;
             var data = await espData.GetDataAsync();
             await repository.InsertReadingsToExisting(Panel.Id, data);
             IsBusy = false;
+            Clickable = false;
             await Application.Current.MainPage.Navigation.PopModalAsync();
         }
     }

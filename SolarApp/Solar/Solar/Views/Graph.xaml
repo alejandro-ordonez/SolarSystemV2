@@ -34,9 +34,10 @@
                     </Grid>
                 </StackLayout>
             </Frame>
-            
+
             <chart:SfChart HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-                <chart:LineSeries ItemsSource="{Binding IV}" YBindingPath="I" XBindingPath="V"/>
+                <chart:FastLineSeries ItemsSource="{Binding IV}" YBindingPath="I" XBindingPath="V"/>
+                <chart:SfChart.Legend />
                 <chart:SfChart.PrimaryAxis>
                     <chart:NumericalAxis>
                         <chart:NumericalAxis.Title>
@@ -55,6 +56,29 @@
                     <chart:ChartTitle Text="IV Curve Solar Panel" TextColor="Blue"/>
                 </chart:SfChart.Title>
             </chart:SfChart>
+
+            <chart:SfChart HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                <chart:FastLineSeries ItemsSource="{Binding IV}" YBindingPath="Power" XBindingPath="V" Color="Red"/>
+                <chart:SfChart.Legend />
+                <chart:SfChart.PrimaryAxis>
+                    <chart:NumericalAxis>
+                        <chart:NumericalAxis.Title>
+                            <chart:ChartAxisTitle Text="Voltage V" TextColor="Black" Font="Bold,20"/>
+                        </chart:NumericalAxis.Title>
+                    </chart:NumericalAxis>
+                </chart:SfChart.PrimaryAxis >
+                <chart:SfChart.SecondaryAxis>
+                    <chart:NumericalAxis>
+                        <chart:NumericalAxis.Title>
+                            <chart:ChartAxisTitle Text="Corriente I (Amps)"/>
+                        </chart:NumericalAxis.Title>
+                    </chart:NumericalAxis>
+                </chart:SfChart.SecondaryAxis>
+                <chart:SfChart.Title>
+                    <chart:ChartTitle Text="IV Curve Solar Panel" TextColor="Blue"/>
+                </chart:SfChart.Title>
+            </chart:SfChart>
+            
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

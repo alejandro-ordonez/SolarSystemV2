@@ -12,12 +12,13 @@ void setup() {
   {
     /* code */
     data[i]=analogRead(39);
-    delayMicroseconds(10);
+    delayMicroseconds(1);
   }
   for (size_t i = 0; i < 1000; i++)
   {
     /* code */
-    Serial.println(data[i]);
+    Serial.print(data[i]);
+    Serial.print(",");
   }
   
   
