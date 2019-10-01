@@ -14,8 +14,8 @@ int t1 =0;
 int t2=0;
 //Filter
 
-float b[]={0.239057223610688, 0.239057223610688};
-float a[]={1.000000000000000, -0.521885552778624};
+float b[]={0.916635921213319, 0.916635921213319};
+float a[]={1.000000000000000, 0.833271842426637};
 
 float lp_in1[2];
 float lp_out1[2];
@@ -37,16 +37,26 @@ void setup() {
   adcStart(VN);
   adcStart(ISensor);
 
-  analogReadResolution(12);       // Default of 12 is not very linear. Recommended to use 10 or 11 depending on needed resolution.
+  analogReadResolution(11);       // Default of 12 is not very linear. Recommended to use 10 or 11 depending on needed resolution.
   analogSetAttenuation(ADC_11db);
   pinMode(LED, OUTPUT);
   pinMode(5, OUTPUT);
   ledcSetup(0, 50000, 16);
   ledcAttachPin(5, 0);
-  ledcWrite(0, 65536);
+  ledcWrite(0, 0);
 }
 
 void loop() {
+    /*t1 = millis();
+    temp = analogRead(VN);
+    temp1 = analogRead(ISensor);
+    Serial.print(filterVoltage.calc_out(temp), 5);
+    Serial.print("   ");
+    Serial.println(filterISensor.calc_out(temp1),6);
+    t2=millis();
+    if((t2-t1)<700){
+      delay(700-(t2-t1));
+    }*/
  /* digitalWrite(5, HIGH);
   Serial.print(analogRead(ISensor));
   Serial.print("   ");
@@ -64,26 +74,24 @@ void loop() {
   //ledcWrite(0, 65536);
   //Serial.println(ReadVoltage(VN), 5);
   
-  for (size_t i = 0; i < 65536; i+=100)
+  for (size_t i = 0; i < 65536; i+=200)
   { 
     t1 = millis();
-    temp = analogRead(VN);
-    temp1 = analogRead(ISensor);
+    //temp = averageAnalogReading(60,VN);
+    //temp1 = analogRead(ISensor);
 
-    Serial.print(filterVoltage.calc_out(temp), 5);
+    Serial.print(getVoltage(), 5);
+    /*Serial.print("   ");
+    Serial.println(filterISensor.calc_out(temp1),6);*/
+
+    //Serial.print(averageAnalogReading(300,VN), 7);
     Serial.print("   ");
-    Serial.print(filterISensor.calc_out(temp1),6);
-    Serial.print("   ");
-    Serial.print(temp);
-    Serial.print("   ");
-    Serial.print(i);
-    Serial.print("   ");
-    Serial.println(temp1);
+    Serial.println(averageAnalogReading(300,ISensor),7);
 
     ledcWrite(0, i);
     t2=millis();
-    if((t2-t1)<20){
-      delay(20-(t2-t1));
+    if((t2-t1)<700){
+      delay(700-(t2-t1));
     }
   }
   //Serial.println("Finished");
@@ -158,5 +166,5 @@ double getZero(){
   return temp/1000;
 }
 double getVoltage(){
-  return filterVoltage.calc_out(analogRead(VN));//  *19.66720169 * (3.3/4096);
+  return 0.0264*averageAnalogReading(60,VN)+2.4251;//  *19.66720169 * (3.3/4096);
 }

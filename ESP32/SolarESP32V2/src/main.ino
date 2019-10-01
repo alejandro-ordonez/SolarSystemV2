@@ -155,7 +155,7 @@ RTC_DS3231 Clock;
 //Capacity required to save all the data
 const int capacity = 2 * JSON_ARRAY_SIZE(100) + JSON_OBJECT_SIZE(5);
 //Jason Document created to save data
-DynamicJsonDocument doc(45000);
+DynamicJsonDocument doc(70000);
 // Array to save all currents measured
 JsonArray IArray;
 // Array to save all voltages measured
@@ -397,9 +397,9 @@ void PID()
   ledcWrite(0, PWMValue);
   temp = readVSensor();
   temp1 = readISensor();
-  if (temp1 > 303)
+  if (temp1 > 260)
   {
-    print(PWMValue, temp, temp1);
+    //print(PWMValue, temp, temp1);
     IArray.add(temp1);
     VArray.add(temp);
   }
@@ -467,7 +467,7 @@ double CalculateStep()
 void StartTimer()
 {
   ledcWrite(0, 0);
-  delay(2000);
+  delay(3000);
   timer = timerBegin(0, 240, true);
   timerAttachInterrupt(timer, &OnTimer, true);
   //TODO: Update scale
