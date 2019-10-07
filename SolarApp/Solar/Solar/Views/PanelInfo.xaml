@@ -25,7 +25,6 @@
                                 <RowDefinition Height="Auto"/>
                                 <RowDefinition Height="Auto"/>
                                 <RowDefinition Height="Auto"/>
-                                <RowDefinition Height="Auto"/>
                             </Grid.RowDefinitions>
                             <Label Text="Referencia: " Grid.Column="0" Grid.Row="0" Style="{StaticResource BoldItem}"/>
                             <Label Text="{Binding Reference}" Grid.Column="1" Grid.Row="0"/>

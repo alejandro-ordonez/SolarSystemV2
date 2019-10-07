@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
+using Solar.Helpers;
 using Solar.Models;
 using Xamarin.Essentials;
 
@@ -30,7 +32,7 @@ namespace Solar.Services
             throw new NotImplementedException();
         }
 
-        public async Task<DataPanel> GetDataAsync()
+        public async Task<DataPanel> GetDataAsync(double Height, double Width)
         {
             var response = await httpClient.GetAsync(new Uri(URL, "/Data"));
             if (response.IsSuccessStatusCode)
@@ -42,8 +44,16 @@ namespace Solar.Services
                 {
                     dataPanel.IV.Add(new Reading { I = data.I[i], V = data.V[i] });
                 }
-                dataPanel.Radiation = data.Radiation;
-                dataPanel.Temp = data.Temp;
+                dataPanel.IV.Add(new Reading { I = 0, V = data.V[data.V.Length - 1] });
+                dataPanel.Pmax = dataPanel.IV.Max(iv => iv.Power);
+                var reading = dataPanel.IV.Where(iv => (iv.I * iv.V) == dataPanel.Pmax).FirstOrDefault();
+                dataPanel.Im = reading.I;
+                dataPanel.Vm = reading.V;
+                dataPanel.Radiation = data.IR;
+                dataPanel.PowerIn = SolarMath.CalculatePowerPanel(Width, Height, dataPanel.Radiation);
+                dataPanel.Efficency = SolarMath.CalculateEficiency(dataPanel.Im, dataPanel.Vm, dataPanel.PowerIn);
+                dataPanel.FF = SolarMath.CalculateFF(dataPanel.Im, dataPanel.Vm, dataPanel.IV[0].I, dataPanel.IV[dataPanel.IV.Count - 1].V);
+                dataPanel.Temp = data.T;
                 dataPanel.Date = DateTime.Now;
                 return dataPanel;
             }

@@ -18,5 +18,12 @@ namespace Solar.Views
             BindingContext = Startup.ServiceProvider.GetService<ResultViewModel>();
             InitializeComponent();
         }
+
+        private async void TapGestureRecognizer_Tapped(object sender, EventArgs e)
+        {
+            var frame = sender as Frame;
+            await frame.ScaleTo(1.1, 100, Easing.Linear);
+            await frame.ScaleTo(1, 100, Easing.CubicIn);
+        }
     }
 }

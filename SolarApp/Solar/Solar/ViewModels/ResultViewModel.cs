@@ -57,12 +57,8 @@ namespace Solar.ViewModels
 
         public Panel PanelSelected
         {
-            get { return panelSelected; }
-            set
-            {
-                SetProperty(ref panelSelected, value);
-                ResultCommand.Execute(panelSelected.Id);
-            }
+            get => panelSelected; 
+            set => SetProperty(ref panelSelected, value);
         }
         #endregion
 

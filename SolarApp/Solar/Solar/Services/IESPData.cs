@@ -9,7 +9,7 @@ namespace Solar.Services
 {
     public interface IESPData
     {
-        Task<DataPanel> GetDataAsync();
+        Task<DataPanel> GetDataAsync(double Height, double Width);
         Task<bool> SetTimeESP();
         Task<Reading> GetMaxPower(List<Reading> readings);
         Task<Location> GetLocation();

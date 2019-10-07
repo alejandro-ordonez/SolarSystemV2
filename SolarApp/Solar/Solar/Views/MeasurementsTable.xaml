@@ -4,13 +4,22 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
+             x:Name="MeasureView"
              x:Class="Solar.Views.MeasurementsTable">
   <ContentView.Content>
       <StackLayout>
-            <ListView ItemsSource="{Binding Data}" IsPullToRefreshEnabled="False" SelectionMode="Single" ItemSelected="ListView_ItemSelected">
+            <ListView ItemsSource="{Binding Data}" IsPullToRefreshEnabled="False" SelectionMode="Single" ItemTapped="ListView_ItemTapped" CachingStrategy="RecycleElement">
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <TextCell Text="{Binding Date}" Detail="{Binding Radiation}"/>
+                        <ViewCell>
+                            <Frame HasShadow="True" CornerRadius="8" Margin="2">
+                                <Label Text="{Binding Date}" TextColor="Black"/>
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" Command="{Binding GraphCommand, Source={x:Reference MeasureView}}" 
+                                                          CommandParameter="{Binding .}"/>
+                                </Frame.GestureRecognizers>
+                            </Frame>
+                        </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>

@@ -1,4 +1,5 @@
-﻿using Solar.ViewModels;
+﻿using Solar.Models;
+using Solar.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,6 +19,13 @@ namespace Solar.Views
             BindingContext = Startup.ServiceProvider.GetService<PanelsViewModel>();
             InitializeComponent();
             
+        }
+
+        private async void TapGestureRecognizer_Tapped(object sender, EventArgs e)
+        {
+            var f = sender as Frame;
+            await f.ScaleTo(1.1, 100, Easing.Linear);
+            await f.ScaleTo(1, 100, Easing.Linear);
         }
     }
 }

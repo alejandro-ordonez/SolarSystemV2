@@ -24,13 +24,8 @@ namespace Solar.ViewModels
 
         public Panel PanelSelected
         {
-            get { return panel; }
-            set
-            {
-                SetProperty(ref panel, value);
-                if(value!=null)
-                    GetCommand.Execute(null);
-            }
+            get =>panel; 
+            set => SetProperty(ref panel, value);
         }
         private bool _opening=true;
 
@@ -48,9 +43,9 @@ namespace Solar.ViewModels
                 new Panel { Place = "Wherever", Reference = "1192" }
             };
             AddCommand = new Command(async () => await AddPanel());
-            MeasureCommand = new Command(async () => await MeasureUI());
+            MeasureCommand = new Command<Panel>(async (p) => await MeasureUI(p));
             RefreshCommand = new Command(async () => await RefreshList());
-            GetCommand = new Command(async () => await GetPanelData());
+            GetCommand = new Command<Panel>(async (p) => await GetPanelData(p));
             RefreshCommand.Execute(null);
         }
 
@@ -62,13 +57,13 @@ namespace Solar.ViewModels
             get { return isRefreshing; }
             set { SetProperty(ref isRefreshing, value); }
         }
-        private async Task GetPanelData()
+        private async Task GetPanelData(Panel p)
         {
-            await Application.Current.MainPage.Navigation.PushModalAsync(new CollectData(PanelSelected));
+            await Application.Current.MainPage.Navigation.PushModalAsync(new CollectData(p));
         }
-        private async Task MeasureUI()
+        private async Task MeasureUI(Panel p)
         {
-            await Application.Current.MainPage.Navigation.PushModalAsync(new GetInfo(PanelSelected));
+            await Application.Current.MainPage.Navigation.PushModalAsync(new GetInfo(p));
         }
 
         private async Task RefreshList()

@@ -14,8 +14,8 @@ namespace Solar.Models
         public string Reference { get; set; }
         public double Width { get; set; }
         public double Height { get; set; }
-        public double NominalV { get; set; }
-        public double NominalI { get; set; }
+        public double Voc { get; set; }
+        public double Isc { get; set; }
         public double Power { get; set; }
         public double Latitude { get; set; }
         public double Longitude { get; set; }

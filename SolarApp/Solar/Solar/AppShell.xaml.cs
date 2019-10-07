@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-
+using Solar.ViewModels;
 using Xamarin.Forms;
 
 namespace Solar
@@ -9,6 +9,7 @@ namespace Solar
     {
         public AppShell()
         {
+            BindingContext = new ShellViewModel();
             InitializeComponent();
         }
     }

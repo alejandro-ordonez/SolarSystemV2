@@ -19,7 +19,7 @@
                 <Entry Text="{Binding NominalI}" Placeholder="Corriente Nominal (A)" Keyboard="Numeric"/>
                 <Entry Text="{Binding Power}" Placeholder="Potencia (W)" Keyboard="Numeric"/>
                 <ActivityIndicator IsRunning="{Binding IsBusy}"  BackgroundColor="Gray"/>
-                <Button Text="Caracterizar" IsEnabled="{Binding ButtonState}" Command="{Binding GetDataCommand}" VerticalOptions="End" HorizontalOptions="Center"/>
+                <Button Text="Crear Panel" IsEnabled="{Binding ButtonState}" Command="{Binding GetDataCommand}" VerticalOptions="End" HorizontalOptions="Center"/>
                 <ProgressBar Progress="{Binding Progress}" VerticalOptions="End"/>
             </StackLayout>
         </ScrollView>

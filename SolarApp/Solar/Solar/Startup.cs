@@ -59,6 +59,7 @@ namespace Solar
             services.AddTransient<PanelsViewModel>();
             services.AddTransient<MeasureViewModel>();
             services.AddTransient<InfoViewModel>();
+            services.AddTransient<ShellViewModel>();
             
         }
 

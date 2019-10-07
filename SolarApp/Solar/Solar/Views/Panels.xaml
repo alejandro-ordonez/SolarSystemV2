@@ -4,18 +4,42 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
+             x:Name="PanelsView"
              Visual="Material"
              x:Class="Solar.Views.Panels">
     <ContentPage.ToolbarItems>
         <ToolbarItem IconImageSource="{StaticResource Plus}" Command="{Binding AddCommand}" IsEnabled="{Binding Opening}"/>
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
-        <StackLayout Padding="10">
-            <Label Text="Escoge un panel para añadir una nueva caracterización"/>
-            <ListView RefreshControlColor="Green" SelectedItem="{Binding PanelSelected}" IsPullToRefreshEnabled="True" IsRefreshing="{Binding IsRefreshing}" HasUnevenRows="True" RefreshCommand="{Binding RefreshCommand}" ItemsSource="{Binding Panels}">
+        <StackLayout Padding="15" Spacing="10">
+            <Frame HasShadow="True" CornerRadius="8" BorderColor="LightGray">
+                <Label Text="Escoge un panel para añadir una nueva caracterización" FontAttributes="Bold,Italic" HorizontalOptions="Center"/>
+            </Frame>
+            <ListView RefreshControlColor="Green" SelectionMode="None"
+                      IsPullToRefreshEnabled="True" IsRefreshing="{Binding IsRefreshing}" HasUnevenRows="True" RefreshCommand="{Binding RefreshCommand}" ItemsSource="{Binding Panels}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <ImageCell TextColor="Black" DetailColor="Green" Text="{Binding Reference}" ImageSource="tab_about.png" Detail="{Binding Place}"/>
+                        <ViewCell>
+                            <Frame CornerRadius="8" Margin="0" BorderColor="LightGray" Padding="10" HasShadow="True">
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" Command="{Binding Path=BindingContext.GetCommand, Source={x:Reference PanelsView}}" 
+                                                          CommandParameter="{Binding .}"/>
+                                </Frame.GestureRecognizers>
+                                <Grid ColumnSpacing="10">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="5*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Label Text="{Binding Reference}" TextColor="Black" FontAttributes="Bold,Italic" Grid.Column="1" Grid.Row="0"/>
+                                    <Label Text="{Binding Place}" TextColor="Green" FontAttributes="Bold" Grid.Column="1" Grid.Row="1"/>
+                                    <Image Source="tab_about.png" Aspect="AspectFit" Grid.Column="0" Grid.RowSpan="2"/>
+                                </Grid>
+                            </Frame>
+                        </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>

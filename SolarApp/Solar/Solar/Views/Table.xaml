@@ -5,14 +5,15 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              Visual="Material"
+             x:Name="TableView"
              x:Class="Solar.Views.Table">
     <ContentPage.Content>
         <StackLayout>
-            <ListView IsPullToRefreshEnabled="True" RefreshCommand="{Binding RefreshListCommand}" ItemsSource="{Binding Panels}" SeparatorVisibility="None" HasUnevenRows="True" SelectedItem="{Binding PanelSelected, Mode=TwoWay}">
+            <ListView IsPullToRefreshEnabled="True" SelectionMode="None" RefreshCommand="{Binding RefreshListCommand}" ItemsSource="{Binding Panels}" SeparatorVisibility="None" HasUnevenRows="True">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <Frame Padding="0" Margin="10" CornerRadius="20" BorderColor="Black">
+                            <Frame Padding="0" Margin="10" HasShadow="True" CornerRadius="20" BorderColor="Black">
                                 <Grid Padding="15" RowSpacing="5" HorizontalOptions="Fill" ColumnSpacing="5">
                                     <Grid.RowDefinitions>
                                         <RowDefinition Height="Auto"/>
@@ -36,6 +37,10 @@
                                     <Label Text="Alto" Style="{StaticResource TextBox}"       Grid.Column="0" Grid.Row="3"/>
                                     <Label Text="{Binding Height, StringFormat='{0:F2} m'}"   Grid.Column="1" Grid.Row="3"/>
                                 </Grid>
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" Command="{Binding BindingContext.ResultCommand, Source={x:Reference TableView}}"
+                                                          CommandParameter="{Binding id}"/>
+                                </Frame.GestureRecognizers>
                             </Frame>
                         </ViewCell>
                     </DataTemplate>

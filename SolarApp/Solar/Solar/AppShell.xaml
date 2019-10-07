@@ -16,24 +16,26 @@
 
     <Shell.FlyoutHeaderTemplate>
         <DataTemplate>
-            <Grid VerticalOptions="Fill" HorizontalOptions="Fill">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="6*"/>
-                </Grid.ColumnDefinitions>
-                <Image Source="header.png" Aspect="AspectFill" Grid.RowSpan="2" Grid.ColumnSpan="2" Grid.Column="0" Grid.Row="0" Opacity="0.5"/>
-                <Image Source="{StaticResource User}" Aspect="AspectFit" Grid.RowSpan="2" HorizontalOptions="End" Grid.Column="0"/>
-                <Label Text="User" FontSize="Large" Style="{StaticResource FlyoutItem}" HorizontalOptions="Center" VerticalOptions="Center" Grid.Column="1" Grid.Row="0" />
-                <StackLayout Grid.Row="1" Grid.Column="1" Orientation="Horizontal" Spacing="15" HorizontalOptions="CenterAndExpand">
-                    <ImageButton Source="{StaticResource Facebook}" Aspect="AspectFit" BackgroundColor="Transparent"/>
-                    <ImageButton Source="{StaticResource Instagram}" Aspect="AspectFit" BackgroundColor="Transparent"/>
-                    <ImageButton Source="{StaticResource GitHub}" Aspect="AspectFit" BackgroundColor="Transparent"/>
-                </StackLayout>
-            </Grid>
+            <RelativeLayout HorizontalOptions="Fill" VerticalOptions="Fill" BackgroundColor="Black">
+                <Image Source="header.png" RelativeLayout.HeightConstraint="{ConstraintExpression Property=Height, Type=RelativeToParent}" RelativeLayout.WidthConstraint="{ConstraintExpression Property=Width, Type=RelativeToParent}" Opacity="0.4"/>
+                <Grid RowSpacing="5" ColumnSpacing="5" Padding="10" Margin="0,40,0,40" VerticalOptions="Center">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="5*"/>
+                    </Grid.ColumnDefinitions>
+                    <Image Source="{StaticResource User}" Aspect="AspectFit" Grid.RowSpan="2" VerticalOptions="Center" HorizontalOptions="EndAndExpand" Grid.Column="0"/>
+                    <Label Text="Manuel Alejandro Ordoñez" FontSize="Medium" Style="{StaticResource FlyoutItem}" HorizontalOptions="Start" VerticalOptions="Center" Grid.Column="1" Grid.Row="0" />
+                    <StackLayout Grid.Row="1" Grid.Column="1" Orientation="Horizontal" Spacing="15" HorizontalOptions="StartAndExpand">
+                        <ImageButton Source="{StaticResource Facebook}" Command="{Binding OpenBrowserCommand}" CommandParameter="https://www.facebook.com/Sunny-App-107801953963483/" Aspect="AspectFit" BackgroundColor="Transparent"/>
+                        <ImageButton Source="{StaticResource Instagram}" Aspect="AspectFit" BackgroundColor="Transparent"/>
+                        <ImageButton Source="{StaticResource GitHub}" Command="{Binding OpenBrowserCommand}" CommandParameter="https://github.com/SpectralBolt/SolarSystemV2" Aspect="AspectFit" BackgroundColor="Transparent"/>
+                    </StackLayout>
+                </Grid>
+            </RelativeLayout>
         </DataTemplate>
     </Shell.FlyoutHeaderTemplate>
 
@@ -67,7 +69,7 @@
             <ShellContent ContentTemplate="{DataTemplate local:Panels}"/>
         </Tab>
     </FlyoutItem>
-    <FlyoutItem Title="Resulstados" Icon="{StaticResource Chart}">
+    <FlyoutItem Title="Resultados" Icon="{StaticResource Chart}">
         <Tab Title="Mapa" Icon="{StaticResource Map}">
             <ShellContent ContentTemplate="{DataTemplate local:Map}"/>
         </Tab>

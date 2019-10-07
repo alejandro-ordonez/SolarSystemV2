@@ -25,8 +25,8 @@ float temp1 = 0;
 /////////////// RC Filters /////////////
 // This constants should be fixed to an specific dt and fc
 
-float b[] = {0.009336780874162, 0.009336780874162};
-float a[] = {1.000000000000000, -0.981326438251676};
+float b[]={0.239057223610688, 0.239057223610688};
+float a[]={1.000000000000000, -0.521885552778624};
 float lp_in1[2];
 float lp_out1[2];
 
@@ -62,16 +62,16 @@ dig_comp filterVoltage(b, a, lp_in2, lp_out2, 2, 2);
 
 //////////////Constants////////////////
 //Resolution: 11 Bit linear zone
-#define Resolution 4096
+#define Resolution 2048
 //Voltage Source
 #define VSourve 3.3
 // Max possible PWM value
-#define MaxValuePWM 65535
+#define MaxValuePWM 65535.0
 // It indicates which is the state of the microcontroller if false it means is not
 // doing anything, if true it means microcontroller is taking measures.
 bool isBusy = false;
 // Number Of Samples
-int numberOfSamples = 1500;
+int numberOfSamples = 1200;
 ///////////////////////////////////////
 
 /////////////PID///////////////////////
@@ -86,11 +86,12 @@ float VoC = 0;
 // Current where PID should start
 double setpoint = 0;
 // PWM value determined by PID Control
-double PWMValue = 0;
+double PWMValue = 65536;
+#define MinPWM 45000.0
 //Variable to stablish if timer should be executed or not
 volatile byte State = LOW;
 // PID Constants
-double KP = 0, KD = 0, KI = 0.27596;
+double KP = 0, KD = 0, KI = 0;
 // Error constants
 double lastError = 0, error = 0, sumError = 0;
 // Increase rate linear function.
@@ -191,7 +192,7 @@ void setup()
   adcStart(VS1);
 
   //Set ADC properties
-  analogReadResolution(12);       // Default of 12 is not very linear. Recommended to use 10 or 11 depending on needed resolution.
+  analogReadResolution(11);       // Default of 12 is not very linear. Recommended to use 10 or 11 depending on needed resolution.
   analogSetAttenuation(ADC_11db); // Default is 11db which is very noisy. Recommended to use 2.5 or 6.
 
   ////////////
@@ -393,27 +394,29 @@ void SetTime(AsyncWebServerRequest *request)
  */
 void PID()
 {
-  PWMValue += increase;
-  ledcWrite(0, PWMValue);
-  temp = readVSensor();
-  temp1 = readISensor();
-  if (temp1 > 260)
-  {
-    //print(PWMValue, temp, temp1);
-    IArray.add(temp1);
-    VArray.add(temp);
-  }
-  if (PWMValue >= 65530)
+  if (PWMValue <= 45000)
   {
     StopTimer();
-    PWMValue = 0;
+    PWMValue = 65536;
     portENTER_CRITICAL(&timerMux);
     interruptCounter = 0;
     portEXIT_CRITICAL(&timerMux);
     Serial.println("Finish");
     digitalWrite(Indicator, HIGH);
     isBusy = false;
+    ledcWrite(0, MaxValuePWM);
+    return;
   }
+  ledcWrite(0, PWMValue);
+  PWMValue -= increase;
+  temp = readVSensor();
+  temp1 = readISensor();
+  if(temp1>=160&&totalInterruptCounter>50){
+  print(PWMValue, temp, temp1);
+  IArray.add(temp1);
+  VArray.add(temp);
+  }
+  
   /*
   temp = readVSensor();
   //print(temp, setpoint, PWMValue);
@@ -451,7 +454,7 @@ void PID()
  */
 double CalculateStep()
 {
-  return MaxValuePWM / numberOfSamples;
+  return 20536 / numberOfSamples;
 }
 
 #pragma endregion
@@ -471,7 +474,7 @@ void StartTimer()
   timer = timerBegin(0, 240, true);
   timerAttachInterrupt(timer, &OnTimer, true);
   //TODO: Update scale
-  timerAlarmWrite(timer, 800, true);
+  timerAlarmWrite(timer, 10000, true);
   timerAlarmEnable(timer);
 }
 
@@ -495,7 +498,7 @@ void StopTimer()
   // Stop and free timer
   if (timer)
   {
-    ledcWrite(0, MaxValuePWM);
+    
     timerEnd(timer);
     timer = NULL;
   }
@@ -513,7 +516,9 @@ void StopTimer()
  */
 float readISensor()
 {
-  return filterISensor.calc_out(averageAnalogReading(60, ISensor));
+  return filterISensor.calc_out(averageAnalogReading(200, ISensor));
+  //return 0.1041*averageAnalogReading(60, ISensor)-15.877;
+  //return averageAnalogReading(300, ISensor);
 }
 ///////////////////////////////////////////////////////////////
 
@@ -527,7 +532,8 @@ float readISensor()
 float readVSensor()
 {
   //return (voltageFilter.calc_out(analogRead(VS1)) / Resolution) * 13 * (340206.186 / 320000);
-  return filterVoltage.calc_out(averageAnalogReading(60, VS1));
+  return 0.0264*filterVoltage.calc_out(averageAnalogReading(200, VS1))+2.4251;
+  //return 0.0264*averageAnalogReading(100, VS1) +2.4251;
 }
 
 ///////////////////////////////////////////////////////////////
@@ -569,7 +575,8 @@ double CalculateTemp()
 double radiation()
 {
   double cal = 0;
-  cal = ReadVoltage(averageAnalogReading(100, Pyra));
+  //cal = ReadVoltage(averageAnalogReading(100, Pyra));
+  cal = averageAnalogReading(100, Pyra)*(3.3/Resolution);
   cal /= 27.5;
   cal *= 1000000;
   cal /= 61.5;

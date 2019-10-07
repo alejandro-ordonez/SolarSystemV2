@@ -9,13 +9,13 @@ double temp1 = 0;
 #define LED 2
 #define VN 39
 
-
+float increase = 65536/500;
 int t1 =0;
 int t2=0;
 //Filter
 
-float b[]={0.916635921213319, 0.916635921213319};
-float a[]={1.000000000000000, 0.833271842426637};
+float b[]={0.758546992994776, 0.758546992994776};
+float a[]={1.000000000000000, 0.517093985989552};
 
 float lp_in1[2];
 float lp_out1[2];
@@ -40,10 +40,10 @@ void setup() {
   analogReadResolution(11);       // Default of 12 is not very linear. Recommended to use 10 or 11 depending on needed resolution.
   analogSetAttenuation(ADC_11db);
   pinMode(LED, OUTPUT);
-  pinMode(5, OUTPUT);
+  //pinMode(5, OUTPUT);
   ledcSetup(0, 50000, 16);
   ledcAttachPin(5, 0);
-  ledcWrite(0, 0);
+  ledcWrite(0, 65536);
 }
 
 void loop() {
@@ -73,28 +73,30 @@ void loop() {
   //Serial.println(getZero(),7);
   //ledcWrite(0, 65536);
   //Serial.println(ReadVoltage(VN), 5);
-  
-  for (size_t i = 0; i < 65536; i+=200)
+  ledcWrite(0,0);
+  delay(5000);
+  for (size_t i = 0; i < 65536; i+=increase)
   { 
     t1 = millis();
     //temp = averageAnalogReading(60,VN);
     //temp1 = analogRead(ISensor);
-
+    Serial.print(i);
+    Serial.print(" ");
     Serial.print(getVoltage(), 5);
     /*Serial.print("   ");
     Serial.println(filterISensor.calc_out(temp1),6);*/
 
     //Serial.print(averageAnalogReading(300,VN), 7);
     Serial.print("   ");
-    Serial.println(averageAnalogReading(300,ISensor),7);
+    Serial.println(readISensor(),7);
 
     ledcWrite(0, i);
     t2=millis();
-    if((t2-t1)<700){
-      delay(700-(t2-t1));
+    if((t2-t1)<100){
+      delay(100-(t2-t1));
     }
   }
-  //Serial.println("Finished");
+  Serial.println("Finished");
   /*for (double i = 0; i < 1; i+=0.01)
   { 
     temp=readISensor();
@@ -123,7 +125,9 @@ float readISensor()
   //I+=0.233492+0.016315-0.002122;
   //I*=14.834;
   //I-=24.992;
-  return filterISensor.calc_out(analogRead(ISensor));
+  //return averageAnalogReading(300, ISensor);
+  //return 0.1041*averageAnalogReading(300, ISensor)-15.877;
+  return 0.1041*averageAnalogReading(100, ISensor)-15.877;
 }
 
 double averageAnalogReading(double samples, int analogPin)
@@ -166,5 +170,5 @@ double getZero(){
   return temp/1000;
 }
 double getVoltage(){
-  return 0.0264*averageAnalogReading(60,VN)+2.4251;//  *19.66720169 * (3.3/4096);
+  return 0.0264*averageAnalogReading(300,VN)+2.4251;//  *19.66720169 * (3.3/4096);
 }
