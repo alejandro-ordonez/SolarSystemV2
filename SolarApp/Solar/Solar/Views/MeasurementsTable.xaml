@@ -8,16 +8,16 @@
              x:Class="Solar.Views.MeasurementsTable">
   <ContentView.Content>
       <StackLayout>
-            <ListView ItemsSource="{Binding Data}" IsPullToRefreshEnabled="False" SelectionMode="Single" ItemTapped="ListView_ItemTapped" CachingStrategy="RecycleElement">
+            <ListView ItemsSource="{Binding Data}" IsPullToRefreshEnabled="False" SelectionMode="Single" CachingStrategy="RecycleElement">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <Frame HasShadow="True" CornerRadius="8" Margin="2">
-                                <Label Text="{Binding Date}" TextColor="Black"/>
+                            <Frame HasShadow="True" Padding="10" CornerRadius="8" Margin="2">
                                 <Frame.GestureRecognizers>
                                     <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" Command="{Binding GraphCommand, Source={x:Reference MeasureView}}" 
                                                           CommandParameter="{Binding .}"/>
                                 </Frame.GestureRecognizers>
+                                <Label Text="{Binding Date}" TextColor="Black"/>
                             </Frame>
                         </ViewCell>
                     </DataTemplate>

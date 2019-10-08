@@ -1,15 +1,28 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace Solar.Models
 {
-    public class ESPDataModel
+    public partial class ESPRoot
     {
-        public double IR { get; set; }
-        public double T { get; set; }
-        //public DateTime Date { get; set; }
+        [JsonProperty("Panel")]
+        public PanelClass ESPData { get; set; }
+
+        [JsonProperty("V")]
         public double[] V { get; set; }
+
+        [JsonProperty("I")]
         public double[] I { get; set; }
+    }
+
+    public partial class PanelClass
+    {
+        [JsonProperty("IR")]
+        public double Ir { get; set; }
+
+        [JsonProperty("T")]
+        public double T { get; set; }
     }
 }

@@ -42,6 +42,15 @@
     <AndroidManagedSymbols>true</AndroidManagedSymbols>
     <AndroidUseSharedRuntime>false</AndroidUseSharedRuntime>
     <AndroidEnableProfileAoT>true</AndroidEnableProfileAoT>
+    <AotAssemblies>false</AotAssemblies>
+    <EnableLLVM>false</EnableLLVM>
+    <AndroidEnableProfiledAot>false</AndroidEnableProfiledAot>
+    <BundleAssemblies>false</BundleAssemblies>
+    <MandroidI18n />
+    <AndroidLinkTool>r8</AndroidLinkTool>
+    <AndroidCreatePackagePerAbi>true</AndroidCreatePackagePerAbi>
+    <AndroidLinkMode>Full</AndroidLinkMode>
+    <AndroidDexTool>d8</AndroidDexTool>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Mono.Android" />
@@ -62,8 +71,14 @@
     <PackageReference Include="Microsoft.Extensions.Hosting">
       <Version>3.0.0</Version>
     </PackageReference>
+    <PackageReference Include="Newtonsoft.Json">
+      <Version>12.0.2</Version>
+    </PackageReference>
+    <PackageReference Include="Syncfusion.Xamarin.Pdf">
+      <Version>17.3.0.14</Version>
+    </PackageReference>
     <PackageReference Include="Syncfusion.Xamarin.SfChart">
-      <Version>17.2.0.34</Version>
+      <Version>17.3.0.14</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.Forms" Version="4.3.0.851321-pre3" />
     <PackageReference Include="Xamarin.Android.Support.ViewPager" Version="28.0.0.3" />

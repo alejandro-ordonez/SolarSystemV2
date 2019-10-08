@@ -15,7 +15,7 @@ namespace Solar
         //public static SolarDbContext DB { get; set; }
         public App()
         {
-            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("MTIxNTM4QDMxMzcyZTMyMmUzMEMyNW03U2FrbHBUNi9xYjQ3b1dIQm1GemJpZzdzcG00NFc2WHNWRjZFRWc9");
+            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("MTU0MDcxQDMxMzcyZTMzMmUzMFZPcGswa0ljV2tvYi9ZTURpeWZOclk2dFZDV3dWcDZSYjY4TjR6MnlCRlk9");
             //DB = new SQLiteRepository();
             Startup.Init();
             //DB = new SolarDbContext();

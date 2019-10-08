@@ -51,7 +51,7 @@ namespace Solar.ViewModels
 
         private async Task Start()
         {
-            var state = await espData.StartMeasuring((int)Panel.NominalV);
+            var state = await espData.StartMeasuring((int)Panel.Voc);
             IsBusy = true;
             if (state)
             {
@@ -68,7 +68,7 @@ namespace Solar.ViewModels
 
         private async Task GetData()
         {
-            var data = await espData.GetDataAsync();
+            var data = await espData.GetDataAsync(Panel.Height, Panel.Width);
             await repository.InsertReadingsToExisting(Panel.Id, data);
             IsBusy = false;
             Clickable = false;

@@ -30,6 +30,6 @@ namespace Solar.Helpers
         /// <param name="Vm"></param>
         /// <param name="Pin"></param>
         /// <returns></returns>
-        public static double CalculateEficiency(double Im, double Vm, double Pin) => (Im * Vm) / Pin;
+        public static double CalculateEficiency(double Im, double Vm, double Pin) => ((Im * Vm) / Pin)*100;
     }
 }

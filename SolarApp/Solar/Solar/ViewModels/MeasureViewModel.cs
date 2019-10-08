@@ -125,7 +125,7 @@ namespace Solar.ViewModels
             IsBusy = true;
             var p = await CreatePanel();
             await repository.InsertNewPanel(p);
-            await Task.Delay(5000);
+            await Task.Delay(200);
             //TODO: Add save to Database.
             await Application.Current.MainPage.DisplayAlert("Aviso", "Panel Agregado exitosamente", "Ok");
             IsBusy = false;
@@ -143,8 +143,8 @@ namespace Solar.ViewModels
                 Height = await DoubleConverter(Height),
                 Width = await DoubleConverter(Width),
                 Power = await DoubleConverter(Power),
-                NominalI = await DoubleConverter(NominalI),
-                NominalV = await DoubleConverter(NominalV),
+                Isc = await DoubleConverter(NominalI),
+                Voc = await DoubleConverter(NominalV),
                 Longitude = Loc.Longitude,
                 Latitude = Loc.Latitude
             };
@@ -154,7 +154,7 @@ namespace Solar.ViewModels
         {
             try
             {
-                return double.Parse(x);
+                return double.Parse(x.Replace(",", "."));
             }
             catch
             {

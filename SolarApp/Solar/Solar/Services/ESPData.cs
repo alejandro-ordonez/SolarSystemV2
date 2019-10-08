@@ -38,7 +38,7 @@ namespace Solar.Services
             if (response.IsSuccessStatusCode)
             {
                 var content = await response.Content.ReadAsStringAsync();
-                var data = JsonConvert.DeserializeObject<ESPDataModel>(content);
+                var data = JsonConvert.DeserializeObject<ESPRoot>(content);
                 var dataPanel = new DataPanel();
                 for (int i = 0; i < data.V.Length; i++)
                 {
@@ -49,11 +49,11 @@ namespace Solar.Services
                 var reading = dataPanel.IV.Where(iv => (iv.I * iv.V) == dataPanel.Pmax).FirstOrDefault();
                 dataPanel.Im = reading.I;
                 dataPanel.Vm = reading.V;
-                dataPanel.Radiation = data.IR;
+                dataPanel.Radiation = data.ESPData.Ir;
                 dataPanel.PowerIn = SolarMath.CalculatePowerPanel(Width, Height, dataPanel.Radiation);
                 dataPanel.Efficency = SolarMath.CalculateEficiency(dataPanel.Im, dataPanel.Vm, dataPanel.PowerIn);
                 dataPanel.FF = SolarMath.CalculateFF(dataPanel.Im, dataPanel.Vm, dataPanel.IV[0].I, dataPanel.IV[dataPanel.IV.Count - 1].V);
-                dataPanel.Temp = data.T;
+                dataPanel.Temp = data.ESPData.T;
                 dataPanel.Date = DateTime.Now;
                 return dataPanel;
             }

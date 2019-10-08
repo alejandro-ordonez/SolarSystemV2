@@ -12,7 +12,7 @@ namespace Solar.Services
     {
         //TODO: Update ESP32 Ip
         public string URL = "http://192.168.1:80";
-        public async Task<DataPanel> GetDataAsync()
+        public async Task<DataPanel> GetDataAsync(double Width, double Height)
         {
             var dataP = new DataPanel
             {

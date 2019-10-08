@@ -38,11 +38,11 @@
                             <Label Text="Height:" Grid.Column="0" Grid.Row="3" Style="{StaticResource BoldItem}"/>
                             <Label Text="{Binding Height}" Grid.Column="1" Grid.Row="3"/>
 
-                            <Label Text="Voltaje Nominal: " Grid.Column="0" Grid.Row="4" Style="{StaticResource BoldItem}"/>
-                            <Label Text="{Binding NominalV}" Grid.Column="1" Grid.Row="4"/>
+                            <Label Text="Voltaje VOC: " Grid.Column="0" Grid.Row="4" Style="{StaticResource BoldItem}"/>
+                            <Label Text="{Binding Voc}" Grid.Column="1" Grid.Row="4"/>
 
-                            <Label Text="Corriente Nominal: " Grid.Column="0" Grid.Row="5" Style="{StaticResource BoldItem}"/>
-                            <Label Text="{Binding NominalI}" Grid.Column="1" Grid.Row="5"/>
+                            <Label Text="Corriente ISC: " Grid.Column="0" Grid.Row="5" Style="{StaticResource BoldItem}"/>
+                            <Label Text="{Binding Isc}" Grid.Column="1" Grid.Row="5"/>
 
                             <Label Text="Potencia: " Grid.Column="0" Grid.Row="6" Style="{StaticResource BoldItem}"/>
                             <Label Text="{Binding Power}" Grid.Column="1" Grid.Row="6"/>
@@ -52,7 +52,7 @@
                 </TableSection>
                 <TableSection Title="Ubicación">
                     <ViewCell>
-                        <maps:Map WidthRequest="320" HeightRequest="200" x:Name="PanelMap" IsShowingUser="true" MapType="Hybrid">
+                        <maps:Map WidthRequest="320" HeightRequest="300" x:Name="PanelMap" IsShowingUser="true" MapType="Hybrid">
                         </maps:Map>
                     </ViewCell>
                 </TableSection>

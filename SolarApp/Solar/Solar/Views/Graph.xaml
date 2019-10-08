@@ -9,9 +9,9 @@
              BackgroundColor="#37474F"
              x:Class="Solar.Views.Graph">
     <ContentPage.Content>
-        <ScrollView>
-            <StackLayout Padding="15" Spacing="5">
-                <Frame CornerRadius="20" Padding="0" BorderColor="Black" HasShadow="True">
+        <ScrollView HorizontalOptions="FillAndExpand">
+            <StackLayout HorizontalOptions="FillAndExpand" Spacing="5">
+                <Frame CornerRadius="20" Padding="0" BorderColor="Black" Margin="10" HasShadow="True">
                     <StackLayout>
                         <Label HorizontalOptions="Fill" HorizontalTextAlignment="Center" Text="Cuadro Resumen" TextColor="White" FontAttributes="Bold" FontSize="Subtitle" BackgroundColor="Black"/>
                         <Grid Padding="20">
@@ -37,25 +37,29 @@
                             
                             <Label Text="N° Muestras"         Grid.Row="3" Grid.Column="0" FontAttributes="Bold,Italic" TextColor="Black"/>
                             <Label Text="{Binding IV.Count}"  Grid.Row="3" Grid.Column="1"/>
-                            
-                            <Label Text="Factor de llenado: " Grid.Column="0" Grid.Row="4" Style="{StaticResource BoldItem}"/>
+
+                            <Label Text="Factor de llenado: " Grid.Column="0" Grid.Row="4" FontAttributes="Bold,Italic" TextColor="Black"/>
                             <Label Text="{Binding FF}" Grid.Column="1" Grid.Row="4"/>
 
-                            <Label Text="Eficiencia: " Grid.Column="0" Grid.Row="5" Style="{StaticResource BoldItem}"/>
-                            <Label Text="{Binding Eficiency}" Grid.Column="1" Grid.Row="5"/>
-                            
-                            <Label Text="Potencia de entrada: " Grid.Column="0" Grid.Row="6" Style="{StaticResource BoldItem}"/>
+                            <Label Text="Eficiencia: " Grid.Column="0" Grid.Row="5" FontAttributes="Bold,Italic" TextColor="Black"/>
+                            <Label Text="{Binding Efficency}" Grid.Column="1" Grid.Row="5"/>
+
+                            <Label Text="Potencia de entrada: " Grid.Column="0" Grid.Row="6" FontAttributes="Bold,Italic" TextColor="Black"/>
                             <Label Text="{Binding PowerIn}" Grid.Column="1" Grid.Row="6"/>
                         </Grid>
                     </StackLayout>
                 </Frame>
 
-                <chart:SfChart HorizontalOptions="FillAndExpand" HeightRequest="360" BackgroundColor="#37474F">
+                <chart:SfChart Margin="5" HorizontalOptions="FillAndExpand" HeightRequest="360" BackgroundColor="#37474F">
                     
                     <chart:SfChart.ChartAnnotations>
-                        <chart:VerticalLineAnnotation X1="{Binding Im}" ShowAxisLabel="true"/>
-                        <chart:HorizontalLineAnnotation Y1="{Binding Vm}" ShowAxisLabel="true"/>
-                        <chart:TextAnnotation X1="{Binding Vm}" Y1="{Binding Im}" Text="{Binding Pmax, StringFormat='Max Power {0:F2}'}" />
+                        <chart:VerticalLineAnnotation StrokeWidth="2" X1="{Binding Vm}" ShowAxisLabel="true"/>
+                        <chart:HorizontalLineAnnotation StrokeWidth="2" Y1="{Binding Im}" ShowAxisLabel="true"/>
+                        <chart:TextAnnotation X1="{Binding Vm}" Y1="{Binding Im}" Text="{Binding Pmax, StringFormat='Max Power {0:F2}'}">
+                            <chart:TextAnnotation.LabelStyle>
+                                <chart:ChartAnnotationLabelStyle FontAttributes="Bold" TextColor="White" />
+                            </chart:TextAnnotation.LabelStyle>
+                        </chart:TextAnnotation>
                     </chart:SfChart.ChartAnnotations>
 
                     <chart:FastLineSeries ItemsSource="{Binding IV}" YBindingPath="I" XBindingPath="V" Color="White" StrokeWidth="2" />
@@ -66,7 +70,7 @@
                                 <chart:ChartAxisLabelStyle TextColor="White"/>
                             </chart:NumericalAxis.LabelStyle>
                             <chart:NumericalAxis.Title>
-                                <chart:ChartAxisTitle Text="Voltage V" TextColor="White" Font="Bold"/>
+                                <chart:ChartAxisTitle Text="Voltage V (Volts)" TextColor="White" Font="Bold"/>
                             </chart:NumericalAxis.Title>
                         </chart:NumericalAxis>
                     </chart:SfChart.PrimaryAxis >
@@ -85,25 +89,25 @@
                     </chart:SfChart.Title>
                 </chart:SfChart>
 
-                <chart:SfChart HorizontalOptions="FillAndExpand" HeightRequest="360" BackgroundColor="#37474F">
+                <chart:SfChart Margin="5" HorizontalOptions="FillAndExpand" HeightRequest="360" BackgroundColor="#37474F">
                     <chart:FastLineSeries ItemsSource="{Binding IV}" YBindingPath="Power" XBindingPath="V" Color="Red"/>
                     <chart:SfChart.Legend />
                     <chart:SfChart.PrimaryAxis>
                         <chart:NumericalAxis>
                             <chart:NumericalAxis.Title>
-                                <chart:ChartAxisTitle Text="Voltage V" TextColor="Black" Font="Bold,20"/>
+                                <chart:ChartAxisTitle Text="Voltage V(Volts)" TextColor="White" Font="Bold"/>
                             </chart:NumericalAxis.Title>
                         </chart:NumericalAxis>
                     </chart:SfChart.PrimaryAxis >
                     <chart:SfChart.SecondaryAxis>
                         <chart:NumericalAxis>
                             <chart:NumericalAxis.Title>
-                                <chart:ChartAxisTitle Text="Potencia (Watts)"/>
+                                <chart:ChartAxisTitle Text="Potencia (Watts)" TextColor="White" Font="Bold"/>
                             </chart:NumericalAxis.Title>
                         </chart:NumericalAxis>
                     </chart:SfChart.SecondaryAxis>
                     <chart:SfChart.Title>
-                        <chart:ChartTitle Text="Curva de potencia" TextColor="Blue"/>
+                        <chart:ChartTitle Text="Curva de potencia" TextColor="White"  BackgroundColor="#37474F" BorderColor="#37474F"/>
                     </chart:SfChart.Title>
                 </chart:SfChart>
             </StackLayout>

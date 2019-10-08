@@ -315,7 +315,7 @@ void Start(AsyncWebServerRequest *request)
   Serial.println(T);
   Panel["IR"] = IR;
   Panel["T"] = T;
-  //Panel["Time"] = Clock.now().timestamp();
+  Panel["Time"] = Clock.now().timestamp();
   VArray = doc.createNestedArray("V");
   IArray = doc.createNestedArray("I");
   AsyncWebParameter *p = request->getParam(0);
@@ -411,10 +411,12 @@ void PID()
   PWMValue -= increase;
   temp = readVSensor();
   temp1 = readISensor();
-  if(temp1>=160&&totalInterruptCounter>50){
-  print(PWMValue, temp, temp1);
-  IArray.add(temp1);
+  if(temp1>=0&&totalInterruptCounter>50){
+  //print(PWMValue, temp, temp1);
+  if(totalInterruptCounter%3==0){
+  IArray.add(temp1);                            
   VArray.add(temp);
+  }
   }
   
   /*
@@ -516,7 +518,7 @@ void StopTimer()
  */
 float readISensor()
 {
-  return filterISensor.calc_out(averageAnalogReading(200, ISensor));
+  return 0.1041*filterISensor.calc_out(averageAnalogReading(200, ISensor))-15.786;
   //return 0.1041*averageAnalogReading(60, ISensor)-15.877;
   //return averageAnalogReading(300, ISensor);
 }
