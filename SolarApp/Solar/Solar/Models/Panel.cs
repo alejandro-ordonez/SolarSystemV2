@@ -25,6 +25,10 @@ namespace Solar.Models
 
         public List<DataPanel> Data { get; set; } = new List<DataPanel>();
 
+        public int UserId { get; set; }
+        public User User { get; set; }
+
+
         [NotMapped]
         public Position Location { get; set; }
     }

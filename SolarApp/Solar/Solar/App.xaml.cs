@@ -11,8 +11,7 @@ namespace Solar
 {
     public partial class App : Application
     {
-        //public static SQLiteRepository DB { get; set; }
-        //public static SolarDbContext DB { get; set; }
+        public static int UserLogged { get; set; }
         public App()
         {
             Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("MTU0MDcxQDMxMzcyZTMzMmUzMFZPcGswa0ljV2tvYi9ZTURpeWZOclk2dFZDV3dWcDZSYjY4TjR6MnlCRlk9");
@@ -20,7 +19,7 @@ namespace Solar
             Startup.Init();
             //DB = new SolarDbContext();
             InitializeComponent();
-            MainPage = new AppShell();
+            MainPage = new Login();
         }
 
         protected override void OnStart()

@@ -13,6 +13,7 @@ namespace Solar.Repositories
         public string DbPath { get; set; }
 
         #region Tables
+        public DbSet<User> Users { get; set; }
         public DbSet<Panel> Panels { get; set; }
         public DbSet<DataPanel> Datas { get; set; }
         public DbSet<Reading> Readings { get; set; }
@@ -20,7 +21,7 @@ namespace Solar.Repositories
 
         public SolarDbContext():base()
         {
-            DbPath = Path.Combine(FileSystem.AppDataDirectory, "Test2.sqlite");
+            DbPath = Path.Combine(FileSystem.AppDataDirectory, "SolarDb.sqlite");
             Database.EnsureCreated();
         }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -33,8 +34,7 @@ namespace Solar.Repositories
             modelBuilder.Entity<Panel>().HasKey(p => p.Id);
             modelBuilder.Entity<DataPanel>().HasKey(p => p.Id);
             modelBuilder.Entity<Reading>().HasKey(p => p.Id);
-            //modelBuilder.Entity<Panel>().HasMany<DataPanel>();
-            //modelBuilder.Entity<DataPanel>().HasMany<Reading>();
+            modelBuilder.Entity<User>().HasKey(p => p.Id);
         }
     }
 }

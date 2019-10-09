@@ -53,6 +53,7 @@ namespace Solar
             services.AddSingleton<IESPData, ESPData>();
             services.AddTransient<IRepository, DataBaseService>();
             services.AddTransient<IPDFService, PDFService>();
+            services.AddTransient<IAuthenticationService, AuthenticationService>();
 
             //ViewModels
             services.AddTransient<ResultViewModel>();
@@ -60,6 +61,7 @@ namespace Solar
             services.AddTransient<MeasureViewModel>();
             services.AddTransient<InfoViewModel>();
             services.AddTransient<ShellViewModel>();
+            services.AddSingleton<LogInViewModel>();
             
         }
 

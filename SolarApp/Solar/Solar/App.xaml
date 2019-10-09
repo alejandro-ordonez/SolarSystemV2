@@ -87,6 +87,7 @@
         <FontImageSource x:Key="Instagram" FontFamily="{StaticResource FontAwesomeBrands}" Glyph="{StaticResource InstagramIcon}" Size="30" Color="White"/>
         <FontImageSource x:Key="GitHub" FontFamily="{StaticResource FontAwesomeBrands}" Glyph="{StaticResource GitHubIcon}" Size="30" Color="White"/>
         <FontImageSource x:Key="User" FontFamily="{StaticResource FontAwesomeSolid}" Glyph="{StaticResource UserIcon}" Size="60"/>
+        <FontImageSource x:Key="UserWhite" FontFamily="{StaticResource FontAwesomeSolid}" Glyph="{StaticResource UserIcon}" Size="60" Color="White"/>
         <FontImageSource x:Key="Plus" FontFamily="{StaticResource FontAwesomeSolid}" Glyph="{StaticResource PlusIcon}" Size="25" Color="Green"/>
         <FontImageSource x:Key="Refresh" FontFamily="{StaticResource FontAwesomeSolid}" Glyph="{StaticResource RefreshIcon}" Size="25" Color="White"/>
         <!--#endregion-->

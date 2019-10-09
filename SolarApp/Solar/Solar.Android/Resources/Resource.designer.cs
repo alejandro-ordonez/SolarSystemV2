@@ -117,8 +117,8 @@ namespace Solar.Droid
 			global::Lottie.Forms.Resource.Attribute.behavior_overlapTop = global::Solar.Droid.Resource.Attribute.behavior_overlapTop;
 			global::Lottie.Forms.Resource.Attribute.behavior_peekHeight = global::Solar.Droid.Resource.Attribute.behavior_peekHeight;
 			global::Lottie.Forms.Resource.Attribute.behavior_skipCollapsed = global::Solar.Droid.Resource.Attribute.behavior_skipCollapsed;
-			global::Lottie.Forms.Resource.Attribute.borderWidth = global::Solar.Droid.Resource.Attribute.borderWidth;
 			global::Lottie.Forms.Resource.Attribute.borderlessButtonStyle = global::Solar.Droid.Resource.Attribute.borderlessButtonStyle;
+			global::Lottie.Forms.Resource.Attribute.borderWidth = global::Solar.Droid.Resource.Attribute.borderWidth;
 			global::Lottie.Forms.Resource.Attribute.bottomAppBarStyle = global::Solar.Droid.Resource.Attribute.bottomAppBarStyle;
 			global::Lottie.Forms.Resource.Attribute.bottomNavigationStyle = global::Solar.Droid.Resource.Attribute.bottomNavigationStyle;
 			global::Lottie.Forms.Resource.Attribute.bottomSheetDialogTheme = global::Solar.Droid.Resource.Attribute.bottomSheetDialogTheme;
@@ -184,9 +184,9 @@ namespace Solar.Droid
 			global::Lottie.Forms.Resource.Attribute.closeIconVisible = global::Solar.Droid.Resource.Attribute.closeIconVisible;
 			global::Lottie.Forms.Resource.Attribute.closeItemLayout = global::Solar.Droid.Resource.Attribute.closeItemLayout;
 			global::Lottie.Forms.Resource.Attribute.collapseContentDescription = global::Solar.Droid.Resource.Attribute.collapseContentDescription;
-			global::Lottie.Forms.Resource.Attribute.collapseIcon = global::Solar.Droid.Resource.Attribute.collapseIcon;
 			global::Lottie.Forms.Resource.Attribute.collapsedTitleGravity = global::Solar.Droid.Resource.Attribute.collapsedTitleGravity;
 			global::Lottie.Forms.Resource.Attribute.collapsedTitleTextAppearance = global::Solar.Droid.Resource.Attribute.collapsedTitleTextAppearance;
+			global::Lottie.Forms.Resource.Attribute.collapseIcon = global::Solar.Droid.Resource.Attribute.collapseIcon;
 			global::Lottie.Forms.Resource.Attribute.color = global::Solar.Droid.Resource.Attribute.color;
 			global::Lottie.Forms.Resource.Attribute.colorAccent = global::Solar.Droid.Resource.Attribute.colorAccent;
 			global::Lottie.Forms.Resource.Attribute.colorBackgroundFloating = global::Solar.Droid.Resource.Attribute.colorBackgroundFloating;
@@ -232,8 +232,8 @@ namespace Solar.Droid
 			global::Lottie.Forms.Resource.Attribute.dividerVertical = global::Solar.Droid.Resource.Attribute.dividerVertical;
 			global::Lottie.Forms.Resource.Attribute.drawableSize = global::Solar.Droid.Resource.Attribute.drawableSize;
 			global::Lottie.Forms.Resource.Attribute.drawerArrowStyle = global::Solar.Droid.Resource.Attribute.drawerArrowStyle;
-			global::Lottie.Forms.Resource.Attribute.dropDownListViewStyle = global::Solar.Droid.Resource.Attribute.dropDownListViewStyle;
 			global::Lottie.Forms.Resource.Attribute.dropdownListPreferredItemHeight = global::Solar.Droid.Resource.Attribute.dropdownListPreferredItemHeight;
+			global::Lottie.Forms.Resource.Attribute.dropDownListViewStyle = global::Solar.Droid.Resource.Attribute.dropDownListViewStyle;
 			global::Lottie.Forms.Resource.Attribute.editTextBackground = global::Solar.Droid.Resource.Attribute.editTextBackground;
 			global::Lottie.Forms.Resource.Attribute.editTextColor = global::Solar.Droid.Resource.Attribute.editTextColor;
 			global::Lottie.Forms.Resource.Attribute.editTextStyle = global::Solar.Droid.Resource.Attribute.editTextStyle;
@@ -295,12 +295,12 @@ namespace Solar.Droid
 			global::Lottie.Forms.Resource.Attribute.icon = global::Solar.Droid.Resource.Attribute.icon;
 			global::Lottie.Forms.Resource.Attribute.iconEndPadding = global::Solar.Droid.Resource.Attribute.iconEndPadding;
 			global::Lottie.Forms.Resource.Attribute.iconGravity = global::Solar.Droid.Resource.Attribute.iconGravity;
+			global::Lottie.Forms.Resource.Attribute.iconifiedByDefault = global::Solar.Droid.Resource.Attribute.iconifiedByDefault;
 			global::Lottie.Forms.Resource.Attribute.iconPadding = global::Solar.Droid.Resource.Attribute.iconPadding;
 			global::Lottie.Forms.Resource.Attribute.iconSize = global::Solar.Droid.Resource.Attribute.iconSize;
 			global::Lottie.Forms.Resource.Attribute.iconStartPadding = global::Solar.Droid.Resource.Attribute.iconStartPadding;
 			global::Lottie.Forms.Resource.Attribute.iconTint = global::Solar.Droid.Resource.Attribute.iconTint;
 			global::Lottie.Forms.Resource.Attribute.iconTintMode = global::Solar.Droid.Resource.Attribute.iconTintMode;
-			global::Lottie.Forms.Resource.Attribute.iconifiedByDefault = global::Solar.Droid.Resource.Attribute.iconifiedByDefault;
 			global::Lottie.Forms.Resource.Attribute.imageButtonStyle = global::Solar.Droid.Resource.Attribute.imageButtonStyle;
 			global::Lottie.Forms.Resource.Attribute.indeterminateProgressStyle = global::Solar.Droid.Resource.Attribute.indeterminateProgressStyle;
 			global::Lottie.Forms.Resource.Attribute.initialActivityCount = global::Solar.Droid.Resource.Attribute.initialActivityCount;
@@ -518,9 +518,9 @@ namespace Solar.Droid
 			global::Lottie.Forms.Resource.Attribute.titleMargin = global::Solar.Droid.Resource.Attribute.titleMargin;
 			global::Lottie.Forms.Resource.Attribute.titleMarginBottom = global::Solar.Droid.Resource.Attribute.titleMarginBottom;
 			global::Lottie.Forms.Resource.Attribute.titleMarginEnd = global::Solar.Droid.Resource.Attribute.titleMarginEnd;
+			global::Lottie.Forms.Resource.Attribute.titleMargins = global::Solar.Droid.Resource.Attribute.titleMargins;
 			global::Lottie.Forms.Resource.Attribute.titleMarginStart = global::Solar.Droid.Resource.Attribute.titleMarginStart;
 			global::Lottie.Forms.Resource.Attribute.titleMarginTop = global::Solar.Droid.Resource.Attribute.titleMarginTop;
-			global::Lottie.Forms.Resource.Attribute.titleMargins = global::Solar.Droid.Resource.Attribute.titleMargins;
 			global::Lottie.Forms.Resource.Attribute.titleTextAppearance = global::Solar.Droid.Resource.Attribute.titleTextAppearance;
 			global::Lottie.Forms.Resource.Attribute.titleTextColor = global::Solar.Droid.Resource.Attribute.titleTextColor;
 			global::Lottie.Forms.Resource.Attribute.titleTextStyle = global::Solar.Droid.Resource.Attribute.titleTextStyle;
@@ -653,11 +653,11 @@ namespace Solar.Droid
 			global::Lottie.Forms.Resource.Color.mtrl_tabs_icon_color_selector_colored = global::Solar.Droid.Resource.Color.mtrl_tabs_icon_color_selector_colored;
 			global::Lottie.Forms.Resource.Color.mtrl_tabs_legacy_text_color_selector = global::Solar.Droid.Resource.Color.mtrl_tabs_legacy_text_color_selector;
 			global::Lottie.Forms.Resource.Color.mtrl_tabs_ripple_color = global::Solar.Droid.Resource.Color.mtrl_tabs_ripple_color;
-			global::Lottie.Forms.Resource.Color.mtrl_text_btn_text_color_selector = global::Solar.Droid.Resource.Color.mtrl_text_btn_text_color_selector;
 			global::Lottie.Forms.Resource.Color.mtrl_textinput_default_box_stroke_color = global::Solar.Droid.Resource.Color.mtrl_textinput_default_box_stroke_color;
 			global::Lottie.Forms.Resource.Color.mtrl_textinput_disabled_color = global::Solar.Droid.Resource.Color.mtrl_textinput_disabled_color;
 			global::Lottie.Forms.Resource.Color.mtrl_textinput_filled_box_default_background_color = global::Solar.Droid.Resource.Color.mtrl_textinput_filled_box_default_background_color;
 			global::Lottie.Forms.Resource.Color.mtrl_textinput_hovered_box_stroke_color = global::Solar.Droid.Resource.Color.mtrl_textinput_hovered_box_stroke_color;
+			global::Lottie.Forms.Resource.Color.mtrl_text_btn_text_color_selector = global::Solar.Droid.Resource.Color.mtrl_text_btn_text_color_selector;
 			global::Lottie.Forms.Resource.Color.notification_action_color_filter = global::Solar.Droid.Resource.Color.notification_action_color_filter;
 			global::Lottie.Forms.Resource.Color.notification_icon_bg_color = global::Solar.Droid.Resource.Color.notification_icon_bg_color;
 			global::Lottie.Forms.Resource.Color.notification_material_background_media_default_color = global::Solar.Droid.Resource.Color.notification_material_background_media_default_color;
@@ -975,6 +975,11 @@ namespace Solar.Droid
 			global::Lottie.Forms.Resource.Drawable.abc_switch_track_mtrl_alpha = global::Solar.Droid.Resource.Drawable.abc_switch_track_mtrl_alpha;
 			global::Lottie.Forms.Resource.Drawable.abc_tab_indicator_material = global::Solar.Droid.Resource.Drawable.abc_tab_indicator_material;
 			global::Lottie.Forms.Resource.Drawable.abc_tab_indicator_mtrl_alpha = global::Solar.Droid.Resource.Drawable.abc_tab_indicator_mtrl_alpha;
+			global::Lottie.Forms.Resource.Drawable.abc_textfield_activated_mtrl_alpha = global::Solar.Droid.Resource.Drawable.abc_textfield_activated_mtrl_alpha;
+			global::Lottie.Forms.Resource.Drawable.abc_textfield_default_mtrl_alpha = global::Solar.Droid.Resource.Drawable.abc_textfield_default_mtrl_alpha;
+			global::Lottie.Forms.Resource.Drawable.abc_textfield_search_activated_mtrl_alpha = global::Solar.Droid.Resource.Drawable.abc_textfield_search_activated_mtrl_alpha;
+			global::Lottie.Forms.Resource.Drawable.abc_textfield_search_default_mtrl_alpha = global::Solar.Droid.Resource.Drawable.abc_textfield_search_default_mtrl_alpha;
+			global::Lottie.Forms.Resource.Drawable.abc_textfield_search_material = global::Solar.Droid.Resource.Drawable.abc_textfield_search_material;
 			global::Lottie.Forms.Resource.Drawable.abc_text_cursor_material = global::Solar.Droid.Resource.Drawable.abc_text_cursor_material;
 			global::Lottie.Forms.Resource.Drawable.abc_text_select_handle_left_mtrl_dark = global::Solar.Droid.Resource.Drawable.abc_text_select_handle_left_mtrl_dark;
 			global::Lottie.Forms.Resource.Drawable.abc_text_select_handle_left_mtrl_light = global::Solar.Droid.Resource.Drawable.abc_text_select_handle_left_mtrl_light;
@@ -982,11 +987,6 @@ namespace Solar.Droid
 			global::Lottie.Forms.Resource.Drawable.abc_text_select_handle_middle_mtrl_light = global::Solar.Droid.Resource.Drawable.abc_text_select_handle_middle_mtrl_light;
 			global::Lottie.Forms.Resource.Drawable.abc_text_select_handle_right_mtrl_dark = global::Solar.Droid.Resource.Drawable.abc_text_select_handle_right_mtrl_dark;
 			global::Lottie.Forms.Resource.Drawable.abc_text_select_handle_right_mtrl_light = global::Solar.Droid.Resource.Drawable.abc_text_select_handle_right_mtrl_light;
-			global::Lottie.Forms.Resource.Drawable.abc_textfield_activated_mtrl_alpha = global::Solar.Droid.Resource.Drawable.abc_textfield_activated_mtrl_alpha;
-			global::Lottie.Forms.Resource.Drawable.abc_textfield_default_mtrl_alpha = global::Solar.Droid.Resource.Drawable.abc_textfield_default_mtrl_alpha;
-			global::Lottie.Forms.Resource.Drawable.abc_textfield_search_activated_mtrl_alpha = global::Solar.Droid.Resource.Drawable.abc_textfield_search_activated_mtrl_alpha;
-			global::Lottie.Forms.Resource.Drawable.abc_textfield_search_default_mtrl_alpha = global::Solar.Droid.Resource.Drawable.abc_textfield_search_default_mtrl_alpha;
-			global::Lottie.Forms.Resource.Drawable.abc_textfield_search_material = global::Solar.Droid.Resource.Drawable.abc_textfield_search_material;
 			global::Lottie.Forms.Resource.Drawable.abc_vector_test = global::Solar.Droid.Resource.Drawable.abc_vector_test;
 			global::Lottie.Forms.Resource.Drawable.avd_hide_password = global::Solar.Droid.Resource.Drawable.avd_hide_password;
 			global::Lottie.Forms.Resource.Drawable.avd_show_password = global::Solar.Droid.Resource.Drawable.avd_show_password;
@@ -1016,13 +1016,8 @@ namespace Solar.Droid
 			global::Lottie.Forms.Resource.Drawable.notify_panel_notification_icon_bg = global::Solar.Droid.Resource.Drawable.notify_panel_notification_icon_bg;
 			global::Lottie.Forms.Resource.Drawable.tooltip_frame_dark = global::Solar.Droid.Resource.Drawable.tooltip_frame_dark;
 			global::Lottie.Forms.Resource.Drawable.tooltip_frame_light = global::Solar.Droid.Resource.Drawable.tooltip_frame_light;
-			global::Lottie.Forms.Resource.Id.ALT = global::Solar.Droid.Resource.Id.ALT;
-			global::Lottie.Forms.Resource.Id.CTRL = global::Solar.Droid.Resource.Id.CTRL;
-			global::Lottie.Forms.Resource.Id.FUNCTION = global::Solar.Droid.Resource.Id.FUNCTION;
-			global::Lottie.Forms.Resource.Id.META = global::Solar.Droid.Resource.Id.META;
-			global::Lottie.Forms.Resource.Id.SHIFT = global::Solar.Droid.Resource.Id.SHIFT;
-			global::Lottie.Forms.Resource.Id.SYM = global::Solar.Droid.Resource.Id.SYM;
 			global::Lottie.Forms.Resource.Id.action0 = global::Solar.Droid.Resource.Id.action0;
+			global::Lottie.Forms.Resource.Id.actions = global::Solar.Droid.Resource.Id.actions;
 			global::Lottie.Forms.Resource.Id.action_bar = global::Solar.Droid.Resource.Id.action_bar;
 			global::Lottie.Forms.Resource.Id.action_bar_activity_content = global::Solar.Droid.Resource.Id.action_bar_activity_content;
 			global::Lottie.Forms.Resource.Id.action_bar_container = global::Solar.Droid.Resource.Id.action_bar_container;
@@ -1040,11 +1035,11 @@ namespace Solar.Droid
 			global::Lottie.Forms.Resource.Id.action_mode_bar_stub = global::Solar.Droid.Resource.Id.action_mode_bar_stub;
 			global::Lottie.Forms.Resource.Id.action_mode_close_button = global::Solar.Droid.Resource.Id.action_mode_close_button;
 			global::Lottie.Forms.Resource.Id.action_text = global::Solar.Droid.Resource.Id.action_text;
-			global::Lottie.Forms.Resource.Id.actions = global::Solar.Droid.Resource.Id.actions;
 			global::Lottie.Forms.Resource.Id.activity_chooser_view_content = global::Solar.Droid.Resource.Id.activity_chooser_view_content;
 			global::Lottie.Forms.Resource.Id.add = global::Solar.Droid.Resource.Id.add;
 			global::Lottie.Forms.Resource.Id.alertTitle = global::Solar.Droid.Resource.Id.alertTitle;
 			global::Lottie.Forms.Resource.Id.all = global::Solar.Droid.Resource.Id.all;
+			global::Lottie.Forms.Resource.Id.ALT = global::Solar.Droid.Resource.Id.ALT;
 			global::Lottie.Forms.Resource.Id.always = global::Solar.Droid.Resource.Id.always;
 			global::Lottie.Forms.Resource.Id.async = global::Solar.Droid.Resource.Id.async;
 			global::Lottie.Forms.Resource.Id.auto = global::Solar.Droid.Resource.Id.auto;
@@ -1055,9 +1050,9 @@ namespace Solar.Droid
 			global::Lottie.Forms.Resource.Id.bottomtab_navarea = global::Solar.Droid.Resource.Id.bottomtab_navarea;
 			global::Lottie.Forms.Resource.Id.bottomtab_tabbar = global::Solar.Droid.Resource.Id.bottomtab_tabbar;
 			global::Lottie.Forms.Resource.Id.browser_actions_header_text = global::Solar.Droid.Resource.Id.browser_actions_header_text;
+			global::Lottie.Forms.Resource.Id.browser_actions_menu_items = global::Solar.Droid.Resource.Id.browser_actions_menu_items;
 			global::Lottie.Forms.Resource.Id.browser_actions_menu_item_icon = global::Solar.Droid.Resource.Id.browser_actions_menu_item_icon;
 			global::Lottie.Forms.Resource.Id.browser_actions_menu_item_text = global::Solar.Droid.Resource.Id.browser_actions_menu_item_text;
-			global::Lottie.Forms.Resource.Id.browser_actions_menu_items = global::Solar.Droid.Resource.Id.browser_actions_menu_items;
 			global::Lottie.Forms.Resource.Id.browser_actions_menu_view = global::Solar.Droid.Resource.Id.browser_actions_menu_view;
 			global::Lottie.Forms.Resource.Id.buttonPanel = global::Solar.Droid.Resource.Id.buttonPanel;
 			global::Lottie.Forms.Resource.Id.cancel_action = global::Solar.Droid.Resource.Id.cancel_action;
@@ -1073,6 +1068,7 @@ namespace Solar.Droid
 			global::Lottie.Forms.Resource.Id.content = global::Solar.Droid.Resource.Id.content;
 			global::Lottie.Forms.Resource.Id.contentPanel = global::Solar.Droid.Resource.Id.contentPanel;
 			global::Lottie.Forms.Resource.Id.coordinator = global::Solar.Droid.Resource.Id.coordinator;
+			global::Lottie.Forms.Resource.Id.CTRL = global::Solar.Droid.Resource.Id.CTRL;
 			global::Lottie.Forms.Resource.Id.custom = global::Solar.Droid.Resource.Id.custom;
 			global::Lottie.Forms.Resource.Id.customPanel = global::Solar.Droid.Resource.Id.customPanel;
 			global::Lottie.Forms.Resource.Id.decor_content_parent = global::Solar.Droid.Resource.Id.decor_content_parent;
@@ -1089,16 +1085,17 @@ namespace Solar.Droid
 			global::Lottie.Forms.Resource.Id.enterAlways = global::Solar.Droid.Resource.Id.enterAlways;
 			global::Lottie.Forms.Resource.Id.enterAlwaysCollapsed = global::Solar.Droid.Resource.Id.enterAlwaysCollapsed;
 			global::Lottie.Forms.Resource.Id.exitUntilCollapsed = global::Solar.Droid.Resource.Id.exitUntilCollapsed;
-			global::Lottie.Forms.Resource.Id.expand_activities_button = global::Solar.Droid.Resource.Id.expand_activities_button;
 			global::Lottie.Forms.Resource.Id.expanded_menu = global::Solar.Droid.Resource.Id.expanded_menu;
+			global::Lottie.Forms.Resource.Id.expand_activities_button = global::Solar.Droid.Resource.Id.expand_activities_button;
 			global::Lottie.Forms.Resource.Id.fill = global::Solar.Droid.Resource.Id.fill;
+			global::Lottie.Forms.Resource.Id.filled = global::Solar.Droid.Resource.Id.filled;
 			global::Lottie.Forms.Resource.Id.fill_horizontal = global::Solar.Droid.Resource.Id.fill_horizontal;
 			global::Lottie.Forms.Resource.Id.fill_vertical = global::Solar.Droid.Resource.Id.fill_vertical;
-			global::Lottie.Forms.Resource.Id.filled = global::Solar.Droid.Resource.Id.filled;
 			global::Lottie.Forms.Resource.Id.@fixed = global::Solar.Droid.Resource.Id.@fixed;
 			global::Lottie.Forms.Resource.Id.flyoutcontent_appbar = global::Solar.Droid.Resource.Id.flyoutcontent_appbar;
 			global::Lottie.Forms.Resource.Id.flyoutcontent_recycler = global::Solar.Droid.Resource.Id.flyoutcontent_recycler;
 			global::Lottie.Forms.Resource.Id.forever = global::Solar.Droid.Resource.Id.forever;
+			global::Lottie.Forms.Resource.Id.FUNCTION = global::Solar.Droid.Resource.Id.FUNCTION;
 			global::Lottie.Forms.Resource.Id.ghost_view = global::Solar.Droid.Resource.Id.ghost_view;
 			global::Lottie.Forms.Resource.Id.group_divider = global::Solar.Droid.Resource.Id.group_divider;
 			global::Lottie.Forms.Resource.Id.hardware = global::Solar.Droid.Resource.Id.hardware;
@@ -1122,9 +1119,11 @@ namespace Solar.Droid
 			global::Lottie.Forms.Resource.Id.main_appbar = global::Solar.Droid.Resource.Id.main_appbar;
 			global::Lottie.Forms.Resource.Id.main_tablayout = global::Solar.Droid.Resource.Id.main_tablayout;
 			global::Lottie.Forms.Resource.Id.main_toolbar = global::Solar.Droid.Resource.Id.main_toolbar;
+			global::Lottie.Forms.Resource.Id.main_viewpager = global::Solar.Droid.Resource.Id.main_viewpager;
 			global::Lottie.Forms.Resource.Id.masked = global::Solar.Droid.Resource.Id.masked;
 			global::Lottie.Forms.Resource.Id.media_actions = global::Solar.Droid.Resource.Id.media_actions;
 			global::Lottie.Forms.Resource.Id.message = global::Solar.Droid.Resource.Id.message;
+			global::Lottie.Forms.Resource.Id.META = global::Solar.Droid.Resource.Id.META;
 			global::Lottie.Forms.Resource.Id.middle = global::Solar.Droid.Resource.Id.middle;
 			global::Lottie.Forms.Resource.Id.mini = global::Solar.Droid.Resource.Id.mini;
 			global::Lottie.Forms.Resource.Id.mtrl_child_content_container = global::Solar.Droid.Resource.Id.mtrl_child_content_container;
@@ -1155,10 +1154,10 @@ namespace Solar.Droid
 			global::Lottie.Forms.Resource.Id.save_scale_type = global::Solar.Droid.Resource.Id.save_scale_type;
 			global::Lottie.Forms.Resource.Id.screen = global::Solar.Droid.Resource.Id.screen;
 			global::Lottie.Forms.Resource.Id.scroll = global::Solar.Droid.Resource.Id.scroll;
+			global::Lottie.Forms.Resource.Id.scrollable = global::Solar.Droid.Resource.Id.scrollable;
 			global::Lottie.Forms.Resource.Id.scrollIndicatorDown = global::Solar.Droid.Resource.Id.scrollIndicatorDown;
 			global::Lottie.Forms.Resource.Id.scrollIndicatorUp = global::Solar.Droid.Resource.Id.scrollIndicatorUp;
 			global::Lottie.Forms.Resource.Id.scrollView = global::Solar.Droid.Resource.Id.scrollView;
-			global::Lottie.Forms.Resource.Id.scrollable = global::Solar.Droid.Resource.Id.scrollable;
 			global::Lottie.Forms.Resource.Id.search_badge = global::Solar.Droid.Resource.Id.search_badge;
 			global::Lottie.Forms.Resource.Id.search_bar = global::Solar.Droid.Resource.Id.search_bar;
 			global::Lottie.Forms.Resource.Id.search_button = global::Solar.Droid.Resource.Id.search_button;
@@ -1169,10 +1168,11 @@ namespace Solar.Droid
 			global::Lottie.Forms.Resource.Id.search_plate = global::Solar.Droid.Resource.Id.search_plate;
 			global::Lottie.Forms.Resource.Id.search_src_text = global::Solar.Droid.Resource.Id.search_src_text;
 			global::Lottie.Forms.Resource.Id.search_voice_btn = global::Solar.Droid.Resource.Id.search_voice_btn;
-			global::Lottie.Forms.Resource.Id.select_dialog_listview = global::Solar.Droid.Resource.Id.select_dialog_listview;
 			global::Lottie.Forms.Resource.Id.selected = global::Solar.Droid.Resource.Id.selected;
+			global::Lottie.Forms.Resource.Id.select_dialog_listview = global::Solar.Droid.Resource.Id.select_dialog_listview;
 			global::Lottie.Forms.Resource.Id.shellcontent_appbar = global::Solar.Droid.Resource.Id.shellcontent_appbar;
 			global::Lottie.Forms.Resource.Id.shellcontent_toolbar = global::Solar.Droid.Resource.Id.shellcontent_toolbar;
+			global::Lottie.Forms.Resource.Id.SHIFT = global::Solar.Droid.Resource.Id.SHIFT;
 			global::Lottie.Forms.Resource.Id.shortcut = global::Solar.Droid.Resource.Id.shortcut;
 			global::Lottie.Forms.Resource.Id.showCustom = global::Solar.Droid.Resource.Id.showCustom;
 			global::Lottie.Forms.Resource.Id.showHome = global::Solar.Droid.Resource.Id.showHome;
@@ -1193,19 +1193,20 @@ namespace Solar.Droid
 			global::Lottie.Forms.Resource.Id.stretch = global::Solar.Droid.Resource.Id.stretch;
 			global::Lottie.Forms.Resource.Id.submenuarrow = global::Solar.Droid.Resource.Id.submenuarrow;
 			global::Lottie.Forms.Resource.Id.submit_area = global::Solar.Droid.Resource.Id.submit_area;
+			global::Lottie.Forms.Resource.Id.SYM = global::Solar.Droid.Resource.Id.SYM;
 			global::Lottie.Forms.Resource.Id.tabMode = global::Solar.Droid.Resource.Id.tabMode;
 			global::Lottie.Forms.Resource.Id.tag_transition_group = global::Solar.Droid.Resource.Id.tag_transition_group;
 			global::Lottie.Forms.Resource.Id.tag_unhandled_key_event_manager = global::Solar.Droid.Resource.Id.tag_unhandled_key_event_manager;
 			global::Lottie.Forms.Resource.Id.tag_unhandled_key_listeners = global::Solar.Droid.Resource.Id.tag_unhandled_key_listeners;
 			global::Lottie.Forms.Resource.Id.text = global::Solar.Droid.Resource.Id.text;
 			global::Lottie.Forms.Resource.Id.text2 = global::Solar.Droid.Resource.Id.text2;
+			global::Lottie.Forms.Resource.Id.textinput_counter = global::Solar.Droid.Resource.Id.textinput_counter;
+			global::Lottie.Forms.Resource.Id.textinput_error = global::Solar.Droid.Resource.Id.textinput_error;
+			global::Lottie.Forms.Resource.Id.textinput_helper_text = global::Solar.Droid.Resource.Id.textinput_helper_text;
 			global::Lottie.Forms.Resource.Id.textSpacerNoButtons = global::Solar.Droid.Resource.Id.textSpacerNoButtons;
 			global::Lottie.Forms.Resource.Id.textSpacerNoTitle = global::Solar.Droid.Resource.Id.textSpacerNoTitle;
 			global::Lottie.Forms.Resource.Id.textStart = global::Solar.Droid.Resource.Id.textStart;
 			global::Lottie.Forms.Resource.Id.text_input_password_toggle = global::Solar.Droid.Resource.Id.text_input_password_toggle;
-			global::Lottie.Forms.Resource.Id.textinput_counter = global::Solar.Droid.Resource.Id.textinput_counter;
-			global::Lottie.Forms.Resource.Id.textinput_error = global::Solar.Droid.Resource.Id.textinput_error;
-			global::Lottie.Forms.Resource.Id.textinput_helper_text = global::Solar.Droid.Resource.Id.textinput_helper_text;
 			global::Lottie.Forms.Resource.Id.time = global::Solar.Droid.Resource.Id.time;
 			global::Lottie.Forms.Resource.Id.title = global::Solar.Droid.Resource.Id.title;
 			global::Lottie.Forms.Resource.Id.titleDividerNoCustom = global::Solar.Droid.Resource.Id.titleDividerNoCustom;
@@ -1318,8 +1319,8 @@ namespace Solar.Droid
 			global::Lottie.Forms.Resource.String.abc_action_bar_up_description = global::Solar.Droid.Resource.String.abc_action_bar_up_description;
 			global::Lottie.Forms.Resource.String.abc_action_menu_overflow_description = global::Solar.Droid.Resource.String.abc_action_menu_overflow_description;
 			global::Lottie.Forms.Resource.String.abc_action_mode_done = global::Solar.Droid.Resource.String.abc_action_mode_done;
-			global::Lottie.Forms.Resource.String.abc_activity_chooser_view_see_all = global::Solar.Droid.Resource.String.abc_activity_chooser_view_see_all;
 			global::Lottie.Forms.Resource.String.abc_activitychooserview_choose_application = global::Solar.Droid.Resource.String.abc_activitychooserview_choose_application;
+			global::Lottie.Forms.Resource.String.abc_activity_chooser_view_see_all = global::Solar.Droid.Resource.String.abc_activity_chooser_view_see_all;
 			global::Lottie.Forms.Resource.String.abc_capital_off = global::Solar.Droid.Resource.String.abc_capital_off;
 			global::Lottie.Forms.Resource.String.abc_capital_on = global::Solar.Droid.Resource.String.abc_capital_on;
 			global::Lottie.Forms.Resource.String.abc_font_family_body_1_material = global::Solar.Droid.Resource.String.abc_font_family_body_1_material;
@@ -1344,12 +1345,12 @@ namespace Solar.Droid
 			global::Lottie.Forms.Resource.String.abc_menu_space_shortcut_label = global::Solar.Droid.Resource.String.abc_menu_space_shortcut_label;
 			global::Lottie.Forms.Resource.String.abc_menu_sym_shortcut_label = global::Solar.Droid.Resource.String.abc_menu_sym_shortcut_label;
 			global::Lottie.Forms.Resource.String.abc_prepend_shortcut_label = global::Solar.Droid.Resource.String.abc_prepend_shortcut_label;
-			global::Lottie.Forms.Resource.String.abc_search_hint = global::Solar.Droid.Resource.String.abc_search_hint;
 			global::Lottie.Forms.Resource.String.abc_searchview_description_clear = global::Solar.Droid.Resource.String.abc_searchview_description_clear;
 			global::Lottie.Forms.Resource.String.abc_searchview_description_query = global::Solar.Droid.Resource.String.abc_searchview_description_query;
 			global::Lottie.Forms.Resource.String.abc_searchview_description_search = global::Solar.Droid.Resource.String.abc_searchview_description_search;
 			global::Lottie.Forms.Resource.String.abc_searchview_description_submit = global::Solar.Droid.Resource.String.abc_searchview_description_submit;
 			global::Lottie.Forms.Resource.String.abc_searchview_description_voice = global::Solar.Droid.Resource.String.abc_searchview_description_voice;
+			global::Lottie.Forms.Resource.String.abc_search_hint = global::Solar.Droid.Resource.String.abc_search_hint;
 			global::Lottie.Forms.Resource.String.abc_shareactionprovider_share_with = global::Solar.Droid.Resource.String.abc_shareactionprovider_share_with;
 			global::Lottie.Forms.Resource.String.abc_shareactionprovider_share_with_application = global::Solar.Droid.Resource.String.abc_shareactionprovider_share_with_application;
 			global::Lottie.Forms.Resource.String.abc_toolbar_collapse_description = global::Solar.Droid.Resource.String.abc_toolbar_collapse_description;
@@ -1380,8 +1381,8 @@ namespace Solar.Droid
 			global::Lottie.Forms.Resource.Style.Base_Animation_AppCompat_DropDownUp = global::Solar.Droid.Resource.Style.Base_Animation_AppCompat_DropDownUp;
 			global::Lottie.Forms.Resource.Style.Base_Animation_AppCompat_Tooltip = global::Solar.Droid.Resource.Style.Base_Animation_AppCompat_Tooltip;
 			global::Lottie.Forms.Resource.Style.Base_CardView = global::Solar.Droid.Resource.Style.Base_CardView;
-			global::Lottie.Forms.Resource.Style.Base_DialogWindowTitle_AppCompat = global::Solar.Droid.Resource.Style.Base_DialogWindowTitle_AppCompat;
 			global::Lottie.Forms.Resource.Style.Base_DialogWindowTitleBackground_AppCompat = global::Solar.Droid.Resource.Style.Base_DialogWindowTitleBackground_AppCompat;
+			global::Lottie.Forms.Resource.Style.Base_DialogWindowTitle_AppCompat = global::Solar.Droid.Resource.Style.Base_DialogWindowTitle_AppCompat;
 			global::Lottie.Forms.Resource.Style.Base_TextAppearance_AppCompat = global::Solar.Droid.Resource.Style.Base_TextAppearance_AppCompat;
 			global::Lottie.Forms.Resource.Style.Base_TextAppearance_AppCompat_Body1 = global::Solar.Droid.Resource.Style.Base_TextAppearance_AppCompat_Body1;
 			global::Lottie.Forms.Resource.Style.Base_TextAppearance_AppCompat_Body2 = global::Solar.Droid.Resource.Style.Base_TextAppearance_AppCompat_Body2;
@@ -1430,37 +1431,6 @@ namespace Solar.Droid
 			global::Lottie.Forms.Resource.Style.Base_TextAppearance_Widget_AppCompat_ExpandedMenu_Item = global::Solar.Droid.Resource.Style.Base_TextAppearance_Widget_AppCompat_ExpandedMenu_Item;
 			global::Lottie.Forms.Resource.Style.Base_TextAppearance_Widget_AppCompat_Toolbar_Subtitle = global::Solar.Droid.Resource.Style.Base_TextAppearance_Widget_AppCompat_Toolbar_Subtitle;
 			global::Lottie.Forms.Resource.Style.Base_TextAppearance_Widget_AppCompat_Toolbar_Title = global::Solar.Droid.Resource.Style.Base_TextAppearance_Widget_AppCompat_Toolbar_Title;
-			global::Lottie.Forms.Resource.Style.Base_Theme_AppCompat = global::Solar.Droid.Resource.Style.Base_Theme_AppCompat;
-			global::Lottie.Forms.Resource.Style.Base_Theme_AppCompat_CompactMenu = global::Solar.Droid.Resource.Style.Base_Theme_AppCompat_CompactMenu;
-			global::Lottie.Forms.Resource.Style.Base_Theme_AppCompat_Dialog = global::Solar.Droid.Resource.Style.Base_Theme_AppCompat_Dialog;
-			global::Lottie.Forms.Resource.Style.Base_Theme_AppCompat_Dialog_Alert = global::Solar.Droid.Resource.Style.Base_Theme_AppCompat_Dialog_Alert;
-			global::Lottie.Forms.Resource.Style.Base_Theme_AppCompat_Dialog_FixedSize = global::Solar.Droid.Resource.Style.Base_Theme_AppCompat_Dialog_FixedSize;
-			global::Lottie.Forms.Resource.Style.Base_Theme_AppCompat_Dialog_MinWidth = global::Solar.Droid.Resource.Style.Base_Theme_AppCompat_Dialog_MinWidth;
-			global::Lottie.Forms.Resource.Style.Base_Theme_AppCompat_DialogWhenLarge = global::Solar.Droid.Resource.Style.Base_Theme_AppCompat_DialogWhenLarge;
-			global::Lottie.Forms.Resource.Style.Base_Theme_AppCompat_Light = global::Solar.Droid.Resource.Style.Base_Theme_AppCompat_Light;
-			global::Lottie.Forms.Resource.Style.Base_Theme_AppCompat_Light_DarkActionBar = global::Solar.Droid.Resource.Style.Base_Theme_AppCompat_Light_DarkActionBar;
-			global::Lottie.Forms.Resource.Style.Base_Theme_AppCompat_Light_Dialog = global::Solar.Droid.Resource.Style.Base_Theme_AppCompat_Light_Dialog;
-			global::Lottie.Forms.Resource.Style.Base_Theme_AppCompat_Light_Dialog_Alert = global::Solar.Droid.Resource.Style.Base_Theme_AppCompat_Light_Dialog_Alert;
-			global::Lottie.Forms.Resource.Style.Base_Theme_AppCompat_Light_Dialog_FixedSize = global::Solar.Droid.Resource.Style.Base_Theme_AppCompat_Light_Dialog_FixedSize;
-			global::Lottie.Forms.Resource.Style.Base_Theme_AppCompat_Light_Dialog_MinWidth = global::Solar.Droid.Resource.Style.Base_Theme_AppCompat_Light_Dialog_MinWidth;
-			global::Lottie.Forms.Resource.Style.Base_Theme_AppCompat_Light_DialogWhenLarge = global::Solar.Droid.Resource.Style.Base_Theme_AppCompat_Light_DialogWhenLarge;
-			global::Lottie.Forms.Resource.Style.Base_Theme_MaterialComponents = global::Solar.Droid.Resource.Style.Base_Theme_MaterialComponents;
-			global::Lottie.Forms.Resource.Style.Base_Theme_MaterialComponents_Bridge = global::Solar.Droid.Resource.Style.Base_Theme_MaterialComponents_Bridge;
-			global::Lottie.Forms.Resource.Style.Base_Theme_MaterialComponents_CompactMenu = global::Solar.Droid.Resource.Style.Base_Theme_MaterialComponents_CompactMenu;
-			global::Lottie.Forms.Resource.Style.Base_Theme_MaterialComponents_Dialog = global::Solar.Droid.Resource.Style.Base_Theme_MaterialComponents_Dialog;
-			global::Lottie.Forms.Resource.Style.Base_Theme_MaterialComponents_Dialog_Alert = global::Solar.Droid.Resource.Style.Base_Theme_MaterialComponents_Dialog_Alert;
-			global::Lottie.Forms.Resource.Style.Base_Theme_MaterialComponents_Dialog_FixedSize = global::Solar.Droid.Resource.Style.Base_Theme_MaterialComponents_Dialog_FixedSize;
-			global::Lottie.Forms.Resource.Style.Base_Theme_MaterialComponents_Dialog_MinWidth = global::Solar.Droid.Resource.Style.Base_Theme_MaterialComponents_Dialog_MinWidth;
-			global::Lottie.Forms.Resource.Style.Base_Theme_MaterialComponents_DialogWhenLarge = global::Solar.Droid.Resource.Style.Base_Theme_MaterialComponents_DialogWhenLarge;
-			global::Lottie.Forms.Resource.Style.Base_Theme_MaterialComponents_Light = global::Solar.Droid.Resource.Style.Base_Theme_MaterialComponents_Light;
-			global::Lottie.Forms.Resource.Style.Base_Theme_MaterialComponents_Light_Bridge = global::Solar.Droid.Resource.Style.Base_Theme_MaterialComponents_Light_Bridge;
-			global::Lottie.Forms.Resource.Style.Base_Theme_MaterialComponents_Light_DarkActionBar = global::Solar.Droid.Resource.Style.Base_Theme_MaterialComponents_Light_DarkActionBar;
-			global::Lottie.Forms.Resource.Style.Base_Theme_MaterialComponents_Light_DarkActionBar_Bridge = global::Solar.Droid.Resource.Style.Base_Theme_MaterialComponents_Light_DarkActionBar_Bridge;
-			global::Lottie.Forms.Resource.Style.Base_Theme_MaterialComponents_Light_Dialog = global::Solar.Droid.Resource.Style.Base_Theme_MaterialComponents_Light_Dialog;
-			global::Lottie.Forms.Resource.Style.Base_Theme_MaterialComponents_Light_Dialog_Alert = global::Solar.Droid.Resource.Style.Base_Theme_MaterialComponents_Light_Dialog_Alert;
-			global::Lottie.Forms.Resource.Style.Base_Theme_MaterialComponents_Light_Dialog_FixedSize = global::Solar.Droid.Resource.Style.Base_Theme_MaterialComponents_Light_Dialog_FixedSize;
-			global::Lottie.Forms.Resource.Style.Base_Theme_MaterialComponents_Light_Dialog_MinWidth = global::Solar.Droid.Resource.Style.Base_Theme_MaterialComponents_Light_Dialog_MinWidth;
-			global::Lottie.Forms.Resource.Style.Base_Theme_MaterialComponents_Light_DialogWhenLarge = global::Solar.Droid.Resource.Style.Base_Theme_MaterialComponents_Light_DialogWhenLarge;
 			global::Lottie.Forms.Resource.Style.Base_ThemeOverlay_AppCompat = global::Solar.Droid.Resource.Style.Base_ThemeOverlay_AppCompat;
 			global::Lottie.Forms.Resource.Style.Base_ThemeOverlay_AppCompat_ActionBar = global::Solar.Droid.Resource.Style.Base_ThemeOverlay_AppCompat_ActionBar;
 			global::Lottie.Forms.Resource.Style.Base_ThemeOverlay_AppCompat_Dark = global::Solar.Droid.Resource.Style.Base_ThemeOverlay_AppCompat_Dark;
@@ -1470,6 +1440,39 @@ namespace Solar.Droid
 			global::Lottie.Forms.Resource.Style.Base_ThemeOverlay_AppCompat_Light = global::Solar.Droid.Resource.Style.Base_ThemeOverlay_AppCompat_Light;
 			global::Lottie.Forms.Resource.Style.Base_ThemeOverlay_MaterialComponents_Dialog = global::Solar.Droid.Resource.Style.Base_ThemeOverlay_MaterialComponents_Dialog;
 			global::Lottie.Forms.Resource.Style.Base_ThemeOverlay_MaterialComponents_Dialog_Alert = global::Solar.Droid.Resource.Style.Base_ThemeOverlay_MaterialComponents_Dialog_Alert;
+			global::Lottie.Forms.Resource.Style.Base_Theme_AppCompat = global::Solar.Droid.Resource.Style.Base_Theme_AppCompat;
+			global::Lottie.Forms.Resource.Style.Base_Theme_AppCompat_CompactMenu = global::Solar.Droid.Resource.Style.Base_Theme_AppCompat_CompactMenu;
+			global::Lottie.Forms.Resource.Style.Base_Theme_AppCompat_Dialog = global::Solar.Droid.Resource.Style.Base_Theme_AppCompat_Dialog;
+			global::Lottie.Forms.Resource.Style.Base_Theme_AppCompat_DialogWhenLarge = global::Solar.Droid.Resource.Style.Base_Theme_AppCompat_DialogWhenLarge;
+			global::Lottie.Forms.Resource.Style.Base_Theme_AppCompat_Dialog_Alert = global::Solar.Droid.Resource.Style.Base_Theme_AppCompat_Dialog_Alert;
+			global::Lottie.Forms.Resource.Style.Base_Theme_AppCompat_Dialog_FixedSize = global::Solar.Droid.Resource.Style.Base_Theme_AppCompat_Dialog_FixedSize;
+			global::Lottie.Forms.Resource.Style.Base_Theme_AppCompat_Dialog_MinWidth = global::Solar.Droid.Resource.Style.Base_Theme_AppCompat_Dialog_MinWidth;
+			global::Lottie.Forms.Resource.Style.Base_Theme_AppCompat_Light = global::Solar.Droid.Resource.Style.Base_Theme_AppCompat_Light;
+			global::Lottie.Forms.Resource.Style.Base_Theme_AppCompat_Light_DarkActionBar = global::Solar.Droid.Resource.Style.Base_Theme_AppCompat_Light_DarkActionBar;
+			global::Lottie.Forms.Resource.Style.Base_Theme_AppCompat_Light_Dialog = global::Solar.Droid.Resource.Style.Base_Theme_AppCompat_Light_Dialog;
+			global::Lottie.Forms.Resource.Style.Base_Theme_AppCompat_Light_DialogWhenLarge = global::Solar.Droid.Resource.Style.Base_Theme_AppCompat_Light_DialogWhenLarge;
+			global::Lottie.Forms.Resource.Style.Base_Theme_AppCompat_Light_Dialog_Alert = global::Solar.Droid.Resource.Style.Base_Theme_AppCompat_Light_Dialog_Alert;
+			global::Lottie.Forms.Resource.Style.Base_Theme_AppCompat_Light_Dialog_FixedSize = global::Solar.Droid.Resource.Style.Base_Theme_AppCompat_Light_Dialog_FixedSize;
+			global::Lottie.Forms.Resource.Style.Base_Theme_AppCompat_Light_Dialog_MinWidth = global::Solar.Droid.Resource.Style.Base_Theme_AppCompat_Light_Dialog_MinWidth;
+			global::Lottie.Forms.Resource.Style.Base_Theme_MaterialComponents = global::Solar.Droid.Resource.Style.Base_Theme_MaterialComponents;
+			global::Lottie.Forms.Resource.Style.Base_Theme_MaterialComponents_Bridge = global::Solar.Droid.Resource.Style.Base_Theme_MaterialComponents_Bridge;
+			global::Lottie.Forms.Resource.Style.Base_Theme_MaterialComponents_CompactMenu = global::Solar.Droid.Resource.Style.Base_Theme_MaterialComponents_CompactMenu;
+			global::Lottie.Forms.Resource.Style.Base_Theme_MaterialComponents_Dialog = global::Solar.Droid.Resource.Style.Base_Theme_MaterialComponents_Dialog;
+			global::Lottie.Forms.Resource.Style.Base_Theme_MaterialComponents_DialogWhenLarge = global::Solar.Droid.Resource.Style.Base_Theme_MaterialComponents_DialogWhenLarge;
+			global::Lottie.Forms.Resource.Style.Base_Theme_MaterialComponents_Dialog_Alert = global::Solar.Droid.Resource.Style.Base_Theme_MaterialComponents_Dialog_Alert;
+			global::Lottie.Forms.Resource.Style.Base_Theme_MaterialComponents_Dialog_FixedSize = global::Solar.Droid.Resource.Style.Base_Theme_MaterialComponents_Dialog_FixedSize;
+			global::Lottie.Forms.Resource.Style.Base_Theme_MaterialComponents_Dialog_MinWidth = global::Solar.Droid.Resource.Style.Base_Theme_MaterialComponents_Dialog_MinWidth;
+			global::Lottie.Forms.Resource.Style.Base_Theme_MaterialComponents_Light = global::Solar.Droid.Resource.Style.Base_Theme_MaterialComponents_Light;
+			global::Lottie.Forms.Resource.Style.Base_Theme_MaterialComponents_Light_Bridge = global::Solar.Droid.Resource.Style.Base_Theme_MaterialComponents_Light_Bridge;
+			global::Lottie.Forms.Resource.Style.Base_Theme_MaterialComponents_Light_DarkActionBar = global::Solar.Droid.Resource.Style.Base_Theme_MaterialComponents_Light_DarkActionBar;
+			global::Lottie.Forms.Resource.Style.Base_Theme_MaterialComponents_Light_DarkActionBar_Bridge = global::Solar.Droid.Resource.Style.Base_Theme_MaterialComponents_Light_DarkActionBar_Bridge;
+			global::Lottie.Forms.Resource.Style.Base_Theme_MaterialComponents_Light_Dialog = global::Solar.Droid.Resource.Style.Base_Theme_MaterialComponents_Light_Dialog;
+			global::Lottie.Forms.Resource.Style.Base_Theme_MaterialComponents_Light_DialogWhenLarge = global::Solar.Droid.Resource.Style.Base_Theme_MaterialComponents_Light_DialogWhenLarge;
+			global::Lottie.Forms.Resource.Style.Base_Theme_MaterialComponents_Light_Dialog_Alert = global::Solar.Droid.Resource.Style.Base_Theme_MaterialComponents_Light_Dialog_Alert;
+			global::Lottie.Forms.Resource.Style.Base_Theme_MaterialComponents_Light_Dialog_FixedSize = global::Solar.Droid.Resource.Style.Base_Theme_MaterialComponents_Light_Dialog_FixedSize;
+			global::Lottie.Forms.Resource.Style.Base_Theme_MaterialComponents_Light_Dialog_MinWidth = global::Solar.Droid.Resource.Style.Base_Theme_MaterialComponents_Light_Dialog_MinWidth;
+			global::Lottie.Forms.Resource.Style.Base_V14_ThemeOverlay_MaterialComponents_Dialog = global::Solar.Droid.Resource.Style.Base_V14_ThemeOverlay_MaterialComponents_Dialog;
+			global::Lottie.Forms.Resource.Style.Base_V14_ThemeOverlay_MaterialComponents_Dialog_Alert = global::Solar.Droid.Resource.Style.Base_V14_ThemeOverlay_MaterialComponents_Dialog_Alert;
 			global::Lottie.Forms.Resource.Style.Base_V14_Theme_MaterialComponents = global::Solar.Droid.Resource.Style.Base_V14_Theme_MaterialComponents;
 			global::Lottie.Forms.Resource.Style.Base_V14_Theme_MaterialComponents_Bridge = global::Solar.Droid.Resource.Style.Base_V14_Theme_MaterialComponents_Bridge;
 			global::Lottie.Forms.Resource.Style.Base_V14_Theme_MaterialComponents_Dialog = global::Solar.Droid.Resource.Style.Base_V14_Theme_MaterialComponents_Dialog;
@@ -1477,13 +1480,11 @@ namespace Solar.Droid
 			global::Lottie.Forms.Resource.Style.Base_V14_Theme_MaterialComponents_Light_Bridge = global::Solar.Droid.Resource.Style.Base_V14_Theme_MaterialComponents_Light_Bridge;
 			global::Lottie.Forms.Resource.Style.Base_V14_Theme_MaterialComponents_Light_DarkActionBar_Bridge = global::Solar.Droid.Resource.Style.Base_V14_Theme_MaterialComponents_Light_DarkActionBar_Bridge;
 			global::Lottie.Forms.Resource.Style.Base_V14_Theme_MaterialComponents_Light_Dialog = global::Solar.Droid.Resource.Style.Base_V14_Theme_MaterialComponents_Light_Dialog;
-			global::Lottie.Forms.Resource.Style.Base_V14_ThemeOverlay_MaterialComponents_Dialog = global::Solar.Droid.Resource.Style.Base_V14_ThemeOverlay_MaterialComponents_Dialog;
-			global::Lottie.Forms.Resource.Style.Base_V14_ThemeOverlay_MaterialComponents_Dialog_Alert = global::Solar.Droid.Resource.Style.Base_V14_ThemeOverlay_MaterialComponents_Dialog_Alert;
+			global::Lottie.Forms.Resource.Style.Base_V21_ThemeOverlay_AppCompat_Dialog = global::Solar.Droid.Resource.Style.Base_V21_ThemeOverlay_AppCompat_Dialog;
 			global::Lottie.Forms.Resource.Style.Base_V21_Theme_AppCompat = global::Solar.Droid.Resource.Style.Base_V21_Theme_AppCompat;
 			global::Lottie.Forms.Resource.Style.Base_V21_Theme_AppCompat_Dialog = global::Solar.Droid.Resource.Style.Base_V21_Theme_AppCompat_Dialog;
 			global::Lottie.Forms.Resource.Style.Base_V21_Theme_AppCompat_Light = global::Solar.Droid.Resource.Style.Base_V21_Theme_AppCompat_Light;
 			global::Lottie.Forms.Resource.Style.Base_V21_Theme_AppCompat_Light_Dialog = global::Solar.Droid.Resource.Style.Base_V21_Theme_AppCompat_Light_Dialog;
-			global::Lottie.Forms.Resource.Style.Base_V21_ThemeOverlay_AppCompat_Dialog = global::Solar.Droid.Resource.Style.Base_V21_ThemeOverlay_AppCompat_Dialog;
 			global::Lottie.Forms.Resource.Style.Base_V22_Theme_AppCompat = global::Solar.Droid.Resource.Style.Base_V22_Theme_AppCompat;
 			global::Lottie.Forms.Resource.Style.Base_V22_Theme_AppCompat_Light = global::Solar.Droid.Resource.Style.Base_V22_Theme_AppCompat_Light;
 			global::Lottie.Forms.Resource.Style.Base_V23_Theme_AppCompat = global::Solar.Droid.Resource.Style.Base_V23_Theme_AppCompat;
@@ -1493,11 +1494,11 @@ namespace Solar.Droid
 			global::Lottie.Forms.Resource.Style.Base_V26_Widget_AppCompat_Toolbar = global::Solar.Droid.Resource.Style.Base_V26_Widget_AppCompat_Toolbar;
 			global::Lottie.Forms.Resource.Style.Base_V28_Theme_AppCompat = global::Solar.Droid.Resource.Style.Base_V28_Theme_AppCompat;
 			global::Lottie.Forms.Resource.Style.Base_V28_Theme_AppCompat_Light = global::Solar.Droid.Resource.Style.Base_V28_Theme_AppCompat_Light;
+			global::Lottie.Forms.Resource.Style.Base_V7_ThemeOverlay_AppCompat_Dialog = global::Solar.Droid.Resource.Style.Base_V7_ThemeOverlay_AppCompat_Dialog;
 			global::Lottie.Forms.Resource.Style.Base_V7_Theme_AppCompat = global::Solar.Droid.Resource.Style.Base_V7_Theme_AppCompat;
 			global::Lottie.Forms.Resource.Style.Base_V7_Theme_AppCompat_Dialog = global::Solar.Droid.Resource.Style.Base_V7_Theme_AppCompat_Dialog;
 			global::Lottie.Forms.Resource.Style.Base_V7_Theme_AppCompat_Light = global::Solar.Droid.Resource.Style.Base_V7_Theme_AppCompat_Light;
 			global::Lottie.Forms.Resource.Style.Base_V7_Theme_AppCompat_Light_Dialog = global::Solar.Droid.Resource.Style.Base_V7_Theme_AppCompat_Light_Dialog;
-			global::Lottie.Forms.Resource.Style.Base_V7_ThemeOverlay_AppCompat_Dialog = global::Solar.Droid.Resource.Style.Base_V7_ThemeOverlay_AppCompat_Dialog;
 			global::Lottie.Forms.Resource.Style.Base_V7_Widget_AppCompat_AutoCompleteTextView = global::Solar.Droid.Resource.Style.Base_V7_Widget_AppCompat_AutoCompleteTextView;
 			global::Lottie.Forms.Resource.Style.Base_V7_Widget_AppCompat_EditText = global::Solar.Droid.Resource.Style.Base_V7_Widget_AppCompat_EditText;
 			global::Lottie.Forms.Resource.Style.Base_V7_Widget_AppCompat_Toolbar = global::Solar.Droid.Resource.Style.Base_V7_Widget_AppCompat_Toolbar;
@@ -1513,13 +1514,13 @@ namespace Solar.Droid
 			global::Lottie.Forms.Resource.Style.Base_Widget_AppCompat_ActivityChooserView = global::Solar.Droid.Resource.Style.Base_Widget_AppCompat_ActivityChooserView;
 			global::Lottie.Forms.Resource.Style.Base_Widget_AppCompat_AutoCompleteTextView = global::Solar.Droid.Resource.Style.Base_Widget_AppCompat_AutoCompleteTextView;
 			global::Lottie.Forms.Resource.Style.Base_Widget_AppCompat_Button = global::Solar.Droid.Resource.Style.Base_Widget_AppCompat_Button;
+			global::Lottie.Forms.Resource.Style.Base_Widget_AppCompat_ButtonBar = global::Solar.Droid.Resource.Style.Base_Widget_AppCompat_ButtonBar;
+			global::Lottie.Forms.Resource.Style.Base_Widget_AppCompat_ButtonBar_AlertDialog = global::Solar.Droid.Resource.Style.Base_Widget_AppCompat_ButtonBar_AlertDialog;
 			global::Lottie.Forms.Resource.Style.Base_Widget_AppCompat_Button_Borderless = global::Solar.Droid.Resource.Style.Base_Widget_AppCompat_Button_Borderless;
 			global::Lottie.Forms.Resource.Style.Base_Widget_AppCompat_Button_Borderless_Colored = global::Solar.Droid.Resource.Style.Base_Widget_AppCompat_Button_Borderless_Colored;
 			global::Lottie.Forms.Resource.Style.Base_Widget_AppCompat_Button_ButtonBar_AlertDialog = global::Solar.Droid.Resource.Style.Base_Widget_AppCompat_Button_ButtonBar_AlertDialog;
 			global::Lottie.Forms.Resource.Style.Base_Widget_AppCompat_Button_Colored = global::Solar.Droid.Resource.Style.Base_Widget_AppCompat_Button_Colored;
 			global::Lottie.Forms.Resource.Style.Base_Widget_AppCompat_Button_Small = global::Solar.Droid.Resource.Style.Base_Widget_AppCompat_Button_Small;
-			global::Lottie.Forms.Resource.Style.Base_Widget_AppCompat_ButtonBar = global::Solar.Droid.Resource.Style.Base_Widget_AppCompat_ButtonBar;
-			global::Lottie.Forms.Resource.Style.Base_Widget_AppCompat_ButtonBar_AlertDialog = global::Solar.Droid.Resource.Style.Base_Widget_AppCompat_ButtonBar_AlertDialog;
 			global::Lottie.Forms.Resource.Style.Base_Widget_AppCompat_CompoundButton_CheckBox = global::Solar.Droid.Resource.Style.Base_Widget_AppCompat_CompoundButton_CheckBox;
 			global::Lottie.Forms.Resource.Style.Base_Widget_AppCompat_CompoundButton_RadioButton = global::Solar.Droid.Resource.Style.Base_Widget_AppCompat_CompoundButton_RadioButton;
 			global::Lottie.Forms.Resource.Style.Base_Widget_AppCompat_CompoundButton_Switch = global::Solar.Droid.Resource.Style.Base_Widget_AppCompat_CompoundButton_Switch;
@@ -1565,6 +1566,7 @@ namespace Solar.Droid
 			global::Lottie.Forms.Resource.Style.CardView = global::Solar.Droid.Resource.Style.CardView;
 			global::Lottie.Forms.Resource.Style.CardView_Dark = global::Solar.Droid.Resource.Style.CardView_Dark;
 			global::Lottie.Forms.Resource.Style.CardView_Light = global::Solar.Droid.Resource.Style.CardView_Light;
+			global::Lottie.Forms.Resource.Style.collectionViewStyle = global::Solar.Droid.Resource.Style.collectionViewStyle;
 			global::Lottie.Forms.Resource.Style.Platform_AppCompat = global::Solar.Droid.Resource.Style.Platform_AppCompat;
 			global::Lottie.Forms.Resource.Style.Platform_AppCompat_Light = global::Solar.Droid.Resource.Style.Platform_AppCompat_Light;
 			global::Lottie.Forms.Resource.Style.Platform_MaterialComponents = global::Solar.Droid.Resource.Style.Platform_MaterialComponents;
@@ -1588,12 +1590,12 @@ namespace Solar.Droid
 			global::Lottie.Forms.Resource.Style.RtlOverlay_Widget_AppCompat_PopupMenuItem_SubmenuArrow = global::Solar.Droid.Resource.Style.RtlOverlay_Widget_AppCompat_PopupMenuItem_SubmenuArrow;
 			global::Lottie.Forms.Resource.Style.RtlOverlay_Widget_AppCompat_PopupMenuItem_Text = global::Solar.Droid.Resource.Style.RtlOverlay_Widget_AppCompat_PopupMenuItem_Text;
 			global::Lottie.Forms.Resource.Style.RtlOverlay_Widget_AppCompat_PopupMenuItem_Title = global::Solar.Droid.Resource.Style.RtlOverlay_Widget_AppCompat_PopupMenuItem_Title;
+			global::Lottie.Forms.Resource.Style.RtlOverlay_Widget_AppCompat_SearchView_MagIcon = global::Solar.Droid.Resource.Style.RtlOverlay_Widget_AppCompat_SearchView_MagIcon;
 			global::Lottie.Forms.Resource.Style.RtlOverlay_Widget_AppCompat_Search_DropDown = global::Solar.Droid.Resource.Style.RtlOverlay_Widget_AppCompat_Search_DropDown;
 			global::Lottie.Forms.Resource.Style.RtlOverlay_Widget_AppCompat_Search_DropDown_Icon1 = global::Solar.Droid.Resource.Style.RtlOverlay_Widget_AppCompat_Search_DropDown_Icon1;
 			global::Lottie.Forms.Resource.Style.RtlOverlay_Widget_AppCompat_Search_DropDown_Icon2 = global::Solar.Droid.Resource.Style.RtlOverlay_Widget_AppCompat_Search_DropDown_Icon2;
 			global::Lottie.Forms.Resource.Style.RtlOverlay_Widget_AppCompat_Search_DropDown_Query = global::Solar.Droid.Resource.Style.RtlOverlay_Widget_AppCompat_Search_DropDown_Query;
 			global::Lottie.Forms.Resource.Style.RtlOverlay_Widget_AppCompat_Search_DropDown_Text = global::Solar.Droid.Resource.Style.RtlOverlay_Widget_AppCompat_Search_DropDown_Text;
-			global::Lottie.Forms.Resource.Style.RtlOverlay_Widget_AppCompat_SearchView_MagIcon = global::Solar.Droid.Resource.Style.RtlOverlay_Widget_AppCompat_SearchView_MagIcon;
 			global::Lottie.Forms.Resource.Style.RtlUnderlay_Widget_AppCompat_ActionButton = global::Solar.Droid.Resource.Style.RtlUnderlay_Widget_AppCompat_ActionButton;
 			global::Lottie.Forms.Resource.Style.RtlUnderlay_Widget_AppCompat_ActionButton_Overflow = global::Solar.Droid.Resource.Style.RtlUnderlay_Widget_AppCompat_ActionButton_Overflow;
 			global::Lottie.Forms.Resource.Style.TextAppearance_AppCompat = global::Solar.Droid.Resource.Style.TextAppearance_AppCompat;
@@ -1680,54 +1682,6 @@ namespace Solar.Droid
 			global::Lottie.Forms.Resource.Style.TextAppearance_Widget_AppCompat_ExpandedMenu_Item = global::Solar.Droid.Resource.Style.TextAppearance_Widget_AppCompat_ExpandedMenu_Item;
 			global::Lottie.Forms.Resource.Style.TextAppearance_Widget_AppCompat_Toolbar_Subtitle = global::Solar.Droid.Resource.Style.TextAppearance_Widget_AppCompat_Toolbar_Subtitle;
 			global::Lottie.Forms.Resource.Style.TextAppearance_Widget_AppCompat_Toolbar_Title = global::Solar.Droid.Resource.Style.TextAppearance_Widget_AppCompat_Toolbar_Title;
-			global::Lottie.Forms.Resource.Style.Theme_AppCompat = global::Solar.Droid.Resource.Style.Theme_AppCompat;
-			global::Lottie.Forms.Resource.Style.Theme_AppCompat_CompactMenu = global::Solar.Droid.Resource.Style.Theme_AppCompat_CompactMenu;
-			global::Lottie.Forms.Resource.Style.Theme_AppCompat_DayNight = global::Solar.Droid.Resource.Style.Theme_AppCompat_DayNight;
-			global::Lottie.Forms.Resource.Style.Theme_AppCompat_DayNight_DarkActionBar = global::Solar.Droid.Resource.Style.Theme_AppCompat_DayNight_DarkActionBar;
-			global::Lottie.Forms.Resource.Style.Theme_AppCompat_DayNight_Dialog = global::Solar.Droid.Resource.Style.Theme_AppCompat_DayNight_Dialog;
-			global::Lottie.Forms.Resource.Style.Theme_AppCompat_DayNight_Dialog_Alert = global::Solar.Droid.Resource.Style.Theme_AppCompat_DayNight_Dialog_Alert;
-			global::Lottie.Forms.Resource.Style.Theme_AppCompat_DayNight_Dialog_MinWidth = global::Solar.Droid.Resource.Style.Theme_AppCompat_DayNight_Dialog_MinWidth;
-			global::Lottie.Forms.Resource.Style.Theme_AppCompat_DayNight_DialogWhenLarge = global::Solar.Droid.Resource.Style.Theme_AppCompat_DayNight_DialogWhenLarge;
-			global::Lottie.Forms.Resource.Style.Theme_AppCompat_DayNight_NoActionBar = global::Solar.Droid.Resource.Style.Theme_AppCompat_DayNight_NoActionBar;
-			global::Lottie.Forms.Resource.Style.Theme_AppCompat_Dialog = global::Solar.Droid.Resource.Style.Theme_AppCompat_Dialog;
-			global::Lottie.Forms.Resource.Style.Theme_AppCompat_Dialog_Alert = global::Solar.Droid.Resource.Style.Theme_AppCompat_Dialog_Alert;
-			global::Lottie.Forms.Resource.Style.Theme_AppCompat_Dialog_MinWidth = global::Solar.Droid.Resource.Style.Theme_AppCompat_Dialog_MinWidth;
-			global::Lottie.Forms.Resource.Style.Theme_AppCompat_DialogWhenLarge = global::Solar.Droid.Resource.Style.Theme_AppCompat_DialogWhenLarge;
-			global::Lottie.Forms.Resource.Style.Theme_AppCompat_Light = global::Solar.Droid.Resource.Style.Theme_AppCompat_Light;
-			global::Lottie.Forms.Resource.Style.Theme_AppCompat_Light_DarkActionBar = global::Solar.Droid.Resource.Style.Theme_AppCompat_Light_DarkActionBar;
-			global::Lottie.Forms.Resource.Style.Theme_AppCompat_Light_Dialog = global::Solar.Droid.Resource.Style.Theme_AppCompat_Light_Dialog;
-			global::Lottie.Forms.Resource.Style.Theme_AppCompat_Light_Dialog_Alert = global::Solar.Droid.Resource.Style.Theme_AppCompat_Light_Dialog_Alert;
-			global::Lottie.Forms.Resource.Style.Theme_AppCompat_Light_Dialog_MinWidth = global::Solar.Droid.Resource.Style.Theme_AppCompat_Light_Dialog_MinWidth;
-			global::Lottie.Forms.Resource.Style.Theme_AppCompat_Light_DialogWhenLarge = global::Solar.Droid.Resource.Style.Theme_AppCompat_Light_DialogWhenLarge;
-			global::Lottie.Forms.Resource.Style.Theme_AppCompat_Light_NoActionBar = global::Solar.Droid.Resource.Style.Theme_AppCompat_Light_NoActionBar;
-			global::Lottie.Forms.Resource.Style.Theme_AppCompat_NoActionBar = global::Solar.Droid.Resource.Style.Theme_AppCompat_NoActionBar;
-			global::Lottie.Forms.Resource.Style.Theme_Design = global::Solar.Droid.Resource.Style.Theme_Design;
-			global::Lottie.Forms.Resource.Style.Theme_Design_BottomSheetDialog = global::Solar.Droid.Resource.Style.Theme_Design_BottomSheetDialog;
-			global::Lottie.Forms.Resource.Style.Theme_Design_Light = global::Solar.Droid.Resource.Style.Theme_Design_Light;
-			global::Lottie.Forms.Resource.Style.Theme_Design_Light_BottomSheetDialog = global::Solar.Droid.Resource.Style.Theme_Design_Light_BottomSheetDialog;
-			global::Lottie.Forms.Resource.Style.Theme_Design_Light_NoActionBar = global::Solar.Droid.Resource.Style.Theme_Design_Light_NoActionBar;
-			global::Lottie.Forms.Resource.Style.Theme_Design_NoActionBar = global::Solar.Droid.Resource.Style.Theme_Design_NoActionBar;
-			global::Lottie.Forms.Resource.Style.Theme_MaterialComponents = global::Solar.Droid.Resource.Style.Theme_MaterialComponents;
-			global::Lottie.Forms.Resource.Style.Theme_MaterialComponents_BottomSheetDialog = global::Solar.Droid.Resource.Style.Theme_MaterialComponents_BottomSheetDialog;
-			global::Lottie.Forms.Resource.Style.Theme_MaterialComponents_Bridge = global::Solar.Droid.Resource.Style.Theme_MaterialComponents_Bridge;
-			global::Lottie.Forms.Resource.Style.Theme_MaterialComponents_CompactMenu = global::Solar.Droid.Resource.Style.Theme_MaterialComponents_CompactMenu;
-			global::Lottie.Forms.Resource.Style.Theme_MaterialComponents_Dialog = global::Solar.Droid.Resource.Style.Theme_MaterialComponents_Dialog;
-			global::Lottie.Forms.Resource.Style.Theme_MaterialComponents_Dialog_Alert = global::Solar.Droid.Resource.Style.Theme_MaterialComponents_Dialog_Alert;
-			global::Lottie.Forms.Resource.Style.Theme_MaterialComponents_Dialog_MinWidth = global::Solar.Droid.Resource.Style.Theme_MaterialComponents_Dialog_MinWidth;
-			global::Lottie.Forms.Resource.Style.Theme_MaterialComponents_DialogWhenLarge = global::Solar.Droid.Resource.Style.Theme_MaterialComponents_DialogWhenLarge;
-			global::Lottie.Forms.Resource.Style.Theme_MaterialComponents_Light = global::Solar.Droid.Resource.Style.Theme_MaterialComponents_Light;
-			global::Lottie.Forms.Resource.Style.Theme_MaterialComponents_Light_BottomSheetDialog = global::Solar.Droid.Resource.Style.Theme_MaterialComponents_Light_BottomSheetDialog;
-			global::Lottie.Forms.Resource.Style.Theme_MaterialComponents_Light_Bridge = global::Solar.Droid.Resource.Style.Theme_MaterialComponents_Light_Bridge;
-			global::Lottie.Forms.Resource.Style.Theme_MaterialComponents_Light_DarkActionBar = global::Solar.Droid.Resource.Style.Theme_MaterialComponents_Light_DarkActionBar;
-			global::Lottie.Forms.Resource.Style.Theme_MaterialComponents_Light_DarkActionBar_Bridge = global::Solar.Droid.Resource.Style.Theme_MaterialComponents_Light_DarkActionBar_Bridge;
-			global::Lottie.Forms.Resource.Style.Theme_MaterialComponents_Light_Dialog = global::Solar.Droid.Resource.Style.Theme_MaterialComponents_Light_Dialog;
-			global::Lottie.Forms.Resource.Style.Theme_MaterialComponents_Light_Dialog_Alert = global::Solar.Droid.Resource.Style.Theme_MaterialComponents_Light_Dialog_Alert;
-			global::Lottie.Forms.Resource.Style.Theme_MaterialComponents_Light_Dialog_MinWidth = global::Solar.Droid.Resource.Style.Theme_MaterialComponents_Light_Dialog_MinWidth;
-			global::Lottie.Forms.Resource.Style.Theme_MaterialComponents_Light_DialogWhenLarge = global::Solar.Droid.Resource.Style.Theme_MaterialComponents_Light_DialogWhenLarge;
-			global::Lottie.Forms.Resource.Style.Theme_MaterialComponents_Light_NoActionBar = global::Solar.Droid.Resource.Style.Theme_MaterialComponents_Light_NoActionBar;
-			global::Lottie.Forms.Resource.Style.Theme_MaterialComponents_Light_NoActionBar_Bridge = global::Solar.Droid.Resource.Style.Theme_MaterialComponents_Light_NoActionBar_Bridge;
-			global::Lottie.Forms.Resource.Style.Theme_MaterialComponents_NoActionBar = global::Solar.Droid.Resource.Style.Theme_MaterialComponents_NoActionBar;
-			global::Lottie.Forms.Resource.Style.Theme_MaterialComponents_NoActionBar_Bridge = global::Solar.Droid.Resource.Style.Theme_MaterialComponents_NoActionBar_Bridge;
 			global::Lottie.Forms.Resource.Style.ThemeOverlay_AppCompat = global::Solar.Droid.Resource.Style.ThemeOverlay_AppCompat;
 			global::Lottie.Forms.Resource.Style.ThemeOverlay_AppCompat_ActionBar = global::Solar.Droid.Resource.Style.ThemeOverlay_AppCompat_ActionBar;
 			global::Lottie.Forms.Resource.Style.ThemeOverlay_AppCompat_Dark = global::Solar.Droid.Resource.Style.ThemeOverlay_AppCompat_Dark;
@@ -1747,6 +1701,54 @@ namespace Solar.Droid
 			global::Lottie.Forms.Resource.Style.ThemeOverlay_MaterialComponents_TextInputEditText_FilledBox_Dense = global::Solar.Droid.Resource.Style.ThemeOverlay_MaterialComponents_TextInputEditText_FilledBox_Dense;
 			global::Lottie.Forms.Resource.Style.ThemeOverlay_MaterialComponents_TextInputEditText_OutlinedBox = global::Solar.Droid.Resource.Style.ThemeOverlay_MaterialComponents_TextInputEditText_OutlinedBox;
 			global::Lottie.Forms.Resource.Style.ThemeOverlay_MaterialComponents_TextInputEditText_OutlinedBox_Dense = global::Solar.Droid.Resource.Style.ThemeOverlay_MaterialComponents_TextInputEditText_OutlinedBox_Dense;
+			global::Lottie.Forms.Resource.Style.Theme_AppCompat = global::Solar.Droid.Resource.Style.Theme_AppCompat;
+			global::Lottie.Forms.Resource.Style.Theme_AppCompat_CompactMenu = global::Solar.Droid.Resource.Style.Theme_AppCompat_CompactMenu;
+			global::Lottie.Forms.Resource.Style.Theme_AppCompat_DayNight = global::Solar.Droid.Resource.Style.Theme_AppCompat_DayNight;
+			global::Lottie.Forms.Resource.Style.Theme_AppCompat_DayNight_DarkActionBar = global::Solar.Droid.Resource.Style.Theme_AppCompat_DayNight_DarkActionBar;
+			global::Lottie.Forms.Resource.Style.Theme_AppCompat_DayNight_Dialog = global::Solar.Droid.Resource.Style.Theme_AppCompat_DayNight_Dialog;
+			global::Lottie.Forms.Resource.Style.Theme_AppCompat_DayNight_DialogWhenLarge = global::Solar.Droid.Resource.Style.Theme_AppCompat_DayNight_DialogWhenLarge;
+			global::Lottie.Forms.Resource.Style.Theme_AppCompat_DayNight_Dialog_Alert = global::Solar.Droid.Resource.Style.Theme_AppCompat_DayNight_Dialog_Alert;
+			global::Lottie.Forms.Resource.Style.Theme_AppCompat_DayNight_Dialog_MinWidth = global::Solar.Droid.Resource.Style.Theme_AppCompat_DayNight_Dialog_MinWidth;
+			global::Lottie.Forms.Resource.Style.Theme_AppCompat_DayNight_NoActionBar = global::Solar.Droid.Resource.Style.Theme_AppCompat_DayNight_NoActionBar;
+			global::Lottie.Forms.Resource.Style.Theme_AppCompat_Dialog = global::Solar.Droid.Resource.Style.Theme_AppCompat_Dialog;
+			global::Lottie.Forms.Resource.Style.Theme_AppCompat_DialogWhenLarge = global::Solar.Droid.Resource.Style.Theme_AppCompat_DialogWhenLarge;
+			global::Lottie.Forms.Resource.Style.Theme_AppCompat_Dialog_Alert = global::Solar.Droid.Resource.Style.Theme_AppCompat_Dialog_Alert;
+			global::Lottie.Forms.Resource.Style.Theme_AppCompat_Dialog_MinWidth = global::Solar.Droid.Resource.Style.Theme_AppCompat_Dialog_MinWidth;
+			global::Lottie.Forms.Resource.Style.Theme_AppCompat_Light = global::Solar.Droid.Resource.Style.Theme_AppCompat_Light;
+			global::Lottie.Forms.Resource.Style.Theme_AppCompat_Light_DarkActionBar = global::Solar.Droid.Resource.Style.Theme_AppCompat_Light_DarkActionBar;
+			global::Lottie.Forms.Resource.Style.Theme_AppCompat_Light_Dialog = global::Solar.Droid.Resource.Style.Theme_AppCompat_Light_Dialog;
+			global::Lottie.Forms.Resource.Style.Theme_AppCompat_Light_DialogWhenLarge = global::Solar.Droid.Resource.Style.Theme_AppCompat_Light_DialogWhenLarge;
+			global::Lottie.Forms.Resource.Style.Theme_AppCompat_Light_Dialog_Alert = global::Solar.Droid.Resource.Style.Theme_AppCompat_Light_Dialog_Alert;
+			global::Lottie.Forms.Resource.Style.Theme_AppCompat_Light_Dialog_MinWidth = global::Solar.Droid.Resource.Style.Theme_AppCompat_Light_Dialog_MinWidth;
+			global::Lottie.Forms.Resource.Style.Theme_AppCompat_Light_NoActionBar = global::Solar.Droid.Resource.Style.Theme_AppCompat_Light_NoActionBar;
+			global::Lottie.Forms.Resource.Style.Theme_AppCompat_NoActionBar = global::Solar.Droid.Resource.Style.Theme_AppCompat_NoActionBar;
+			global::Lottie.Forms.Resource.Style.Theme_Design = global::Solar.Droid.Resource.Style.Theme_Design;
+			global::Lottie.Forms.Resource.Style.Theme_Design_BottomSheetDialog = global::Solar.Droid.Resource.Style.Theme_Design_BottomSheetDialog;
+			global::Lottie.Forms.Resource.Style.Theme_Design_Light = global::Solar.Droid.Resource.Style.Theme_Design_Light;
+			global::Lottie.Forms.Resource.Style.Theme_Design_Light_BottomSheetDialog = global::Solar.Droid.Resource.Style.Theme_Design_Light_BottomSheetDialog;
+			global::Lottie.Forms.Resource.Style.Theme_Design_Light_NoActionBar = global::Solar.Droid.Resource.Style.Theme_Design_Light_NoActionBar;
+			global::Lottie.Forms.Resource.Style.Theme_Design_NoActionBar = global::Solar.Droid.Resource.Style.Theme_Design_NoActionBar;
+			global::Lottie.Forms.Resource.Style.Theme_MaterialComponents = global::Solar.Droid.Resource.Style.Theme_MaterialComponents;
+			global::Lottie.Forms.Resource.Style.Theme_MaterialComponents_BottomSheetDialog = global::Solar.Droid.Resource.Style.Theme_MaterialComponents_BottomSheetDialog;
+			global::Lottie.Forms.Resource.Style.Theme_MaterialComponents_Bridge = global::Solar.Droid.Resource.Style.Theme_MaterialComponents_Bridge;
+			global::Lottie.Forms.Resource.Style.Theme_MaterialComponents_CompactMenu = global::Solar.Droid.Resource.Style.Theme_MaterialComponents_CompactMenu;
+			global::Lottie.Forms.Resource.Style.Theme_MaterialComponents_Dialog = global::Solar.Droid.Resource.Style.Theme_MaterialComponents_Dialog;
+			global::Lottie.Forms.Resource.Style.Theme_MaterialComponents_DialogWhenLarge = global::Solar.Droid.Resource.Style.Theme_MaterialComponents_DialogWhenLarge;
+			global::Lottie.Forms.Resource.Style.Theme_MaterialComponents_Dialog_Alert = global::Solar.Droid.Resource.Style.Theme_MaterialComponents_Dialog_Alert;
+			global::Lottie.Forms.Resource.Style.Theme_MaterialComponents_Dialog_MinWidth = global::Solar.Droid.Resource.Style.Theme_MaterialComponents_Dialog_MinWidth;
+			global::Lottie.Forms.Resource.Style.Theme_MaterialComponents_Light = global::Solar.Droid.Resource.Style.Theme_MaterialComponents_Light;
+			global::Lottie.Forms.Resource.Style.Theme_MaterialComponents_Light_BottomSheetDialog = global::Solar.Droid.Resource.Style.Theme_MaterialComponents_Light_BottomSheetDialog;
+			global::Lottie.Forms.Resource.Style.Theme_MaterialComponents_Light_Bridge = global::Solar.Droid.Resource.Style.Theme_MaterialComponents_Light_Bridge;
+			global::Lottie.Forms.Resource.Style.Theme_MaterialComponents_Light_DarkActionBar = global::Solar.Droid.Resource.Style.Theme_MaterialComponents_Light_DarkActionBar;
+			global::Lottie.Forms.Resource.Style.Theme_MaterialComponents_Light_DarkActionBar_Bridge = global::Solar.Droid.Resource.Style.Theme_MaterialComponents_Light_DarkActionBar_Bridge;
+			global::Lottie.Forms.Resource.Style.Theme_MaterialComponents_Light_Dialog = global::Solar.Droid.Resource.Style.Theme_MaterialComponents_Light_Dialog;
+			global::Lottie.Forms.Resource.Style.Theme_MaterialComponents_Light_DialogWhenLarge = global::Solar.Droid.Resource.Style.Theme_MaterialComponents_Light_DialogWhenLarge;
+			global::Lottie.Forms.Resource.Style.Theme_MaterialComponents_Light_Dialog_Alert = global::Solar.Droid.Resource.Style.Theme_MaterialComponents_Light_Dialog_Alert;
+			global::Lottie.Forms.Resource.Style.Theme_MaterialComponents_Light_Dialog_MinWidth = global::Solar.Droid.Resource.Style.Theme_MaterialComponents_Light_Dialog_MinWidth;
+			global::Lottie.Forms.Resource.Style.Theme_MaterialComponents_Light_NoActionBar = global::Solar.Droid.Resource.Style.Theme_MaterialComponents_Light_NoActionBar;
+			global::Lottie.Forms.Resource.Style.Theme_MaterialComponents_Light_NoActionBar_Bridge = global::Solar.Droid.Resource.Style.Theme_MaterialComponents_Light_NoActionBar_Bridge;
+			global::Lottie.Forms.Resource.Style.Theme_MaterialComponents_NoActionBar = global::Solar.Droid.Resource.Style.Theme_MaterialComponents_NoActionBar;
+			global::Lottie.Forms.Resource.Style.Theme_MaterialComponents_NoActionBar_Bridge = global::Solar.Droid.Resource.Style.Theme_MaterialComponents_NoActionBar_Bridge;
 			global::Lottie.Forms.Resource.Style.Widget_AppCompat_ActionBar = global::Solar.Droid.Resource.Style.Widget_AppCompat_ActionBar;
 			global::Lottie.Forms.Resource.Style.Widget_AppCompat_ActionBar_Solid = global::Solar.Droid.Resource.Style.Widget_AppCompat_ActionBar_Solid;
 			global::Lottie.Forms.Resource.Style.Widget_AppCompat_ActionBar_TabBar = global::Solar.Droid.Resource.Style.Widget_AppCompat_ActionBar_TabBar;
@@ -1759,13 +1761,13 @@ namespace Solar.Droid
 			global::Lottie.Forms.Resource.Style.Widget_AppCompat_ActivityChooserView = global::Solar.Droid.Resource.Style.Widget_AppCompat_ActivityChooserView;
 			global::Lottie.Forms.Resource.Style.Widget_AppCompat_AutoCompleteTextView = global::Solar.Droid.Resource.Style.Widget_AppCompat_AutoCompleteTextView;
 			global::Lottie.Forms.Resource.Style.Widget_AppCompat_Button = global::Solar.Droid.Resource.Style.Widget_AppCompat_Button;
+			global::Lottie.Forms.Resource.Style.Widget_AppCompat_ButtonBar = global::Solar.Droid.Resource.Style.Widget_AppCompat_ButtonBar;
+			global::Lottie.Forms.Resource.Style.Widget_AppCompat_ButtonBar_AlertDialog = global::Solar.Droid.Resource.Style.Widget_AppCompat_ButtonBar_AlertDialog;
 			global::Lottie.Forms.Resource.Style.Widget_AppCompat_Button_Borderless = global::Solar.Droid.Resource.Style.Widget_AppCompat_Button_Borderless;
 			global::Lottie.Forms.Resource.Style.Widget_AppCompat_Button_Borderless_Colored = global::Solar.Droid.Resource.Style.Widget_AppCompat_Button_Borderless_Colored;
 			global::Lottie.Forms.Resource.Style.Widget_AppCompat_Button_ButtonBar_AlertDialog = global::Solar.Droid.Resource.Style.Widget_AppCompat_Button_ButtonBar_AlertDialog;
 			global::Lottie.Forms.Resource.Style.Widget_AppCompat_Button_Colored = global::Solar.Droid.Resource.Style.Widget_AppCompat_Button_Colored;
 			global::Lottie.Forms.Resource.Style.Widget_AppCompat_Button_Small = global::Solar.Droid.Resource.Style.Widget_AppCompat_Button_Small;
-			global::Lottie.Forms.Resource.Style.Widget_AppCompat_ButtonBar = global::Solar.Droid.Resource.Style.Widget_AppCompat_ButtonBar;
-			global::Lottie.Forms.Resource.Style.Widget_AppCompat_ButtonBar_AlertDialog = global::Solar.Droid.Resource.Style.Widget_AppCompat_ButtonBar_AlertDialog;
 			global::Lottie.Forms.Resource.Style.Widget_AppCompat_CompoundButton_CheckBox = global::Solar.Droid.Resource.Style.Widget_AppCompat_CompoundButton_CheckBox;
 			global::Lottie.Forms.Resource.Style.Widget_AppCompat_CompoundButton_RadioButton = global::Solar.Droid.Resource.Style.Widget_AppCompat_CompoundButton_RadioButton;
 			global::Lottie.Forms.Resource.Style.Widget_AppCompat_CompoundButton_Switch = global::Solar.Droid.Resource.Style.Widget_AppCompat_CompoundButton_Switch;
@@ -1847,11 +1849,11 @@ namespace Solar.Droid
 			global::Lottie.Forms.Resource.Style.Widget_MaterialComponents_Button_UnelevatedButton = global::Solar.Droid.Resource.Style.Widget_MaterialComponents_Button_UnelevatedButton;
 			global::Lottie.Forms.Resource.Style.Widget_MaterialComponents_Button_UnelevatedButton_Icon = global::Solar.Droid.Resource.Style.Widget_MaterialComponents_Button_UnelevatedButton_Icon;
 			global::Lottie.Forms.Resource.Style.Widget_MaterialComponents_CardView = global::Solar.Droid.Resource.Style.Widget_MaterialComponents_CardView;
+			global::Lottie.Forms.Resource.Style.Widget_MaterialComponents_ChipGroup = global::Solar.Droid.Resource.Style.Widget_MaterialComponents_ChipGroup;
 			global::Lottie.Forms.Resource.Style.Widget_MaterialComponents_Chip_Action = global::Solar.Droid.Resource.Style.Widget_MaterialComponents_Chip_Action;
 			global::Lottie.Forms.Resource.Style.Widget_MaterialComponents_Chip_Choice = global::Solar.Droid.Resource.Style.Widget_MaterialComponents_Chip_Choice;
 			global::Lottie.Forms.Resource.Style.Widget_MaterialComponents_Chip_Entry = global::Solar.Droid.Resource.Style.Widget_MaterialComponents_Chip_Entry;
 			global::Lottie.Forms.Resource.Style.Widget_MaterialComponents_Chip_Filter = global::Solar.Droid.Resource.Style.Widget_MaterialComponents_Chip_Filter;
-			global::Lottie.Forms.Resource.Style.Widget_MaterialComponents_ChipGroup = global::Solar.Droid.Resource.Style.Widget_MaterialComponents_ChipGroup;
 			global::Lottie.Forms.Resource.Style.Widget_MaterialComponents_FloatingActionButton = global::Solar.Droid.Resource.Style.Widget_MaterialComponents_FloatingActionButton;
 			global::Lottie.Forms.Resource.Style.Widget_MaterialComponents_NavigationView = global::Solar.Droid.Resource.Style.Widget_MaterialComponents_NavigationView;
 			global::Lottie.Forms.Resource.Style.Widget_MaterialComponents_Snackbar = global::Solar.Droid.Resource.Style.Widget_MaterialComponents_Snackbar;
@@ -1869,6 +1871,8 @@ namespace Solar.Droid
 			global::Lottie.Forms.Resource.Style.Widget_MaterialComponents_Toolbar = global::Solar.Droid.Resource.Style.Widget_MaterialComponents_Toolbar;
 			global::Lottie.Forms.Resource.Style.Widget_Support_CoordinatorLayout = global::Solar.Droid.Resource.Style.Widget_Support_CoordinatorLayout;
 			global::Lottie.Forms.Resource.Styleable.ActionBar = global::Solar.Droid.Resource.Styleable.ActionBar;
+			global::Lottie.Forms.Resource.Styleable.ActionBarLayout = global::Solar.Droid.Resource.Styleable.ActionBarLayout;
+			global::Lottie.Forms.Resource.Styleable.ActionBarLayout_android_layout_gravity = global::Solar.Droid.Resource.Styleable.ActionBarLayout_android_layout_gravity;
 			global::Lottie.Forms.Resource.Styleable.ActionBar_background = global::Solar.Droid.Resource.Styleable.ActionBar_background;
 			global::Lottie.Forms.Resource.Styleable.ActionBar_backgroundSplit = global::Solar.Droid.Resource.Styleable.ActionBar_backgroundSplit;
 			global::Lottie.Forms.Resource.Styleable.ActionBar_backgroundStacked = global::Solar.Droid.Resource.Styleable.ActionBar_backgroundStacked;
@@ -1898,8 +1902,6 @@ namespace Solar.Droid
 			global::Lottie.Forms.Resource.Styleable.ActionBar_subtitleTextStyle = global::Solar.Droid.Resource.Styleable.ActionBar_subtitleTextStyle;
 			global::Lottie.Forms.Resource.Styleable.ActionBar_title = global::Solar.Droid.Resource.Styleable.ActionBar_title;
 			global::Lottie.Forms.Resource.Styleable.ActionBar_titleTextStyle = global::Solar.Droid.Resource.Styleable.ActionBar_titleTextStyle;
-			global::Lottie.Forms.Resource.Styleable.ActionBarLayout = global::Solar.Droid.Resource.Styleable.ActionBarLayout;
-			global::Lottie.Forms.Resource.Styleable.ActionBarLayout_android_layout_gravity = global::Solar.Droid.Resource.Styleable.ActionBarLayout_android_layout_gravity;
 			global::Lottie.Forms.Resource.Styleable.ActionMenuItemView = global::Solar.Droid.Resource.Styleable.ActionMenuItemView;
 			global::Lottie.Forms.Resource.Styleable.ActionMenuItemView_android_minWidth = global::Solar.Droid.Resource.Styleable.ActionMenuItemView_android_minWidth;
 			global::Lottie.Forms.Resource.Styleable.ActionMenuView = global::Solar.Droid.Resource.Styleable.ActionMenuView;
@@ -1938,20 +1940,20 @@ namespace Solar.Droid
 			global::Lottie.Forms.Resource.Styleable.AnimatedStateListDrawableTransition_android_reversible = global::Solar.Droid.Resource.Styleable.AnimatedStateListDrawableTransition_android_reversible;
 			global::Lottie.Forms.Resource.Styleable.AnimatedStateListDrawableTransition_android_toId = global::Solar.Droid.Resource.Styleable.AnimatedStateListDrawableTransition_android_toId;
 			global::Lottie.Forms.Resource.Styleable.AppBarLayout = global::Solar.Droid.Resource.Styleable.AppBarLayout;
-			global::Lottie.Forms.Resource.Styleable.AppBarLayout_android_background = global::Solar.Droid.Resource.Styleable.AppBarLayout_android_background;
-			global::Lottie.Forms.Resource.Styleable.AppBarLayout_android_keyboardNavigationCluster = global::Solar.Droid.Resource.Styleable.AppBarLayout_android_keyboardNavigationCluster;
-			global::Lottie.Forms.Resource.Styleable.AppBarLayout_android_touchscreenBlocksFocus = global::Solar.Droid.Resource.Styleable.AppBarLayout_android_touchscreenBlocksFocus;
-			global::Lottie.Forms.Resource.Styleable.AppBarLayout_elevation = global::Solar.Droid.Resource.Styleable.AppBarLayout_elevation;
-			global::Lottie.Forms.Resource.Styleable.AppBarLayout_expanded = global::Solar.Droid.Resource.Styleable.AppBarLayout_expanded;
-			global::Lottie.Forms.Resource.Styleable.AppBarLayout_liftOnScroll = global::Solar.Droid.Resource.Styleable.AppBarLayout_liftOnScroll;
 			global::Lottie.Forms.Resource.Styleable.AppBarLayoutStates = global::Solar.Droid.Resource.Styleable.AppBarLayoutStates;
 			global::Lottie.Forms.Resource.Styleable.AppBarLayoutStates_state_collapsed = global::Solar.Droid.Resource.Styleable.AppBarLayoutStates_state_collapsed;
 			global::Lottie.Forms.Resource.Styleable.AppBarLayoutStates_state_collapsible = global::Solar.Droid.Resource.Styleable.AppBarLayoutStates_state_collapsible;
 			global::Lottie.Forms.Resource.Styleable.AppBarLayoutStates_state_liftable = global::Solar.Droid.Resource.Styleable.AppBarLayoutStates_state_liftable;
 			global::Lottie.Forms.Resource.Styleable.AppBarLayoutStates_state_lifted = global::Solar.Droid.Resource.Styleable.AppBarLayoutStates_state_lifted;
+			global::Lottie.Forms.Resource.Styleable.AppBarLayout_android_background = global::Solar.Droid.Resource.Styleable.AppBarLayout_android_background;
+			global::Lottie.Forms.Resource.Styleable.AppBarLayout_android_keyboardNavigationCluster = global::Solar.Droid.Resource.Styleable.AppBarLayout_android_keyboardNavigationCluster;
+			global::Lottie.Forms.Resource.Styleable.AppBarLayout_android_touchscreenBlocksFocus = global::Solar.Droid.Resource.Styleable.AppBarLayout_android_touchscreenBlocksFocus;
+			global::Lottie.Forms.Resource.Styleable.AppBarLayout_elevation = global::Solar.Droid.Resource.Styleable.AppBarLayout_elevation;
+			global::Lottie.Forms.Resource.Styleable.AppBarLayout_expanded = global::Solar.Droid.Resource.Styleable.AppBarLayout_expanded;
 			global::Lottie.Forms.Resource.Styleable.AppBarLayout_Layout = global::Solar.Droid.Resource.Styleable.AppBarLayout_Layout;
 			global::Lottie.Forms.Resource.Styleable.AppBarLayout_Layout_layout_scrollFlags = global::Solar.Droid.Resource.Styleable.AppBarLayout_Layout_layout_scrollFlags;
 			global::Lottie.Forms.Resource.Styleable.AppBarLayout_Layout_layout_scrollInterpolator = global::Solar.Droid.Resource.Styleable.AppBarLayout_Layout_layout_scrollInterpolator;
+			global::Lottie.Forms.Resource.Styleable.AppBarLayout_liftOnScroll = global::Solar.Droid.Resource.Styleable.AppBarLayout_liftOnScroll;
 			global::Lottie.Forms.Resource.Styleable.AppCompatImageView = global::Solar.Droid.Resource.Styleable.AppCompatImageView;
 			global::Lottie.Forms.Resource.Styleable.AppCompatImageView_android_src = global::Solar.Droid.Resource.Styleable.AppCompatImageView_android_src;
 			global::Lottie.Forms.Resource.Styleable.AppCompatImageView_srcCompat = global::Solar.Droid.Resource.Styleable.AppCompatImageView_srcCompat;
@@ -2047,8 +2049,8 @@ namespace Solar.Droid
 			global::Lottie.Forms.Resource.Styleable.AppCompatTheme_dialogTheme = global::Solar.Droid.Resource.Styleable.AppCompatTheme_dialogTheme;
 			global::Lottie.Forms.Resource.Styleable.AppCompatTheme_dividerHorizontal = global::Solar.Droid.Resource.Styleable.AppCompatTheme_dividerHorizontal;
 			global::Lottie.Forms.Resource.Styleable.AppCompatTheme_dividerVertical = global::Solar.Droid.Resource.Styleable.AppCompatTheme_dividerVertical;
-			global::Lottie.Forms.Resource.Styleable.AppCompatTheme_dropDownListViewStyle = global::Solar.Droid.Resource.Styleable.AppCompatTheme_dropDownListViewStyle;
 			global::Lottie.Forms.Resource.Styleable.AppCompatTheme_dropdownListPreferredItemHeight = global::Solar.Droid.Resource.Styleable.AppCompatTheme_dropdownListPreferredItemHeight;
+			global::Lottie.Forms.Resource.Styleable.AppCompatTheme_dropDownListViewStyle = global::Solar.Droid.Resource.Styleable.AppCompatTheme_dropDownListViewStyle;
 			global::Lottie.Forms.Resource.Styleable.AppCompatTheme_editTextBackground = global::Solar.Droid.Resource.Styleable.AppCompatTheme_editTextBackground;
 			global::Lottie.Forms.Resource.Styleable.AppCompatTheme_editTextColor = global::Solar.Droid.Resource.Styleable.AppCompatTheme_editTextColor;
 			global::Lottie.Forms.Resource.Styleable.AppCompatTheme_editTextStyle = global::Solar.Droid.Resource.Styleable.AppCompatTheme_editTextStyle;
@@ -2144,6 +2146,13 @@ namespace Solar.Droid
 			global::Lottie.Forms.Resource.Styleable.CardView_contentPaddingRight = global::Solar.Droid.Resource.Styleable.CardView_contentPaddingRight;
 			global::Lottie.Forms.Resource.Styleable.CardView_contentPaddingTop = global::Solar.Droid.Resource.Styleable.CardView_contentPaddingTop;
 			global::Lottie.Forms.Resource.Styleable.Chip = global::Solar.Droid.Resource.Styleable.Chip;
+			global::Lottie.Forms.Resource.Styleable.ChipGroup = global::Solar.Droid.Resource.Styleable.ChipGroup;
+			global::Lottie.Forms.Resource.Styleable.ChipGroup_checkedChip = global::Solar.Droid.Resource.Styleable.ChipGroup_checkedChip;
+			global::Lottie.Forms.Resource.Styleable.ChipGroup_chipSpacing = global::Solar.Droid.Resource.Styleable.ChipGroup_chipSpacing;
+			global::Lottie.Forms.Resource.Styleable.ChipGroup_chipSpacingHorizontal = global::Solar.Droid.Resource.Styleable.ChipGroup_chipSpacingHorizontal;
+			global::Lottie.Forms.Resource.Styleable.ChipGroup_chipSpacingVertical = global::Solar.Droid.Resource.Styleable.ChipGroup_chipSpacingVertical;
+			global::Lottie.Forms.Resource.Styleable.ChipGroup_singleLine = global::Solar.Droid.Resource.Styleable.ChipGroup_singleLine;
+			global::Lottie.Forms.Resource.Styleable.ChipGroup_singleSelection = global::Solar.Droid.Resource.Styleable.ChipGroup_singleSelection;
 			global::Lottie.Forms.Resource.Styleable.Chip_android_checkable = global::Solar.Droid.Resource.Styleable.Chip_android_checkable;
 			global::Lottie.Forms.Resource.Styleable.Chip_android_ellipsize = global::Solar.Droid.Resource.Styleable.Chip_android_ellipsize;
 			global::Lottie.Forms.Resource.Styleable.Chip_android_maxWidth = global::Solar.Droid.Resource.Styleable.Chip_android_maxWidth;
@@ -2178,13 +2187,6 @@ namespace Solar.Droid
 			global::Lottie.Forms.Resource.Styleable.Chip_showMotionSpec = global::Solar.Droid.Resource.Styleable.Chip_showMotionSpec;
 			global::Lottie.Forms.Resource.Styleable.Chip_textEndPadding = global::Solar.Droid.Resource.Styleable.Chip_textEndPadding;
 			global::Lottie.Forms.Resource.Styleable.Chip_textStartPadding = global::Solar.Droid.Resource.Styleable.Chip_textStartPadding;
-			global::Lottie.Forms.Resource.Styleable.ChipGroup = global::Solar.Droid.Resource.Styleable.ChipGroup;
-			global::Lottie.Forms.Resource.Styleable.ChipGroup_checkedChip = global::Solar.Droid.Resource.Styleable.ChipGroup_checkedChip;
-			global::Lottie.Forms.Resource.Styleable.ChipGroup_chipSpacing = global::Solar.Droid.Resource.Styleable.ChipGroup_chipSpacing;
-			global::Lottie.Forms.Resource.Styleable.ChipGroup_chipSpacingHorizontal = global::Solar.Droid.Resource.Styleable.ChipGroup_chipSpacingHorizontal;
-			global::Lottie.Forms.Resource.Styleable.ChipGroup_chipSpacingVertical = global::Solar.Droid.Resource.Styleable.ChipGroup_chipSpacingVertical;
-			global::Lottie.Forms.Resource.Styleable.ChipGroup_singleLine = global::Solar.Droid.Resource.Styleable.ChipGroup_singleLine;
-			global::Lottie.Forms.Resource.Styleable.ChipGroup_singleSelection = global::Solar.Droid.Resource.Styleable.ChipGroup_singleSelection;
 			global::Lottie.Forms.Resource.Styleable.CollapsingToolbarLayout = global::Solar.Droid.Resource.Styleable.CollapsingToolbarLayout;
 			global::Lottie.Forms.Resource.Styleable.CollapsingToolbarLayout_collapsedTitleGravity = global::Solar.Droid.Resource.Styleable.CollapsingToolbarLayout_collapsedTitleGravity;
 			global::Lottie.Forms.Resource.Styleable.CollapsingToolbarLayout_collapsedTitleTextAppearance = global::Solar.Droid.Resource.Styleable.CollapsingToolbarLayout_collapsedTitleTextAppearance;
@@ -2196,15 +2198,15 @@ namespace Solar.Droid
 			global::Lottie.Forms.Resource.Styleable.CollapsingToolbarLayout_expandedTitleMarginStart = global::Solar.Droid.Resource.Styleable.CollapsingToolbarLayout_expandedTitleMarginStart;
 			global::Lottie.Forms.Resource.Styleable.CollapsingToolbarLayout_expandedTitleMarginTop = global::Solar.Droid.Resource.Styleable.CollapsingToolbarLayout_expandedTitleMarginTop;
 			global::Lottie.Forms.Resource.Styleable.CollapsingToolbarLayout_expandedTitleTextAppearance = global::Solar.Droid.Resource.Styleable.CollapsingToolbarLayout_expandedTitleTextAppearance;
+			global::Lottie.Forms.Resource.Styleable.CollapsingToolbarLayout_Layout = global::Solar.Droid.Resource.Styleable.CollapsingToolbarLayout_Layout;
+			global::Lottie.Forms.Resource.Styleable.CollapsingToolbarLayout_Layout_layout_collapseMode = global::Solar.Droid.Resource.Styleable.CollapsingToolbarLayout_Layout_layout_collapseMode;
+			global::Lottie.Forms.Resource.Styleable.CollapsingToolbarLayout_Layout_layout_collapseParallaxMultiplier = global::Solar.Droid.Resource.Styleable.CollapsingToolbarLayout_Layout_layout_collapseParallaxMultiplier;
 			global::Lottie.Forms.Resource.Styleable.CollapsingToolbarLayout_scrimAnimationDuration = global::Solar.Droid.Resource.Styleable.CollapsingToolbarLayout_scrimAnimationDuration;
 			global::Lottie.Forms.Resource.Styleable.CollapsingToolbarLayout_scrimVisibleHeightTrigger = global::Solar.Droid.Resource.Styleable.CollapsingToolbarLayout_scrimVisibleHeightTrigger;
 			global::Lottie.Forms.Resource.Styleable.CollapsingToolbarLayout_statusBarScrim = global::Solar.Droid.Resource.Styleable.CollapsingToolbarLayout_statusBarScrim;
 			global::Lottie.Forms.Resource.Styleable.CollapsingToolbarLayout_title = global::Solar.Droid.Resource.Styleable.CollapsingToolbarLayout_title;
 			global::Lottie.Forms.Resource.Styleable.CollapsingToolbarLayout_titleEnabled = global::Solar.Droid.Resource.Styleable.CollapsingToolbarLayout_titleEnabled;
 			global::Lottie.Forms.Resource.Styleable.CollapsingToolbarLayout_toolbarId = global::Solar.Droid.Resource.Styleable.CollapsingToolbarLayout_toolbarId;
-			global::Lottie.Forms.Resource.Styleable.CollapsingToolbarLayout_Layout = global::Solar.Droid.Resource.Styleable.CollapsingToolbarLayout_Layout;
-			global::Lottie.Forms.Resource.Styleable.CollapsingToolbarLayout_Layout_layout_collapseMode = global::Solar.Droid.Resource.Styleable.CollapsingToolbarLayout_Layout_layout_collapseMode;
-			global::Lottie.Forms.Resource.Styleable.CollapsingToolbarLayout_Layout_layout_collapseParallaxMultiplier = global::Solar.Droid.Resource.Styleable.CollapsingToolbarLayout_Layout_layout_collapseParallaxMultiplier;
 			global::Lottie.Forms.Resource.Styleable.ColorStateListItem = global::Solar.Droid.Resource.Styleable.ColorStateListItem;
 			global::Lottie.Forms.Resource.Styleable.ColorStateListItem_alpha = global::Solar.Droid.Resource.Styleable.ColorStateListItem_alpha;
 			global::Lottie.Forms.Resource.Styleable.ColorStateListItem_android_alpha = global::Solar.Droid.Resource.Styleable.ColorStateListItem_android_alpha;
@@ -2215,7 +2217,6 @@ namespace Solar.Droid
 			global::Lottie.Forms.Resource.Styleable.CompoundButton_buttonTintMode = global::Solar.Droid.Resource.Styleable.CompoundButton_buttonTintMode;
 			global::Lottie.Forms.Resource.Styleable.CoordinatorLayout = global::Solar.Droid.Resource.Styleable.CoordinatorLayout;
 			global::Lottie.Forms.Resource.Styleable.CoordinatorLayout_keylines = global::Solar.Droid.Resource.Styleable.CoordinatorLayout_keylines;
-			global::Lottie.Forms.Resource.Styleable.CoordinatorLayout_statusBarBackground = global::Solar.Droid.Resource.Styleable.CoordinatorLayout_statusBarBackground;
 			global::Lottie.Forms.Resource.Styleable.CoordinatorLayout_Layout = global::Solar.Droid.Resource.Styleable.CoordinatorLayout_Layout;
 			global::Lottie.Forms.Resource.Styleable.CoordinatorLayout_Layout_android_layout_gravity = global::Solar.Droid.Resource.Styleable.CoordinatorLayout_Layout_android_layout_gravity;
 			global::Lottie.Forms.Resource.Styleable.CoordinatorLayout_Layout_layout_anchor = global::Solar.Droid.Resource.Styleable.CoordinatorLayout_Layout_layout_anchor;
@@ -2224,6 +2225,7 @@ namespace Solar.Droid
 			global::Lottie.Forms.Resource.Styleable.CoordinatorLayout_Layout_layout_dodgeInsetEdges = global::Solar.Droid.Resource.Styleable.CoordinatorLayout_Layout_layout_dodgeInsetEdges;
 			global::Lottie.Forms.Resource.Styleable.CoordinatorLayout_Layout_layout_insetEdge = global::Solar.Droid.Resource.Styleable.CoordinatorLayout_Layout_layout_insetEdge;
 			global::Lottie.Forms.Resource.Styleable.CoordinatorLayout_Layout_layout_keyline = global::Solar.Droid.Resource.Styleable.CoordinatorLayout_Layout_layout_keyline;
+			global::Lottie.Forms.Resource.Styleable.CoordinatorLayout_statusBarBackground = global::Solar.Droid.Resource.Styleable.CoordinatorLayout_statusBarBackground;
 			global::Lottie.Forms.Resource.Styleable.DesignTheme = global::Solar.Droid.Resource.Styleable.DesignTheme;
 			global::Lottie.Forms.Resource.Styleable.DesignTheme_bottomSheetDialogTheme = global::Solar.Droid.Resource.Styleable.DesignTheme_bottomSheetDialogTheme;
 			global::Lottie.Forms.Resource.Styleable.DesignTheme_bottomSheetStyle = global::Solar.Droid.Resource.Styleable.DesignTheme_bottomSheetStyle;
@@ -2239,6 +2241,8 @@ namespace Solar.Droid
 			global::Lottie.Forms.Resource.Styleable.FloatingActionButton = global::Solar.Droid.Resource.Styleable.FloatingActionButton;
 			global::Lottie.Forms.Resource.Styleable.FloatingActionButton_backgroundTint = global::Solar.Droid.Resource.Styleable.FloatingActionButton_backgroundTint;
 			global::Lottie.Forms.Resource.Styleable.FloatingActionButton_backgroundTintMode = global::Solar.Droid.Resource.Styleable.FloatingActionButton_backgroundTintMode;
+			global::Lottie.Forms.Resource.Styleable.FloatingActionButton_Behavior_Layout = global::Solar.Droid.Resource.Styleable.FloatingActionButton_Behavior_Layout;
+			global::Lottie.Forms.Resource.Styleable.FloatingActionButton_Behavior_Layout_behavior_autoHide = global::Solar.Droid.Resource.Styleable.FloatingActionButton_Behavior_Layout_behavior_autoHide;
 			global::Lottie.Forms.Resource.Styleable.FloatingActionButton_borderWidth = global::Solar.Droid.Resource.Styleable.FloatingActionButton_borderWidth;
 			global::Lottie.Forms.Resource.Styleable.FloatingActionButton_elevation = global::Solar.Droid.Resource.Styleable.FloatingActionButton_elevation;
 			global::Lottie.Forms.Resource.Styleable.FloatingActionButton_fabCustomSize = global::Solar.Droid.Resource.Styleable.FloatingActionButton_fabCustomSize;
@@ -2250,18 +2254,10 @@ namespace Solar.Droid
 			global::Lottie.Forms.Resource.Styleable.FloatingActionButton_rippleColor = global::Solar.Droid.Resource.Styleable.FloatingActionButton_rippleColor;
 			global::Lottie.Forms.Resource.Styleable.FloatingActionButton_showMotionSpec = global::Solar.Droid.Resource.Styleable.FloatingActionButton_showMotionSpec;
 			global::Lottie.Forms.Resource.Styleable.FloatingActionButton_useCompatPadding = global::Solar.Droid.Resource.Styleable.FloatingActionButton_useCompatPadding;
-			global::Lottie.Forms.Resource.Styleable.FloatingActionButton_Behavior_Layout = global::Solar.Droid.Resource.Styleable.FloatingActionButton_Behavior_Layout;
-			global::Lottie.Forms.Resource.Styleable.FloatingActionButton_Behavior_Layout_behavior_autoHide = global::Solar.Droid.Resource.Styleable.FloatingActionButton_Behavior_Layout_behavior_autoHide;
 			global::Lottie.Forms.Resource.Styleable.FlowLayout = global::Solar.Droid.Resource.Styleable.FlowLayout;
 			global::Lottie.Forms.Resource.Styleable.FlowLayout_itemSpacing = global::Solar.Droid.Resource.Styleable.FlowLayout_itemSpacing;
 			global::Lottie.Forms.Resource.Styleable.FlowLayout_lineSpacing = global::Solar.Droid.Resource.Styleable.FlowLayout_lineSpacing;
 			global::Lottie.Forms.Resource.Styleable.FontFamily = global::Solar.Droid.Resource.Styleable.FontFamily;
-			global::Lottie.Forms.Resource.Styleable.FontFamily_fontProviderAuthority = global::Solar.Droid.Resource.Styleable.FontFamily_fontProviderAuthority;
-			global::Lottie.Forms.Resource.Styleable.FontFamily_fontProviderCerts = global::Solar.Droid.Resource.Styleable.FontFamily_fontProviderCerts;
-			global::Lottie.Forms.Resource.Styleable.FontFamily_fontProviderFetchStrategy = global::Solar.Droid.Resource.Styleable.FontFamily_fontProviderFetchStrategy;
-			global::Lottie.Forms.Resource.Styleable.FontFamily_fontProviderFetchTimeout = global::Solar.Droid.Resource.Styleable.FontFamily_fontProviderFetchTimeout;
-			global::Lottie.Forms.Resource.Styleable.FontFamily_fontProviderPackage = global::Solar.Droid.Resource.Styleable.FontFamily_fontProviderPackage;
-			global::Lottie.Forms.Resource.Styleable.FontFamily_fontProviderQuery = global::Solar.Droid.Resource.Styleable.FontFamily_fontProviderQuery;
 			global::Lottie.Forms.Resource.Styleable.FontFamilyFont = global::Solar.Droid.Resource.Styleable.FontFamilyFont;
 			global::Lottie.Forms.Resource.Styleable.FontFamilyFont_android_font = global::Solar.Droid.Resource.Styleable.FontFamilyFont_android_font;
 			global::Lottie.Forms.Resource.Styleable.FontFamilyFont_android_fontStyle = global::Solar.Droid.Resource.Styleable.FontFamilyFont_android_fontStyle;
@@ -2273,11 +2269,20 @@ namespace Solar.Droid
 			global::Lottie.Forms.Resource.Styleable.FontFamilyFont_fontVariationSettings = global::Solar.Droid.Resource.Styleable.FontFamilyFont_fontVariationSettings;
 			global::Lottie.Forms.Resource.Styleable.FontFamilyFont_fontWeight = global::Solar.Droid.Resource.Styleable.FontFamilyFont_fontWeight;
 			global::Lottie.Forms.Resource.Styleable.FontFamilyFont_ttcIndex = global::Solar.Droid.Resource.Styleable.FontFamilyFont_ttcIndex;
+			global::Lottie.Forms.Resource.Styleable.FontFamily_fontProviderAuthority = global::Solar.Droid.Resource.Styleable.FontFamily_fontProviderAuthority;
+			global::Lottie.Forms.Resource.Styleable.FontFamily_fontProviderCerts = global::Solar.Droid.Resource.Styleable.FontFamily_fontProviderCerts;
+			global::Lottie.Forms.Resource.Styleable.FontFamily_fontProviderFetchStrategy = global::Solar.Droid.Resource.Styleable.FontFamily_fontProviderFetchStrategy;
+			global::Lottie.Forms.Resource.Styleable.FontFamily_fontProviderFetchTimeout = global::Solar.Droid.Resource.Styleable.FontFamily_fontProviderFetchTimeout;
+			global::Lottie.Forms.Resource.Styleable.FontFamily_fontProviderPackage = global::Solar.Droid.Resource.Styleable.FontFamily_fontProviderPackage;
+			global::Lottie.Forms.Resource.Styleable.FontFamily_fontProviderQuery = global::Solar.Droid.Resource.Styleable.FontFamily_fontProviderQuery;
 			global::Lottie.Forms.Resource.Styleable.ForegroundLinearLayout = global::Solar.Droid.Resource.Styleable.ForegroundLinearLayout;
 			global::Lottie.Forms.Resource.Styleable.ForegroundLinearLayout_android_foreground = global::Solar.Droid.Resource.Styleable.ForegroundLinearLayout_android_foreground;
 			global::Lottie.Forms.Resource.Styleable.ForegroundLinearLayout_android_foregroundGravity = global::Solar.Droid.Resource.Styleable.ForegroundLinearLayout_android_foregroundGravity;
 			global::Lottie.Forms.Resource.Styleable.ForegroundLinearLayout_foregroundInsidePadding = global::Solar.Droid.Resource.Styleable.ForegroundLinearLayout_foregroundInsidePadding;
 			global::Lottie.Forms.Resource.Styleable.GradientColor = global::Solar.Droid.Resource.Styleable.GradientColor;
+			global::Lottie.Forms.Resource.Styleable.GradientColorItem = global::Solar.Droid.Resource.Styleable.GradientColorItem;
+			global::Lottie.Forms.Resource.Styleable.GradientColorItem_android_color = global::Solar.Droid.Resource.Styleable.GradientColorItem_android_color;
+			global::Lottie.Forms.Resource.Styleable.GradientColorItem_android_offset = global::Solar.Droid.Resource.Styleable.GradientColorItem_android_offset;
 			global::Lottie.Forms.Resource.Styleable.GradientColor_android_centerColor = global::Solar.Droid.Resource.Styleable.GradientColor_android_centerColor;
 			global::Lottie.Forms.Resource.Styleable.GradientColor_android_centerX = global::Solar.Droid.Resource.Styleable.GradientColor_android_centerX;
 			global::Lottie.Forms.Resource.Styleable.GradientColor_android_centerY = global::Solar.Droid.Resource.Styleable.GradientColor_android_centerY;
@@ -2290,9 +2295,6 @@ namespace Solar.Droid
 			global::Lottie.Forms.Resource.Styleable.GradientColor_android_startY = global::Solar.Droid.Resource.Styleable.GradientColor_android_startY;
 			global::Lottie.Forms.Resource.Styleable.GradientColor_android_tileMode = global::Solar.Droid.Resource.Styleable.GradientColor_android_tileMode;
 			global::Lottie.Forms.Resource.Styleable.GradientColor_android_type = global::Solar.Droid.Resource.Styleable.GradientColor_android_type;
-			global::Lottie.Forms.Resource.Styleable.GradientColorItem = global::Solar.Droid.Resource.Styleable.GradientColorItem;
-			global::Lottie.Forms.Resource.Styleable.GradientColorItem_android_color = global::Solar.Droid.Resource.Styleable.GradientColorItem_android_color;
-			global::Lottie.Forms.Resource.Styleable.GradientColorItem_android_offset = global::Solar.Droid.Resource.Styleable.GradientColorItem_android_offset;
 			global::Lottie.Forms.Resource.Styleable.LinearLayoutCompat = global::Solar.Droid.Resource.Styleable.LinearLayoutCompat;
 			global::Lottie.Forms.Resource.Styleable.LinearLayoutCompat_android_baselineAligned = global::Solar.Droid.Resource.Styleable.LinearLayoutCompat_android_baselineAligned;
 			global::Lottie.Forms.Resource.Styleable.LinearLayoutCompat_android_baselineAlignedChildIndex = global::Solar.Droid.Resource.Styleable.LinearLayoutCompat_android_baselineAlignedChildIndex;
@@ -2301,13 +2303,13 @@ namespace Solar.Droid
 			global::Lottie.Forms.Resource.Styleable.LinearLayoutCompat_android_weightSum = global::Solar.Droid.Resource.Styleable.LinearLayoutCompat_android_weightSum;
 			global::Lottie.Forms.Resource.Styleable.LinearLayoutCompat_divider = global::Solar.Droid.Resource.Styleable.LinearLayoutCompat_divider;
 			global::Lottie.Forms.Resource.Styleable.LinearLayoutCompat_dividerPadding = global::Solar.Droid.Resource.Styleable.LinearLayoutCompat_dividerPadding;
-			global::Lottie.Forms.Resource.Styleable.LinearLayoutCompat_measureWithLargestChild = global::Solar.Droid.Resource.Styleable.LinearLayoutCompat_measureWithLargestChild;
-			global::Lottie.Forms.Resource.Styleable.LinearLayoutCompat_showDividers = global::Solar.Droid.Resource.Styleable.LinearLayoutCompat_showDividers;
 			global::Lottie.Forms.Resource.Styleable.LinearLayoutCompat_Layout = global::Solar.Droid.Resource.Styleable.LinearLayoutCompat_Layout;
 			global::Lottie.Forms.Resource.Styleable.LinearLayoutCompat_Layout_android_layout_gravity = global::Solar.Droid.Resource.Styleable.LinearLayoutCompat_Layout_android_layout_gravity;
 			global::Lottie.Forms.Resource.Styleable.LinearLayoutCompat_Layout_android_layout_height = global::Solar.Droid.Resource.Styleable.LinearLayoutCompat_Layout_android_layout_height;
 			global::Lottie.Forms.Resource.Styleable.LinearLayoutCompat_Layout_android_layout_weight = global::Solar.Droid.Resource.Styleable.LinearLayoutCompat_Layout_android_layout_weight;
 			global::Lottie.Forms.Resource.Styleable.LinearLayoutCompat_Layout_android_layout_width = global::Solar.Droid.Resource.Styleable.LinearLayoutCompat_Layout_android_layout_width;
+			global::Lottie.Forms.Resource.Styleable.LinearLayoutCompat_measureWithLargestChild = global::Solar.Droid.Resource.Styleable.LinearLayoutCompat_measureWithLargestChild;
+			global::Lottie.Forms.Resource.Styleable.LinearLayoutCompat_showDividers = global::Solar.Droid.Resource.Styleable.LinearLayoutCompat_showDividers;
 			global::Lottie.Forms.Resource.Styleable.ListPopupWindow = global::Solar.Droid.Resource.Styleable.ListPopupWindow;
 			global::Lottie.Forms.Resource.Styleable.ListPopupWindow_android_dropDownHorizontalOffset = global::Solar.Droid.Resource.Styleable.ListPopupWindow_android_dropDownHorizontalOffset;
 			global::Lottie.Forms.Resource.Styleable.ListPopupWindow_android_dropDownVerticalOffset = global::Solar.Droid.Resource.Styleable.ListPopupWindow_android_dropDownVerticalOffset;
@@ -2434,11 +2436,11 @@ namespace Solar.Droid
 			global::Lottie.Forms.Resource.Styleable.NavigationView_itemTextColor = global::Solar.Droid.Resource.Styleable.NavigationView_itemTextColor;
 			global::Lottie.Forms.Resource.Styleable.NavigationView_menu = global::Solar.Droid.Resource.Styleable.NavigationView_menu;
 			global::Lottie.Forms.Resource.Styleable.PopupWindow = global::Solar.Droid.Resource.Styleable.PopupWindow;
+			global::Lottie.Forms.Resource.Styleable.PopupWindowBackgroundState = global::Solar.Droid.Resource.Styleable.PopupWindowBackgroundState;
+			global::Lottie.Forms.Resource.Styleable.PopupWindowBackgroundState_state_above_anchor = global::Solar.Droid.Resource.Styleable.PopupWindowBackgroundState_state_above_anchor;
 			global::Lottie.Forms.Resource.Styleable.PopupWindow_android_popupAnimationStyle = global::Solar.Droid.Resource.Styleable.PopupWindow_android_popupAnimationStyle;
 			global::Lottie.Forms.Resource.Styleable.PopupWindow_android_popupBackground = global::Solar.Droid.Resource.Styleable.PopupWindow_android_popupBackground;
 			global::Lottie.Forms.Resource.Styleable.PopupWindow_overlapAnchor = global::Solar.Droid.Resource.Styleable.PopupWindow_overlapAnchor;
-			global::Lottie.Forms.Resource.Styleable.PopupWindowBackgroundState = global::Solar.Droid.Resource.Styleable.PopupWindowBackgroundState;
-			global::Lottie.Forms.Resource.Styleable.PopupWindowBackgroundState_state_above_anchor = global::Solar.Droid.Resource.Styleable.PopupWindowBackgroundState_state_above_anchor;
 			global::Lottie.Forms.Resource.Styleable.RecycleListView = global::Solar.Droid.Resource.Styleable.RecycleListView;
 			global::Lottie.Forms.Resource.Styleable.RecycleListView_paddingBottomNoButtons = global::Solar.Droid.Resource.Styleable.RecycleListView_paddingBottomNoButtons;
 			global::Lottie.Forms.Resource.Styleable.RecycleListView_paddingTopNoTitle = global::Solar.Droid.Resource.Styleable.RecycleListView_paddingTopNoTitle;
@@ -2477,12 +2479,12 @@ namespace Solar.Droid
 			global::Lottie.Forms.Resource.Styleable.SearchView_suggestionRowLayout = global::Solar.Droid.Resource.Styleable.SearchView_suggestionRowLayout;
 			global::Lottie.Forms.Resource.Styleable.SearchView_voiceIcon = global::Solar.Droid.Resource.Styleable.SearchView_voiceIcon;
 			global::Lottie.Forms.Resource.Styleable.Snackbar = global::Solar.Droid.Resource.Styleable.Snackbar;
-			global::Lottie.Forms.Resource.Styleable.Snackbar_snackbarButtonStyle = global::Solar.Droid.Resource.Styleable.Snackbar_snackbarButtonStyle;
-			global::Lottie.Forms.Resource.Styleable.Snackbar_snackbarStyle = global::Solar.Droid.Resource.Styleable.Snackbar_snackbarStyle;
 			global::Lottie.Forms.Resource.Styleable.SnackbarLayout = global::Solar.Droid.Resource.Styleable.SnackbarLayout;
 			global::Lottie.Forms.Resource.Styleable.SnackbarLayout_android_maxWidth = global::Solar.Droid.Resource.Styleable.SnackbarLayout_android_maxWidth;
 			global::Lottie.Forms.Resource.Styleable.SnackbarLayout_elevation = global::Solar.Droid.Resource.Styleable.SnackbarLayout_elevation;
 			global::Lottie.Forms.Resource.Styleable.SnackbarLayout_maxActionInlineWidth = global::Solar.Droid.Resource.Styleable.SnackbarLayout_maxActionInlineWidth;
+			global::Lottie.Forms.Resource.Styleable.Snackbar_snackbarButtonStyle = global::Solar.Droid.Resource.Styleable.Snackbar_snackbarButtonStyle;
+			global::Lottie.Forms.Resource.Styleable.Snackbar_snackbarStyle = global::Solar.Droid.Resource.Styleable.Snackbar_snackbarStyle;
 			global::Lottie.Forms.Resource.Styleable.Spinner = global::Solar.Droid.Resource.Styleable.Spinner;
 			global::Lottie.Forms.Resource.Styleable.Spinner_android_dropDownWidth = global::Solar.Droid.Resource.Styleable.Spinner_android_dropDownWidth;
 			global::Lottie.Forms.Resource.Styleable.Spinner_android_entries = global::Solar.Droid.Resource.Styleable.Spinner_android_entries;
@@ -2490,14 +2492,14 @@ namespace Solar.Droid
 			global::Lottie.Forms.Resource.Styleable.Spinner_android_prompt = global::Solar.Droid.Resource.Styleable.Spinner_android_prompt;
 			global::Lottie.Forms.Resource.Styleable.Spinner_popupTheme = global::Solar.Droid.Resource.Styleable.Spinner_popupTheme;
 			global::Lottie.Forms.Resource.Styleable.StateListDrawable = global::Solar.Droid.Resource.Styleable.StateListDrawable;
+			global::Lottie.Forms.Resource.Styleable.StateListDrawableItem = global::Solar.Droid.Resource.Styleable.StateListDrawableItem;
+			global::Lottie.Forms.Resource.Styleable.StateListDrawableItem_android_drawable = global::Solar.Droid.Resource.Styleable.StateListDrawableItem_android_drawable;
 			global::Lottie.Forms.Resource.Styleable.StateListDrawable_android_constantSize = global::Solar.Droid.Resource.Styleable.StateListDrawable_android_constantSize;
 			global::Lottie.Forms.Resource.Styleable.StateListDrawable_android_dither = global::Solar.Droid.Resource.Styleable.StateListDrawable_android_dither;
 			global::Lottie.Forms.Resource.Styleable.StateListDrawable_android_enterFadeDuration = global::Solar.Droid.Resource.Styleable.StateListDrawable_android_enterFadeDuration;
 			global::Lottie.Forms.Resource.Styleable.StateListDrawable_android_exitFadeDuration = global::Solar.Droid.Resource.Styleable.StateListDrawable_android_exitFadeDuration;
 			global::Lottie.Forms.Resource.Styleable.StateListDrawable_android_variablePadding = global::Solar.Droid.Resource.Styleable.StateListDrawable_android_variablePadding;
 			global::Lottie.Forms.Resource.Styleable.StateListDrawable_android_visible = global::Solar.Droid.Resource.Styleable.StateListDrawable_android_visible;
-			global::Lottie.Forms.Resource.Styleable.StateListDrawableItem = global::Solar.Droid.Resource.Styleable.StateListDrawableItem;
-			global::Lottie.Forms.Resource.Styleable.StateListDrawableItem_android_drawable = global::Solar.Droid.Resource.Styleable.StateListDrawableItem_android_drawable;
 			global::Lottie.Forms.Resource.Styleable.SwitchCompat = global::Solar.Droid.Resource.Styleable.SwitchCompat;
 			global::Lottie.Forms.Resource.Styleable.SwitchCompat_android_textOff = global::Solar.Droid.Resource.Styleable.SwitchCompat_android_textOff;
 			global::Lottie.Forms.Resource.Styleable.SwitchCompat_android_textOn = global::Solar.Droid.Resource.Styleable.SwitchCompat_android_textOn;
@@ -2615,17 +2617,12 @@ namespace Solar.Droid
 			global::Lottie.Forms.Resource.Styleable.Toolbar_titleMargin = global::Solar.Droid.Resource.Styleable.Toolbar_titleMargin;
 			global::Lottie.Forms.Resource.Styleable.Toolbar_titleMarginBottom = global::Solar.Droid.Resource.Styleable.Toolbar_titleMarginBottom;
 			global::Lottie.Forms.Resource.Styleable.Toolbar_titleMarginEnd = global::Solar.Droid.Resource.Styleable.Toolbar_titleMarginEnd;
+			global::Lottie.Forms.Resource.Styleable.Toolbar_titleMargins = global::Solar.Droid.Resource.Styleable.Toolbar_titleMargins;
 			global::Lottie.Forms.Resource.Styleable.Toolbar_titleMarginStart = global::Solar.Droid.Resource.Styleable.Toolbar_titleMarginStart;
 			global::Lottie.Forms.Resource.Styleable.Toolbar_titleMarginTop = global::Solar.Droid.Resource.Styleable.Toolbar_titleMarginTop;
-			global::Lottie.Forms.Resource.Styleable.Toolbar_titleMargins = global::Solar.Droid.Resource.Styleable.Toolbar_titleMargins;
 			global::Lottie.Forms.Resource.Styleable.Toolbar_titleTextAppearance = global::Solar.Droid.Resource.Styleable.Toolbar_titleTextAppearance;
 			global::Lottie.Forms.Resource.Styleable.Toolbar_titleTextColor = global::Solar.Droid.Resource.Styleable.Toolbar_titleTextColor;
 			global::Lottie.Forms.Resource.Styleable.View = global::Solar.Droid.Resource.Styleable.View;
-			global::Lottie.Forms.Resource.Styleable.View_android_focusable = global::Solar.Droid.Resource.Styleable.View_android_focusable;
-			global::Lottie.Forms.Resource.Styleable.View_android_theme = global::Solar.Droid.Resource.Styleable.View_android_theme;
-			global::Lottie.Forms.Resource.Styleable.View_paddingEnd = global::Solar.Droid.Resource.Styleable.View_paddingEnd;
-			global::Lottie.Forms.Resource.Styleable.View_paddingStart = global::Solar.Droid.Resource.Styleable.View_paddingStart;
-			global::Lottie.Forms.Resource.Styleable.View_theme = global::Solar.Droid.Resource.Styleable.View_theme;
 			global::Lottie.Forms.Resource.Styleable.ViewBackgroundHelper = global::Solar.Droid.Resource.Styleable.ViewBackgroundHelper;
 			global::Lottie.Forms.Resource.Styleable.ViewBackgroundHelper_android_background = global::Solar.Droid.Resource.Styleable.ViewBackgroundHelper_android_background;
 			global::Lottie.Forms.Resource.Styleable.ViewBackgroundHelper_backgroundTint = global::Solar.Droid.Resource.Styleable.ViewBackgroundHelper_backgroundTint;
@@ -2634,6 +2631,11 @@ namespace Solar.Droid
 			global::Lottie.Forms.Resource.Styleable.ViewStubCompat_android_id = global::Solar.Droid.Resource.Styleable.ViewStubCompat_android_id;
 			global::Lottie.Forms.Resource.Styleable.ViewStubCompat_android_inflatedId = global::Solar.Droid.Resource.Styleable.ViewStubCompat_android_inflatedId;
 			global::Lottie.Forms.Resource.Styleable.ViewStubCompat_android_layout = global::Solar.Droid.Resource.Styleable.ViewStubCompat_android_layout;
+			global::Lottie.Forms.Resource.Styleable.View_android_focusable = global::Solar.Droid.Resource.Styleable.View_android_focusable;
+			global::Lottie.Forms.Resource.Styleable.View_android_theme = global::Solar.Droid.Resource.Styleable.View_android_theme;
+			global::Lottie.Forms.Resource.Styleable.View_paddingEnd = global::Solar.Droid.Resource.Styleable.View_paddingEnd;
+			global::Lottie.Forms.Resource.Styleable.View_paddingStart = global::Solar.Droid.Resource.Styleable.View_paddingStart;
+			global::Lottie.Forms.Resource.Styleable.View_theme = global::Solar.Droid.Resource.Styleable.View_theme;
 			global::Syncfusion.XForms.Android.Core.Resource.Drawable.Avatar1 = global::Solar.Droid.Resource.Drawable.Avatar1;
 			global::Syncfusion.XForms.Android.Core.Resource.Drawable.Avatar10 = global::Solar.Droid.Resource.Drawable.Avatar10;
 			global::Syncfusion.XForms.Android.Core.Resource.Drawable.Avatar11 = global::Solar.Droid.Resource.Drawable.Avatar11;
@@ -11972,133 +11974,136 @@ namespace Solar.Droid
 			public const int input_layout_drop_down_icon = 2131165518;
 			
 			// aapt resource value: 0x7F070151
-			public const int MaterialActivityIndicatorBackground = 2131165521;
+			public const int login_bgimage = 2131165521;
 			
 			// aapt resource value: 0x7F070152
-			public const int MaterialProgressBar = 2131165522;
+			public const int MaterialActivityIndicatorBackground = 2131165522;
 			
 			// aapt resource value: 0x7F070153
-			public const int mr_button_connected_dark = 2131165523;
+			public const int MaterialProgressBar = 2131165523;
 			
 			// aapt resource value: 0x7F070154
-			public const int mr_button_connected_light = 2131165524;
+			public const int mr_button_connected_dark = 2131165524;
 			
 			// aapt resource value: 0x7F070155
-			public const int mr_button_connecting_dark = 2131165525;
+			public const int mr_button_connected_light = 2131165525;
 			
 			// aapt resource value: 0x7F070156
-			public const int mr_button_connecting_light = 2131165526;
+			public const int mr_button_connecting_dark = 2131165526;
 			
 			// aapt resource value: 0x7F070157
-			public const int mr_button_dark = 2131165527;
+			public const int mr_button_connecting_light = 2131165527;
 			
 			// aapt resource value: 0x7F070158
-			public const int mr_button_light = 2131165528;
+			public const int mr_button_dark = 2131165528;
 			
 			// aapt resource value: 0x7F070159
-			public const int mr_dialog_close_dark = 2131165529;
+			public const int mr_button_light = 2131165529;
 			
 			// aapt resource value: 0x7F07015A
-			public const int mr_dialog_close_light = 2131165530;
+			public const int mr_dialog_close_dark = 2131165530;
 			
 			// aapt resource value: 0x7F07015B
-			public const int mr_dialog_material_background_dark = 2131165531;
+			public const int mr_dialog_close_light = 2131165531;
 			
 			// aapt resource value: 0x7F07015C
-			public const int mr_dialog_material_background_light = 2131165532;
+			public const int mr_dialog_material_background_dark = 2131165532;
 			
 			// aapt resource value: 0x7F07015D
-			public const int mr_group_collapse = 2131165533;
+			public const int mr_dialog_material_background_light = 2131165533;
 			
 			// aapt resource value: 0x7F07015E
-			public const int mr_group_expand = 2131165534;
+			public const int mr_group_collapse = 2131165534;
 			
 			// aapt resource value: 0x7F07015F
-			public const int mr_media_pause_dark = 2131165535;
+			public const int mr_group_expand = 2131165535;
 			
 			// aapt resource value: 0x7F070160
-			public const int mr_media_pause_light = 2131165536;
+			public const int mr_media_pause_dark = 2131165536;
 			
 			// aapt resource value: 0x7F070161
-			public const int mr_media_play_dark = 2131165537;
+			public const int mr_media_pause_light = 2131165537;
 			
 			// aapt resource value: 0x7F070162
-			public const int mr_media_play_light = 2131165538;
+			public const int mr_media_play_dark = 2131165538;
 			
 			// aapt resource value: 0x7F070163
-			public const int mr_media_stop_dark = 2131165539;
+			public const int mr_media_play_light = 2131165539;
 			
 			// aapt resource value: 0x7F070164
-			public const int mr_media_stop_light = 2131165540;
+			public const int mr_media_stop_dark = 2131165540;
 			
 			// aapt resource value: 0x7F070165
-			public const int mr_vol_type_audiotrack_dark = 2131165541;
+			public const int mr_media_stop_light = 2131165541;
 			
 			// aapt resource value: 0x7F070166
-			public const int mr_vol_type_audiotrack_light = 2131165542;
+			public const int mr_vol_type_audiotrack_dark = 2131165542;
 			
 			// aapt resource value: 0x7F070167
-			public const int mtrl_snackbar_background = 2131165543;
+			public const int mr_vol_type_audiotrack_light = 2131165543;
 			
 			// aapt resource value: 0x7F070168
-			public const int mtrl_tabs_default_indicator = 2131165544;
+			public const int mtrl_snackbar_background = 2131165544;
 			
 			// aapt resource value: 0x7F070169
-			public const int navigation_empty_icon = 2131165545;
+			public const int mtrl_tabs_default_indicator = 2131165545;
 			
 			// aapt resource value: 0x7F07016A
-			public const int notification_action_background = 2131165546;
+			public const int navigation_empty_icon = 2131165546;
 			
 			// aapt resource value: 0x7F07016B
-			public const int notification_bg = 2131165547;
+			public const int notification_action_background = 2131165547;
 			
 			// aapt resource value: 0x7F07016C
-			public const int notification_bg_low = 2131165548;
+			public const int notification_bg = 2131165548;
 			
 			// aapt resource value: 0x7F07016D
-			public const int notification_bg_low_normal = 2131165549;
+			public const int notification_bg_low = 2131165549;
 			
 			// aapt resource value: 0x7F07016E
-			public const int notification_bg_low_pressed = 2131165550;
+			public const int notification_bg_low_normal = 2131165550;
 			
 			// aapt resource value: 0x7F07016F
-			public const int notification_bg_normal = 2131165551;
+			public const int notification_bg_low_pressed = 2131165551;
 			
 			// aapt resource value: 0x7F070170
-			public const int notification_bg_normal_pressed = 2131165552;
+			public const int notification_bg_normal = 2131165552;
 			
 			// aapt resource value: 0x7F070171
-			public const int notification_icon_background = 2131165553;
+			public const int notification_bg_normal_pressed = 2131165553;
 			
 			// aapt resource value: 0x7F070172
-			public const int notification_template_icon_bg = 2131165554;
+			public const int notification_icon_background = 2131165554;
 			
 			// aapt resource value: 0x7F070173
-			public const int notification_template_icon_low_bg = 2131165555;
+			public const int notification_template_icon_bg = 2131165555;
 			
 			// aapt resource value: 0x7F070174
-			public const int notification_tile_bg = 2131165556;
+			public const int notification_template_icon_low_bg = 2131165556;
 			
 			// aapt resource value: 0x7F070175
-			public const int notify_panel_notification_icon_bg = 2131165557;
+			public const int notification_tile_bg = 2131165557;
 			
 			// aapt resource value: 0x7F070176
-			public const int splashscreen = 2131165558;
+			public const int notify_panel_notification_icon_bg = 2131165558;
 			
 			// aapt resource value: 0x7F070177
-			public const int tab_about = 2131165559;
+			public const int splashscreen = 2131165559;
 			
 			// aapt resource value: 0x7F070178
-			public const int tab_feed = 2131165560;
+			public const int tab_about = 2131165560;
 			
 			// aapt resource value: 0x7F070179
-			public const int tooltip_frame_dark = 2131165561;
+			public const int tab_feed = 2131165561;
 			
 			// aapt resource value: 0x7F07017A
-			public const int tooltip_frame_light = 2131165562;
+			public const int tooltip_frame_dark = 2131165562;
 			
 			// aapt resource value: 0x7F07017B
-			public const int xamarin_logo = 2131165563;
+			public const int tooltip_frame_light = 2131165563;
+			
+			// aapt resource value: 0x7F07017C
+			public const int xamarin_logo = 2131165564;
 			
 			static Drawable()
 			{
@@ -18494,7 +18499,10 @@ namespace Solar.Droid
 		{
 			
 			// aapt resource value: 0x7F100000
-			public const int xamarin_essentials_fileprovider_file_paths = 2131755008;
+			public const int file_paths = 2131755008;
+			
+			// aapt resource value: 0x7F100001
+			public const int xamarin_essentials_fileprovider_file_paths = 2131755009;
 			
 			static Xml()
 			{

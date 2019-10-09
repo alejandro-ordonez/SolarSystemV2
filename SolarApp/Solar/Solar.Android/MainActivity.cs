@@ -9,6 +9,8 @@ using Android.Widget;
 using Android.OS;
 using Xamarin.Forms;
 using Lottie.Forms.Droid;
+using Plugin.CurrentActivity;
+using ImageCircle.Forms.Plugin.Droid;
 
 namespace Solar.Droid
 {
@@ -24,9 +26,11 @@ namespace Solar.Droid
             base.OnCreate(savedInstanceState);
             global::Xamarin.Forms.Forms.SetFlags("CollectionView_Experimental");
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
+            CrossCurrentActivity.Current.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
             AnimationViewRenderer.Init();
             FormsMaterial.Init(this, savedInstanceState);
+            ImageCircleRenderer.Init();
             LoadApplication(new App());
             int uiOptions = (int)Window.DecorView.SystemUiVisibility;
 

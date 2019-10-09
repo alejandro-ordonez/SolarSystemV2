@@ -2,6 +2,7 @@
 using Solar.Models;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -26,7 +27,10 @@ namespace Solar.Repositories
 
         public async Task<bool> InsertNewPanel(Panel p)
         {
-            await repository.Panels.AddAsync(p);
+            var UserId = App.UserLogged;
+            var user = await repository.Users.Include(u => u.Panels).SingleAsync(u=> u.Id==UserId);
+            user.Panels.Add(p);
+            repository.Users.Update(user);
             await repository.SaveChangesAsync();
             return true;
         }
@@ -51,5 +55,7 @@ namespace Solar.Repositories
             }
             return panels;
         }
+
+        
     }
 }

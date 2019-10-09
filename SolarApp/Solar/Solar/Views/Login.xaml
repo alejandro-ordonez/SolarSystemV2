@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             BackgroundImageSource="login_bgimage.png"
+             Visual="Material"
+             x:Class="Solar.Views.Login">
+    <ContentPage.Content>
+        <StackLayout Padding="20" VerticalOptions="CenterAndExpand">
+            <Label Text="¡Bienvenido!" Style="{StaticResource TitleStyle}" TextColor="White" HorizontalOptions="Center" VerticalOptions="Start"/>
+            <Frame HorizontalOptions="FillAndExpand" VerticalOptions="Center" HasShadow="True">
+                <StackLayout Spacing="10">
+                    <Entry Placeholder="Email" Text="{Binding Email}"/>
+                    <Label Text="{Binding MsgUser}" IsVisible="{Binding IsMsgUserVisible}" TextColor="Red" Margin="0,2,0,15"/>
+                    <Entry Placeholder="Contraseña" Text="{Binding Password}" IsPassword="True"/>
+                    <Label Text="{Binding MsgPass}" IsVisible="{Binding IsMsgPassVisible}" TextColor="Red" Margin="0,2,0,15"/>
+                    <Button Text="LogIn" Command="{Binding LogInCommand}"/>
+                </StackLayout>                
+            </Frame>
+            <ActivityIndicator IsRunning="{Binding IsBusy}"/>
+            <Button Text="Registrarse" Command="{Binding RegisterCommand}"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
