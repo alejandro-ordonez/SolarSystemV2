@@ -7,7 +7,7 @@
              mc:Ignorable="d"
              Visual="Material"
              BackgroundColor="#37474F"
-             x:Class="Solar.Views.Graph">
+    x:Class="Solar.Views.Graph">
     <ContentPage.Content>
         <ScrollView HorizontalOptions="FillAndExpand">
             <StackLayout HorizontalOptions="FillAndExpand" Spacing="5">
@@ -50,7 +50,7 @@
                     </StackLayout>
                 </Frame>
 
-                <chart:SfChart Margin="5" HorizontalOptions="FillAndExpand" HeightRequest="360" BackgroundColor="#37474F">
+                <chart:SfChart x:Name="IVCurve" Margin="5" HorizontalOptions="FillAndExpand" HeightRequest="360" BackgroundColor="#37474F">
                     
                     <chart:SfChart.ChartAnnotations>
                         <chart:VerticalLineAnnotation StrokeWidth="2" X1="{Binding Vm}" ShowAxisLabel="true"/>
@@ -89,7 +89,7 @@
                     </chart:SfChart.Title>
                 </chart:SfChart>
 
-                <chart:SfChart Margin="5" HorizontalOptions="FillAndExpand" HeightRequest="360" BackgroundColor="#37474F">
+                <chart:SfChart x:Name="PVCurve" Margin="5" HorizontalOptions="FillAndExpand" HeightRequest="360" BackgroundColor="#37474F">
                     <chart:FastLineSeries ItemsSource="{Binding IV}" YBindingPath="Power" XBindingPath="V" Color="Red"/>
                     <chart:SfChart.Legend />
                     <chart:SfChart.PrimaryAxis>
@@ -110,6 +110,7 @@
                         <chart:ChartTitle Text="Curva de potencia" TextColor="White"  BackgroundColor="#37474F" BorderColor="#37474F"/>
                     </chart:SfChart.Title>
                 </chart:SfChart>
+                <Button Text="Exportar datos" Clicked="ToolbarItem_Clicked" HorizontalOptions="FillAndExpand"/>
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>

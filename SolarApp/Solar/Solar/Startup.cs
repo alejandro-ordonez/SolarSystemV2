@@ -49,12 +49,12 @@ namespace Solar
         static void ConfigureServices(HostBuilderContext ctx, IServiceCollection services)
         {
             services.AddDbContext<SolarDbContext>();
-            //services.AddSingleton<IRepository, SolarDbContext>();
+            //Services
             services.AddSingleton<IESPData, ESPData>();
-
             services.AddTransient<IRepository, DataBaseService>();
+            services.AddTransient<IPDFService, PDFService>();
 
-            //TODO: Add all ViewModels and services
+            //ViewModels
             services.AddTransient<ResultViewModel>();
             services.AddTransient<PanelsViewModel>();
             services.AddTransient<MeasureViewModel>();
