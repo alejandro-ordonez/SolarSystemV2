@@ -6,12 +6,13 @@ using Solar.Views;
 using Solar.Repositories;
 using Solar.Helpers;
 using System.Threading.Tasks;
+using Solar.Models;
 
 namespace Solar
 {
     public partial class App : Application
     {
-        public static int UserLogged { get; set; }
+        public static User UserLogged { get; set; }
         public App()
         {
             Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("MTU0MDcxQDMxMzcyZTMzMmUzMFZPcGswa0ljV2tvYi9ZTURpeWZOclk2dFZDV3dWcDZSYjY4TjR6MnlCRlk9");

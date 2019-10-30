@@ -9,10 +9,10 @@
              x:Class="Solar.Views.Login">
     <ContentPage.Content>
         <StackLayout Padding="20" VerticalOptions="CenterAndExpand">
-            <Label Text="¡Bienvenido!" Style="{StaticResource TitleStyle}" TextColor="White" HorizontalOptions="Center" VerticalOptions="Start"/>
             <Frame HorizontalOptions="FillAndExpand" VerticalOptions="Center" HasShadow="True">
                 <StackLayout Spacing="10">
-                    <Entry Placeholder="Email" Text="{Binding Email}"/>
+                    <Label Text="¡Bienvenido!" Style="{StaticResource TitleStyle}" TextColor="Black" HorizontalOptions="Center" VerticalOptions="Start"/>
+                    <Entry Placeholder="Email" Text="{Binding Email}" Keyboard="Email"/>
                     <Label Text="{Binding MsgUser}" IsVisible="{Binding IsMsgUserVisible}" TextColor="Red" Margin="0,2,0,15"/>
                     <Entry Placeholder="Contraseña" Text="{Binding Password}" IsPassword="True"/>
                     <Label Text="{Binding MsgPass}" IsVisible="{Binding IsMsgPassVisible}" TextColor="Red" Margin="0,2,0,15"/>

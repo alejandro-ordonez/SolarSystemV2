@@ -3,7 +3,7 @@ int Pira = 33;
 void setup()
 {
   adcAttachPin(Pira);
-  analogReadResolution(12);
+  analogReadResolution(11);
   analogSetAttenuation(ADC_11db);
   analogSetWidth(11);
   adcStart(Pira);
@@ -33,7 +33,7 @@ double radiation()
 {
   double cal = 0;
 
-  cal = ReadVoltage(Pira);
+  cal = averageAnalogReading(300, Pira)*(3.3/2048);
   cal /= 27.5;
   Serial.println(cal, 5);
   cal *= 1000000;

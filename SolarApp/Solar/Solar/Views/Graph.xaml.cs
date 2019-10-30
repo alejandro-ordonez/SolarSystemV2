@@ -16,10 +16,13 @@ namespace Solar.Views
     public partial class Graph : ContentPage
     {
         public ICommand GenerateReportCommand { get; set; }
+        public DataPanel VM { get; set; }
         private readonly IPDFService service;
         public Graph(DataPanel data)
         {
-            BindingContext = data;
+            VM = data;
+            VM.IV = data.IV.OrderBy(reading => reading.V).ToList();
+            BindingContext = VM;
             service = Startup.ServiceProvider.GetService<IPDFService>();
             InitializeComponent();
         }
@@ -28,7 +31,7 @@ namespace Solar.Views
         private async void ToolbarItem_Clicked(object sender, EventArgs e)
         {
             await Application.Current.MainPage.DisplayAlert("Aviso", "El reporte será generado y enviado a m.alejandro1898@gmail.com", "Ok");
-            await service.CreatePDFAndSend(new List<Syncfusion.SfChart.XForms.SfChart> { IVCurve, PVCurve }, "m.alejandro1898@gmail.com");
+            await service.CreatePDFAndSend(new List<Syncfusion.SfChart.XForms.SfChart> { IVCurve, PVCurve }, App.UserLogged.Email, VM);
         }
     }
 }

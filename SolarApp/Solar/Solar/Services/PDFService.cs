@@ -11,15 +11,16 @@ using Syncfusion.Pdf.Graphics;
 using Syncfusion.Drawing;
 using Syncfusion.SfChart.XForms;
 using Xamarin.Forms;
+using Solar.Models;
 
 namespace Solar.Services
 {
     public class PDFService : IPDFService
     {
 
-        public async Task CreatePDFAndSend(List<SfChart> charts, string email)
+        public async Task CreatePDFAndSend(List<SfChart> charts, string email, DataPanel data)
         {
-            int count = 20;
+            float count = 10;
             PdfDocument Pdf = new PdfDocument();
             //Add a page to the current PDF document
             PdfPage page = Pdf.Pages.Add();
@@ -27,12 +28,35 @@ namespace Solar.Services
             PdfGraphics graphics = page.Graphics;
             //Set the standard fonts
             PdfFont font = new PdfStandardFont(PdfFontFamily.Helvetica, 20);
+            PdfPen pen = new PdfPen(PdfBrushes.Black);
             //Draw the text
-            graphics.DrawString("Hello World!!!", font, PdfBrushes.Black, new PointF(10, 10));
+            var size = page.GetClientSize();
+            graphics.DrawString($"Reporte generado: {DateTime.Now}", font, PdfBrushes.Black, new PointF(10, 10));
+            graphics.DrawString($"Caracterización realizada por: {App.UserLogged.Name} {App.UserLogged.LastName}", font, PdfBrushes.Black, new PointF(10, 25));
+
+            /// Table
+            graphics.DrawRectangle(new PdfPen(PdfBrushes.Black, 2), 10, 40, size.Width-10, 200);
+            graphics.DrawLine(new PdfPen(PdfBrushes.Black), new PointF(size.Width / 2, 30), new PointF(size.Width/2, 130));
+
+            //Values
+            graphics.DrawString("Atributo", new PdfStandardFont(PdfFontFamily.Helvetica, 10, PdfFontStyle.Bold), PdfBrushes.Black, new PointF(size.Width/4, 42));
+            graphics.DrawString("Valor", new PdfStandardFont(PdfFontFamily.Helvetica, 10, PdfFontStyle.Bold), PdfBrushes.Black, new PointF((size.Width / 4)*3, 42));
+            graphics.DrawLine(new PdfPen(PdfBrushes.Black), new PointF(10, 60), new PointF(size.Width-10, 45));
+
+            //Date
+            graphics.DrawString("Fecha de caracterización", new PdfStandardFont(PdfFontFamily.Helvetica, 10, PdfFontStyle.Bold), PdfBrushes.Black, new PointF(15, 62));
+            graphics.DrawString(data.Date.ToString(), new PdfStandardFont(PdfFontFamily.Helvetica, 10, PdfFontStyle.Bold), PdfBrushes.Black, new PointF(size.Width+5, 62));
+            graphics.DrawLine(new PdfPen(PdfBrushes.Black), new PointF(10, 80), new PointF(size.Width-10, 60));
+            
+            graphics.DrawString("Radiación", new PdfStandardFont(PdfFontFamily.Helvetica, 10, PdfFontStyle.Bold), PdfBrushes.Black, new PointF(15, 82));
+            graphics.DrawString($"{data.Radiation} W/m^2", new PdfStandardFont(PdfFontFamily.Helvetica, 10, PdfFontStyle.Bold), PdfBrushes.Black, new PointF(size.Width+5, 82));
+            graphics.DrawLine(new PdfPen(PdfBrushes.Black), new PointF(10, 80), new PointF(size.Width-10, 80));
+
+
             foreach (var chart in charts)
             {
-                graphics.DrawImage(PdfImage.FromStream(await chart.GetStreamAsync()), 10, count, page.GetClientSize().Width, page.GetClientSize().Height);
-                count += 100;
+                graphics.DrawImage(PdfImage.FromStream(await chart.GetStreamAsync()), count, 200, (size.Width/2)-10, 150 );
+                count += size.Width/2+10;
             }
             //Save the document to the stream
             MemoryStream stream = new MemoryStream();

@@ -69,10 +69,16 @@ namespace Solar.ViewModels
         private async Task GetData()
         {
             var data = await espData.GetDataAsync(Panel.Height, Panel.Width);
-            await repository.InsertReadingsToExisting(Panel.Id, data);
-            IsBusy = false;
-            Clickable = false;
-            await Application.Current.MainPage.Navigation.PopModalAsync();
+            if (data != null)
+            {
+                await repository.InsertReadingsToExisting(Panel.Id, data);
+                IsBusy = false;
+                Clickable = false;
+                await Application.Current.MainPage.Navigation.PopModalAsync();
+                return;
+            }
+            await Application.Current.MainPage.DisplayAlert("Error", "Los datos no puedieron ser obtenidos", "Ok");
+            return;
         }
     }
 }

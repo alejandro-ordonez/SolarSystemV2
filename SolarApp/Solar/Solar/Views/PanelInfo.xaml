@@ -32,20 +32,20 @@
                             <Label Text="Lugar:" Grid.Column="0" Grid.Row="1" Style="{StaticResource BoldItem}"/>
                             <Label Text="{Binding Place}" Grid.Column="1" Grid.Row="1"/>
 
-                            <Label Text="Width: " Grid.Column="0" Grid.Row="2" Style="{StaticResource BoldItem}"/>
-                            <Label Text="{Binding Width}" Grid.Column="1" Grid.Row="2"/>
+                            <Label Text="Ancho: " Grid.Column="0" Grid.Row="2" Style="{StaticResource BoldItem}"/>
+                            <Label Text="{Binding Width, StringFormat='{0:F2} m'}" Grid.Column="1" Grid.Row="2"/>
 
-                            <Label Text="Height:" Grid.Column="0" Grid.Row="3" Style="{StaticResource BoldItem}"/>
-                            <Label Text="{Binding Height}" Grid.Column="1" Grid.Row="3"/>
+                            <Label Text="Largo:" Grid.Column="0" Grid.Row="3" Style="{StaticResource BoldItem}"/>
+                            <Label Text="{Binding Height, StringFormat='{0:F2} m'}" Grid.Column="1" Grid.Row="3"/>
 
                             <Label Text="Voltaje VOC: " Grid.Column="0" Grid.Row="4" Style="{StaticResource BoldItem}"/>
-                            <Label Text="{Binding Voc}" Grid.Column="1" Grid.Row="4"/>
+                            <Label Text="{Binding Voc, StringFormat='{0:F2} V'}" Grid.Column="1" Grid.Row="4"/>
 
                             <Label Text="Corriente ISC: " Grid.Column="0" Grid.Row="5" Style="{StaticResource BoldItem}"/>
-                            <Label Text="{Binding Isc}" Grid.Column="1" Grid.Row="5"/>
+                            <Label Text="{Binding Isc, StringFormat='{0:F2} I'}" Grid.Column="1" Grid.Row="5"/>
 
                             <Label Text="Potencia: " Grid.Column="0" Grid.Row="6" Style="{StaticResource BoldItem}"/>
-                            <Label Text="{Binding Power}" Grid.Column="1" Grid.Row="6"/>
+                            <Label Text="{Binding Power, StringFormat='{0:F2} W'}" Grid.Column="1" Grid.Row="6"/>
 
                         </Grid>
                     </ViewCell>

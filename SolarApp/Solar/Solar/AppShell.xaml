@@ -3,6 +3,7 @@
        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
        xmlns:d="http://xamarin.com/schemas/2014/forms/design"
        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+       xmlns:controls="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
        mc:Ignorable="d"
        xmlns:local="clr-namespace:Solar.Views"
        Title="Solar"
@@ -16,20 +17,22 @@
 
     <Shell.FlyoutHeaderTemplate>
         <DataTemplate>
-            <RelativeLayout HorizontalOptions="Fill" VerticalOptions="Fill" BackgroundColor="Black">
-                <Image Source="header.png" RelativeLayout.HeightConstraint="{ConstraintExpression Property=Height, Type=RelativeToParent}" RelativeLayout.WidthConstraint="{ConstraintExpression Property=Width, Type=RelativeToParent}" Opacity="0.4"/>
-                <Grid RowSpacing="5" ColumnSpacing="5" Padding="10" Margin="0,40,0,40" VerticalOptions="Center">
+            <RelativeLayout HorizontalOptions="Fill" VerticalOptions="Start" BackgroundColor="Gray">
+                <Image Source="header.png" VerticalOptions="Center" RelativeLayout.WidthConstraint="{ConstraintExpression Property=Width, Type=RelativeToParent}" Opacity="0.4"/>
+                <Grid RowSpacing="2" ColumnSpacing="15" Padding="10" Margin="0,20,0,20" VerticalOptions="Start">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="30"/>
+                        <RowDefinition Height="20"/>
                         <RowDefinition Height="30"/>
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="5*"/>
                     </Grid.ColumnDefinitions>
-                    <Image Source="{StaticResource User}" Aspect="AspectFit" Grid.RowSpan="2" VerticalOptions="Center" HorizontalOptions="EndAndExpand" Grid.Column="0"/>
-                    <Label Text="Manuel Alejandro Ordoñez" FontSize="Medium" Style="{StaticResource FlyoutItem}" HorizontalOptions="Start" VerticalOptions="Center" Grid.Column="1" Grid.Row="0" />
-                    <StackLayout Grid.Row="1" Grid.Column="1" Orientation="Horizontal" Spacing="15" HorizontalOptions="StartAndExpand">
+                    <controls:CircleImage Source="{Binding ImageProfile}" HeightRequest="70" WidthRequest="70" Aspect="AspectFill" Grid.RowSpan="2" VerticalOptions="Center" HorizontalOptions="EndAndExpand" Grid.Column="0"/>
+                    <Label Text="{Binding Name}" FontSize="Medium" Style="{StaticResource FlyoutItem}" HorizontalOptions="Start" VerticalOptions="Center" Grid.Column="1" Grid.Row="0" />
+                    <Label Text="{Binding Email}" FontSize="Small" Style="{StaticResource FlyoutItem}" HorizontalOptions="Start" VerticalOptions="Center" Grid.Column="1" Grid.Row="1"/>
+                    <StackLayout Grid.Row="2" Grid.Column="1" Orientation="Horizontal" Spacing="15" HorizontalOptions="StartAndExpand">
                         <ImageButton Source="{StaticResource Facebook}" Command="{Binding OpenBrowserCommand}" CommandParameter="https://www.facebook.com/Sunny-App-107801953963483/" Aspect="AspectFit" BackgroundColor="Transparent"/>
                         <ImageButton Source="{StaticResource Instagram}" Aspect="AspectFit" BackgroundColor="Transparent"/>
                         <ImageButton Source="{StaticResource GitHub}" Command="{Binding OpenBrowserCommand}" CommandParameter="https://github.com/SpectralBolt/SolarSystemV2" Aspect="AspectFit" BackgroundColor="Transparent"/>

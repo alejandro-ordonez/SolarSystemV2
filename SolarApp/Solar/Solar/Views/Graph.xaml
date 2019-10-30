@@ -25,15 +25,16 @@
                                 <RowDefinition Height="Auto"/>
                                 <RowDefinition Height="Auto"/>
                                 <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
                             </Grid.RowDefinitions>
                             <Label Text="Fecha: "             Grid.Row="0" Grid.Column="0" FontAttributes="Bold,Italic" TextColor="Black"/>
                             <Label Text="{Binding Date}"      Grid.Row="0" Grid.Column="1"/>
                             
-                            <Label Text="Radiaton:"           Grid.Row="1" Grid.Column="0" FontAttributes="Bold,Italic" TextColor="Black"/>
-                            <Label Text="{Binding Radiation}" Grid.Row="1" Grid.Column="1"/>
+                            <Label Text="Radiación:"           Grid.Row="1" Grid.Column="0" FontAttributes="Bold,Italic" TextColor="Black"/>
+                            <Label Text="{Binding Radiation, StringFormat='{0:F2} W/m^2'}" Grid.Row="1" Grid.Column="1"/>
                             
-                            <Label Text="Temperature"         Grid.Row="2" Grid.Column="0" FontAttributes="Bold,Italic" TextColor="Black"/>
-                            <Label Text="{Binding Temp}"      Grid.Row="2" Grid.Column="1"/>
+                            <Label Text="Temperatura"         Grid.Row="2" Grid.Column="0" FontAttributes="Bold,Italic" TextColor="Black"/>
+                            <Label Text="{Binding Temp, StringFormat='{0:F2} °C'}"      Grid.Row="2" Grid.Column="1"/>
                             
                             <Label Text="N° Muestras"         Grid.Row="3" Grid.Column="0" FontAttributes="Bold,Italic" TextColor="Black"/>
                             <Label Text="{Binding IV.Count}"  Grid.Row="3" Grid.Column="1"/>
@@ -42,10 +43,13 @@
                             <Label Text="{Binding FF}" Grid.Column="1" Grid.Row="4"/>
 
                             <Label Text="Eficiencia: " Grid.Column="0" Grid.Row="5" FontAttributes="Bold,Italic" TextColor="Black"/>
-                            <Label Text="{Binding Efficency}" Grid.Column="1" Grid.Row="5"/>
+                            <Label Text="{Binding Efficency,StringFormat='{0:F2} %'}" Grid.Column="1" Grid.Row="5"/>
 
                             <Label Text="Potencia de entrada: " Grid.Column="0" Grid.Row="6" FontAttributes="Bold,Italic" TextColor="Black"/>
-                            <Label Text="{Binding PowerIn}" Grid.Column="1" Grid.Row="6"/>
+                            <Label Text="{Binding PowerIn, StringFormat='{0:F2} W'}" Grid.Column="1" Grid.Row="6"/>
+                            
+                            <Label Text="Potencia de salida: " Grid.Column="0" Grid.Row="7" FontAttributes="Bold,Italic" TextColor="Black"/>
+                            <Label Text="{Binding Pmax, StringFormat='{0:F2} W'}" Grid.Column="1" Grid.Row="7"/>
                         </Grid>
                     </StackLayout>
                 </Frame>
@@ -60,17 +64,29 @@
                                 <chart:ChartAnnotationLabelStyle FontAttributes="Bold" TextColor="White" />
                             </chart:TextAnnotation.LabelStyle>
                         </chart:TextAnnotation>
+                        <!--
+                        <chart:TextAnnotation X1="{Binding Vm}" Y1="{Binding Im}" Text="{Binding Temp, StringFormat='Temp {0:F2}°C'}">
+                            <chart:TextAnnotation.LabelStyle>
+                                <chart:ChartAnnotationLabelStyle FontAttributes="Bold" TextColor="White" />
+                            </chart:TextAnnotation.LabelStyle>
+                        </chart:TextAnnotation>
+                        
+                        <chart:TextAnnotation X1="{Binding Vm}" Y1="{Binding Im}" Text="{Binding Radiation, StringFormat='Radiación {0:F2}W/m^2'}">
+                            <chart:TextAnnotation.LabelStyle>
+                                <chart:ChartAnnotationLabelStyle FontAttributes="Bold" TextColor="White" />
+                            </chart:TextAnnotation.LabelStyle>
+                        </chart:TextAnnotation>-->
+                        
                     </chart:SfChart.ChartAnnotations>
 
                     <chart:FastLineSeries ItemsSource="{Binding IV}" YBindingPath="I" XBindingPath="V" Color="White" StrokeWidth="2" />
-                    <chart:SfChart.Legend />
                     <chart:SfChart.PrimaryAxis>
-                        <chart:NumericalAxis>
+                        <chart:NumericalAxis Maximum="45">
                             <chart:NumericalAxis.LabelStyle>
                                 <chart:ChartAxisLabelStyle TextColor="White"/>
                             </chart:NumericalAxis.LabelStyle>
                             <chart:NumericalAxis.Title>
-                                <chart:ChartAxisTitle Text="Voltage V (Volts)" TextColor="White" Font="Bold"/>
+                                <chart:ChartAxisTitle Text="V (Voltios)" TextColor="White" Font="Bold"/>
                             </chart:NumericalAxis.Title>
                         </chart:NumericalAxis>
                     </chart:SfChart.PrimaryAxis >
@@ -80,34 +96,40 @@
                                 <chart:ChartAxisLabelStyle TextColor="White"/>
                             </chart:NumericalAxis.LabelStyle>
                             <chart:NumericalAxis.Title>
-                                <chart:ChartAxisTitle Text="Corriente I (Amps)" TextColor="White" Font="Bold"/>
+                                <chart:ChartAxisTitle Text="I (Amperios)" TextColor="White" Font="Bold"/>
                             </chart:NumericalAxis.Title>
                         </chart:NumericalAxis>
                     </chart:SfChart.SecondaryAxis>
                     <chart:SfChart.Title>
-                        <chart:ChartTitle Text="IV Curve Solar Panel" TextColor="White" BackgroundColor="#37474F" BorderColor="#37474F"/>
+                        <chart:ChartTitle Text="{Binding TitleChartStats, StringFormat='Curva I-V Panel {0}'}" Font="Bold" TextColor="White" BackgroundColor="#37474F" BorderColor="#37474F"/>
                     </chart:SfChart.Title>
                 </chart:SfChart>
 
                 <chart:SfChart x:Name="PVCurve" Margin="5" HorizontalOptions="FillAndExpand" HeightRequest="360" BackgroundColor="#37474F">
                     <chart:FastLineSeries ItemsSource="{Binding IV}" YBindingPath="Power" XBindingPath="V" Color="Red"/>
-                    <chart:SfChart.Legend />
                     <chart:SfChart.PrimaryAxis>
-                        <chart:NumericalAxis>
+                        <chart:NumericalAxis Maximum="45">
+                            <chart:NumericalAxis.LabelStyle>
+                                <chart:ChartAxisLabelStyle TextColor="White"/>
+                            </chart:NumericalAxis.LabelStyle>
                             <chart:NumericalAxis.Title>
-                                <chart:ChartAxisTitle Text="Voltage V(Volts)" TextColor="White" Font="Bold"/>
+                                <chart:ChartAxisTitle Text="V (Voltios)" TextColor="White" Font="Bold"/>
                             </chart:NumericalAxis.Title>
                         </chart:NumericalAxis>
+                        
                     </chart:SfChart.PrimaryAxis >
                     <chart:SfChart.SecondaryAxis>
                         <chart:NumericalAxis>
+                            <chart:NumericalAxis.LabelStyle>
+                                <chart:ChartAxisLabelStyle TextColor="White"/>
+                            </chart:NumericalAxis.LabelStyle>
                             <chart:NumericalAxis.Title>
-                                <chart:ChartAxisTitle Text="Potencia (Watts)" TextColor="White" Font="Bold"/>
+                                <chart:ChartAxisTitle Text="P (Vatios)" TextColor="White" Font="Bold"/>
                             </chart:NumericalAxis.Title>
                         </chart:NumericalAxis>
                     </chart:SfChart.SecondaryAxis>
                     <chart:SfChart.Title>
-                        <chart:ChartTitle Text="Curva de potencia" TextColor="White"  BackgroundColor="#37474F" BorderColor="#37474F"/>
+                        <chart:ChartTitle Text="Curva P-V" Font="Bold" TextColor="White"  BackgroundColor="#37474F" BorderColor="#37474F"/>
                     </chart:SfChart.Title>
                 </chart:SfChart>
                 <Button Text="Exportar datos" Clicked="ToolbarItem_Clicked" HorizontalOptions="FillAndExpand"/>

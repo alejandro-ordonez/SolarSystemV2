@@ -1,5 +1,5 @@
 #include <Arduino.h>
-#define Resolution 4096
+#define Resolution 2048
 #define Resbase 10000 //10Kohm R2
 #define RTNOM 12226
 #define NOMINAL_TEMPERATURE 16.7
@@ -11,7 +11,7 @@ void setup() {
   Serial.begin(9600);
   adcAttachPin(27);
   adcStart(27);
-  analogReadResolution(12);       // Default of 12 is not very linear. Recommended to use 10 or 11 depending on needed resolution.
+  analogReadResolution(11);       // Default of 12 is not very linear. Recommended to use 10 or 11 depending on needed resolution.
   analogSetAttenuation(ADC_11db); // Default is 11db which is very noisy. Recommended to use 2.5 or 6.
 }
 

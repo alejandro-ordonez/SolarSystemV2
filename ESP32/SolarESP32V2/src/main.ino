@@ -71,7 +71,7 @@ dig_comp filterVoltage(b, a, lp_in2, lp_out2, 2, 2);
 // doing anything, if true it means microcontroller is taking measures.
 bool isBusy = false;
 // Number Of Samples
-int numberOfSamples = 1200;
+int numberOfSamples = 2000;
 ///////////////////////////////////////
 
 /////////////PID///////////////////////
@@ -205,6 +205,7 @@ void setup()
   ////////// Set PWM properties
   ledcSetup(0, 5000, 16);
   ledcAttachPin(PWMPin, 0);
+  ledcWrite(0,65536);
 /////////
 
 //////////// Wifi Set Up //////////////////
@@ -315,7 +316,7 @@ void Start(AsyncWebServerRequest *request)
   Serial.println(T);
   Panel["IR"] = IR;
   Panel["T"] = T;
-  Panel["Time"] = Clock.now().timestamp();
+  //Panel["Time"] = Clock.now().timestamp();
   VArray = doc.createNestedArray("V");
   IArray = doc.createNestedArray("I");
   AsyncWebParameter *p = request->getParam(0);
@@ -324,6 +325,8 @@ void Start(AsyncWebServerRequest *request)
   increase = CalculateStep();
   Serial.println(increase, 5);
   isBusy = true;
+  ledcWrite(0,65536);
+  Serial.println(readVSensor());
   StartTimer();
   Serial.println("Timer Iniciado");
   request->send(200, "text/plain", "Service Started");
@@ -386,7 +389,7 @@ void SetTime(AsyncWebServerRequest *request)
 ////////////////////////////////////////////////////////////////
 
 ////////////////////// PID  Methods ///////////////////////////
-#pragma region
+#pragma region1
 
 /**
  * @brief 
@@ -394,7 +397,7 @@ void SetTime(AsyncWebServerRequest *request)
  */
 void PID()
 {
-  if (PWMValue <= 45000)
+  if (PWMValue <= 35000)
   {
     StopTimer();
     PWMValue = 65536;
@@ -411,12 +414,12 @@ void PID()
   PWMValue -= increase;
   temp = readVSensor();
   temp1 = readISensor();
-  if(temp1>=0&&totalInterruptCounter>50){
-  //print(PWMValue, temp, temp1);
-  if(totalInterruptCounter%3==0){
-  IArray.add(temp1);                            
-  VArray.add(temp);
-  }
+  if(temp1>=0){
+    print(PWMValue, temp, temp1);
+    if(totalInterruptCounter%3==0){
+      IArray.add(temp1);                            
+      VArray.add(temp);
+    }
   }
   
   /*
@@ -456,7 +459,7 @@ void PID()
  */
 double CalculateStep()
 {
-  return 20536 / numberOfSamples;
+  return MaxValuePWM / numberOfSamples;
 }
 
 #pragma endregion
@@ -518,8 +521,8 @@ void StopTimer()
  */
 float readISensor()
 {
-  return 0.1041*filterISensor.calc_out(averageAnalogReading(200, ISensor))-15.786;
-  //return 0.1041*averageAnalogReading(60, ISensor)-15.877;
+  //return 0.1041*filterISensor.calc_out(averageAnalogReading(200, ISensor))-15.786;
+  return 0.1124*averageAnalogReading(150, ISensor)-16.906;
   //return averageAnalogReading(300, ISensor);
 }
 ///////////////////////////////////////////////////////////////
@@ -534,8 +537,8 @@ float readISensor()
 float readVSensor()
 {
   //return (voltageFilter.calc_out(analogRead(VS1)) / Resolution) * 13 * (340206.186 / 320000);
-  return 0.0264*filterVoltage.calc_out(averageAnalogReading(200, VS1))+2.4251;
-  //return 0.0264*averageAnalogReading(100, VS1) +2.4251;
+  //return 0.0264*filterVoltage.calc_out(averageAnalogReading(200, VS1))+2.4251;
+  return averageAnalogReading(300.0, VS1)*0.0263+2.4093;
 }
 
 ///////////////////////////////////////////////////////////////

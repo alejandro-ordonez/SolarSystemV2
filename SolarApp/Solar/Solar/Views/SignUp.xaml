@@ -21,10 +21,10 @@
                             <TapGestureRecognizer Command="{Binding TakePhotoCommand}" Tapped="TapGestureRecognizer_Tapped"/>
                         </controls:CircleImage.GestureRecognizers>
                     </controls:CircleImage>
-                    <Entry Placeholder="Email" Text="{Binding User.Email}" />
+                    <Entry Placeholder="Email" Text="{Binding User.Email}" Keyboard="Email"/>
                     <Entry Placeholder="Nombre" Text="{Binding User.Name}"/>
                     <Entry Placeholder="Apellido" Text="{Binding User.LastName}"/>
-                    <Entry Placeholder="Contraseña" Text="{Binding User.Password}"/>
+                    <Entry Placeholder="Contraseña" Text="{Binding User.Password}" IsPassword="True"/>
                     <Entry Placeholder=" Repetir Contraseña" Text="{Binding RptPassword}"/>
                     <Button Text="Registrarse" Command="{Binding SignUpCommand}"/>
                 </StackLayout>

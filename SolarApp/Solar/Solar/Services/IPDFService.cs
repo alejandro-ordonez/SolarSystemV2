@@ -1,4 +1,5 @@
-﻿using Syncfusion.SfChart.XForms;
+﻿using Solar.Models;
+using Syncfusion.SfChart.XForms;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -9,6 +10,6 @@ namespace Solar.Services
 {
     interface IPDFService
     {
-        Task CreatePDFAndSend(List<SfChart> charts, string email);
+        Task CreatePDFAndSend(List<SfChart> charts, string email, DataPanel data);
     }
 }

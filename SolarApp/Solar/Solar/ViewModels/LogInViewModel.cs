@@ -50,7 +50,7 @@ namespace Solar.ViewModels
             {
                 //Directory = Path.Combine(FileSystem.AppDataDirectory, "Photos"),
                 SaveToAlbum = false,
-                PhotoSize = Plugin.Media.Abstractions.PhotoSize.Medium,
+                PhotoSize = Plugin.Media.Abstractions.PhotoSize.Small,
                 CompressionQuality = 92,
                 DefaultCamera = CameraDevice.Front
             });
@@ -86,6 +86,7 @@ namespace Solar.ViewModels
                         IsMsgPassVisible = false;
                         IsBusy = false;
                         await Application.Current.MainPage.DisplayAlert("Inicio de sesión exitoso", $"Bienvenido {await authentication.GetNameByEmail(Email)}", "Ok");
+                        App.UserLogged = await authentication.GetUserIdByEmail(Email);
                         Application.Current.MainPage = new AppShell();
                     }
                     else

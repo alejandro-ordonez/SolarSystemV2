@@ -41,5 +41,9 @@ namespace Solar.Services
         {
             return await repository.Users.AnyAsync(u => u.Email.Equals(email));
         }
+        public async Task<User> GetUserIdByEmail(string email)
+        {
+            return await repository.Users.Where(u => u.Email.Equals(email)).FirstOrDefaultAsync();
+        }
     }
 }

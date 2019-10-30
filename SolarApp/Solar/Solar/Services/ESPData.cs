@@ -44,17 +44,20 @@ namespace Solar.Services
                 {
                     dataPanel.IV.Add(new Reading { I = data.I[i], V = data.V[i] });
                 }
-                dataPanel.IV.Add(new Reading { I = 0, V = data.V[data.V.Length - 1] });
-                dataPanel.Pmax = dataPanel.IV.Max(iv => iv.Power);
-                var reading = dataPanel.IV.Where(iv => (iv.I * iv.V) == dataPanel.Pmax).FirstOrDefault();
-                dataPanel.Im = reading.I;
-                dataPanel.Vm = reading.V;
-                dataPanel.Radiation = data.ESPData.Ir;
-                dataPanel.PowerIn = SolarMath.CalculatePowerPanel(Width, Height, dataPanel.Radiation);
-                dataPanel.Efficency = SolarMath.CalculateEficiency(dataPanel.Im, dataPanel.Vm, dataPanel.PowerIn);
-                dataPanel.FF = SolarMath.CalculateFF(dataPanel.Im, dataPanel.Vm, dataPanel.IV[0].I, dataPanel.IV[dataPanel.IV.Count - 1].V);
-                dataPanel.Temp = data.ESPData.T;
-                dataPanel.Date = DateTime.Now;
+                if (data.V.Length > 0)
+                {
+                    dataPanel.IV.Add(new Reading { I = 0, V = data.V[data.V.Length - 1] });
+                    dataPanel.Pmax = dataPanel.IV.Max(iv => iv.Power);
+                    var reading = dataPanel.IV.Where(iv => (iv.I * iv.V) == dataPanel.Pmax).FirstOrDefault();
+                    dataPanel.Im = reading.I;
+                    dataPanel.Vm = reading.V;
+                    dataPanel.Radiation = data.ESPData.Ir;
+                    dataPanel.PowerIn = SolarMath.CalculatePowerPanel(Width, Height, dataPanel.Radiation);
+                    dataPanel.Efficency = SolarMath.CalculateEficiency(dataPanel.Im, dataPanel.Vm, dataPanel.PowerIn);
+                    dataPanel.FF = SolarMath.CalculateFF(dataPanel.Im, dataPanel.Vm, dataPanel.IV[0].I, dataPanel.IV[dataPanel.IV.Count - 1].V);
+                    dataPanel.Temp = data.ESPData.T;
+                    dataPanel.Date = DateTime.Now;
+                }
                 return dataPanel;
             }
             return null;

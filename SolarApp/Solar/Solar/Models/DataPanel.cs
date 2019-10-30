@@ -23,5 +23,9 @@ namespace Solar.Models
 
         public int PanelId { get; set; }
         public Panel Panel { get; set; }
+
+
+        [NotMapped]
+        public string TitleChartStats => $"{Environment.NewLine}Temperatura: {Temp:F3}°C, Radiación: {Radiation:F3} W/m^2";
     }
 }

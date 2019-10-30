@@ -12,5 +12,6 @@ namespace Solar.Services
         Task<bool> SignUp(User user);
         Task<bool> UserExist(string email);
         Task<string> GetNameByEmail(string email);
+        Task<User> GetUserIdByEmail(string email);
     }
 }

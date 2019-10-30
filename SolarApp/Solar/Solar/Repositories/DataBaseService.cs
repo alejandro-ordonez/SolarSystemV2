@@ -27,8 +27,8 @@ namespace Solar.Repositories
 
         public async Task<bool> InsertNewPanel(Panel p)
         {
-            var UserId = App.UserLogged;
-            var user = await repository.Users.Include(u => u.Panels).SingleAsync(u=> u.Id==UserId);
+            var _user = App.UserLogged;
+            var user = await repository.Users.Include(u => u.Panels).SingleAsync(u=> u.Id==_user.Id);
             user.Panels.Add(p);
             repository.Users.Update(user);
             await repository.SaveChangesAsync();
@@ -55,7 +55,7 @@ namespace Solar.Repositories
             }
             return panels;
         }
-
+      
         
     }
 }
