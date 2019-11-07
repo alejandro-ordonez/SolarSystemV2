@@ -46,15 +46,17 @@ namespace Solar.Services
                 }
                 if (data.V.Length > 0)
                 {
-                    dataPanel.IV.Add(new Reading { I = 0, V = data.V[data.V.Length - 1] });
+                    dataPanel.IV.Add(new Reading { I = 0, V = dataPanel.IV.Max(iv => iv.V) });
                     dataPanel.Pmax = dataPanel.IV.Max(iv => iv.Power);
                     var reading = dataPanel.IV.Where(iv => (iv.I * iv.V) == dataPanel.Pmax).FirstOrDefault();
                     dataPanel.Im = reading.I;
                     dataPanel.Vm = reading.V;
+                    dataPanel.VoC = dataPanel.IV.Max(iv => iv.V);
+                    dataPanel.Isc = dataPanel.IV.Max(iv => iv.I);
                     dataPanel.Radiation = data.ESPData.Ir;
                     dataPanel.PowerIn = SolarMath.CalculatePowerPanel(Width, Height, dataPanel.Radiation);
                     dataPanel.Efficency = SolarMath.CalculateEficiency(dataPanel.Im, dataPanel.Vm, dataPanel.PowerIn);
-                    dataPanel.FF = SolarMath.CalculateFF(dataPanel.Im, dataPanel.Vm, dataPanel.IV[0].I, dataPanel.IV[dataPanel.IV.Count - 1].V);
+                    dataPanel.FF = SolarMath.CalculateFF(dataPanel.Im, dataPanel.Vm, dataPanel.Isc,dataPanel.VoC);
                     dataPanel.Temp = data.ESPData.T;
                     dataPanel.Date = DateTime.Now;
                 }
@@ -62,9 +64,9 @@ namespace Solar.Services
             }
             return null;
         }
-        public async Task<bool> StartMeasuring(int Voc)
+        public async Task<bool> StartMeasuring()
         {
-            var response = await httpClient.GetAsync(new Uri(URL, $"/Start/?VoC={Voc}"));
+            var response = await httpClient.GetAsync(new Uri(URL, $"/Start"));
             if (response.IsSuccessStatusCode)
             {
                 return true;

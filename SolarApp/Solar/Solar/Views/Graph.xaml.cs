@@ -30,7 +30,7 @@ namespace Solar.Views
 
         private async void ToolbarItem_Clicked(object sender, EventArgs e)
         {
-            await Application.Current.MainPage.DisplayAlert("Aviso", "El reporte será generado y enviado a m.alejandro1898@gmail.com", "Ok");
+            await Application.Current.MainPage.DisplayAlert("Aviso", $"El reporte será generado y enviado a {App.UserLogged.Email}", "Ok");
             await service.CreatePDFAndSend(new List<Syncfusion.SfChart.XForms.SfChart> { IVCurve, PVCurve }, App.UserLogged.Email, VM);
         }
     }

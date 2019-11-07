@@ -12,7 +12,7 @@ namespace Solar.ViewModels
 {
     public class ShellViewModel:BaseViewModel
     {
-        private IResizeImageService ResizeImage = DependencyService.Get<IResizeImageService>();
+        private readonly IResizeImageService ResizeImage = DependencyService.Get<IResizeImageService>();
         public ShellViewModel()
         {
             OpenBrowserCommand = new Command<string>(async (URL) => await OpenBrowser(URL));

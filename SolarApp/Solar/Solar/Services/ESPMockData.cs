@@ -88,7 +88,7 @@ namespace Solar.Services
             return true;
         }
 
-        public Task<bool> StartMeasuring(int Voc)
+        public Task<bool> StartMeasuring()
         {
             throw new NotImplementedException();
         }

@@ -13,6 +13,6 @@ namespace Solar.Services
         Task<bool> SetTimeESP();
         Task<Reading> GetMaxPower(List<Reading> readings);
         Task<Location> GetLocation();
-        Task<bool> StartMeasuring(int Voc);
+        Task<bool> StartMeasuring();
     }
 }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Linq;
 using System.Text;
 
 namespace Solar.Models
@@ -18,6 +19,10 @@ namespace Solar.Models
         public double Temp { get; set; }
         public double Efficency { get; set; }
         public double FF { get; set; }
+        [NotMapped]
+        public double Isc { get; set; }
+        [NotMapped]
+        public double VoC { get; set; }
         public double PowerIn { get; set; }
 
 
@@ -26,6 +31,6 @@ namespace Solar.Models
 
 
         [NotMapped]
-        public string TitleChartStats => $"{Environment.NewLine}Temperatura: {Temp:F3}°C, Radiación: {Radiation:F3} W/m^2";
+        public string TitleChartStats => $"{Environment.NewLine}Temperatura: {Temp:F3}°C, Radiación: {Radiation:F3} W/m^2";   
     }
 }

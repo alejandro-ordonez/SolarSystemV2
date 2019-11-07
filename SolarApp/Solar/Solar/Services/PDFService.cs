@@ -20,6 +20,7 @@ namespace Solar.Services
 
         public async Task CreatePDFAndSend(List<SfChart> charts, string email, DataPanel data)
         {
+            
             float count = 10;
             PdfDocument Pdf = new PdfDocument();
             //Add a page to the current PDF document
@@ -27,35 +28,64 @@ namespace Solar.Services
             //Create PDF graphics for the page
             PdfGraphics graphics = page.Graphics;
             //Set the standard fonts
-            PdfFont font = new PdfStandardFont(PdfFontFamily.Helvetica, 20);
-            PdfPen pen = new PdfPen(PdfBrushes.Black);
+            PdfFont fontTitle = new PdfStandardFont(PdfFontFamily.Helvetica, 20);
+            PdfFont fontSubtTitle = new PdfStandardFont(PdfFontFamily.Helvetica, 15);
+            PdfFont fontNormal = new PdfStandardFont(PdfFontFamily.Helvetica, 10);
+            PdfFont fontNormalBold = new PdfStandardFont(PdfFontFamily.Helvetica, 10, PdfFontStyle.Bold);
+            PdfPen blackPen = new PdfPen(PdfBrushes.Black);
             //Draw the text
             var size = page.GetClientSize();
-            graphics.DrawString($"Reporte generado: {DateTime.Now}", font, PdfBrushes.Black, new PointF(10, 10));
-            graphics.DrawString($"Caracterización realizada por: {App.UserLogged.Name} {App.UserLogged.LastName}", font, PdfBrushes.Black, new PointF(10, 25));
-
-            /// Table
-            graphics.DrawRectangle(new PdfPen(PdfBrushes.Black, 2), 10, 40, size.Width-10, 200);
-            graphics.DrawLine(new PdfPen(PdfBrushes.Black), new PointF(size.Width / 2, 30), new PointF(size.Width/2, 130));
+            float col1 = 15;
+            float col2 = (size.Width / 2)+5;
+            float startRectangle = 60;
+            float startText = startRectangle + 5;
+            //Header
+            graphics.DrawString($"Reporte generado: {DateTime.Now}", fontTitle, PdfBrushes.Black, new PointF(10, 10));
+            graphics.DrawString($"Caracterización realizada por: {App.UserLogged.Name} {App.UserLogged.LastName}", fontSubtTitle, PdfBrushes.Black, new PointF(10, 30));
+            //DrawRectangle with two columns
+            graphics.DrawRectangle(blackPen, new RectangleF(10, startRectangle, size.Width - 10, 200));
+            //Vertical line divider
+            graphics.DrawLine(blackPen, new PointF(size.Width / 2, startRectangle), new PointF(size.Width / 2, startRectangle+200));
+            // Generate all the needed rows
+            for (int i = (int)startRectangle+20; i < startRectangle+200; i+=20)
+            {
+                graphics.DrawLine(blackPen, new PointF(10, i), new PointF(size.Width - 10, i));
+            }
 
             //Values
-            graphics.DrawString("Atributo", new PdfStandardFont(PdfFontFamily.Helvetica, 10, PdfFontStyle.Bold), PdfBrushes.Black, new PointF(size.Width/4, 42));
-            graphics.DrawString("Valor", new PdfStandardFont(PdfFontFamily.Helvetica, 10, PdfFontStyle.Bold), PdfBrushes.Black, new PointF((size.Width / 4)*3, 42));
-            graphics.DrawLine(new PdfPen(PdfBrushes.Black), new PointF(10, 60), new PointF(size.Width-10, 45));
-
+            graphics.DrawString("Atributo", fontNormalBold, PdfBrushes.Black, new PointF(size.Width/4, startText));
+            graphics.DrawString("Valor", fontNormalBold, PdfBrushes.Black, new PointF((size.Width / 4) * 3, startText));
             //Date
-            graphics.DrawString("Fecha de caracterización", new PdfStandardFont(PdfFontFamily.Helvetica, 10, PdfFontStyle.Bold), PdfBrushes.Black, new PointF(15, 62));
-            graphics.DrawString(data.Date.ToString(), new PdfStandardFont(PdfFontFamily.Helvetica, 10, PdfFontStyle.Bold), PdfBrushes.Black, new PointF(size.Width+5, 62));
-            graphics.DrawLine(new PdfPen(PdfBrushes.Black), new PointF(10, 80), new PointF(size.Width-10, 60));
-            
-            graphics.DrawString("Radiación", new PdfStandardFont(PdfFontFamily.Helvetica, 10, PdfFontStyle.Bold), PdfBrushes.Black, new PointF(15, 82));
-            graphics.DrawString($"{data.Radiation} W/m^2", new PdfStandardFont(PdfFontFamily.Helvetica, 10, PdfFontStyle.Bold), PdfBrushes.Black, new PointF(size.Width+5, 82));
-            graphics.DrawLine(new PdfPen(PdfBrushes.Black), new PointF(10, 80), new PointF(size.Width-10, 80));
-
-
+            graphics.DrawString("Fecha de caracterización", fontNormalBold, PdfBrushes.Black, new PointF(col1, startText+=20));
+            graphics.DrawString(data.Date.ToString(), fontNormal, PdfBrushes.Black, new PointF(col2, startText));
+            // Radiación
+            graphics.DrawString("Radiación", fontNormalBold, PdfBrushes.Black, new PointF(col1, startText+=20));
+            graphics.DrawString($"{data.Radiation} W/m^2", fontNormal, PdfBrushes.Black, new PointF(col2, startText));
+            // Temperatura
+            graphics.DrawString("Temperatura", fontNormalBold, PdfBrushes.Black, new PointF(col1, startText+=20));
+            graphics.DrawString($"{data.Temp}", fontNormal, PdfBrushes.Black, new PointF(col2, startText));
+            // Potencia de entrada
+            graphics.DrawString("Potencia de entrada", fontNormalBold, PdfBrushes.Black, new PointF(col1, startText += 20));
+            graphics.DrawString($"{data.PowerIn}", fontNormal, PdfBrushes.Black, new PointF(col2, startText));
+            // Potencia de Salida
+            graphics.DrawString("Potencia de salida", fontNormalBold, PdfBrushes.Black, new PointF(col1, startText += 20));
+            graphics.DrawString($"{data.Pmax}", fontNormal, PdfBrushes.Black, new PointF(col2, startText));
+            // Factor de llenado
+            graphics.DrawString("Factor de llenado", fontNormalBold, PdfBrushes.Black, new PointF(col1, startText += 20));
+            graphics.DrawString($"{data.FF}", fontNormal, PdfBrushes.Black, new PointF(col2, startText));
+            // Eficiencia
+            graphics.DrawString("Eficiencia", fontNormalBold, PdfBrushes.Black, new PointF(col1, startText += 20));
+            graphics.DrawString($"{data.Efficency}", fontNormal, PdfBrushes.Black, new PointF(col2, startText));
+            // Voltaje Voc
+            graphics.DrawString("Voltaje Voc", fontNormalBold, PdfBrushes.Black, new PointF(col1, startText += 20));
+            graphics.DrawString($"{data.VoC}", fontNormal, PdfBrushes.Black, new PointF(col2, startText));
+            // Temperatura
+            graphics.DrawString("Corriente Isc", fontNormalBold, PdfBrushes.Black, new PointF(col1, startText += 20));
+            graphics.DrawString($"{data.Isc}", fontNormal, PdfBrushes.Black, new PointF(col2, startText));
+            // Charts
             foreach (var chart in charts)
             {
-                graphics.DrawImage(PdfImage.FromStream(await chart.GetStreamAsync()), count, 200, (size.Width/2)-10, 150 );
+                graphics.DrawImage(PdfImage.FromStream(await chart.GetStreamAsync()), count, 270, (size.Width/2)-10, 150 );
                 count += size.Width/2+10;
             }
             //Save the document to the stream
@@ -63,9 +93,10 @@ namespace Solar.Services
             Pdf.Save(stream);
             //Close the document
             Pdf.Close(true);
+            Pdf.Dispose();
             var filename = "report" + DateTime.Now.Hour;
             var path =CreatePDF(filename, stream);
-            await SendEmail.Send("Prueba", "Mensaje enviado", new List<string> { "m.alejandro1898@gmail.com" }, await path);
+            await SendEmail.Send("Prueba", "Mensaje enviado", new List<string> { email }, await path);
 
         }
 

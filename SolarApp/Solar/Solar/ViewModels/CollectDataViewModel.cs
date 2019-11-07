@@ -51,7 +51,7 @@ namespace Solar.ViewModels
 
         private async Task Start()
         {
-            var state = await espData.StartMeasuring((int)Panel.Voc);
+            var state = await espData.StartMeasuring();
             IsBusy = true;
             if (state)
             {

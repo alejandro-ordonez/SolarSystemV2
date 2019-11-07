@@ -21,16 +21,17 @@ namespace Solar.Droid
         public byte[] ResizeImage(byte[] imageData, float width, float height)
         {
             // Load the bitmap 
-            BitmapFactory.Options options = new BitmapFactory.Options();// Create object of bitmapfactory's option method for further option use
-            options.InPurgeable = true; // inPurgeable is used to free up memory while required
+            BitmapFactory.Options options = new BitmapFactory.Options
+            {
+                InPurgeable = true // inPurgeable is used to free up memory while required
+            };// Create object of bitmapfactory's option method for further option use
             Bitmap originalImage = BitmapFactory.DecodeByteArray(imageData, 0, imageData.Length, options);
-
-            float newHeight = 0;
-            float newWidth = 0;
-
             var originalHeight = originalImage.Height;
             var originalWidth = originalImage.Width;
 
+
+            float newHeight;
+            float newWidth;
             if (originalHeight > originalWidth)
             {
                 newHeight = height;
@@ -53,7 +54,7 @@ namespace Solar.Droid
                 resizedImage.Compress(Bitmap.CompressFormat.Png, 100, ms);
 
                 resizedImage.Recycle();
-
+                resizedImage.Dispose();
                 return ms.ToArray();
             }
         }

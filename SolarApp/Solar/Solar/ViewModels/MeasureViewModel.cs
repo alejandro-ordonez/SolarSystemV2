@@ -82,19 +82,7 @@ namespace Solar.ViewModels
             get { return progress; }
             set { SetProperty(ref progress, value); }
         }
-        private string nominalV;
 
-        public string NominalV
-        {
-            get { return nominalV; }
-            set { SetProperty(ref nominalV, value); }
-        }
-        private string nominalI;
-        public string NominalI
-        {
-            get { return nominalI; }
-            set { SetProperty(ref nominalI, value); }
-        }
 
 
         #endregion
@@ -143,8 +131,6 @@ namespace Solar.ViewModels
                 Height = await DoubleConverter(Height),
                 Width = await DoubleConverter(Width),
                 Power = await DoubleConverter(Power),
-                Isc = await DoubleConverter(NominalI),
-                Voc = await DoubleConverter(NominalV),
                 Longitude = Loc.Longitude,
                 Latitude = Loc.Latitude
             };
